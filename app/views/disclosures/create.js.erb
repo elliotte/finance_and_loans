@@ -1,0 +1,12 @@
+
+text = '<article class="type-system-rounded">' + 
+		   '<p>' + "Successfully added disclosure, you will need to refresh the page to see it" 
+		   + '<a href="<%= report_path(@report) %>">' + ' REFRESH ' + '</a>' + 
+		   '</p>' + 
+	    '</article>'
+
+$('#empty-report-modal-body').empty();
+
+$('#empty-report-modal-body').append(text) 
+
+

@@ -1,0 +1,19 @@
+<% @transactions.each do |transaction| %>
+    <tr id="<%= transaction.id %>">
+          <%= form_for(transaction, :url => {:controller => 'transactions', :action => 'update_transaction_controlled'}, remote: true, method: 'put') do |f| %>
+             <%= f.hidden_field(:transaction_id, :value => transaction.id, name: 'transaction[transaction_id]') %>
+             <td class="trn-acc-date"><%= transaction.acc_date.strftime("%d/%m/%Y") unless transaction.acc_date == nil   %></td>
+             <td><%= transaction.type %></td>
+             <td class="show-trn" onclick="cashLedgerMgr.displayTransaction($(this).parent().attr('id'));"><%= transaction.amount.to_f %></td>
+             <td>
+                <input placeholder="<%= transaction.vat.to_f %>", name="transaction[vat]">
+             </td>
+             <td>
+                <input placeholder="<%= transaction.mi_tag %>", name="transaction[mi_tag]">
+             </td>
+             <td><%= f.select :monea_tag, options_for_select( $form_select_tags, {:selected => transaction.monea_tag} ), name: 'transaction[monea_tag]' %></td>
+             <td class="button-style"><%= f.submit %></td>
+          <% end %>
+    </tr>
+<% end %>
+

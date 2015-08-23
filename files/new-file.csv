@@ -1,0 +1,2 @@
+ledger_id,id,type,amount,monea_tag,mi_tag,created_at,updated_at,description,currency,acc_date,vat,invoice_file_link,paid
+65,1678,Transaction,10.01,,,2015-08-23 14:04:02 UTC,2015-08-23 14:04:02 UTC,,,2015-08-22,0.0,,false

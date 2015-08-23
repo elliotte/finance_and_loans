@@ -1,0 +1,44 @@
+<% $sum_of_inv_vat_amts = @transactions.sum(:vat) %>
+<% $sum_of_inv_amts = @transactions.sum(:amount) - $sum_of_inv_vat_amts %>
+<!-- START OF HEADLINES GRID ITEMS -->
+<div id="headlines-grid">
+    <article class="type-system-rounded">
+        <div class="grid-items-lines">
+          <a href="javascript:void(0)" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+            <h1><%= @transactions.count %></h1>
+            <p style="color:#f3655e;">No of Invoices</p>
+          </a>
+          <a href="javascript:void(0)" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+            <h1><%= number_to_currency($sum_of_inv_amts, unit: "£") %></h1>
+            <p style="color:#f3655e;">Invoices (net) </p>
+          </a>
+          <a href="javascript:void(0)" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+            <h1><%= number_to_currency($sum_of_inv_vat_amts, unit: "£") %></h1>
+            <p style="color:#f3655e;">VAT due</p>
+          </a>
+          <div class="right-cover"></div>
+          <div class="bottom-cover"></div>
+        </div>
+    </article>
+</div>
+
+
+<!-- START OF SECOND GRID ITEMS -->
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="javascript:void(0)" class="grid-item" style="height: 20em;">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+      <h1>Sales</h1>
+      <p style="color:#f3655e;">Timeline for all transactions</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item grid-item-big" style="height: 20em;">
+      <div id="sales-chart-timeline"></div>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+<!-- END OF SECOND SHOW PAGE GRID -->

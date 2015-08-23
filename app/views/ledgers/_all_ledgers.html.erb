@@ -1,0 +1,51 @@
+<!-- CATCH @LEDGERS PASSED -->
+<% if @ledgers %>
+	
+	<% @ledgers.each do |ledger| %>
+		  <%= render partial: 'ledger', locals: {ledger: ledger} %>
+	<% end %>
+
+<% else %>
+<!-- FOR LEDGERS INDEX -->
+	<br>
+	<br>
+
+	<article class="type-system-rounded">
+	  <h1>your cash ledgers</h1>
+
+	  	<% if @cash.count > 0 %>
+		  	<!-- JS -- RECEIVES LIST OF LEDGERS AND OUTPUTS HTML CARDS FOR LANDING -->
+			<% @cash.each do |ledger| %>
+		     <%= render partial: 'ledger', locals: {ledger: ledger} %>
+			<% end %>
+		<% else %>
+
+	    	<p> No cash Books create one to manage bank accounts </p>
+	    
+	    <% end %>
+
+
+	</article>
+
+	<br>
+	<br>
+
+	<article class="type-system-rounded">
+	    <h1>your sales ledgers</h1>
+		 
+		<% if @sales.count > 0 %>
+		  	<!-- JS -- RECEIVES LIST OF LEDGERS AND OUTPUTS HTML CARDS FOR LANDING -->
+			<% @sales.each do |ledger| %>
+		     <%= render partial: 'ledger', locals: {ledger: ledger} %>
+			<% end %>
+		<% else %>
+
+	    	<p> No sales Books create one to manage business sales and invoices</p>
+	    
+	    <% end %>
+	</article>
+
+	<br>
+	<br>
+
+<% end %>

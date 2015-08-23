@@ -1,0 +1,459 @@
+reporting month,GL code,description,amount,ifrstag
+1/12/2013,110100000,Cash,122.34,Cash and cash equivalents
+1/12/2013,110300000,Reserve Account Balance,810.12,Cash and cash equivalents
+1/12/2013,120101000,Nostro,810.12,Cash and cash equivalents
+1/12/2013,120102000,MM Call loans - Banks,810.12,Cash and cash equivalents
+1/12/2013,120103000,Cash cover placements,1123.24,Cash and cash equivalents
+1/12/2013,120201000,MM Term Loans - Banks,1123.24,Cash and cash equivalents
+1/12/2013,120202000,CD - Purchased,1123.24,Cash and cash equivalents
+1/12/2013,120301000,Reverse Repo Asset,810.12,Cash and cash equivalents
+1/12/2013,130101000,Overdrawn C/A - Personal,810.12,Cash and cash equivalents
+1/12/2013,130102000,Overdrawn C/A - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130109999,IA Provision - Overdrafts,122.34,Cash and cash equivalents
+1/12/2013,130201000,Charge Card Account - Personal,122.34,Cash and cash equivalents
+1/12/2013,130202000,Charge Card Account - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130209999,IA Provision - Charge Card Account,122.34,Cash and cash equivalents
+1/12/2013,130301010,Unregulated Term Loan - Personal,122.34,Cash and cash equivalents
+1/12/2013,130301020,Unregulated Term Loan - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130302010,CCA Term Loan - Personal,122.34,Cash and cash equivalents
+1/12/2013,130302020,CCA Term Loan - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130303010,MCOB Term Loan - Personal,122.34,Cash and cash equivalents
+1/12/2013,130303020,MCOB Term Loan - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130309999,IA Provision - Term Loans,122.34,Cash and cash equivalents
+1/12/2013,130401000,MCOB Mortgages - Personal,122.34,Cash and cash equivalents
+1/12/2013,130402000,MCOB Mortgages - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130409999,IA Provision - Mortgages,122.34,Cash and cash equivalents
+1/12/2013,130501000,Unregulated Bridging Loan - Personal,122.34,Cash and cash equivalents
+1/12/2013,130502000,Unregulated Bridging Loan - Non-Personal,122.34,Cash and cash equivalents
+1/12/2013,130503000,CCA Bridging Loan - Personal,810.12,Cash and cash equivalents
+1/12/2013,130504000,CCA Bridging Loan - Non-Personal,810.12,Trade and other receivables
+1/12/2013,130505000,MCOB Bridging Loan - Personal,810.12,Available-for-sale investments
+1/12/2013,130506000,MCOB Bridging Loan - Non-Personal,810.12,Derivative financial assets
+1/12/2013,130509999,IA Provision - Bridging Loan,810.12,Cash and cash equivalents
+1/12/2013,140101000,T-Bill Purchased,810.12,Cash and cash equivalents
+1/12/2013,140102000,T-Bill Premium / Discount,122.34,Cash and cash equivalents
+1/12/2013,140103000,T-Bill Acquired Interest,122.34,Cash and cash equivalents
+1/12/2013,140104000,AFS MTM - T-Bill,122.34,Cash and cash equivalents
+1/12/2013,140301000,Gilt Purchased,122.34,Investments in equity-accounted associates
+1/12/2013,140302000,Gilt Premium / Discount,122.34,Investments in equity-accounted joint ventures
+1/12/2013,140303000,Gilt Acquired Interest,122.34,Available-for-sale investments
+1/12/2013,140304000,AFS MTM - Gilts,122.34,Derivative financial assets
+1/12/2013,140401000,Floating Rate Note Purchased,122.34,Other receivables
+1/12/2013,140402000,FRN Premium / Discount,122.34,Deferred tax assets
+1/12/2013,140403000,FRN Acquired Interest,122.34,Trade and other payables
+1/12/2013,140404000,AFS MTM - FRN,122.34,Loans and borrowings
+1/12/2013,150100000,Goodwill,122.34,Derivative financial liabilities
+1/12/2013,150201000,Computer Software - Cost,122.34,Income Tax Payable
+1/12/2013,150202000,Computer Software - Acc Dep,122.34,Employee benefit liabilities
+1/12/2013,160101000,Freehold and long-leasehold buildings - Cost,122.34,"Property, plant and equipment"
+1/12/2013,160102000,Freehold and long-leasehold buildings - Acc Dep,810.12,"Property, plant and equipment"
+1/12/2013,160201000,Fixtures and fittings - Cost,810.12,"Property, plant and equipment"
+1/12/2013,160202000,Fixtures and fittings - Acc Dep,810.12,"Property, plant and equipment"
+1/12/2013,160301000,Computer Equipment - Cost,810.12,"Property, plant and equipment"
+1/12/2013,160302000,Computer Equipment - Acc Dep,810.12,"Property, plant and equipment"
+1/12/2013,160401000,Furniture and Equipment - Cost,810.12,"Property, plant and equipment"
+1/12/2013,160402000,Furniture and Equipment - Acc Dep,1123.24,"Property, plant and equipment"
+1/12/2013,160501000,Arts Collection - Cost,1123.24,"Property, plant and equipment"
+1/12/2013,160502000,Arts Collection - Acc Dep,1123.24,"Property, plant and equipment"
+1/12/2013,170200000,Financial Assets - FX Forward,1123.24,"Property, plant and equipment"
+1/12/2013,170300000,Financial Assets - IR Swap,1123.24,"Property, plant and equipment"
+1/12/2013,170400000,Financial Assets - CC Swap,1123.24,"Property, plant and equipment"
+1/12/2013,180101010,Nostro - Int Rec,1123.24,"Property, plant and equipment"
+1/12/2013,180101020,MM Call loans - Banks - Int Rec,810.12,Trade and other receivables
+1/12/2013,180101030,Cash Cover Placements - Int Rec,810.12,Trade and other receivables
+1/12/2013,180102010,MM Term Loans - Banks - Int Rec,810.12,Trade and other receivables
+1/12/2013,180102020,CD - Purchased - Int Rec,810.12,Trade and other receivables
+1/12/2013,180103010,Reverse Repo - Int Rec,810.12,Trade and other receivables
+1/12/2013,180104010,IR Swap - Int Rec,124.12,Trade and other receivables
+1/12/2013,180201010,Overdrawn C/A - Personal - Int Rec,124,Trade and other receivables
+1/12/2013,180201020,Overdrawn C/A - Non-Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180202010,Charge Card Account - Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180202020,Charge Card Account - Non-Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180203011,Unregulated Term Loan - Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180203012,Unregulated Term Loan - Non-Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180203021,CCA Term Loan - Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180203022,CCA Term Loan - Non-Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180203031,MCOB Term Loan - Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180203032,MCOB Term Loan - Non-Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180204010,MCOB Mortgages - Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180204020,MCOB Mortgages - Non-Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180205010,Unregulated Bridging Loan - Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180205020,Unregulated Bridging Loan - Non-Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180205030,CCA Bridging Loan - Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180205040,CCA Bridging Loan - Non-Personal - Int Rec,1123.24,Trade and other receivables
+1/12/2013,180205050,MCOB Bridging Loan - Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180205060,MCOB Bridging Loan - Non-Personal - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180209010,Prenotified Interest - Overdrawn C/A,1241.98,Trade and other receivables
+1/12/2013,180501000,T-Bill Purchased - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180503000,Gilt Purchased - Int Rec,1241.98,Trade and other receivables
+1/12/2013,180504000,FRN Purchased - Int Rec,1241.98,Trade and other receivables
+1/12/2013,190100000,Cheques sent on Collection,1241.98,Trade and other receivables
+1/12/2013,190201000,Prepaid Expenses,12.45,Trade and other receivables
+1/12/2013,190202000,Accrued Income,12.45,Trade and other receivables
+1/12/2013,190203000,Prenotified Charges,12.45,Trade and other receivables
+1/12/2013,190301000,HMRC Guarantee Fee Receivable,12.45,Trade and other receivables
+1/12/2013,190302000,Other Guarantee Fee Receivable,12.45,Trade and other receivables
+1/12/2013,190401000,VAT Recoverable,12.45,Trade and other receivables
+1/12/2013,190402000,VAT Payable,1123.24,Trade and other receivables
+1/12/2013,190403000,VAT Accrual,1123.24,Trade and other receivables
+1/12/2013,190500000,Deferred Tax Asset,1123.24,Trade and other receivables
+1/12/2013,190601000,Suspense re ATM Transactions,1123.24,Trade and other receivables
+1/12/2013,190602000,Suspense re Int. Paid in Advance,1123.24,Trade and other receivables
+1/12/2013,190603000,Extra suspense a/c for Losses,1123.24,Trade and other receivables
+1/12/2013,190604000,FX Netting Suspense,12.43,Trade and other receivables
+1/12/2013,190606000,Purchase Ledger Suspense,12.44,Trade and other receivables
+1/12/2013,190607000,Purchase of Securities Suspense,124.55,Trade and other receivables
+1/12/2013,190608000,Direct Debit Suspense,124.1,Trade and other receivables
+1/12/2013,190609000,Bank Giro Suspense,810.12,Trade and other receivables
+1/12/2013,190610000,Standing Order Suspense,810.12,Trade and other receivables
+1/12/2013,190800000,Funds Transfer Intermediate Suspense,555.23,Trade and other receivables
+1/12/2013,199999993,IR Swap Settlement Bridge,555.23,Trade and other receivables
+1/12/2013,199999994,Internal Account Setup,555.23,Trade and other receivables
+1/12/2013,199999995,Loan Settlement Bridge,555.23,Trade and other receivables
+1/12/2013,199999996,Direct Debit Intermediate Suspense,555.23,Trade and other receivables
+1/12/2013,199999997,Securities Settlement Bridge,555.23,Trade and other receivables
+1/12/2013,199999998,CD - Investigation Required,555.23,Trade and other receivables
+1/12/2013,199999999,EoD Error Suspense,555.23,Trade and other receivables
+1/12/2013,210101000,Over Drawn Nostro Accounts,555.23,Trade and other receivables
+1/12/2013,210102000,MM Call Deposits - Banks,555.23,Trade and other receivables
+1/12/2013,210103000,Cash Cover Account - Banks,555.23,Trade and other receivables
+1/12/2013,210201000,MM Term Deposits - Banks,555.23,Trade and other receivables
+1/12/2013,210301000,Repo Deposit,555.23,Trade and other receivables
+1/12/2013,220101010,Current Accounts - Personal,555.23,Trade and other receivables
+1/12/2013,220101020,Current Accounts - Non-Personal,1123.24,Trade and other receivables
+1/12/2013,220102010,Call Accounts - Personal,1123.24,Trade and other receivables
+1/12/2013,220102020,Call Accounts - Non-Personal,1123.24,Trade and other receivables
+1/12/2013,220102030,MM Call Deposits - Non-Personal,1123.24,Trade and other receivables
+1/12/2013,220102040,Cash ISA - Personal,810.12,Trade and other receivables
+1/12/2013,220201010,90 Day Notice - Personal,810.12,Trade and other receivables
+1/12/2013,220202010,90 Day Notice - Non-Personal,810.12,Trade and other receivables
+1/12/2013,220301000,Term Deposits - Personal,810.12,Trade and other receivables
+1/12/2013,220302000,Term Deposits - Non-Personal,810.12,Trade and other receivables
+1/12/2013,220304000,MM Term Deposits - Non-Personal,810.12,Trade and other receivables
+1/12/2013,230200000,Financial Liability - FX Forward,810.12,Trade and other receivables
+1/12/2013,230300000,Financial Liability - IR Swap,810.12,Trade and other receivables
+1/12/2013,230400000,Financial Liability - CC Swap,810.12,Trade and other payables
+1/12/2013,240101010,O/D Nostro Accs - Int Pay,1123.24,Trade and other payables
+1/12/2013,240101020,MM Call Deposits - Banks - Int Pay,1123.24,Trade and other payables
+1/12/2013,240101030,Cash Cover Accs - Banks - Int Pay,1123.24,Trade and other payables
+1/12/2013,240102010,MM Term Deposits - Banks - Int Pay,1123.24,Trade and other payables
+1/12/2013,240103010,Repo Deposit - Int Pay,1123.24,Trade and other payables
+1/12/2013,240104010,IR Swap - Int Pay,1123.24,Trade and other payables
+1/12/2013,240201011,Current Accs - Personal - Int Pay,1123.24,Trade and other payables
+1/12/2013,240201012,Current Accs - Non-Personal - Int Pay,1123.24,Trade and other payables
+1/12/2013,240201021,Call Accs - Personal - Int Pay,1123.24,Trade and other payables
+1/12/2013,240201022,Call Accs - Non-Personal - Int Pay,1123.24,Trade and other payables
+1/12/2013,240201023,MM Call Deposits - Non-Personal - Int Pay,1123.24,Trade and other payables
+1/12/2013,240201024,Cash ISA - Personal - Int Pay,122.34,Trade and other payables
+1/12/2013,240202011,90 Day Notice - Personal - Int Pay,122.34,Trade and other payables
+1/12/2013,240202021,90 Day Notice - Non-Personal - Int Pay,122.34,Trade and other payables
+1/12/2013,240203010,Term Deposits - Personal - Int Pay,122.34,Trade and other payables
+1/12/2013,240203020,Term Deposits - Non-Personal - Int Pay,122.34,Trade and other payables
+1/12/2013,240203040,MM Term Deposits - Non-Personal - Int Pay,122.34,Trade and other payables
+1/12/2013,250100000,Collective Provision,122.34,Trade and other payables
+1/12/2013,260101000,Credits Awaiting Settlement,122.34,Trade and other payables
+1/12/2013,260102000,Automated Clearing,122.34,Trade and other payables
+1/12/2013,260103000,Suspense re ATM transactions,122.34,Trade and other payables
+1/12/2013,260104000,Suspense re MASTERCARD transactions,122.34,Trade and other payables
+1/12/2013,260201010,Staff Expense Accrual,124,Trade and other payables
+1/12/2013,260201020,Admin Expense Accrual,124,Trade and other payables
+1/12/2013,260202010,Deferred Overdraft Fees,142,Trade and other payables
+1/12/2013,260202020,Deferred Term Loan Fees,124,Trade and other payables
+1/12/2013,260202030,Deferred Mortgage Fees,124,Trade and other payables
+1/12/2013,260202040,Deferred Bridging Loan Fees,124,Trade and other payables
+1/12/2013,260203010,Deferred fees - HMRC Guarantees,124,Trade and other payables
+1/12/2013,260203020,Deferred fees - Other Guarantees,122.34,Trade and other payables
+1/12/2013,260204010,Deferred IR Swaps Income,810.12,Trade and other payables
+1/12/2013,260205010,Prenotified Charges,810.12,Trade and other payables
+1/12/2013,260301000,Corporation Tax,810.12,Trade and other payables
+1/12/2013,260302000,VAT Payable,1123.24,Trade and other payables
+1/12/2013,260303000,Client Tax due to HMRC,1123.24,Trade and other payables
+1/12/2013,260400000,Unrealized FX Forward,1123.24,Trade and other payables
+1/12/2013,260501000,Dormant Account Balances,810.12,Trade and other payables
+1/12/2013,260502000,Unclaimed Balances,810.12,Trade and other payables
+1/12/2013,260503000,Cash Shortages/Overs Manual Posting,122.34,Trade and other payables
+1/12/2013,260601000,Interest in suspense - Overdrafts,122.34,Trade and other payables
+1/12/2013,260602000,Interest in suspense - Charge Card Account,122.34,Trade and other payables
+1/12/2013,260603000,Interest in suspense - Term Loans,122.34,Trade and other payables
+1/12/2013,260604000,Interest in suspense - Mortgages,122.34,Trade and other payables
+1/12/2013,260605000,Interest in suspense - Bridging Loan,122.34,Trade and other payables
+1/12/2013,260701000,Customer FX Trading Suspense,122.34,Trade and other payables
+1/12/2013,260801000,Funds in suspense,122.34,Trade and other payables
+1/12/2013,260802000,EVRY Error Account,122.34,Trade and other payables
+1/12/2013,260803000,Overdue Interest,122.34,Trade and other payables
+1/12/2013,260804000,Manual Cheques,122.34,Trade and other payables
+1/12/2013,260805000,Money Market Suspense,122.34,Trade and other payables
+1/12/2013,260806000,EVRY Settlement Account,122.34,Trade and other payables
+1/12/2013,260807000,Direct Debit Suspense,122.34,Trade and other payables
+1/12/2013,260808000,Bank Giro Suspense,122.34,Trade and other payables
+1/12/2013,260809000,Standing Order Suspense,122.34,Trade and other payables
+1/12/2013,260900000,Cash Shortage/ Overage,122.34,Trade and other payables
+1/12/2013,261000000,General Creditors,810.12,Trade and other payables
+1/12/2013,261100000,Interest Received in Advance,810.12,Trade and other payables
+1/12/2013,261201000,Fraud - Provision,810.12,Trade and other payables
+1/12/2013,261202000,Client Compensation - Provision,810.12,Trade and other payables
+1/12/2013,261203000,Errors - Provision,810.12,Trade and other payables
+1/12/2013,261204000,Overdue interest waived - Provision,810.12,Trade and other payables
+1/12/2013,261205000,Interest waived - Provision,122.34,Trade and other payables
+1/12/2013,289999995,Loan Settlement Bridge,122.34,Trade and other payables
+1/12/2013,289999996,Direct Debit Suspense,122.34,Trade and other payables
+1/12/2013,290100000,Share Capital,122.34,Trade and other payables
+1/12/2013,290200000,Share Premium,122.34,Trade and other payables
+1/12/2013,290301000,Profit and loss account - EoY,122.34,Trade and other payables
+1/12/2013,290302014,Profit and loss account - 2014,122.34,Trade and other payables
+1/12/2013,290302015,Profit and loss account - 2015,122.34,Trade and other payables
+1/12/2013,290400000,Direct Share Issue Costs,122.34,Trade and other payables
+1/12/2013,290500000,Revaluation Reserves,122.34,Trade and other payables
+1/12/2013,290600000,AFS Revaluation Gain,122.34,Trade and other payables
+1/12/2013,290700000,AFS Revaluation Loss,122.34,Trade and other payables
+1/12/2013,290800000,Cashflow Hedge Gain,122.34,Trade and other payables
+1/12/2013,290900000,Cashflow Hedge Loss,122.34,Trade and other payables
+1/12/2013,310101000,Reserve Account - Int Inc,122.34,Trade and other payables
+1/12/2013,310201000,Nostro - Int Inc,810.12,Trade and other payables
+1/12/2013,310202000,MM Call loans - Banks - Int Inc,810.12,Revenue
+1/12/2013,310203000,Cash cover placements - Int Inc,810.12,Revenue
+1/12/2013,310301000,MM Term Loans - Banks - Int Inc,810.12,Revenue
+1/12/2013,310302000,CD - Purchased - Int Inc,810.12,Revenue
+1/12/2013,310401000,Reverse Repo - Int Inc,810.12,Revenue
+1/12/2013,310451000,IR Swap - Int Inc,1123.24,Revenue
+1/12/2013,310501000,Overdrawn C/A - Personal - Int Inc,1123.24,Revenue
+1/12/2013,310502000,Overdrawn C/A - Non-Personal - Int Inc,1123.24,Revenue
+1/12/2013,310509999,Overdraft Fees Release,1123.24,Revenue
+1/12/2013,310601000,Charge Card Account - Personal - Int Inc,1123.24,Revenue
+1/12/2013,310602000,Charge Card Account - Non-Personal - Int Inc,1123.24,Revenue
+1/12/2013,310701010,Unregulated Term Loan - Personal - Int Inc,1123.24,Revenue
+1/12/2013,310701020,Unregulated Term Loan - Non-Personal - Int Inc,810.12,Revenue
+1/12/2013,310702010,CCA Term Loan - Personal - Int Inc,810.12,Revenue
+1/12/2013,310702020,CCA Term Loan - Non-Personal - Int Inc,810.12,Revenue
+1/12/2013,310703010,MCOB Term Loan - Personal - Int Inc,122.34,Revenue
+1/12/2013,310703020,MCOB Term Loan - Non-Personal - Int Inc,122.34,Revenue
+1/12/2013,310709999,Term Loan Fees Release,122.34,Revenue
+1/12/2013,310801000,MCOB Mortgages - Personal - Int Inc,123.41,Revenue
+1/12/2013,310802000,MCOB Mortgages - Non-Personal - Int Inc,123.41,Revenue
+1/12/2013,310809999,Mortgage Fees Release,1412.12,Revenue
+1/12/2013,310901000,Unregulated Bridging Loan - Personal - Int Inc,1412.12,Revenue
+1/12/2013,310902000,Unregulated Bridging Loan - Non-Personal - Int Inc,1412.12,Revenue
+1/12/2013,310903000,CCA Bridging Loan - Personal - Int Inc,1412.12,Revenue
+1/12/2013,310904000,CCA Bridging Loan - Non-Personal - Int Inc,1412.12,Revenue
+1/12/2013,310905000,MCOB Briding Loan - Personal - Int Inc,1412.12,Revenue
+1/12/2013,310906000,MCOB Bridging Loan - Non-Personal - Int Inc,1412.12,Revenue
+1/12/2013,310909999,Bridging Loan Fees Release,123.41,Revenue
+1/12/2013,311001000,T-Bill Purchased - Int Inc,123.41,Revenue
+1/12/2013,311001500,T-Bill Premium/Discount Release,1412.12,Revenue
+1/12/2013,311003000,Gilt Purchased - Int Inc,1412.12,Revenue
+1/12/2013,311003500,Gilt Premium/Discount Release,1412.12,Revenue
+1/12/2013,311004000,FRN Purchased - Int Inc,1412.12,Revenue
+1/12/2013,311004500,FRN Premium/Discount Release,1412.12,Revenue
+1/12/2013,311101000,Discount Unwind - Overdrafts,1412.12,Revenue
+1/12/2013,311102000,Discount Unwind - Charge Card Account,1412.12,Revenue
+1/12/2013,311103000,Discount Unwind - Term Loans,1412.12,Revenue
+1/12/2013,311104000,Discount Unwind - Mortgages,1412.12,Revenue
+1/12/2013,311105000,Discount Unwind - Bridging Loan,1412.12,Revenue
+1/12/2013,320101000,Overdraft Fees,1412.12,Revenue
+1/12/2013,320102000,Term Loan Fees,124.3,Revenue
+1/12/2013,320103000,Mortgage Fees,124.99,Revenue
+1/12/2013,320104000,Bridging Loan Fees,1245,Revenue
+1/12/2013,320105000,Mirror - Overdraft Fees,810.12,Revenue
+1/12/2013,320106000,Mirror - Term Loan Fees,810.12,Revenue
+1/12/2013,320107000,Mirror - Mortgage Fees,810.12,Revenue
+1/12/2013,320108000,Mirror - Bridging Loan Fees,810.12,Revenue
+1/12/2013,320201000,HMRC Guarantee Fee Income,810.12,Revenue
+1/12/2013,320202000,Other Guarantee Fee Income,810.12,Revenue
+1/12/2013,320203000,Mirror - HMRC Guarantee Fee Income,810.12,Revenue
+1/12/2013,320204000,Mirror - Other Guarantee Fee Income,810.12,Revenue
+1/12/2013,320300000,Monthly Client Charges,810.12,Revenue
+1/12/2013,320500000,Cheque Collections,810.12,Revenue
+1/12/2013,320600000,MasterCard Account Income,810.12,Revenue
+1/12/2013,320900000,CHAPS Transactions,810.12,Revenue
+1/12/2013,321000000,SWIFT Transactions,810.12,Revenue
+1/12/2013,321100000,Currency Draft Transactions,122.34,Revenue
+1/12/2013,321200000,Account Service Charges,810.12,Revenue
+1/12/2013,321300000,Ad hoc Loan Fees,810.12,Revenue
+1/12/2013,321400000,Loan Accounts Breakage Charges,810.12,Revenue
+1/12/2013,321500000,Term Accounts Breakage Charges,1123.24,Revenue
+1/12/2013,330100000,FX Revaluation,1123.24,Revenue
+1/12/2013,330200000,FX Trading Income,1123.24,Revenue
+1/12/2013,330300000,Net Fair Value Movement on SWAPs,810.12,Revenue
+1/12/2013,340100000,Profit on sale of AFS investment,810.12,Revenue
+1/12/2013,340400000,VAT Recovered,122.34,Revenue
+1/12/2013,340500000,Profit on Sale of Fixed Asset,122.34,Revenue
+1/12/2013,410101000,O/D Nostro Accs - Int Exp,122.34,Cost of sales
+1/12/2013,410102000,MM Call Deposits - Banks - Int Exp,122.34,Cost of sales
+1/12/2013,410103000,Cash Cover Accs - Banks - Int Exp,122.34,Cost of sales
+1/12/2013,410201000,MM Term Deposits - Banks - Int Exp,122.34,Cost of sales
+1/12/2013,410301000,Repo Deposit - Int Exp,122.34,Cost of sales
+1/12/2013,410351000,IR Swap - Int Exp,122.34,Cost of sales
+1/12/2013,410401010,Current Accs - Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410401020,Current Accs - Non-Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410402010,Call Accounts - Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410402020,Call Accounts - Non-Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410402030,MM Call Deposits - Non-Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410402040,Cash ISA - Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410501010,90 Day Notice - Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410502010,90 Day Notice - Non-Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410601000,Term Deposits - Personal - Int Exp,122.34,Cost of sales
+1/12/2013,410602000,Term Deposits - Non-Personal - Int Exp,810.12,Cost of sales
+1/12/2013,410603000,MM Term Deposits - Non-Personal - Int Exp,810.12,Cost of sales
+1/12/2013,420100000,Nostro Account Charges,810.12,Cost of sales
+1/12/2013,420401000,Intermediary fees - brokerage,810.12,Cost of sales
+1/12/2013,420501000,MasterCard Account Fees,810.12,Cost of sales
+1/12/2013,420601000,Experian fees,810.12,Cost of sales
+1/12/2013,420602000,Agency Bank fees,122.34,Cost of sales
+1/12/2013,420603000,Communisis fees,122.34,Cost of sales
+1/12/2013,420604000,SWIFT / BoE fees,122.34,Cost of sales
+1/12/2013,420605000,EVRY fees,122.34,Cost of sales
+1/12/2013,420606000,BACS fees,122.34,Cost of sales
+1/12/2013,420701000,Custody Fees,122.34,Cost of sales
+1/12/2013,420801000,Other Charges / Commissions Paid,122.34,Administrative expenses
+1/12/2013,430101010,Basic Salary,122.34,Administrative expenses
+1/12/2013,430101020,Employers NI and Tax,122.34,Administrative expenses
+1/12/2013,430101030,Overtime,122.34,Administrative expenses
+1/12/2013,430101040,Pensions,122.34,Administrative expenses
+1/12/2013,430101050,Allowances,122.34,Administrative expenses
+1/12/2013,430102010,Health Insurance,122.34,Administrative expenses
+1/12/2013,430102020,Performance Bonus,122.34,Administrative expenses
+1/12/2013,430102030,Training,122.34,Administrative expenses
+1/12/2013,430102040,Conferences / Seminars,810.12,Administrative expenses
+1/12/2013,430102050,Temporary Staff,810.12,Administrative expenses
+1/12/2013,430201000,Board Fees,810.12,Administrative expenses
+1/12/2013,430301000,"Travel, accomodation and meals",810.12,Administrative expenses
+1/12/2013,430401000,Staff Entertainment - General,810.12,Administrative expenses
+1/12/2013,430501000,Client Entertainment - General,810.12,Administrative expenses
+1/12/2013,430601000,Rent,1123.24,Administrative expenses
+1/12/2013,430602000,Rates,1123.24,Administrative expenses
+1/12/2013,430603000,Utilities,1123.24,Administrative expenses
+1/12/2013,430604000,Repairs and Maintenance,1123.24,Administrative expenses
+1/12/2013,430605000,Head Office Parking,1123.24,Administrative expenses
+1/12/2013,430606000,Cleaning,1123.24,Administrative expenses
+1/12/2013,430607000,Security,1123.24,Administrative expenses
+1/12/2013,430608000,Hospitality / Catering,810.12,Administrative expenses
+1/12/2013,430609000,Consumables,810.12,Administrative expenses
+1/12/2013,430610000,Other Premises Expenses,810.12,Administrative expenses
+1/12/2013,430701000,Premises Insurance,810.12,Administrative expenses
+1/12/2013,430702000,Bankers blanket,810.12,Administrative expenses
+1/12/2013,430703000,Equipment Insurance,810.12,Administrative expenses
+1/12/2013,430704000,PI Insurance,810.12,Administrative expenses
+1/12/2013,430705000,D&O Insurance,13144.21,Administrative expenses
+1/12/2013,430801000,Office Equipment,13144.21,Administrative expenses
+1/12/2013,430802000,Computer Equipment,13144.21,Administrative expenses
+1/12/2013,430803000,Computer Maintenance,13144.21,Administrative expenses
+1/12/2013,430804000,Treasury System,13144.21,Administrative expenses
+1/12/2013,430805000,Regulatory Reporting System,13144.21,Administrative expenses
+1/12/2013,430806000,Core System,13144.21,Administrative expenses
+1/12/2013,430807000,Operations System,13144.21,Administrative expenses
+1/12/2013,430808000,Risk / Compliance System,13144.21,Administrative expenses
+1/12/2013,430809000,Intranet System,13144.21,Administrative expenses
+1/12/2013,430901000,Phone Rental,13144.21,Administrative expenses
+1/12/2013,430902000,Phone Charges,13144.21,Other operating income
+1/12/2013,430903000,SWIFT,13144.21,Other operating income
+1/12/2013,430904000,Postage & Courier,13144.21,Administrative expenses
+1/12/2013,431001000,Printing,13144.21,Distribution expenses
+1/12/2013,431002000,Stationery,13144.21,Other expenses
+1/12/2013,431003000,Printer Supplies,13144.21,Finance expense
+1/12/2013,431101000,Advertising,13144.21,Finance income
+1/12/2013,431102000,Publications,13144.21,Tax expense
+1/12/2013,431103000,Subscriptions,13144.21,Tax expense
+1/12/2013,431104000,Donations,13144.21,Tax expense
+1/12/2013,431105000,Newspapers,13144.21,Tax expense
+1/12/2013,431106000,Client Branded Merchandise,13144.21,Tax expense
+1/12/2013,431107000,Fund raising exercise,13144.21,Tax expense
+1/12/2013,431201000,Marketing events,13144.21,Tax expense
+1/12/2013,431202000,Marketing goods,13144.21,Research and development
+1/12/2013,431301000,Payroll Agent,214.51,Other expenses
+1/12/2013,431302000,Legal Fees,214.51,Loss on property revaluation
+1/12/2013,431303000,Audit Fees,214.51,Exchange gains arising on translation of foreign operations
+1/12/2013,431304000,HR Consultancy,214.51,Exchange gains arising on translation of foreign operations
+1/12/2013,431305000,Tax Consultancy,214.51,Exchange gains arising on translation of foreign operations
+1/12/2013,431306000,General Consultancy,214.51,Exchange gains arising on translation of foreign operations
+1/12/2013,431307000,Internal Audit Fees,214.51,Exchange gains arising on translation of foreign operations
+1/12/2013,431308000,Corporate Advisors,214.51,Exchange gains arising on translation of foreign operations
+1/12/2013,431401000,Project Implementation,214.51,Other expenses
+1/12/2013,431501000,Freehold and long-leasehold buildings,214.51,Other expenses
+1/12/2013,431502000,Fixtures and fittings,214.51,Other expenses
+1/12/2013,431503000,Computer Equipment,214.51,Other expenses
+1/12/2013,431504000,Computer Software Licence,214.51,Other expenses
+1/12/2013,431505000,Furniture and Equipment,214.51,Other expenses
+1/12/2013,431506000,Arts Collection,122.34,Other expenses
+1/12/2013,431507000,Fully Depreciated,122.34,Administrative expenses
+1/12/2013,431601000,Loss on Sale of Fixed Asset,122.34,Administrative expenses
+1/12/2013,431602000,Fixed Asset Written Off,122.34,Administrative expenses
+1/12/2013,431701000,Corporation Tax - Previous Year,122.34,Administrative expenses
+1/12/2013,431702000,Corporation Tax - Current Year,122.34,Administrative expenses
+1/12/2013,431801000,VAT Partially Recoverable,122.34,Administrative expenses
+1/12/2013,431802000,VAT Non Recoverable,122.34,Administrative expenses
+1/12/2013,431901000,Sundry and Others,122.34,Administrative expenses
+1/12/2013,431902000,Expense Process Booking,122.34,Administrative expenses
+1/12/2013,432000000,Purchase Ledger Upload,122.34,Administrative expenses
+1/12/2013,432101010,Fraud - Charge,122.34,Administrative expenses
+1/12/2013,432101020,Client Compensation - Charge,1123.24,Administrative expenses
+1/12/2013,432101030,Errors - Charge,1123.24,Administrative expenses
+1/12/2013,432101040,Overdue interest waived - Charge,1123.24,Administrative expenses
+1/12/2013,432101050,Interest waived - Charge,1123.24,Administrative expenses
+1/12/2013,432102010,Fraud - Recoveries,1123.24,Administrative expenses
+1/12/2013,432102020,Client Compensation - Recoveries,1123.24,Administrative expenses
+1/12/2013,432102030,Errors - Recoveries,1123.24,Administrative expenses
+1/12/2013,432102040,Overdue interest waived - Recoveries,1123.24,Administrative expenses
+1/12/2013,432102050,Interest waived - Recoveries,1123.24,Administrative expenses
+1/12/2013,439999999,Migration Account P&L,1123.24,Administrative expenses
+1/12/2013,440101000,IA Provision - Overdrafts,1123.24,Administrative expenses
+1/12/2013,440102000,IA Provision - Charge Card Account,1123.24,Administrative expenses
+1/12/2013,440103000,IA Provision - Term Loans,1123.24,Administrative expenses
+1/12/2013,440104000,IA Provision - Mortgages,1123.24,Administrative expenses
+1/12/2013,440105000,IA Provision - Bridging Loan,1123.24,Administrative expenses
+1/12/2013,440200000,Collective Provision Expense,1123.24,Administrative expenses
+1/12/2013,440300000,Asset Write Off,1123.24,Administrative expenses
+1/12/2013,450000000,Dividend Paid,1123.24,Administrative expenses
+1/12/2013,501010000,HMRC Guarantees - Contingent Liability Offset,1123.24,Administrative expenses
+1/12/2013,501020000,Other Guarantees - Contingent Liability Offset,1123.24,Administrative expenses
+1/12/2013,502000000,Contingent Ledger FX Revaluation,1123.24,Administrative expenses
+1/12/2013,503000000,IR Swaps Asset,1123.24,Administrative expenses
+1/12/2013,504000000,IR Swaps Liability - Offset,810.12,Administrative expenses
+1/12/2013,505000000,Non Accrual Interest Offset,810.12,Administrative expenses
+1/12/2013,506010000,Committed - Unregulated Term Loan,810.12,Administrative expenses
+1/12/2013,506020000,Committed - CCA Term Loan,810.12,Administrative expenses
+1/12/2013,506030000,Committed - MCOB Term Loan,810.12,Administrative expenses
+1/12/2013,506040000,Committed - MCOB Mortgages,810.12,Administrative expenses
+1/12/2013,506050000,Committed - Unregulated Bridging Loan,810.12,Administrative expenses
+1/12/2013,506060000,Committed - CCA Bridging Loan,810.12,Administrative expenses
+1/12/2013,506070000,Committed - MCOB Bridging Loan,810.12,Administrative expenses
+1/12/2013,507000000,Committed - Contingent Obligations,810.12,Administrative expenses
+1/12/2013,508000000,Comitted - Overdraft Facilities,810.12,Administrative expenses
+1/12/2013,509000000,Charge Card Account Facilities,122.34,Administrative expenses
+1/12/2013,510000000,Securities Bought,810.12,Administrative expenses
+1/12/2013,511000000,Securities Sold - Offset,810.12,Administrative expenses
+1/12/2013,515000000,Forward Dated MM Placement,810.12,Administrative expenses
+1/12/2013,516000000,Forward Dated MM Deposit - Offset,1123.24,Administrative expenses
+1/12/2013,517000000,Forward Dated Deposits - Offset,1123.24,Administrative expenses
+1/12/2013,518000000,FX FWD Contingent Purchases,1123.24,Administrative expenses
+1/12/2013,519000000,FX Spot Contingent Purchases,810.12,Administrative expenses
+1/12/2013,520000000,FX FWD Contingent Purchases Settlement,810.12,Administrative expenses
+1/12/2013,521000000,FX Spot Contingent Purchases Settlement,122.34,Administrative expenses
+1/12/2013,522000000,Overdraft Unutilised Facilities,122.34,Administrative expenses
+1/12/2013,599000000,Contingent EoD Error Suspense,122.34,Administrative expenses
+1/12/2013,601010000,HMRC Guarantees - Contingent Liability,122.34,Other expenses
+1/12/2013,601020000,Other Guarantees - Contingent Liability,122.34,Other expenses
+1/12/2013,602000000,Contingent Ledger FX Revaluation,122.34,Other expenses
+1/12/2013,603000000,IR Swaps Asset - Offset,122.34,Other expenses
+1/12/2013,604000000,IR Swaps Liability,122.34,Other expenses
+1/12/2013,605000000,Non Accrual Interest,122.34,Other expenses
+1/12/2013,606010000,Committed - Unregulated Term Loan Offset,122.34,Other expenses
+1/12/2013,606020000,Committed - CCA Term Loan Offset,122.34,Other expenses
+1/12/2013,606030000,Committed - MCOB Term Loan Offset,122.34,Other expenses
+1/12/2013,606040000,Committed - MCOB Mortgages Offset,122.34,Other expenses
+1/12/2013,606050000,Committed - Unregulated Bridging Loan Offset,122.34,Other expenses
+1/12/2013,606060000,Committed - CCA Bridging Loan Offset,122.34,Other expenses
+1/12/2013,606070000,Committed - MCOB Bridging Loan Offset,122.34,Other expenses
+1/12/2013,607000000,Committed - Contingent Obligations,122.34,Other expenses
+1/12/2013,608000000,Comitted - Overdraft Facilities,810.12,Other expenses
+1/12/2013,609000000,Charge Card Account Facilities,810.12,Other expenses
+1/12/2013,610000000,Securities Bought - Offset,810.12,Other expenses
+1/12/2013,611000000,Securities Sold,810.12,Other expenses
+1/12/2013,615000000,Forward Dt. MM Placement - Offset,810.12,Other expenses
+1/12/2013,616000000,Forward Dated MM Deposit,810.12,Other expenses
+1/12/2013,617000000,Fwd Dated Deposit -Corp and Indl,122.34,Other expenses
+1/12/2013,618000000,FX FWD Contingent Sales,122.34,Other expenses
+1/12/2013,619000000,FX Spot Contingent Sales,122.34,Other expenses
+1/12/2013,620000000,FX FWD Contingent Sales Settlement,122.34,Other expenses
+1/12/2013,621000000,FX Spot Contingent Sales Settlement,122.34,Other expenses
+1/12/2013,622000000,Overdraft Unutilised Facilities,122.34,Exchange gains arising on translation of foreign operations
+1/12/2013,999999999,Migration Account,122.34,Exchange gains arising on translation of foreign operations

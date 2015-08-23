@@ -1,0 +1,13 @@
+$('#empty-report-modal-body').empty();
+
+$('#modal-report-show-empty').trigger('click')
+
+id = '<%= @div_id %>'
+$('#' + id).empty()
+
+text = '<article class="type-system-rounded">' + '<p>' +
+'Successfully deleted.' + '</article>'
+
+$('#empty-report-modal-body').append(text)
+
+$("#comment_<%= j params[:id] %>").remove();

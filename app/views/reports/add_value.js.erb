@@ -1,0 +1,7 @@
+ <% if @value.errors.any? %>
+  var text = '<article class="type-system-rounded">' + '<p>' + 'Something went wrong, there was an error and the value could not be added.  Please try again' + '</p>' + '</article>'
+  $('p.error').html(text)
+ <% else %>
+  var text = '<article class="type-system-rounded">' + '<p>' + 'Value saved successfully.  Please reload the page if you require to see the value included in your view.' + '</p>' + '</article>'
+  $('#empty-report-modal-body').html(text)
+ <% end %>

@@ -1,0 +1,21 @@
+
+<table id="lodgements-table" class="table-minimal">
+	<thead>
+	  <tr>
+	    <th>miTag</th>
+	    <th>Total</th>
+	    <th>--</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <% @data[:lodgements].each_pair do |tag, total| %>
+	  	 <% _tot = total.to_f.round(2) %>
+		  <tr class="lodgement_line" data-tag="<%= tag %>" data-total="<%= _tot %>">
+		    <td><%= tag %></td>
+		    <td><%= _tot %></td>
+		    <td><button data-tag="<%= tag %>" class="lodgement-summary-display">View</button></td>
+		  </tr>
+	  <% end %>
+	</tbody>
+</table>
+

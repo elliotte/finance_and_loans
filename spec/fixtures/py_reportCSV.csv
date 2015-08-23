@@ -1,0 +1,157 @@
+reporting month,TB code,amount,description,mi_tag,ifrstag
+31/12/2013,1,4696.690611,Sales stream 1,REGION_001,Revenue
+31/12/2013,2,9667.011797,Sales stream 2,REGION_001,Revenue
+31/12/2013,3,8734.446753,Sales stream 3,REGION_001,Revenue
+31/12/2013,4,2146.316367,Sales stream 4,REGION_001,Revenue
+31/12/2013,5,1602.438244,Sales stream 5,REGION_001,Revenue
+31/12/2013,6,6.907283,Sales stream 6,REGION_002,Revenue
+31/12/2013,7,1.277692,Sales stream 7,REGION_002,Revenue
+31/12/2013,8,6061.321027,Sales stream 8,REGION_002,Revenue
+31/12/2013,9,5948.039832,Sales stream 9,REGION_002,Revenue
+31/12/2013,10,1068.794228,Sales stream 10,REGION_002,Revenue
+31/12/2013,11,5767.645916,Sales stream 11,REGION_003,Revenue
+31/12/2013,12,6975.98303,Sales stream 12,REGION_003,Revenue
+31/12/2013,13,2981.57352,Sales stream 13,REGION_003,Revenue
+31/12/2013,14,566.5755648,Sales stream 14,REGION_003,Revenue
+31/12/2013,15,6464.662154,Sales stream 15,REGION_003,Revenue
+31/12/2013,16,6985.126243,Sales stream 16,REGION_003,Revenue
+31/12/2013,17,1740.605874,Sales stream 17,REGION_003,Revenue
+31/12/2013,18,6169.377489,Sales stream 18,REGION_003,Revenue
+31/12/2013,19,7476.776825,Sales stream 19,REGION_003,Revenue
+31/12/2013,20,8877.167947,Sales stream 20,REGION_003,Revenue
+31/12/2013,21,6233.591119,Sales stream 21,REGION_003,Revenue
+31/12/2013,22,38.82416,Sales stream 22,REGION_003,Revenue
+31/12/2013,23,8620.937626,Sales stream 23,REGION_003,Revenue
+31/12/2013,24,8440.046494,Sales stream 1,REGION_001,Revenue
+31/12/2013,25,5108.680704,Sales stream 2,REGION_001,Revenue
+31/12/2013,26,8396.286085,Sales stream 3,REGION_001,Revenue
+31/12/2013,27,4342.621454,Sales stream 4,REGION_001,Revenue
+31/12/2013,28,66.2970614,Sales stream 5,REGION_001,Revenue
+31/12/2013,29,3558.527162,Sales stream 6,REGION_002,Revenue
+31/12/2013,30,5000.040251,Sales stream 7,REGION_002,Revenue
+31/12/2013,31,7723.094226,Sales stream 8,REGION_002,Revenue
+31/12/2013,32,5.699775,Sales stream 9,REGION_002,Revenue
+31/12/2013,33,3551.475117,Sales stream 10,REGION_002,Revenue
+31/12/2013,34,8844.865837,Sales stream 11,REGION_003,Revenue
+31/12/2013,35,1276.956081,Sales stream 12,REGION_003,Revenue
+31/12/2013,36,8547.746785,Sales stream 13,REGION_003,Revenue
+31/12/2013,37,6731.486682,Sales stream 14,REGION_003,Revenue
+31/12/2013,38,5736.67437,Sales stream 15,REGION_003,Revenue
+31/12/2013,39,4.231959,Sales stream 16,REGION_003,Revenue
+31/12/2013,40,1492.505394,Sales stream 17,REGION_003,Revenue
+31/12/2013,41,4143.597964,Sales stream 18,REGION_003,Revenue
+31/12/2013,42,9232.356471,Sales stream 19,REGION_003,Revenue
+31/12/2013,43,226.9698311,Sales stream 20,REGION_003,Revenue
+31/12/2013,44,8887.282833,Sales stream 21,REGION_003,Revenue
+31/12/2013,45,8318.663454,Sales stream 22,REGION_003,Revenue
+31/12/2013,46,5855.095054,Sales stream 23,REGION_003,Revenue
+31/12/2013,47,-628.5161448,Production cost 1,REGION_001,Cost of sales
+31/12/2013,48,-6467.822906,Production cost 2,REGION_001,Cost of sales
+31/12/2013,49,-6190.589621,Production cost 3,REGION_001,Cost of sales
+31/12/2013,50,-8897.98546,Production cost 4,REGION_001,Cost of sales
+31/12/2013,51,-5424.334675,Production cost 5,REGION_001,Cost of sales
+31/12/2013,52,-986.5992927,Production cost 6,REGION_001,Cost of sales
+31/12/2013,53,-5.217779,Production cost 7,REGION_001,Cost of sales
+31/12/2013,54,-9613.87276,Production cost 8,REGION_001,Cost of sales
+31/12/2013,55,-8576.442998,Production cost 9,REGION_001,Cost of sales
+31/12/2013,56,-5937.09231,Production cost 10,REGION_002,Cost of sales
+31/12/2013,57,-5972.470392,Production cost 11,REGION_002,Cost of sales
+31/12/2013,58,-6.894527,Production cost 12,REGION_002,Cost of sales
+31/12/2013,59,-4599.243302,Production cost 13,REGION_002,Cost of sales
+31/12/2013,60,-5491.766551,Production cost 14,REGION_002,Cost of sales
+31/12/2013,61,-5192.321781,Production cost 15,REGION_002,Cost of sales
+31/12/2013,62,-8071.303404,Production cost 16,REGION_002,Cost of sales
+31/12/2013,63,-642.7255088,Production cost 17,REGION_002,Cost of sales
+31/12/2013,64,-5612.795346,Production cost 18,REGION_002,Cost of sales
+31/12/2013,65,-6270.613418,Production cost 19,REGION_002,Cost of sales
+31/12/2013,66,-8415.711112,Production cost 20,REGION_002,Cost of sales
+31/12/2013,67,-1979.724144,Production cost 21,REGION_003,Cost of sales
+31/12/2013,68,-6968.405256,Production cost 22,REGION_003,Cost of sales
+31/12/2013,69,-2672.686877,Production cost 23,REGION_003,Cost of sales
+31/12/2013,70,-765.9822262,Production cost 24,REGION_003,Cost of sales
+31/12/2013,71,-9092.116245,Production cost 25,REGION_003,Cost of sales
+31/12/2013,72,-9024.043299,Production cost 26,REGION_003,Cost of sales
+31/12/2013,73,-5873.254081,Production cost 27,REGION_003,Cost of sales
+31/12/2013,74,-2357.579107,Production cost 28,REGION_003,Cost of sales
+31/12/2013,75,-1396.547203,Production cost 29,REGION_003,Cost of sales
+31/12/2013,76,-8476.394292,Production cost 30,REGION_003,Cost of sales
+31/12/2013,77,-6389.885887,Production cost 31,REGION_003,Cost of sales
+31/12/2013,78,-7908.241695,Production cost 32,REGION_003,Cost of sales
+31/12/2013,79,-6058.475669,Production cost 33,REGION_003,Cost of sales
+31/12/2013,80,-8059.609595,Production cost 34,REGION_003,Cost of sales
+31/12/2013,81,-6754.950483,Production cost 35,REGION_003,Cost of sales
+31/12/2013,82,-9204.458406,Production cost 36,REGION_003,Cost of sales
+31/12/2013,83,-314.0339119,Overhead Cost tracking,REGION_001,Cost of sales
+31/12/2013,84,-3676.929254,Overhead Cost tracking,REGION_001,Administration expenses
+31/12/2013,85,-1666.780046,Overhead Cost tracking,REGION_001,Administration expenses
+31/12/2013,86,-7340.268248,Overhead Cost tracking,REGION_001,Distribution expenses
+31/12/2013,87,-2252.399516,Overhead Cost tracking,REGION_001,Cost of sales
+31/12/2013,88,-8797.216096,Overhead Cost tracking,REGION_002,Cost of sales
+31/12/2013,89,-9125.308103,Overhead Cost tracking,REGION_002,Cost of sales
+31/12/2013,90,-8564.509307,Overhead Cost tracking,REGION_002,Administration expenses
+31/12/2013,91,-8107.081478,Overhead Cost tracking,REGION_002,Administration expenses
+31/12/2013,92,-5104.740216,Overhead Cost tracking,REGION_002,Distribution expenses
+31/12/2013,93,-6484.365836,Overhead Cost tracking,REGION_003,Administration expenses
+31/12/2013,94,-3022.706443,Overhead Cost tracking,REGION_003,Cost of sales
+31/12/2013,95,-3762.720775,Overhead Cost tracking,REGION_003,Administration expenses
+31/12/2013,96,-7501.886826,Overhead Cost tracking,REGION_003,Cost of sales
+31/12/2013,97,-7042.276884,Overhead Cost tracking,REGION_003,Distribution expenses
+31/12/2013,98,807237.121,Fixed assets and investments,Non Trading asset,"Property, plant and equipment"
+31/12/2013,99,440471.7699,Fixed assets and investments,Non Trading asset,"Property, plant and equipment"
+31/12/2013,100,973828.478,Fixed assets and investments,Non Trading asset,"Property, plant and equipment"
+31/12/2013,101,604435.378,Fixed assets and investments,Non Trading asset,"Property, plant and equipment"
+31/12/2013,102,430556.4793,Fixed assets and investments,Non Trading asset,"Property, plant and equipment"
+31/12/2013,103,902219.2738,Fixed assets and investments,Non Trading asset,Intangible assets
+31/12/2013,104,417618.244,Fixed assets and investments,Non Trading asset,Intangible assets
+31/12/2013,105,978533.7489,Fixed assets and investments,Non Trading asset,Intangible assets
+31/12/2013,106,293014.9355,Fixed assets and investments,Non Trading asset,Investment property
+31/12/2013,107,582049.4384,Fixed assets and investments,Non Trading asset,Investment property
+31/12/2013,108,550072.6306,Fixed assets and investments,Non Trading asset,Investment property
+31/12/2013,109,787678.9856,Bank loan 1,Financing and loans,Loans and borrowings
+31/12/2013,110,774123.7459,Bank loan 2,Financing and loans,Loans and borrowings
+31/12/2013,111,50767.24378,Bank loan 3,Financing and loans,Loans and borrowings
+31/12/2013,112,354512.5367,Bank loan 4,Financing and loans,Loans and borrowings
+31/12/2013,113,668388.7904,Bank loan 5,Financing and loans,Loans and borrowings
+31/12/2013,114,355692.2406,Bank loan 6,Financing and loans,Loans and borrowings
+31/12/2013,115,189003.5147,Bank loan 7,Financing and loans,Loans and borrowings
+31/12/2013,116,482451.0834,Bank loan 8,Financing and loans,Loans and borrowings
+31/12/2013,117,143803.4573,Stock asset for sale 1,Trading asset,Inventories
+31/12/2013,118,569745.1358,Stock asset for sale 1,Trading asset,Inventories
+31/12/2013,119,824511.1789,Stock asset for sale 2,Trading asset,Inventories
+31/12/2013,120,585863.2287,Stock asset for sale 3,Trading asset,Inventories
+31/12/2013,121,559614.2424,Stock asset for sale 4,Trading asset,Inventories
+31/12/2013,122,185458.3473,Stock asset for sale 5,Trading asset,Inventories
+31/12/2013,123,353604.9512,Stock asset for sale 6,Trading asset,Inventories
+31/12/2013,124,391235.583,Stock asset for sale 7,Trading asset,Inventories
+31/12/2013,125,864441.0318,Stock asset for sale 8,Trading asset,Inventories
+31/12/2013,126,852795.2356,Stock asset for sale 9,Trading asset,Inventories
+31/12/2013,127,468967.045,Stock asset for sale 10,Trading asset,Inventories
+31/12/2013,128,239426.1418,Petty Cash 1,Trading asset,Cash and cash equivalents
+31/12/2013,129,773385.6044,Petty Cash 1,Trading asset,Cash and cash equivalents
+31/12/2013,130,909782.6001,Petty Cash 1,Trading asset,Cash and cash equivalents
+31/12/2013,131,988112.3653,Bank account 1,Trading asset,Cash and cash equivalents
+31/12/2013,132,882746.1355,Bank account 2,Trading asset,Cash and cash equivalents
+31/12/2013,133,428683.0723,Bank account 3,Trading asset,Cash and cash equivalents
+31/12/2013,134,955874.4802,Bank account 4,Trading asset,Cash and cash equivalents
+31/12/2013,135,305126.4791,Wages to be paid 1,Trading liability,Income Tax Payable
+31/12/2013,136,304309.1793,Wages to be paid 2,Trading liability,Income Tax Payable
+31/12/2013,137,402818.5662,Wages to be paid 3,Trading liability,Income Tax Payable
+31/12/2013,138,95608.67289,VAT to be paid 1,Trading liability,Trade and other payables
+31/12/2013,139,172860.4247,VAT to be paid 2,Trading liability,Trade and other payables
+31/12/2013,140,204575.8776,VAT to be paid 3,Trading liability,Trade and other payables
+31/12/2013,141,777172.2442,NICs to be paid 1,Trading liability,Income Tax Payable
+31/12/2013,142,464769.2902,NICs to be paid 2,Trading liability,Income Tax Payable
+31/12/2013,143,363586.3045,NICs to be paid 3,Trading liability,Income Tax Payable
+31/12/2013,144,95608.67289,Company shares 1,Company equity,Share capital
+31/12/2013,145,172860.4247,Company shares 1,Company equity,Share capital
+31/12/2013,146,204575.8776,Company shares 1,Company equity,Share capital
+31/12/2013,147,777172.2442,Company shares 1,Company equity,Share capital
+31/12/2013,148,464769.2902,Company shares 1,Company equity,Share capital
+31/12/2013,149,363586.3045,Company shares 1,Company equity,Share capital
+31/12/2013,150,95608.67289,Company shares 1,Company equity,Share capital
+31/12/2013,151,172860.4247,Previous profits 1,Company equity,Retained earnings
+31/12/2013,152,204575.8776,Previous profits 1,Company equity,Retained earnings
+31/12/2013,153,777172.2442,Previous profits 1,Company equity,Retained earnings
+31/12/2013,154,464769.2902,Previous profits 1,Company equity,Retained earnings
+31/12/2013,155,363586.3045,Previous profits 1,Company equity,Retained earnings
+31/12/2013,156,363586.3045,Previous profits 1,Company equity,Retained earnings

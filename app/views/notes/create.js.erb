@@ -1,0 +1,18 @@
+
+text = '<article class="type-system-rounded">' +
+       '<p>' + "Successfully added comment:  " +
+       '<%= @note.body %>' +
+       '</p>' +
+       '<p>' + 'BackUp File:' +
+       '</p>' +
+       '<p>' + '<a href="<%= @result unless nil %>" target="_blank"> ' + 'VIEW' + '</a>' +
+       '</p>' +
+       '<p>' + 'To display note in page click:' +
+       '</p>' +
+       '<p>' + '<a href="javscript:void(0)" onclick="window.location.reload();return false;"> ' + 'REFRESH' + '</a>' +
+       '</p>' +
+     '</article>';
+
+$('#modal-comment-note-body').html(text);
+
+

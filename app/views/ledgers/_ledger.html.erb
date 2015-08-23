@@ -1,0 +1,22 @@
+
+<% $randPic = rand(1..60) %>
+
+<li class="block">
+  <div class="hover-tile-outer" style="background-image: url(<%= asset_path('work' + "#{$randPic}" + '.jpg') %>); width:100%;">
+      <div class="hover-tile-container">
+          <div class="hover-tile hover-tile-visible"></div>
+          <!-- HIDDEN COPY -->
+          <div class="hover-tile hover-tile-hidden">
+            <h4><%= ledger.user_tag %></h4>
+            <% if ledger.type == "SalesLedger" %>
+              <h5><a href="<%= ledger.drive_folder %>" target="_blank">View Invoice folder</a></h5>
+            <% else %>
+              <h5><%= ledger.type %></h5>
+            <% end %>
+            <p>Last updated: <%= time_ago_in_words(ledger.updated_at) %></p>
+            <%= link_to image_tag("ico4b.png", width: 50), ledger_path(ledger) %>
+            <%= link_to image_tag("ico5b.png", width: 50), ledger_path(ledger), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+      </div><!--   end of title-container -->
+  </div> <!-- end of tile-outer -->
+</li>

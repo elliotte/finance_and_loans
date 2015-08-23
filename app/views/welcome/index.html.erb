@@ -1,0 +1,32 @@
+<div id="landing-loadwrapper">	
+	<!-- CONTAINS A SLIDE NAV OR LANDING ONLY -->
+	<%= render 'shared/baselayout' %>
+	<!-- unAUTH OPS includes GPLUS button -->
+	<%= render 'landing' %>
+</div>
+
+<div id="authOps" style="display:none;">
+	<%= render 'authOps' %>
+</div>
+
+<div id="state" style="display:none;"><%= @state %></div>
+
+<!-- LANDING INDEX ONLY MODALS -->
+<div class="modal">
+    <input class="modal-state" id="modal-loading-landing" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <div class="modal-close" for="modal-ledger-landing-load"></div>
+        <div id="loading-landing-modal-body">
+            <img src="<%= asset_path('mfLogo.gif') %>">
+            <article class="type-system-rounded">
+              <p style="color:#94CFD5;" > Loading your sign-in: please be patient, we undertake a lot of authentication steps.. </p>
+              <p>If this is your first time signing in, it will take longer as we load example ledgers and reports</p>
+              <h3></h3>
+            </article>
+        </div>  
+      </div>
+    </div>
+</div>
+
+<%= render 'shared/modals' %>

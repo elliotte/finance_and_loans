@@ -1,0 +1,68 @@
+<article class="type-system-rounded">
+      <% reportID = params[:report_id]%>
+      <p> Add a report value </p>
+
+      <div style="width:100%;">
+             <p class='error'></p>
+             <br>
+             <%= form_for(Value.new, url: add_value_report_path(reportID), remote: true ) do |f| %>
+                <table class="table-minimal">
+                        <tr>
+                            <td style="color:#f3655e;">
+                              £
+                            </td>
+                            <td>
+                                <%= f.text_field :amount, placeholder: "enter the amount e.g 114.12" %>
+                            </td>
+                        </tr>
+                        <tr>
+                              <td style="color:#f3655e;">
+                                Reporting Date
+                              </td>
+                              <td>
+                                <%= date_select('value', 'repdate', order: [:month, :year], selected: Report.find(reportID).current_end ) %>
+                              </td>
+                        </tr>
+                        <tr>
+                            <td style="color:#f3655e;">
+                              miTag
+                            </td>
+                            <td>
+                                <%= f.text_field :mitag, placeholder: "e.g. Computers TB" %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color:#f3655e;">
+                              description
+                            </td>
+                            <td>
+                                <%= f.text_field :description, placeholder: "e.g opening balances" %>
+                            </td>
+                        </tr>
+                        <tr>
+                              <td style="color:#f3655e;">
+                                moneaTag
+                              </td>
+                              <td>
+                                <%= f.select :ifrstag, options_for_select($form_select_tags) %>
+                              </td>
+                        </tr>
+                        <% if params[:tb_value] == 'true' %>
+                              <tr>
+                                <td class="button-style">
+                                  <%= submit_tag 'Book Value' %>
+                                </td>
+                              </tr>
+                        <% end %>
+                        <% if params[:tb_value] == 'false' %>
+                              <tr>
+                                <td class="button-style">
+                                  <%= submit_tag 'Book Journal' %>
+                                </td>
+                              </tr>
+                        <% end %>
+                </table>
+            <% end %>
+      </div>
+
+</article>

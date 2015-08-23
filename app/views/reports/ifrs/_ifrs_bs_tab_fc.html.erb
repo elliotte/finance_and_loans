@@ -1,0 +1,72 @@
+<div id="substantimeline">
+	<h1> reportSubstantiation: </h1>
+	<%= form_tag report_notes_path(@report), :method => :post do %>
+		<%= text_area_tag :addSubNote, params[:addSubNote], placeholder: "Add substantiation note..." %>
+		<%= hidden_field_tag(:type, "Substantiation") %>
+		<%= hidden_field_tag(:commenter, "#{current_user.email}") %>
+		<%= submit_tag 'Submit subNote' %>
+	<% end %>
+
+	<%= form_tag '/upload', multipart: true do %>
+		 <label for="file">AttachBackuP:</label> <%= file_field_tag "file" %>
+		 <%= submit_tag 'UploadFile'%>
+	<% end %>
+	<h2> reportSubstantiation activity timeline ... </h2>
+
+	<% @substan_notes.each do |note| %>
+		<p><%= note.body %></p>
+		<p><%= note.commenter %></p>
+		<p><%= note.created_at %></p>
+		<%= link_to "DeleteNote", report_note_path(@report, note), method: :delete, :id => "deleteNote", data: { confirm: 'Are you sure?' } %>
+	<% end %>
+</div>
+
+<div id="reconciliationtimeline">
+	<h1> reportReconciliation: </h1>
+	<%= form_tag report_notes_path(@report), :method => :post do %>
+		<%= text_area_tag :addRecNote, params[:addRecNote], placeholder: "Add reconciliation note..." %>
+		<%= hidden_field_tag(:type, "Reconciliation") %>
+		<%= hidden_field_tag(:commenter, "#{current_user.email}") %>
+		<%= submit_tag 'Submit recNote' %>
+	<% end %>
+
+	<%= form_tag '/upload', multipart: true do %>
+		 <label for="file">AttachBackuP:</label> <%= file_field_tag "file" %>
+		 <%= submit_tag 'UploadFile'%>
+	<% end %>
+
+	<h2> reportReconciliation activity timeline ... </h2>
+	<% @rec_notes.each do |note| %>
+		<p><%= note.body %></p>
+		<p><%= note.commenter %></p>
+		<p><%= note.created_at %></p>
+		<%= link_to "DeleteNote", report_note_path(@report, note), method: :delete, :id => "deleteNote", data: { confirm: 'Are you sure?' } %>
+	<% end %>
+	
+</div>
+
+<h1> MoneaFinCon: </h1><br>
+
+<div id="reportActivityTimeline">
+	<h1> reportActivity: </h1>
+	<%= form_tag report_comments_path(@report), :method => :post do %>
+		<%= text_area_tag :addComment, params[:addComment], placeholder: "Add report comment..." %>
+		<%= hidden_field_tag(:commenter, "#{current_user.email}") %>
+		<%= submit_tag 'Post comment' %>
+	<% end %>
+
+	<%= form_tag '/upload', multipart: true do %>
+		 <label for="file">AttachBackuP:</label> <%= file_field_tag "file" %>
+		 <%= submit_tag 'UploadFile'%>
+	<% end %>
+	
+	<h2> reportActivity timeline ... </h2>
+	<% @comments.each do |comment| %>
+		<p><%= comment.body %></p>
+		<p><%= comment.commenter %></p>
+		<p><%= comment.created_at %></p>
+		<%= link_to "DeleteComment", report_comment_path(@report, comment), method: :delete, :id => "deleteComment", data: { confirm: 'Are you sure?' } %>
+	<% end %>
+
+</div>
+

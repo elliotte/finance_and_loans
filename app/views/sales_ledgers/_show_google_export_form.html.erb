@@ -1,0 +1,78 @@
+
+<article class="type-system-rounded">
+
+      <h1 style="color:#f3655e;">Export Sales</h1>
+      <p> (components to Google spreadsheet ..) </p>
+      <%= form_tag to_ss_export_sales_ledger_path(@ledger), method: :post, remote: true do |f| %>
+                <table class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <div class="dropdown">
+                            <div class="dropdown-container">
+                              <p class="dropdown-description">Export</p>
+                              <p class="dropdown-button">Choose</p>
+                              <ul class="dropdown-menu dropdown-select">
+                                <li>This month</li>
+                                <li>Last month</li>
+                                <li>Aged over 30</li>
+                                <li>Paid</li>
+                                <li>Not Paid</li>
+                                <li>All</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <%= hidden_field_tag "sales_ledger[export]" %>
+                      <tr>
+                        <td class="button-style"><%= submit_tag "Export.build" %></td>
+                         <td></td>
+                      </tr>
+                    </tbody>
+                </table>
+      <% end %> 
+
+</article>
+
+<!-- TO PUT IN TO ASSET PIPELINE -->
+<script>
+ $(".dropdown-button").click(function() {
+    var $button, $menu;
+      $button = $(this);
+      $menu = $(".dropdown-select").siblings(".dropdown-menu");
+      $menu.toggleClass("show-menu");
+      $(".dropdown-select").children("li").click(function() {
+        $menu.removeClass("show-menu");
+        text = $(this).html()
+        // HELPER
+        setExportValue(text)
+        $button.html( text );
+      });
+    });
+    // HELPER
+    function setExportValue(userSelect) {
+        if ( userSelect == "This month") {
+          console.log('thisMONTH')
+          $("#sales_ledger_export").val("transactions_current_month")
+        } else if (userSelect == "Last month") {
+          console.log('lastMONTH')
+          $("#sales_ledger_export").val("transactions_prior_month")
+        } else if (userSelect == "Aged over 30") {
+          console.log('AGEDOVER')
+          $("#sales_ledger_export").val("aged_30_to_90_days")
+        } else if (userSelect == "Paid") {
+          console.log('Paid')
+          $("#sales_ledger_export").val("paid")
+        } else if (userSelect == "Not Paid") {
+          console.log('Not Paid')
+          $("#sales_ledger_export").val("not_paid")
+        } else {
+          console.log('ALL')
+          $("#sales_ledger_export").val("all")
+        }
+    }
+    // END OF HELPER
+
+</script>

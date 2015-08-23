@@ -1,0 +1,388 @@
+
+<% cp = @report.current_end.strftime("%B %Y") %>
+<% pp = @report.comparative_end.strftime("%B %Y") %>
+<!-- CALC PLACEHOLDERS -->
+<% cy_gp_rev = [0] %>
+<% py_gp_rev = [0] %>
+<% cy_gp_cos = [0] %>
+<% py_gp_cos = [0] %>
+<% cy_op_rev = [0]  %>
+<% py_op_rev = [0]  %>
+<% cy_op_cos = [0]  %>
+<% py_op_cos = [0]  %>
+<% cy_iat = [0] %>
+<% py_iat = [0] %>
+
+<!-- RATIO AND STATS DISPLAY -->
+
+<!-- INCOME STATEMENT GRAPHS AND STATS -->
+<article class="type-system-rounded fin-statement">
+    <div id="income-statement-graph">
+    </div>
+</article>
+
+<article class="type-system-rounded stats">
+    <aside>
+      <div class="stats">
+        <p style="color:#f3655e;">Current</p>
+        <ul id="cy-p-n-l-stats">
+        </ul>
+      </div>
+    </aside>
+    <aside>
+      <div class="stats">
+        <p style="color:#f3655e;">Comparative</p>
+        <ul id="py-p-n-l-stats">
+        </ul>
+      </div>
+    </aside>
+</article>
+<br>
+<br>
+<!-- FINANCIAL STATEMENT DISPLAY -->
+<article class="type-system-rounded fin-statement">
+
+          <h1 style="color:#f3655e;">Profit and Loss statement</h1>
+          <p style="color:#94CFD5;">for period ending <%= cp %></p>
+           <div style="width:100%;">
+              <table id="" class="table-minimal">
+
+                  <tbody>
+                    <tr>
+                        <td></td>
+                        <td><%= cp %></td>
+                        <td><%= pp %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Turnover</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td style="color:#f3655e;"> &#916 mvmt </td>
+                    </tr>
+                  	<!-- GROSS PROFIT REVENUE TAGS -->
+                  	<% @tags[:gp_sales].each do | master_tag | %>
+                  		<% cy = find_data(master_tag, :cy)  %>
+                  		<% py = find_data(master_tag, :py)  %>
+                  		<% cy_amt = yield_amount { cy }.to_i %>
+		                  <% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                  		<tr>
+		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<% cy_gp_rev << cy_amt %>
+                  			<% py_gp_rev << py_amt %>
+		                  	<% mvmt = cy_amt - py_amt %>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
+		                  	<td><%= display_ifrs(mvmt) %></td>
+	                  	</tr>
+                      <!-- HIDDEN JS INFO LINE GP_REV -->
+                      <span class="js-fs-line" data-tag="gp-rev" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                      <!-- END OF UNLESS -->
+                  	<% end %>
+                    <tr>
+                        <td>Cost of Sales</td>
+                        <td style="color:#f3655e;"></td>
+                        <td style="color:#f3655e;"></td>
+                        <td style="color:#f3655e;"></td>
+                    </tr>
+                  	<!-- GROSS PROFIT COS TAGS -->
+                  	<% @tags[:gp_cos].each do | master_tag | %>
+                  		<% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+              		 	  <% cy_amt = yield_amount { cy }.to_i %>
+	                  	<% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                  		<tr>
+		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<% cy_gp_cos << cy_amt %>
+                  			<% py_gp_cos << py_amt %>
+		                  	<% mvmt = cy_amt - py_amt %>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+		                  	<td><%= display_ifrs(mvmt) %></td>
+	                  	</tr>
+                      <!-- HIDDEN JS LINE GP_COS -->
+                      <span class="js-fs-line" data-tag="gp-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                      <!-- END OF UNLESS -->
+                  	<% end %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                  	<!-- GROSS PROFIT ROW -->
+              		  <% cy_rev = cy_gp_rev.inject(:+)  %>
+              		  <% py_rev = py_gp_rev.inject(:+)  %>
+          		 	    <% cy_cos = cy_gp_cos.inject(:+) %>
+                  	<% py_cos = py_gp_cos.inject(:+) %>
+                  	<% gp_cy = cy_rev - cy_cos %>
+                  	<% gp_py = py_rev - py_cos %>
+              		  <tr>
+	                  	<td>Gross Profit</td>
+	                  	<td><%= display_ifrs(gp_cy) %></td>
+	                  	<td><%= display_ifrs(gp_py) %></td>
+	                  	<td></td>
+                  	</tr>
+                  	<!-- GROSS MARGIN ROW -->
+                  	<tr>
+	                  	<td></td>
+	                  	<td style="color:#f3655e;"><%= gp_margin_cy = calc_margin(gp_cy, cy_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= gp_margin_py = calc_margin(gp_py, py_rev) %></td>
+	                  	<td></td>
+                  	</tr>
+                    <!-- HIDDEN JS STATS INFO LINE -->
+                    <span id="js-gp-margin-data" data-cy="<%= gp_margin_cy %>" data-py="<%= gp_margin_py %>" ></span>
+                  	<!-- OP MARGIN REV ROWS -->
+                  	<% @tags[:op_sales].each do | master_tag | %>
+                  	  <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+              		 	  <% cy_amt = yield_amount { cy }.to_i %>
+	                  	<% py_amt = yield_amount { py }.to_i %>
+                  		<tr>
+		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<% cy_op_rev << cy_amt %>
+                  			<% py_op_rev << py_amt %>
+		                  	<% mvmt = cy_amt - py_amt %>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
+		                  	<td><%= display_ifrs(mvmt) %></td>
+	                  	</tr>
+                      <!-- JS LINE OP_REV -->
+                     <span class="js-fs-line" data-tag="op-rev" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                  	<% end %>
+                  	<!-- OP MARGIN COS ROWS -->
+                  	<% @tags[:op_dis].each do | master_tag | %>
+                  		<% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+              		 	  <% cy_amt = yield_amount { cy }.to_i %>
+	                  	<% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                  		<tr>
+		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<% cy_op_cos << cy_amt %>
+                  			<% py_op_cos << py_amt %>
+		                  	<% mvmt = cy_amt - py_amt %>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+		                  	<td><%= display_ifrs(mvmt) %></td>
+	                  	</tr>
+                      <!-- JS LINE OP_COS -->
+                      <span class="js-fs-line" data-tag="op-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                  	<% end %>
+
+                    <% $cy_admin_expenses_amt = 0 %>
+                    <% $py_admin_expenses_amt = 0 %>
+                    <!-- SUM ALL ADMIN EXPENSES -->
+                    <% @tags[:op_admin].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy }.to_i %>
+                      <% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                        <% $cy_admin_expenses_amt += cy_amt %>
+                        <% $py_admin_expenses_amt += py_amt %>
+                        <!-- JS LINE OP_COS -->
+                        <span class="js-fs-line" data-tag="op-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                      <!-- END OF UNLESS -->
+                    <% end %>
+                  	<!-- DISPLAY SUMMARIES ADMIN EXPENSES -->
+                    <tr>
+                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="Administration expenses" data-period="">Administration expenses</td>
+                        <% cy_op_cos << $cy_admin_expenses_amt %>
+                        <% py_op_cos << $py_admin_expenses_amt %>
+                        <% mvmt = $cy_admin_expenses_amt - $py_admin_expenses_amt %>
+                        <td class="values_breakdown" data-ifrstag="Administration expenses" data-period="current">(<%= $cy_admin_expenses_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="Administration expenses" data-period="comparative">(<%= $py_admin_expenses_amt %>)</td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                    </tr>
+                    <!-- OP PROFIT DISPLAY ROW -->
+              		  <% cy_rev_op = cy_op_rev.inject(:+) %>
+              		  <% py_rev_op = py_op_rev.inject(:+) %>
+          		 	    <% cy_cos = cy_op_cos.inject(:+) %>
+                  	<% py_cos = py_op_cos.inject(:+) %>
+                  	<% op_cy = gp_cy + cy_rev_op - cy_cos %>
+                  	<% op_py = gp_py + py_rev_op - py_cos %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+              		  <tr>
+	                  	<td>Profit/(loss) on ordinary activities before tax</td>
+	                  	<td><%= display_ifrs(op_cy) %></td>
+	                  	<td><%= display_ifrs(op_py) %></td>
+	                  	<td></td>
+                  	</tr>
+                    <!-- OP MARGIN PERCEMTAGE DISPLAY ROW -->
+                    <tr>
+                      <td></td>
+                      <td style="color:#f3655e;"><%= op_margin_cy = calc_margin(op_cy, cy_rev) %></td>
+                      <td style="color:#f3655e;"><%= op_margin_py = calc_margin(op_py, py_rev) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- HIDDEN JS STATS INFO LINE -->
+                    <span id="js-op-margin-data" data-cy="<%= op_margin_cy %>" data-py="<%= op_margin_py %>" ></span>
+
+                    <!-- FINANCING INCOME ROWS -->
+                    <% @tags[:pbiat_sales].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy }.to_i %>
+                      <% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                      <tr>
+                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+                        <% cy_iat << cy_amt %>
+                        <% py_iat << py_amt %>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- JS LINE OP_COS -->
+                      <span class="js-fs-line" data-tag="op-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                    <% end %>
+                    <!-- FINANCING cost ROWS -->
+                    <% @tags[:pbiat_cos].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy }.to_i %>
+                      <% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                      <tr>
+                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+                        <% cy_iat << cy_amt %>
+                        <% py_iat << py_amt %>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- JS LINE OP_COS -->
+                      <span class="js-fs-line" data-tag="op-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                    <% end %>
+                    <!-- EMPTY ROW FOR TAX DISPLAY -->
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <% $cy_tax_expenses_amt = 0 %>
+                    <% $py_tax_expenses_amt = 0 %>
+                    <!-- SUM ALL TAX EXPENSES -->
+                    <% @tags[:tax_cos].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy }.to_i %>
+                      <% py_amt = yield_amount { py }.to_i %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                        <% $cy_tax_expenses_amt += cy_amt %>
+                        <% $py_tax_expenses_amt += py_amt %>
+                        <!-- JS LINE OP_COS -->
+                        <span class="js-fs-line" data-tag="tax" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                      <!-- END OF UNLESS -->
+                    <% end %>
+                    <!-- DISPLAY SUMMARIES TAX EXPENSES -->
+                    <tr>
+                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="">Taxation on profit and ordinary activities</td>
+                        <% cy_iat << $cy_tax_expenses_amt %>
+                        <% py_iat << $py_tax_expenses_amt %>
+                        <% mvmt = $cy_tax_expenses_amt - $py_tax_expenses_amt %>
+                        <td class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="current">(<%= $cy_tax_expenses_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="comparative">(<%= $py_tax_expenses_amt %>)</td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                    </tr>
+                    <!-- PAT CALCULATION and PROFIT DISPLAY ROW -->
+                    <% cy_tax_and_int = cy_iat.inject(:+) %>
+                    <% py_tax_and_int = py_iat.inject(:+) %>
+                    <% cy_pat = op_cy - cy_tax_and_int %>
+                    <% py_pat = op_py - py_tax_and_int %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                      <td>Profit/(loss) on ordinary activities after interest and tax</td>
+                      <td><%= display_ifrs(cy_pat) %></td>
+                      <td><%= display_ifrs(py_pat) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- PAT MARGIN PERCEMTAGE DISPLAY ROW -->
+                    <tr>
+                      <td></td>
+                      <td style="color:#f3655e;"><%= pat_margin_cy = calc_margin(cy_pat, cy_rev) %></td>
+                      <td style="color:#f3655e;"><%= pat_margin_py = calc_margin(py_pat, py_rev) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- HIDDEN JS STATS INFO LINE -->
+                    <span id="js-margin-data" data-cy="<%= op_margin_cy %>" data-py="<%= op_margin_py %>" ></span>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                  </tbody>
+               </table>
+           	</div><!-- End OF WIDTH CONTAINER -->
+</article>
+
+<div id="dash-view-collaboration-action">
+  <article class="type-system-rounded">
+    <div class="dropdown">
+        <div class="dropdown-container">
+          <p class="dropdown-description">View PnL</p>
+          <p class="dropdown-button">Choose</p>
+          <ul class="dropdown-menu dropdown-select">
+            <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
+            <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
+             <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+          </ul>
+        </div>
+    </div>
+  </article>
+</div>
+
+
+<article class="type-system-rounded fin-statement" style="margin-top:0;">
+
+  <div class="grid-items-lines">
+    <a href="<%= new_report_note_path(@report, subject: 'ProfitLoss') %>" class="grid-item" data-remote='true'>
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1>Note.new</h1>
+      <p style="color:#f3655e;">Add a profit and loss note</p>
+    </a>
+    <a href="<%= new_report_comment_path(@report, subject: 'ProfitLoss') %>" class="grid-item" data-remote='true'>
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <h1>Comment.new</h1>
+      <p style="color:#f3655e;">Add a profit and loss comment</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+
+      <h1>Reconcile.new</h1>
+      <p style="color:#f3655e;">Add Financial Control</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+
+</article>
+
+
+
+
+

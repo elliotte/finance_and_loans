@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoneaFinance</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Monea::Finance, user friendly business first web-software specialising in ledger management and business reporting.">
+    <meta name="keywords" content="business, accounting, reporting, intelligence, engineering, MVP, finance, bookkeeping, tax">
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <link rel="canonical" href="http://www.monea.build" />
+
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+
+      <%= render 'shared/footer' %>
+
+      <!-- min js google platform call -->
+      <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+      <!-- for more advance G+ API services -->
+      <script src="https://apis.google.com/js/client:platform.js" async defer>
+      </script>
+       <!--  for google.load visualisation see developers.google.com/loader/ -->
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <!-- google charts -->
+      <script type="text/javascript">
+        google.load("visualization", "1.1", {packages:["corechart"]});
+        google.load("visualization", "1.1", {packages:["bar"]});
+      </script>
+      
+      <script>
+      
+      (function() {
+
+        $(".modal-close").on("click", function() {
+          $(".modal-state:checked").prop("checked", false).change();
+        });
+
+      })();
+      </script>
+
+
+  </body>
+  
+</html>

@@ -1,0 +1,11 @@
+$('#empty-manager-modal-body').empty()
+$('#modal-manager-empty').trigger('click')
+
+trn = '<%= @transaction.ledger_id %>'
+
+$('#empty-manager-modal-body').append("<%= j(render partial: 'show_trn_detail') %>")
+
+$(".modal-fade-screen, .modal-close").on("click", function() {
+	$(".modal-state:checked").prop("checked", false).change();
+});
+

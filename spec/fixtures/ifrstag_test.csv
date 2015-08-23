@@ -1,0 +1,59 @@
+reporting month,GL code,description,amount,ifrstag
+1/12/2014,000001,dosont,100.45,Revenue
+1/12/2014,000002,yes,11.223,Revenue
+1/12/2014,000003,yes,3.34,Revenue
+1/12/2014,000004,yes,323,Revenue
+1/12/2014,000005,yes,120.144,Revenue
+1/12/2014,000006,dosont,323,Cost of sales
+1/12/2014,000007,yes,323,Cost of sales
+1/12/2014,000008,yes,323,Cost of sales
+1/12/2014,000009,yes,323,Cost of sales
+1/12/2014,000010,yes,323,Cost of sales
+1/12/2014,000011,yes,100.45,Tax
+1/12/2014,000012,nasda,100.45,Tax
+1/12/2014,000013,nasda,100.45,Other Costs
+1/12/2014,000014,dosont,100.45,Other Costs
+1/12/2013,000001,nasda,100.45,Revenue
+1/12/2013,000002,nasda,100.45,Revenue
+1/12/2013,000003,dosont,100.45,Revenue
+1/12/2013,000004,dosont,323,Revenue
+1/12/2013,000005,dosont,323,Revenue
+1/12/2013,000006,dosont,120.144,Cost of sales
+1/12/2013,000007,dosont,120.144,Cost of sales
+1/12/2013,000008,dosont,120.144,Cost of sales
+1/12/2013,000009,dosont,120.144,Cost of sales
+1/12/2013,000010,dosont,120.144,Cost of sales
+1/12/2013,000011,dosont,120.144,Tax
+1/12/2013,000012,dosont,120.144,Tax
+1/12/2013,000013,ads,120.144,Other Costs
+1/12/2013,000014,dosont,9.99,Other Costs
+1/12/2013,000015,ads,999.2,Revenue
+1/12/2014,000016,dosont,100.45,"Property, plant and equipment"
+1/12/2014,000017,yes,11.223,"Property, plant and equipment"
+1/12/2014,000018,yes,3.34,"Property, plant and equipment"
+1/12/2014,000019,yes,323,"Property, plant and equipment"
+1/12/2014,000020,yes,120.144,"Property, plant and equipment"
+1/12/2014,000021,dosont,323,Trade receiveables
+1/12/2014,000022,yes,323,Trade receiveables
+1/12/2014,000023,yes,323,Trade receiveables
+1/12/2014,000024,yes,323,Trade receiveables
+1/12/2014,000025,yes,323,Trade receiveables
+1/12/2014,000026,yes,100.45,Cash
+1/12/2014,000027,nasda,100.45,Cash
+1/12/2014,000028,nasda,100.45,Share capital
+1/12/2014,000029,dosont,100.45,Trade payables
+1/12/2013,000016,nasda,100.45,"Property, plant and equipment"
+1/12/2013,000017,nasda,100.45,"Property, plant and equipment"
+1/12/2013,000018,dosont,100.45,"Property, plant and equipment"
+1/12/2013,000019,dosont,323,"Property, plant and equipment"
+1/12/2013,000020,dosont,323,"Property, plant and equipment"
+1/12/2013,000021,dosont,120.144,Trade receiveables
+1/12/2013,000022,dosont,120.144,Trade receiveables
+1/12/2013,000023,dosont,120.144,Trade receiveables
+1/12/2013,000024,dosont,120.144,Trade receiveables
+1/12/2013,000025,dosont,120.144,Trade receiveables
+1/12/2013,000026,dosont,120.144,Cash
+1/12/2013,000027,dosont,120.144,Cash
+1/12/2013,000028,ads,120.144,Share capital
+1/12/2013,000029,dosont,9.99,Trade payables
+1/12/2013,000002,ads,999.2,Borrowings

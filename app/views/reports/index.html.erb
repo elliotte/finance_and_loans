@@ -1,0 +1,85 @@
+  <!-- DIGITAL BUSINESS BOOKKEEPING -->
+  <div id="landing-loadwrapper">  
+      <!-- CONTAINS A SLIDE NAV OR LANDING ONLY -->
+      <%= render 'shared/baselayout' %>
+      <div class="hero" style="background: url(<%= asset_path('bg_1.JPG') %>) no-repeat center center; background-size:cover;  ">
+        <div class="hero-inner">
+          <a href="http://quiet-shore-5196.herokuapp.com/" target="_blank" class="hero-logo"> 
+            <img src="<%= asset_path('MAP.png') %>" alt="Logo Image">
+          </a>
+          <div class="hero-copy">
+            <article class="type-system-rounded">
+              <h1>monea.reports</h1>
+              <p style="color:white;">Digital financial reporting and business intelligence</p>  
+            </article>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <div class="main-container">
+      <div id="user-action-bar">
+          <article class="type-system-rounded">
+            <div class="dropdown">
+                <div class="dropdown-container">
+                  <p class="dropdown-description">report.new</p>
+                  <p class="dropdown-button">Choose</p>
+                  <ul class="dropdown-menu dropdown-select">
+                    <li><%= link_to 'IFRS', new_report_path(type: ''), remote: true, class: 'button'%></li>
+                    <li><%= link_to 'UK-GAAP', new_report_path(type: ''), remote: true, class: 'button'%></li>
+                    <li><%= link_to 'US-GAAP', new_report_path(type: ''), remote: true, class: 'button'%></li>
+                  </ul>
+                </div>
+            </div>
+          </article>
+      </div>
+      <%= render partial: 'all_reports' %>
+  </div>
+  <!-- LOADING MODAL FOR FILTER -->
+  <div class="modal">
+        <input class="modal-state" id="modal-loading-manager" type="checkbox" />
+        <div class="modal-fade-screen">
+          <div class="modal-inner">
+            <div class="modal-close" for="modal-report-manager"></div>
+            <div id="loading-manager-modal-body">
+                  <img src="<%= asset_path('mfLogo.gif') %>">
+                  <h1>Loading Filter Please Wait</h1>
+            </div>  
+          </div>
+        </div>
+  </div>
+
+  <!-- EMPTY MODAL FOR FILTER -->
+  <div class="modal">
+        <input class="modal-state" id="modal-manager-empty" type="checkbox" />
+        <div class="modal-fade-screen">
+          <div class="modal-inner">
+            <div class="modal-close" for="modal-manager-empty"></div>
+            <div id="empty-manager-modal-body">
+            </div>  
+          </div>
+        </div>
+  </div>
+
+  <!-- EMPTY MODALF OR NEW REPORT -->
+  <div class="modal">
+      <input class="modal-state" id="modal-empty" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-ledger-empty"></div>
+           <article class="type-system-rounded">
+            <div id="empty-modal-body-append">
+            </div>
+           </article>
+        </div>
+      </div>
+  </div>
+
+<script>
+  $('#disconnect').on('click', function(e) {
+      e.preventDefault();
+      helper.disconnectUser();
+      helper.disconnectServer();
+      window.location.href = "/"
+  });
+</script>

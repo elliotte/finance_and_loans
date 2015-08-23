@@ -1,0 +1,74 @@
+LV1,LV2
+Revenue,GP_Rev
+Other trading income,GP_Rev
+Cost of sales,GP_Cos
+Other direct costs,GP_Cos
+Other operating income,OP_Rev
+Finance income,OP_Rev
+Share of post-tax profits of equity associates,OP_Rev
+Share of post-tax profits of equity joint ventures,OP_Rev
+Administrative expenses,OP_Cos
+Distribution expenses,OP_Cos
+Other expenses,OP_Cos
+Finance expense,OP_Cos
+Tax expense,tax
+Changes in inventories of finished goods and work in progress,GP_Cos
+Raw materials and consumables used,GP_Cos
+Employee benefit expenses,OP_Cos
+Depreciation and amortisation expense,OP_Cos
+Research and development,OP_Cos
+Other expenses,OP_Cos
+Loss on property revaluation,PAT_Cos
+Remeasurements of defined benefit pension schemes,PAT_Cos
+Share of associates' other,PAT_Cos
+Exchange gains arising on translation of foreign operations,OP_Cos
+Inventories,CA
+Trade and other receivables,CA
+Available-for-sale investments,CA
+Derivative financial assets,CA
+Current tax assets,CA
+Other assets,CA
+Cash and cash equivalents,CA
+Assets in disposal groups classified as held for sale,CA
+Finance lease receiveable,CA
+Property plant and equipment,NCA
+Investment property,NCA
+Goodwill,NCA
+Other intangible assets,NCA
+Finance lease receiveable,NCA
+Other financial assets,NCA
+Other assets,NCA
+Investments in equity-accounted associates,NCA
+Investments in equity-accounted joint ventures,NCA
+Available-for-sale investments,NCA
+Derivative financial assets,NCA
+Other receivables,CA
+Deferred tax assets,CA
+Trade and other payables,CL
+Loans and borrowings,CL
+Derivative financial liabilities,CL
+Income Tax Payable,CL
+Employee benefit liabilities,CL
+Provisions,CL
+Liabilities directly associated with assets in HFS,CL
+Loans and borrowings,NCL
+Derivative financial liabilities,NCL
+Employee benefit liabilities,NCL
+Provisions ,NCL
+Deferred tax liability,NCL
+Other financial liabilities,NCL
+Deferred revenue,NCL
+Other liabilities,NCL
+Revaluation reserve,EQ
+Available-for-sale reserve,EQ
+Cash flow hedging reserve,EQ
+Foreign exchange reserve,EQ
+Issued capital and share premium,EQ
+Other reserves,EQ
+Retained earnings,EQ
+Equity attributable to parent,EQ
+Non-controlling interest,EQ
+Share capital,EQ
+Share premium reserve,EQ
+Shares to be issued,EQ
+No-Mapping,EQ

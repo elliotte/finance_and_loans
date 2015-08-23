@@ -1,0 +1,87 @@
+<%= render partial: 'reports/button_board', locals: {report: @report} %>
+
+<div class="hero" style="background:#94CFD5;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1> Comments Manager </h1>
+        <p style="color:white;">For report: <%= @report.title %></p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="<%= new_report_comment_path(@report, subject: 'General') %>" class="grid-item" data-remote="true">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1>Comments.new</h1>
+      <p style="color:#94CFD5;">Add</p>
+    </a>
+    <a href="<%= export_current_report_comments_path(@report) %>" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <h1>Export.current</h1>
+      <p style="color:#94CFD5;">to spreadsheet</p>
+
+    </a>
+    <a href="<%= export_all_report_comments_path(@report) %>" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+      <h1>Export.all</h1>
+      <p style="color:#94CFD5;">to spreadsheet</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+
+<article class="type-system-rounded">
+  <!-- FOR PADDING -->
+  <div class="pie-charts-cash-show">
+    <h1>Report.comments</h1>
+  </div>
+</article>
+
+<article class="type-system-rounded report-manager">
+      <h3><a href="javscript:void(0)"> Edit or delete comments</a></h3>
+      <br>
+      <% @comments.each do |comment| %>
+        <div id="comment_<%= comment.id %>" class="comment">
+          <div class="comment-image">
+            <%= link_to image_tag("ico4b.png", width: 50), edit_report_comment_path(@report, comment), remote: true %>
+            <%= link_to image_tag("ico5b.png", width: 40), report_comment_path(@report, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+          </div>
+          <div class="comment-content">
+            <h1 style="color:#f3655e;"><%= comment.subject %></h1>
+            <p><%= comment.body %></p>
+            <p class="comment-detail"><%= comment.commenter %></p>
+          </div>
+
+        </div>
+      <% end %>
+</article>
+
+<div class="modal">
+  <input class="modal-state" id="modal-comment-note-form" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <div class="modal-close" for="modal-report-empty"></div>
+        <div id="modal-comment-note-body">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  $(".modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+
+  $(".modal-inner").on("click", function(e) {
+    e.stopPropagation();
+  });
+
+</script>

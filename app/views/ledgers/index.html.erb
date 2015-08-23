@@ -1,0 +1,50 @@
+
+  <!-- DIGITAL BUSINESS BOOKKEEPING -->
+  <div id="landing-loadwrapper">
+      <!-- CONTAINS A SLIDE NAV OR LANDING ONLY -->
+      <%= render 'shared/baselayout' %>
+      <%# bg_img = asset_path('city-pic.jpg') %>
+      <% bg_img = asset_path('bg_02.JPG') %>
+      <div class="hero" style="background: url('<%= bg_img %>') no-repeat center center; background-size:cover;  ">
+        <div class="hero-inner">
+          <a href="http://quiet-shore-5196.herokuapp.com/" target="_blank" class="hero-logo">
+            <img src="<%= asset_path('MAP.png') %>" alt="Logo Image">
+          </a>
+          <div class="hero-copy">
+            <article class="type-system-rounded">
+              <h1>monea.ledgers</h1>
+              <p style="color:white;">Digital business bookkeeping and ledger management</p>
+            </article>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="main-container">
+      <div id="user-action-bar">
+          <article class="type-system-rounded">
+            <div class="dropdown">
+                <div class="dropdown-container">
+                  <p class="dropdown-description">ledger.new</p>
+                  <p class="dropdown-button">Choose</p>
+                  <ul class="dropdown-menu dropdown-select">
+                    <li><%= link_to 'Cashbook', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
+                    <li><%= link_to 'Salesbook', new_ledger_path(type: 'SalesLedger'), remote: true, class: 'button'%></li>
+                  </ul>
+                </div>
+            </div>
+          </article>
+        </div>
+      <%= render partial: 'all_ledgers' %>
+  </div>
+
+  <%= render 'shared/modals' %>
+
+  <script>
+    $('#disconnect').on('click', function(e) {
+        e.preventDefault();
+        helper.disconnectUser()
+        helper.disconnectServer();
+        window.location.href = "/"
+    });
+  </script>

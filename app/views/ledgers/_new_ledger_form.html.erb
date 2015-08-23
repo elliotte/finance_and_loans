@@ -1,0 +1,47 @@
+<article class="type-system-rounded">
+
+      <h1>new ledgerBook</h1>
+      <p> (add or import transactions after create boss) </p>
+
+      <%= form_for @ledger do |f| %>
+
+          <table id="new-ledger-form" class="table-minimal">
+              <tbody>
+                  <% if params[:type] == 'CashLedger' %>
+                    <tr>
+                      <td style="color:#f3655e;"><%= f.label :cash_ledger_tag %></td>
+                      <td class="input-style"> <%= f.text_field :user_tag %></td>
+                    </tr>
+                    <tr>
+                      <td style="color:#f3655e;"><%= f.label :opening_balance %></td>
+                      <td class="input-style"> <%= f.text_field :opening_balance %></td>
+                    </tr>
+                  <% end %>
+                  <% if params[:type] == 'SalesLedger' %>
+                    <tr>
+                      <td style="color:#f3655e;"><%= f.label :sales_ledger_tag %></td>
+                      <td class="input-style"> <%= f.text_field :user_tag %></td>
+                    </tr>
+                    <tr>
+                      <td style="color:#f3655e;"><%= f.label :invoice_template %></td>
+                      <td class="input-style"> <%= f.text_field :invoice_template_file_link %></td>
+                    </tr>
+                  <% end %>
+                  <% if params[:type].blank? %>
+                    <tr>
+                      <td style="color:#f3655e;">Type:</td>
+                      <td><%= f.select_tag :type, options_for_select( ["CashLedger","SalesLedger", "PurchaseLedger"] ) %></td>
+                    </tr>
+                  <% else %>
+                      <%= f.hidden_field :type, value: params[:type] %>
+                  <% end %>
+                  <tr>
+                    <td class="button-style"><%= f.submit %></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+          </table>
+      <% end %>
+
+</article>
+

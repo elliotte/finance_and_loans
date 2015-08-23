@@ -1,0 +1,7 @@
+<% @data[:timeline_transactions].each do |t| %>
+      <% if t.type == 'Credit' %>
+        <input class="transaction-line" data-date="<%= t.acc_date %>" data-type="<%= t.type %>" data-tag="<%= t.mi_tag %>" data-desc="<%= t.description %>" data-total="<%= t.amount.to_f.round(2) * -1 %>"></input>
+       <% else %>
+       	 <input class="transaction-line" data-date="<%= t.acc_date %>" data-type="<%= t.type %>" data-desc="<%= t.description %>" data-tag="<%= t.mi_tag %>" data-total="<%= t.amount.to_f.round(2) %>"></input>
+       <% end %>
+<% end %>

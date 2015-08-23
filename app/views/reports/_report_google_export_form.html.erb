@@ -1,0 +1,61 @@
+
+<article class="type-system-rounded">
+
+      <h1 style="color:#f3655e;">Export Report</h1>
+      <p> (components to Google spreadsheet ..) </p>
+      <%= form_tag to_google_export_report_path(@report), method: :post, remote: true do |f| %>
+                <table class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td>Current range</td>
+                        <td><%= date_select("report", "current_end", order: [:month, :year]) %></td>
+                      </tr>
+                      <tr>
+                        <td>Comparative range</td>
+                        <td><%= date_select("report", "comparative_end", order: [:month, :year]) %></td>
+                      </tr>
+                    </tbody>
+                </table>
+                 <table class="table-minimal">
+                  <tbody>
+                      <tr>
+                        
+                        <td>
+                          <div class="dropdown">
+                            <div class="dropdown-container">
+                              <p class="dropdown-description">Export</p>
+                              <p class="dropdown-button">Choose</p>
+                              <ul class="dropdown-menu dropdown-select">
+                                <li>Values</li>
+                                <li>Disclosures</li>
+                                <li>Notes</li>
+                                <li>Comments</li>
+                                <li>All</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="button-style"><%= submit_tag "Export.build" %></td>
+                      </tr>
+                    </tbody>
+                </table>
+      <% end %> 
+
+</article>
+
+<!-- TO PUT IN TO ASSET PIPELINE -->
+<script>
+  $(".dropdown-button").click(function() {
+    var $button, $menu;
+      $button = $(this);
+      $menu = $button.siblings(".dropdown-menu");
+      $menu.toggleClass("show-menu");
+      $menu.children("li").click(function() {
+        $menu.removeClass("show-menu");
+        text = $(this).html()
+        $button.html( text + '<input style="display:none;" id="'+text+'" name="report[export]" type="checkbox" checked="checked" value="'+text+'" />');
+      });
+    });
+</script>

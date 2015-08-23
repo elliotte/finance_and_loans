@@ -1,0 +1,18 @@
+
+<article class="type-system-rounded">
+
+      <h1>default CSV import</h1>
+      <p> (to choose one from your gDrive use ..) </p>
+      <%= form_tag user_csv_import_reports_path, multipart: true do %>
+               <%= hidden_field_tag :id , @report.id %>
+                <table id="upload-bank-csv-form" class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td style="color:#f3655e;"><%= file_field_tag :file %></td>
+                        <td class="button-style"><%= submit_tag "Import CSV" %></td>
+                      </tr>
+                    </tbody>
+                </table>
+      <% end %> 
+
+</article>

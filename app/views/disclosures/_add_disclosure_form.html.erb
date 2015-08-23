@@ -1,0 +1,32 @@
+<article class="type-system-rounded">
+
+	<h1 style="color:#f3655e;"> Report.disclosure.new </h1>
+	<br>
+	<%= form_for([@report, @disclosure], url: { controller: 'disclosures', action: 'create' }, remote: true) do |f| %>
+		  <table class="table-minimal">
+		      <tbody>
+		          <tr>
+		            <td style="color:#f3655e;"><%= f.label :title %></td>
+		            <td> <%= f.text_field :title, placeholder: "Enter title" %></td>
+		          </tr>
+		          <tr>
+		            <td style="color:#f3655e;"><%= f.label :body %></td>
+		            <td><%= f.text_area :body, {:placeholder => "Add disclosure body"} %></td>
+		          </tr>
+		          <tr>
+		          	 <td style="color:#f3655e;"><%= f.label :type %></td>
+			         <td><%= f.select :type, options_for_select( Disclosure.global_type_options ) %>
+			         </td>
+		      	  </tr>
+		      	  <%= f.hidden_field(:added_by, :value => "#{current_user.email}") %>
+		          <tr>
+		            <td class="button-style"><%= f.submit %></td>
+		            <td></td>
+		          </tr>
+		      </tbody>
+		  </table>
+	<% end %>
+	
+</article>
+
+

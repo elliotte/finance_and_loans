@@ -1,0 +1,156 @@
+<% path = request.fullpath %>
+
+<% if route_has_pattern(path, "show_dash") || route_has_pattern(path, "report_manager") || route_has_pattern(path, "manager") || route_has_pattern(path, "view_etb") %>
+  <header class="navigation" role="banner" style="background-color:#94CFD5;">
+<% else %>
+  <header class="navigation" role="banner">
+<% end %>
+
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">toolBelt</a>
+
+    <nav role="navigation">
+
+      <ul id="js-navigation-menu" class="navigation-menu show">
+
+        <% if route_has_pattern(path, "show_dash") %>
+              <li class="nav-link">
+                <a href="javascript:void(0)" onclick="ifrsDashShow.exportDashGoogle();"> FS.export </a>
+              </li>
+              <li class="nav-link">
+                <%= link_to 'Back', report_path(@report) %>
+              </li>
+        <% elsif route_has_pattern(path, "report_manager") %>
+             <li class="nav-link">
+                <%= link_to 'Dash.show', show_dashboard_report_path(@report, params) %>
+             </li>
+             <li class="nav-link">
+                <%= link_to 'ETB.view', view_etb_report_path(@report) %>
+             </li>
+             <li class="nav-link">
+                <%= link_to 'Back', report_path(@report) %>
+             </li>
+        <% elsif route_has_pattern(path, "view_etb") %>
+             <li class="nav-link">
+                <%= link_to 'Dash.show', show_dashboard_report_path(@report, params) %>
+             </li>
+             <li class="nav-link">
+                <%#= link_to 'ETB.view', view_etb_report_path(@report) %>
+             </li>
+             <li class="nav-link">
+                <%= link_to 'Back', report_path(@report) %>
+             </li>
+         <% elsif route_has_pattern(path, "manager") && route_has_pattern(path, "disclosures") %>
+             <li class="nav-link">
+                <%= link_to 'Dash.show', show_dashboard_report_path(@report, params) %>
+             </li>
+             <li class="nav-link">
+                <%= link_to 'ETB.view', view_etb_report_path(@report) %>
+             </li>
+             <li class="nav-link">
+                <%= link_to 'Back', report_path(@report) %>
+             </li>
+          <% elsif route_has_pattern(path, "manager") && route_has_pattern(path, "comments") %>
+               <li class="nav-link">
+                  <%= link_to 'Dash.show', show_dashboard_report_path(@report, params) %>
+               </li>
+               <li class="nav-link">
+                  <%= link_to 'ETB.view', view_etb_report_path(@report) %>
+               </li>
+               <li class="nav-link">
+                  <%= link_to 'Back', report_path(@report) %>
+               </li>
+          <% elsif route_has_pattern(path, "manager") && route_has_pattern(path, "notes") %>
+               <li class="nav-link">
+                  <%= link_to 'Dash.show', show_dashboard_report_path(@report, params) %>
+               </li>
+               <li class="nav-link">
+                  <%= link_to 'ETB.view', view_etb_report_path(@report) %>
+               </li>
+               <li class="nav-link">
+                  <%= link_to 'Back', report_path(@report) %>
+               </li>
+        <% else %>
+              <li class="nav-link">
+                <%= link_to 'Dash.show', show_dashboard_report_path(@report, params) %>
+              </li>
+              <li class="nav-link">
+                <%= link_to 'ETB.view', view_etb_report_path(@report) %>
+              </li>
+              <li class="nav-link more book_li"><%= link_to 'Book', "", remote: true %>
+                <ul class="submenu">
+                  <li>
+                    <%= link_to "Values.new", new_value_reports_path(report_id: @report.id, tb_value: true), remote: true, id: 'new_value_link' %>
+                  </li>
+                  <li>
+                    <%= link_to "Journal.new", new_journal_report_path(@report), remote: true %>
+                  </li>
+                  <li>
+                    <%= link_to 'CSV.new', import_csv_report_path(@report, {bank: false}), remote: true  %>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-link more"><a href="javascript:void(0)">More</a>
+                <ul class="submenu">
+                  <li class="more"><a href="javascript:void(0)">Report.new</a>
+                    <ul class="submenu">
+                        <li>
+                          <%= link_to "Disclosure", new_report_disclosure_path(@report), remote: true %>
+                        </li>
+                        <li>
+                          <%= link_to "Comment", new_report_comment_path(@report, subject: 'General'), remote: true %>
+                        </li>
+                        <li>
+                          <%= link_to "Note", new_report_note_path(@report, subject: 'General'), remote: true %>
+                        </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <%= link_to "Values.mgr", report_manager_report_path(@report) %>
+                  </li>
+                  <li>
+                    <%= link_to "Report.settings", edit_report_path(@report), remote: true %>
+                  </li>
+                  <li>
+                    <%= link_to "Disclosures.mgr", manager_report_disclosures_path(@report) %>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)" onclick="showReportShareModal();">User.share</a>
+                  </li>
+                  <li>
+                    <%= link_to "Export.new", export_form_report_path(@report), remote: true %>
+                  </li>
+                </ul>
+              </li>
+
+          <% end %>
+
+          <li class="nav-link more"><a href="javascript:void(0)">Go</a>
+            <ul class="submenu">
+              <li><%= link_to 'Ledgers.all', ledgers_path %></li>
+              <li><%= link_to 'Reports.all', reports_path %></li>
+              <li><a href="https://quiet-shore-5196.herokuapp.com/" target="_blank">monea.build</a></li>
+              <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a>
+            </ul>
+          </li>
+
+      </ul>
+    </nav>
+
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form>
+      </div><!--   END OF SEARCH BAR -->
+    </div><!--   END OF NAV TOOLS -->
+
+  </div><!--   END OF NAV WRAPPER -->
+</header>
+

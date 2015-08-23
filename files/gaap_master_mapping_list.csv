@@ -1,0 +1,69 @@
+LV1,LV2
+Sales,gp_sales
+Other sales,gp_sales
+Purchases,gp_cos
+Decrease in stocks,gp_cos
+Subcontractor costs,gp_cos
+Direct labour,gp_cos
+Carriage,gp_cos
+Discounts allowed,gp_cos
+Commissions payable,gp_cos
+Other direct costs,gp_cos
+Other operating income,op_sales
+Distribution costs,op_dis
+Wages and salaries,op_admin
+Directors' salaries,op_admin
+Pensions,op_admin
+Bonuses,op_admin
+Employer's NI,op_admin
+Temporary staff and recruitment,op_admin
+Staff training and welfare,op_admin
+Travel and subsistence,op_admin
+Motor expenses,op_admin
+Entertaining,op_admin
+Telephone and fax,op_admin
+Postage,op_admin
+Stationery and printing,op_admin
+Courier services,op_admin
+Information and publications,op_admin
+Subscriptions,op_admin
+Bank charges,op_admin
+Insurance,op_admin
+Equipment expensed,op_admin
+Equipment hire,op_admin
+Software,op_admin
+Repairs and maintenance,op_admin
+Depreciation,op_admin
+Amortisation of goodwill,op_admin
+Bad debts,op_admin
+Sundry expenses,op_admin
+Audit fees,op_admin
+Accountancy fees,op_admin
+Solicitors fees,op_admin
+Consultancy fees,op_admin
+Management fees,op_admin
+Advertising and PR,op_admin
+Other legal and professional,op_admin
+Rent,op_admin
+Rates,op_admin
+Service charges,op_admin
+Light and heat,op_admin
+Cleaning,op_admin
+Use of home,op_admin
+Depreciation of owned fixed assets,op_admin
+Depreciation of leased assets,op_admin
+Amortisation of goodwill,op_admin
+Directors' remuneration,op_admin
+Pension costs,op_admin
+Auditors' remuneration,op_admin
+Exceptional costs,op_admin
+Non-equity dividends,op_admin
+Interest receiveable,pbiat_sales
+Other interest receceiveable,pbiat_sales
+Interest payable,pbiat_cos
+Other interest payable,pbiat_cos
+Other finance income,pbiat_sales
+Other finance costs,pbiat_cos
+Taxation on profit,tax_cos
+Equity dividends,pat_cos
+Non-equity dividends,pat_cos

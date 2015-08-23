@@ -1,0 +1,21 @@
+<% $randPic = rand(1..60) %>
+
+<li class="block">
+  <div class="hover-tile-outer" style="background-image: url(<%= asset_path('work' + "#{$randPic}" + '.jpg') %>); width:100%;">
+      <div class="hover-tile-container">
+          <div class="hover-tile hover-tile-visible"></div>
+          <!-- HIDDEN COPY -->
+          <div class="hover-tile hover-tile-hidden">
+            <h4><%= report.title %></h4>
+            
+            <h5><a href="<%= report.drive_folder %>" target="_blank" style="text-decoration:none;color:#94CFD5;">View Invoice folder</a></h5>
+            <p><%= truncate(report.summary, length: 40) %></p>
+            <p>Last updated: <%= time_ago_in_words(report.updated_at) %></p>
+            <br>
+            <%= link_to image_tag("ico4b.png", width: 50), report_path(report) %>
+            <%= link_to image_tag("ico5b.png", width: 50), report_path(report), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+      </div><!--   end of title-container -->
+  </div> <!-- end of tile-outer -->
+</li>
+ 

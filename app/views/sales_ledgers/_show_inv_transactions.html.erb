@@ -1,0 +1,67 @@
+<!-- LIST OF INVOICES PASSING IN @TRANSACTIONS -->
+<article class="type-system-rounded">
+   <!-- FOR PADDING -->
+  <div class="pie-charts-cash-show"> 
+    <h1 style="color:#f3655e;">Sales Invoices</h1>
+    <table id="ledger-manager-table" class="table-minimal" style="font-size:80%;">
+    <!-- change to mitag map as monea used in tb? -->
+          <thead>
+            <tr style="color:#f3655e;">
+              <th>Paid</th>
+              <th>Book Date:  </th>
+              <th>£</th>
+              <th>VAT</th>
+              <th>yourTag</th>
+              <th>description</th>
+              <th>Update</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody id="">
+             <% @transactions.each do |transaction| %>
+                  <% id = transaction.id %>
+                  <tr id="<%= id %>">
+                        <% $monea_tag = transaction.monea_tag %>
+                        <% $date = transaction.acc_date.strftime("%d/%m/%Y") %>
+                        <% $amt = transaction.amount.to_f.round(2) %>
+                        <% $desc = transaction.description %>
+                        <!-- FOR TIMELINE GRAPH -->
+                        <span class="sales-trn-line" data-inv-date="<%= $date %>" data-inv-amt="<%= $amt %>" style="display:none;" data-inv-desc="<%= $desc %>"></span>
+                        <%= form_for(transaction, :url => {:controller => 'transactions', :action => 'update_transaction_controlled'}, remote: true, method: 'put') do |f| %>
+                           <%= hidden_field_tag :invoice, true %>
+                           <%= f.hidden_field(:transaction_id, :value => id, name: 'transaction[transaction_id]') %>
+                           <td class="button-style" style="text-align: center;" id="<%= id %>-paid-button-cell">
+                               <% if transaction.paid %>
+                                 <%= "Yes" %>
+                               <% else %>
+                                 <input style="max-width:40%;" value="Paid" onclick="upDateTrnPaid(this)" data-trn-id="<%= id %>">
+                               <% end %>
+                           </td>
+                           <td class="trn-acc-date"><%= $date %></td>
+                           <td class="show-trn" onclick="cashLedgerMgr.displayTransaction($(this).parent().attr('id'));"><%= $amt %></td>
+                           <td>
+                              <input placeholder="<%= transaction.vat.to_f.round(2) %>", name="transaction[vat]">
+                           </td>
+                           <td>
+                              <input placeholder="<%= transaction.mi_tag %>", name="transaction[mi_tag]">
+                           </td>
+                           <td>
+                              <input placeholder="<%= $desc %>", name="transaction[description]">
+                           </td>
+                           
+                           <td class="button-style"><%= f.submit %></td>
+                           <td>
+                              <a target="_blank" href="<%= transaction.invoice_file_link %>", name="transaction[invoice_file_link]">Invoice Link</a>
+                           </td>
+                           
+                        <% end %>
+                    </tr>
+             <% end %>
+          </tbody>
+     </table>
+  </div>  <!-- END OF PADDING DIV -->
+</article>
+
+
+
+

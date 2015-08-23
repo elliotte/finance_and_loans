@@ -1,0 +1,19 @@
+AUTH_URI: https://accounts.google.com/o/oauth2/auth
+CLIENT_SECRET: qn4e_r5dcCuEGkjS7JwpiQHw
+TOKEN_URI: https://accounts.google.com/o/oauth2/token
+CLIENT_EMAIL: 792042861273-5b8b4e51kh4vrqompa2apjga6tge54jg@developer.gserviceaccount.com
+REDIRECT_URIS: http://localhost:3000/signin/connect
+CLIENT_X509_CERT_URL: https://www.googleapis.com/robot/v1/metadata/x509/901506026811-q0am03i585627ptu5r38o7cpkt8pk98l@developer.gserviceaccount.com
+CLIENT_ID: 792042861273-5b8b4e51kh4vrqompa2apjga6tge54jg.apps.googleusercontent.com
+AUTH_PROVIDER_X509_CERT_URL: https://www.googleapis.com/oauth2/v1/certs
+JAVASCRIPT_ORIGINS: http://localhost:3000
+PLUS_LOGIN_SCOPE: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read
+
+
+
+
+
+
+
+
+

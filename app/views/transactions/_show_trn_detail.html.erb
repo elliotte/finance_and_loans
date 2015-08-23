@@ -1,0 +1,15 @@
+
+<article class="type-system-rounded">
+      <h1 style="color:#f3655e;">Trn Detail</h1>
+      <table class="table-minimal">
+          <tbody>
+				<% @transaction.attributes.each do |attr_name, attr_value| %>
+					  <tr>
+					    <td style="color:#f3655e;"><%= attr_name %></td>
+					    <td><%= attr_value %></td>
+					  </tr>
+				<% end %>
+            </tbody>
+      </table>
+</article>
+

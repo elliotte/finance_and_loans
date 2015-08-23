@@ -1,0 +1,124 @@
+/*LEDGERS INDEX CSS*/
+
+.main-container {
+
+    @include outer-container;
+    padding-top: em(100);
+    padding-bottom: em(100);
+  
+    li.block {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+
+}
+
+/*END OF LEDGERS INDEX CSS*/
+
+/*TRIAL BALANCE HEADER TBALE CSS*/
+#tb-header {
+    tr {
+      text-align: center;
+    }
+    th.acc {
+      width: 30%;
+      background-color: #94CFD5;
+      color: white;
+    }
+    th.debit {
+      width: 25%;
+    }
+
+    th.credit {
+      width: 25%;
+    }
+}
+/*TRIAL BALANCE CSS*/
+.gl-summary-table {
+    tr {
+      text-align: center;
+    }
+    td.acc {
+      width: 30%;
+      color: #94CFD5;
+      
+    }
+
+    td.debit {
+      width: 25%;
+      &:hover {
+        color: #f3655e;
+        cursor: pointer;
+      }
+    }
+
+    td.credit {
+      width: 25%;
+      &:hover {
+        color: #f3655e;
+        cursor: pointer;
+      }
+    }
+}
+/*TRIAL BALANCE  TOTALS CSS*/
+#tb-totals-check {
+    
+    tr {
+      text-align: center;
+    }
+    td.acc {
+      width: 30%;
+      background-color: #94CFD5;
+      color: white;
+    }
+
+    td.debit {
+      width: 25%;
+      color: #f3655e;
+    }
+
+    td.credit {
+      width: 25%;
+      color: #f3655e;
+    }
+}
+
+.show-trn:hover {
+  color: #f3655e;
+}
+
+#cashbook-table {
+  th {
+    text-align: left;
+  }
+}
+
+input[name*="transaction"] {
+  width: 100%;
+  height: 2em;
+  border:#999 1px solid;
+  -moz-border-radius: 8px; -webkit-border-radius: 8px; 
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0); 
+}
+
+input[name*="transaction"]:focus {
+  color:#000;
+  outline:none;
+  border:#f3655e 1px solid;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+/*INPUT FORMS RESIZING FOR LEDGER ADD PAY OR LODGER */
+input[id*="transaction"] {
+  width: 25em;
+}
+
+

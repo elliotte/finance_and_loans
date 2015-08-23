@@ -1,0 +1,19 @@
+<table id="payments-table" class="table-minimal">
+	<thead>
+	  <tr>
+	    <th>miTag</th>
+	    <th>Total</th>
+	    <th>--</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <% @data[:payments].each_pair do |tag, total| %>
+	  	<% _tot = total.to_f.round(2) %>
+		  <tr class="payment_line" data-tag="<%= tag %>" data-total="<%= _tot %>">
+		    <td><%= tag %></td>
+		    <td><%= _tot %></td>
+		    <td><button data-tag="<%= tag %>" class="payments-summary-display">View</button></td>
+		  </tr>
+	  <% end %>
+	</tbody>
+</table>

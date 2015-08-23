@@ -1,0 +1,11 @@
+
+text = '<article class="type-system-rounded">' + 
+		   '<p>' + "Successfully updated report.  If required, you will need to refresh the page to see the changes" 
+		   + '<a href="<%= report_path(@report) %>">' + ' REFRESH ' + '</a>' + 
+		   '</p>' + 
+	    '</article>'
+
+$('#empty-report-modal-body').empty();
+
+$('#empty-report-modal-body').append(text) 
+

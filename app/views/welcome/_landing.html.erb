@@ -1,0 +1,25 @@
+<div class="hero">
+	<div class="hero-inner">
+        <a href="http://quiet-shore-5196.herokuapp.com/" target="_blank" class="hero-logo"> 
+            <img src="<%= asset_path('MAP.png') %>" alt="Logo Image">
+        </a>
+		<div class="hero-copy">
+			<article class="type-system-rounded">
+				<h1 id="welcome-name-append" >Welcome to <span style="color: #f3655e;" >monea.Finance</span></h1>
+				<p id="welcome-profile-append" style="color:white;">Simple and user friendly software specialising in business bookkeeping and financial reporting</p>	
+			</article>
+		</div>
+		<div id="gConnect">
+            <button class="g-signin" id='googleLogin'
+              data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me"
+              data-requestvisibleactions="http://schemas.google.com/AddActivity"
+                data-clientId="792042861273-5b8b4e51kh4vrqompa2apjga6tge54jg.apps.googleusercontent.com"
+                data-accesstype="offline"
+                data-callback="onSignInCallback"
+                data-theme="dark"
+                data-cookiepolicy="single_host_origin">
+            </button>
+        </div>
+	</div>
+</div>
+

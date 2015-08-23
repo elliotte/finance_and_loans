@@ -1,0 +1,45 @@
+<% if @filtered %>
+     <% $trns_for_view = show_first_20 %>
+<% end %>
+
+<% set_cash_book_headers %>
+<% $cash_book_column_trns = Array.new($cash_book_columns) { Array.new(1) } %>
+
+<article class="type-system-rounded">
+         <!-- FOR PADDING -->
+        <div class="pie-charts-cash-show">
+          
+          <table id="cashbook-table" class="table-minimal" style="font-size:80%;">
+                <thead>
+                  <tr style="color:#f3655e;">
+                    <th >Date</th>
+                    <th >yourTag</th>
+                    <th >£</th>
+                    <th>VAT</th>
+                    <th >-</th>
+                    <% $cashbook_headers.each do |tag| %>
+                        <th><%= tag %></th>
+                    <% end %>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% $trns_for_view.each do |transaction| %>
+                        <!-- DISPLAYED AS INS OUT LOGIC FOR USER TO SEE -->
+                        <%= render partial: 'cash_book_row', locals: {transaction: transaction } %>
+                    <% end %>
+                    <tr id="cb-totals-row">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="color:#f3655e;"></td>
+                        <% $cash_book_column_trns.each do |column_collection| %>
+                           <td style="color:#f3655e;"><%= sum_list {column_collection } %></td>
+                        <% end %>
+                    </tr>
+                </tbody>
+           </table>
+
+        </div>  <!-- END OF PADDING DIV -->
+</article>
+

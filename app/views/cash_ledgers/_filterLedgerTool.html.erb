@@ -1,0 +1,84 @@
+
+<%= form_tag(transactions_for_cash_ledger_path, method: "get", remote: true) do %>
+    <%= hidden_field_tag :period , "manual" %>
+    <%= hidden_field_tag :type , "showFilter" %>
+    <article class="type-system-rounded" style="padding:3em;">
+        <h1 style="color:#f3655e;">Filter ledger transactions <span style="font-size:20%; color:black;">Use Manual Filter button if needing day specific or 1 month</span></h1>
+
+        <div class="search-tools">
+          <div class="filter">
+            <label>Year</label>
+            <div>
+              <ol>
+                <li>
+                  <%= label_tag :'2010' %>
+                  <%= check_box_tag(:'2010', 'year') %>
+                </li>
+                <li>
+                  <%= label_tag :'2011' %>
+                  <%= check_box_tag(:'2011', 'year') %>
+                </li>
+                <li>
+                  <%= label_tag :'2012' %>
+                  <%= check_box_tag(:'2012', 'year') %>
+                </li>
+                 <li>
+                  <%= label_tag :'2013' %>
+                  <%= check_box_tag(:'2013', 'year') %>
+                </li>
+                 <li>
+                  <%= label_tag :'2014' %>
+                  <%= check_box_tag(:'2014', 'year') %>
+                </li>
+                 <li>
+                  <%= label_tag :'2015' %>
+                  <%= check_box_tag(:'2015', 'year') %>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="filter">
+            <label>From month</label>
+            <div>
+              <ol>
+                <% Date::MONTHNAMES.each do |month| %>
+                    <% if month.blank? %>
+                    <% else %>
+
+                         <li>
+                            <%= label_tag month.to_sym %>
+                            <%= check_box_tag(month.to_sym, 'from') %>
+                         </li>
+
+                    <% end %>
+                <% end %>
+              </ol>
+            </div>
+          </div>
+          <div class="filter">
+            <label>To month</label>
+            <div>
+              <ol>
+                <% Date::MONTHNAMES.each do |month| %>
+                    <% if month.blank? %>
+                    <% else %>
+                       <li>
+                         <%= label_tag month.to_sym %>
+                         <%= check_box_tag(month.to_sym, 'to') %>
+                       </li>
+                    <% end %>
+                <% end %>
+              </ol>
+            </div>
+          </div>
+          <div class="trigger">
+            <%= button_tag "Filter", id: 'manual-filter' %>
+          </div>
+        </div>
+
+    </article>
+<% end %>
+
+
+
+

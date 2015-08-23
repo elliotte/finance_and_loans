@@ -1,0 +1,48 @@
+<% path = request.fullpath %>
+<header class="navigation" role="banner" style="background-color:#94CFD5;">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">toolBelt</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a data-remote="true" href="#" onclick="$('#modal-empty-sales').trigger('click');">SS.export</a>
+        </li>
+        <li class="nav-link">
+            <%= link_to 'Invoice.new', new_transaction_path(id: params[:id]), remote: true, class: 'button'%>
+        </li>
+         <li class="nav-link">
+            <%= link_to 'Back', ledgers_path %>
+        </li>
+        <li class="nav-link more"><a href="javascript:void(0)">More</a>
+          <ul class="submenu">
+            <li><a href="javascript:void(0)" onclick="cashLedgerShow.displayShareLedgerModal();">User.share</a></li>
+            <li><%= link_to 'Ledger.settings', edit_ledger_path(@ledger), remote: true %></li>
+          </ul>
+        </li>
+        <!-- END OF ROUTE PATTERN AND NAV FILTER -->
+        <li class="nav-link more"><a href="javascript:void(0)">Go</a>
+          <ul class="submenu">
+            <li><%= link_to 'Ledgers.all', ledgers_path %></li>
+            <li><%= link_to 'Reports.all', reports_path %></li>
+            <li><a href="https://quiet-shore-5196.herokuapp.com/" target="_blank">monea.build</a></li>
+            <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form>
+      </div><!--   END OF SEARCH BAR -->
+    </div><!--   END OF NAV TOOLS -->
+
+  </div><!--   END OF NAV WRAPPER -->
+</header>
+

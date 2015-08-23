@@ -1,0 +1,8 @@
+
+$("#modal-empty").trigger("click")
+<% if params[:bank] == "true" %>
+	$('#empty-modal-body-append').html("<%= j(render partial: 'cash_ledgers/show_forms/bank_csv_upload') %>") 
+<% else %>
+	$('#empty-modal-body-append').html("<%= j(render partial: 'cash_ledgers/show_forms/csv_upload_form') %>") 
+<% end %>
+

@@ -1,0 +1,36 @@
+<% path = request.fullpath %>
+
+<% if route_has_pattern(path, "_manager") || route_has_pattern(path, "trial_balance") %>
+  <footer class="footer-2" role="contentinfo" style="background:#f3655e;">
+<% else %>
+  <footer class="footer-2" role="contentinfo">
+<% end %> 
+
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+  </div>
+    <ul>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="javascript:void(0)">Products</a></li>
+    </ul>
+
+    <div class="footer-secondary-links">
+      <ul>
+        <li> <a><g:plus action="share"></g:plus></a></li>
+        <li><a href="http://www.monea.build/" target="_blank">© <%= Time.now.strftime('%Y') %> monea.build :: moneaFinance </a></li>
+        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+      </ul>
+      <ul class="footer-social">
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
+          </a></li>
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+        </a></li>
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/youtube-logo-circle.png" alt="YouTube">
+        </a></li>
+      </ul>
+    </div>
+</footer>

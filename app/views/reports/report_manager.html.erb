@@ -1,0 +1,133 @@
+<%= javascript_include_tag 'reports' %>
+
+<%= render partial: 'button_board', locals: {report: @report} %>
+
+<% $select_tags = $form_select_tags %>
+
+<div class="hero" style="background:#94CFD5;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1> Report Manager </h1>
+        <p style="color:white;">For: <%= @report.title %></p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<article class="type-system-rounded" style="padding:3em;">
+      <h1 style="color:#f3655e;">Filter By</h1>
+      <div class="search-tools" style="width:70%; margin: auto;">
+        <div class="filter">
+          <label>Type</label>
+          <%= select_tag :v_type, options_for_select( ["TbValue", "EtbValue"]), {:onchange => 'reportHelper.filterBy(this)' } %>
+        </div>
+        <div class="filter">
+          <label>Month</label>
+          <%= select_tag :v_month, options_for_select( Date::MONTHNAMES.slice(1,12)), {:onchange => 'reportHelper.filterBy(this)' } %>
+        </div>
+        <div class="filter">
+          <label>moneaTag</label>
+             <%= select_tag :ifrstag, options_for_select( $select_tags ), {:onchange => 'reportHelper.filterBy(this)' } %>
+        </div>
+      </div>
+</article>
+
+
+<article class="type-system-rounded">
+         <!-- FOR PADDING -->
+        <div class="pie-charts-cash-show">
+          <h1 style="color:#f3655e;">All Report Values</h1>
+          <table id="report-manager-table" class="table-minimal" style="font-size:80%;">
+          <!-- change to mitag map as monea used in tb? -->
+                <thead>
+                  <tr style="color:#f3655e;">
+                    <th>£</th>
+                    <th>Month</th>
+                    <th>your Tag</th>
+                    <th>description</th>
+                    <th><%= @report.format %></th>
+                    <th>Update</th>
+                  </tr>
+                </thead>
+                <tbody id="report-manager-table-body">
+                  <% @values.each do |value| %>
+                        <% id = value.id %>
+                        <tr id="<%= id %>">
+                                <!-- FOR REPORT MANAGER FILTER -->
+                                <span class="trn-report-mgr" data-value-id="<%= id %>" data-ifrstag="<%= value.ifrstag %>" data-type="<%= value.type %>" data-month="<%= value.repdate.strftime("%B") %>" style="display:none;"></span>
+                                <%= form_for([@report, value], :url => {:controller => 'reports', :action => 'update_value'}, remote: true, method: 'put') do |f| %>
+                                   <%= f.hidden_field(:id, name: 'report[value_id]') %>
+                                   <td>
+                                    <%= value.amount.to_f %>
+                                   </td>
+                                   <td>
+                                    <%= value.repdate.strftime(" %B %Y") %>
+                                   </td>
+                                   <td>
+                                    <%= f.text_field :mitag, {:placeholder => value.mitag } %>
+                                   </td>
+                                   <td>
+                                    <%= f.text_field :description, {:placeholder => value.description } %>
+                                   </td>
+                                   <% clean_select = lambda {
+                                     $select_tags.include?( value.ifrstag ) ? value.ifrstag : 'No-Mapping' }
+                                    %>
+                                   <td>
+                                      <%= f.select :ifrstag, options_for_select( $select_tags, {:selected => clean_select.call } ) %>
+                                   </td>
+                                   <td class="button-style">
+                                    <%= f.submit %>
+                                   </td>
+
+                                <% end %>
+                          </tr>
+                  <% end %>
+                </tbody>
+           </table>
+        </div>  <!-- END OF PADDING DIV -->
+</article>
+
+<!-- EMPTY MODAL FOR FILTER -->
+<div class="modal">
+      <input class="modal-state" id="modal-report-show-empty" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-report-empty"></div>
+              <div id="empty-report-modal-body">
+              </div>
+        </div>
+      </div>
+</div>
+<!-- EMPTY TABLE MODAL -->
+<!-- USED FOR DISPLAY SUMMARY TRNS BY TAG -->
+<div class="modal">
+    <input class="modal-state" id="modal-table-empty" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <div class="modal-close" for="modal-ledger-empty"></div>
+        <div id="empty-table-modal-body-append">
+            <div style="color:#f3655e;" id="table-title"></div>
+            <br>
+            <table id="empty-modal-table" class="table-minimal">
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- USED FOR EXPORT FORM -->
+<div class="modal">
+    <input class="modal-state" id="modal-export-form" type="checkbox" />
+    <div class="modal-fade-screen" style="">
+      <div class="modal-inner" style="min-height:70%;">
+        <div class="modal-close" for="modal-ledger-empty"></div>
+        <div>
+            <span id="modal-export-table-body" class="table-minimal">
+            </span>
+        </div>
+      </div>
+    </div>
+</div>

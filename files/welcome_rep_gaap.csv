@@ -1,0 +1,265 @@
+reporting month,TB code,amount,description,mi_tag,ukgaap
+31/12/2014,00001,4696.690611,Opening Balances co 1,Fixtures and Fittings - cost,Plant & machinery cost - b/fwd
+29/12/2014,00002,9667.011797,Opening Balances co 1,Fixtures and Fittings - additions,Plant & machinery cost - additions
+31/12/2014,00003,8734.446753,Opening Balances co 1,Fixtures and Fittings - acc depn,Plant & machinery cost - disposals
+29/12/2014,00004,2146.316367,Opening Balances co 1,Fixtures and Fittings - depn charge,Plant & machinery depn - b/fwd
+29/12/2014,00005,1602.438244,Opening Balances co 1,Debtors Control Account,Trade debtors
+29/12/2014,00006,6721.907283,Opening Balances co 1,Prepayments,Other debtors
+29/12/2014,00007,1084.277692,Opening Balances co 1,Current account,Cash in hand
+29/12/2014,00008,6061.321027,Opening Balances co 1,Savings account,Cash in hand
+29/12/2014,00009,5948.039832,Opening Balances co 1,Petty Cash,Cash in hand
+29/12/2014,00010,1068.794228,Opening Balances co 1,Creditors Control Account,Trade creditors
+29/12/2014,00011,5767.645916,Opening Balances co 1,Accruals & other creditors,Accruals and deferred sales
+31/12/2014,00012,6975.98303,Opening Balances co 1,Directors loan,Other creditors
+31/12/2014,00013,2981.57352,Opening Balances co 1,Output VAT,Other taxes and social security costs
+31/12/2014,00014,566.5755648,Opening Balances co 1,Input VAT,Other taxes and social security costs
+31/12/2014,00015,6464.662154,Opening Balances co 1,VAT Control,Other taxes and social security costs
+31/12/2014,00016,6985.126243,Opening Balances co 1,CT liability,Other taxes and social security costs
+31/12/2014,00017,1740.605874,Opening Balances co 1,Dividend Paid,Ordinary shares
+31/12/2014,00018,6169.377489,Opening Balances co 1,Share capital,Ordinary shares
+31/12/2014,00019,7476.776825,Opening Balances co 1,PnL CY,Reserves
+29/12/2014,00020,8877.167947,YE trial balance co 1,Sales stream 5,Sales
+29/12/2014,00021,6233.591119,YE trial balance co 1,Sales stream 6,Sales
+29/12/2014,00022,3258.82416,YE trial balance co 1,Sales stream 7,Sales
+29/12/2014,00023,8620.937626,YE trial balance co 1,Sales stream 8,Sales
+31/12/2014,00024,8440.046494,YE trial balance co 1,Sales stream 9,Sales
+31/12/2014,00025,5108.680704,YE trial balance co 1,Sales stream 10,Sales
+29/12/2014,00026,8396.286085,YE trial balance co 1,Sales stream 11,Sales
+29/12/2014,00027,4342.621454,YE trial balance co 1,Advertising,Advertising and PR
+29/12/2014,00028,66.2970614,YE trial balance co 1,Directors salaries,Directors' salaries
+29/12/2014,00029,3558.527162,YE trial balance co 1,Casual labour,Purchases
+29/12/2014,00030,5000.040251,YE trial balance co 1,Client disbursements,Commissions payable
+29/12/2014,00031,7723.094226,YE trial balance co 1,Recruitment expenses,Wages and salaries
+29/12/2014,00032,5475.699775,YE trial balance co 1,Rent,Rent
+29/12/2014,00033,3551.475117,YE trial balance co 1,Electricty,Light and heat
+29/12/2014,00034,8844.865837,YE trial balance co 1,Misc Motor expenses,Travel and subsistence
+29/12/2014,00035,1276.956081,YE trial balance co 1,Travel,Travel and subsistence
+29/12/2014,00036,4342.621454,YE trial balance co 1,Audit and accounting fees,Accountancy fees
+29/12/2014,00037,66.2970614,YE trial balance co 1,Professional Fees,Accountancy fees
+29/12/2014,00038,3558.527162,YE trial balance co 1,Cleaning,Cleaning
+29/12/2014,00039,5000.040251,YE trial balance co 1,Premises expenses,Cleaning
+29/12/2014,00040,7723.094226,YE trial balance co 1,Training costs,Staff training and welfare
+29/12/2014,00041,5475.699775,YE trial balance co 1,Insurance,Insurance
+29/12/2014,00042,3551.475117,YE trial balance co 1,Refreshments,Insurance
+29/12/2014,00043,8844.865837,YE trial balance co 1,Misc Motor expenses,Travel and subsistence
+29/12/2014,00044,1276.956081,YE trial balance co 1,Travel,Travel and subsistence
+29/12/2013,00010,6061.321027,Opening Balances co 1,Fixtures and Fittings - cost,Plant & machinery cost - b/fwd
+29/12/2013,00011,5948.039832,Opening Balances co 1,Fixtures and Fittings - additions,Plant & machinery cost - additions
+29/12/2013,00012,1068.794228,Opening Balances co 1,Fixtures and Fittings - acc depn,Plant & machinery cost - disposals
+29/12/2013,00013,5767.645916,Opening Balances co 1,Fixtures and Fittings - depn charge,Plant & machinery depn - b/fwd
+29/12/2013,00014,6975.98303,Opening Balances co 1,Debtors Control Account,Trade debtors
+29/12/2013,00015,2981.57352,Opening Balances co 1,Prepayments,Other debtors
+29/12/2013,00016,566.5755648,Opening Balances co 1,Current account,Cash in hand
+29/12/2013,00017,6464.662154,Opening Balances co 1,Savings account,Cash in hand
+29/12/2013,00018,6985.126243,Opening Balances co 1,Petty Cash,Cash in hand
+29/12/2013,00019,1740.605874,Opening Balances co 1,Creditors Control Account,Trade creditors
+29/12/2013,00020,6169.377489,Opening Balances co 1,Accruals & other creditors,Accruals and deferred sales
+29/12/2013,00021,7476.776825,Opening Balances co 1,Directors loan,Other creditors
+29/12/2013,00022,8877.167947,Opening Balances co 1,Output VAT,Other taxes and social security costs
+29/12/2013,00023,6233.591119,Opening Balances co 1,Input VAT,Other taxes and social security costs
+29/12/2013,00024,3258.82416,Opening Balances co 1,VAT Control,Other taxes and social security costs
+29/12/2013,00025,8620.937626,Opening Balances co 1,CT liability,Other taxes and social security costs
+29/12/2013,00026,8440.046494,Opening Balances co 1,Dividend Paid,Ordinary shares
+29/12/2013,00027,5108.680704,Opening Balances co 1,Share capital,Ordinary shares
+29/12/2013,00028,8396.286085,Opening Balances co 1,PnL CY,Reserves
+29/12/2013,00029,4342.621454,YE trial balance co 1,Sales stream 5,Sales
+29/12/2013,00030,66.2970614,YE trial balance co 1,Sales stream 6,Sales
+29/12/2013,00031,3558.527162,YE trial balance co 1,Sales stream 7,Sales
+29/12/2013,00032,5000.040251,YE trial balance co 1,Sales stream 8,Sales
+29/12/2013,00033,7723.094226,YE trial balance co 1,Sales stream 9,Sales
+29/12/2013,00034,5475.699775,YE trial balance co 1,Sales stream 10,Sales
+29/12/2013,00035,3551.475117,YE trial balance co 1,Sales stream 11,Sales
+29/12/2013,00036,8844.865837,YE trial balance co 1,Advertising,Advertising and PR
+29/12/2013,00037,1276.956081,YE trial balance co 1,Directors salaries,Directors' salaries
+29/12/2013,00038,8547.746785,YE trial balance co 1,Casual labour,Purchases
+29/12/2013,00039,6731.486682,YE trial balance co 1,Client disbursements,Commissions payable
+29/12/2013,00040,5736.67437,YE trial balance co 1,Recruitment expenses,Wages and salaries
+29/12/2013,00041,4219.231959,YE trial balance co 1,Rent,Rent
+29/12/2013,00042,1492.505394,YE trial balance co 1,Electricty,Light and heat
+29/12/2013,00043,4143.597964,YE trial balance co 1,Misc Motor expenses,Travel and subsistence
+29/12/2013,00044,9232.356471,YE trial balance co 1,Travel,Travel and subsistence
+29/12/2013,00045,226.9698311,YE trial balance co 1,Audit and accounting fees,Accountancy fees
+29/12/2013,00046,8887.282833,YE trial balance co 1,Professional Fees,Accountancy fees
+29/12/2013,00047,8318.663454,YE trial balance co 1,Cleaning,Cleaning
+29/12/2013,00048,5855.095054,YE trial balance co 1,Premises expenses,Cleaning
+29/12/2013,00049,-628.5161448,YE trial balance co 1,Training costs,Staff training and welfare
+29/12/2013,00050,-6467.822906,YE trial balance co 1,Insurance,Insurance
+29/12/2013,00051,-6190.589621,YE trial balance co 1,Refreshments,Insurance
+29/12/2013,00052,-8897.98546,YE trial balance co 1,Misc Motor expenses,Travel and subsistence
+29/12/2013,00053,-5424.334675,YE trial balance co 1,Travel,Travel and subsistence
+31/12/2014,00001,4179.53595,Opening Balances co 2,Fixtures and Fittings - cost,Plant & machinery cost - b/fwd
+29/12/2014,00002,281.0139602,Opening Balances co 2,Fixtures and Fittings - additions,Plant & machinery cost - additions
+31/12/2014,00003,6248.528992,Opening Balances co 2,Fixtures and Fittings - acc depn,Plant & machinery cost - disposals
+29/12/2014,00004,32.87161569,Opening Balances co 2,Fixtures and Fittings - depn charge,Plant & machinery depn - b/fwd
+29/12/2014,00005,688.9520862,Opening Balances co 2,Debtors Control Account,Trade debtors
+29/12/2014,00006,3157.8869,Opening Balances co 2,Prepayments,Other debtors
+29/12/2014,00007,607.5366378,Opening Balances co 2,Current account,Cash in hand
+29/12/2014,00008,5121.837171,Opening Balances co 2,Savings account,Cash in hand
+29/12/2014,00009,5808.934726,Opening Balances co 2,Petty Cash,Cash in hand
+29/12/2014,00010,360.6552047,Opening Balances co 2,Creditors Control Account,Trade creditors
+29/12/2014,00011,844.3188002,Opening Balances co 2,Accruals & other creditors,Accruals and deferred sales
+31/12/2014,00012,2557.939904,Opening Balances co 2,Directors loan,Other creditors
+31/12/2014,00013,1101.915883,Opening Balances co 2,Output VAT,Other taxes and social security costs
+31/12/2014,00014,62.30669959,Opening Balances co 2,Input VAT,Other taxes and social security costs
+31/12/2014,00015,5461.564261,Opening Balances co 2,VAT Control,Other taxes and social security costs
+31/12/2014,00016,3375.785312,Opening Balances co 2,CT liability,Other taxes and social security costs
+31/12/2014,00017,1636.299946,Opening Balances co 2,Dividend Paid,Ordinary shares
+31/12/2014,00018,2926.0587,Opening Balances co 2,Share capital,Ordinary shares
+31/12/2014,00019,3485.516154,Opening Balances co 2,PnL CY,Reserves
+29/12/2014,00020,6309.191931,YE trial balance co 2,Sales stream 5,Sales
+29/12/2014,00021,3715.187057,YE trial balance co 2,Sales stream 6,Sales
+29/12/2014,00022,3002.74439,YE trial balance co 2,Sales stream 7,Sales
+29/12/2014,00023,6865.736606,YE trial balance co 2,Sales stream 8,Sales
+31/12/2014,00024,7838.85776,YE trial balance co 2,Sales stream 9,Sales
+31/12/2014,00025,2137.951629,YE trial balance co 2,Sales stream 10,Sales
+29/12/2014,00026,6206.53078,YE trial balance co 2,Sales stream 11,Sales
+29/12/2014,00027,2352.984665,YE trial balance co 2,Advertising,Advertising and PR
+29/12/2014,00028,32.50332132,YE trial balance co 2,Directors salaries,Directors' salaries
+29/12/2014,00029,421.8404918,YE trial balance co 2,Casual labour,Purchases
+29/12/2014,00030,3071.523791,YE trial balance co 2,Client disbursements,Commissions payable
+29/12/2014,00031,1465.987511,YE trial balance co 2,Recruitment expenses,Wages and salaries
+29/12/2014,00032,4451.975966,YE trial balance co 2,Rent,Rent
+29/12/2014,00033,3313.860139,YE trial balance co 2,Electricty,Light and heat
+29/12/2014,00034,7581.793603,YE trial balance co 2,Misc Motor expenses,Travel and subsistence
+29/12/2014,00035,1247.173801,YE trial balance co 2,Travel,Travel and subsistence
+29/12/2014,00036,4163.87915,YE trial balance co 2,Audit and accounting fees,Accountancy fees
+29/12/2014,00037,61.54448842,YE trial balance co 2,Professional Fees,Accountancy fees
+29/12/2014,00038,1678.396234,YE trial balance co 2,Cleaning,Cleaning
+29/12/2014,00039,2476.909587,YE trial balance co 2,Premises expenses,Cleaning
+29/12/2014,00040,7643.707278,YE trial balance co 2,Training costs,Staff training and welfare
+29/12/2014,00041,1211.684,YE trial balance co 2,Insurance,Insurance
+29/12/2014,00042,3212.551966,YE trial balance co 2,Refreshments,Insurance
+29/12/2014,00043,4177.739781,YE trial balance co 2,Misc Motor expenses,Travel and subsistence
+29/12/2014,00044,108.188496,YE trial balance co 2,Travel,Travel and subsistence
+29/12/2013,00010,2010.66995,Opening Balances co 2,Fixtures and Fittings - cost,Plant & machinery cost - b/fwd
+29/12/2013,00011,1977.897491,Opening Balances co 2,Fixtures and Fittings - additions,Plant & machinery cost - additions
+29/12/2013,00012,957.7698251,Opening Balances co 2,Fixtures and Fittings - acc depn,Plant & machinery cost - disposals
+29/12/2013,00013,2873.771604,Opening Balances co 2,Fixtures and Fittings - depn charge,Plant & machinery depn - b/fwd
+29/12/2013,00014,5104.770555,Opening Balances co 2,Debtors Control Account,Trade debtors
+29/12/2013,00015,2290.495582,Opening Balances co 2,Prepayments,Other debtors
+29/12/2013,00016,561.1565645,Opening Balances co 2,Current account,Cash in hand
+29/12/2013,00017,2886.799422,Opening Balances co 2,Savings account,Cash in hand
+29/12/2013,00018,4711.634943,Opening Balances co 2,Petty Cash,Cash in hand
+29/12/2013,00019,178.8292771,Opening Balances co 2,Creditors Control Account,Trade creditors
+29/12/2013,00020,3019.736604,Opening Balances co 2,Accruals & other creditors,Accruals and deferred sales
+29/12/2013,00021,6875.875451,Opening Balances co 2,Directors loan,Other creditors
+29/12/2013,00022,4892.110274,Opening Balances co 2,Output VAT,Other taxes and social security costs
+29/12/2013,00023,2738.418,Opening Balances co 2,Input VAT,Other taxes and social security costs
+29/12/2013,00024,964.4230474,Opening Balances co 2,VAT Control,Other taxes and social security costs
+29/12/2013,00025,2014.51138,Opening Balances co 2,CT liability,Other taxes and social security costs
+29/12/2013,00026,2960.891085,Opening Balances co 2,Dividend Paid,Ordinary shares
+29/12/2013,00027,3673.516806,Opening Balances co 2,Share capital,Ordinary shares
+29/12/2013,00028,7391.102903,Opening Balances co 2,PnL CY,Reserves
+29/12/2013,00029,3744.34163,YE trial balance co 2,Sales stream 5,Sales
+29/12/2013,00030,18.64437971,YE trial balance co 2,Sales stream 6,Sales
+29/12/2013,00031,2462.273507,YE trial balance co 2,Sales stream 7,Sales
+29/12/2013,00032,3570.920119,YE trial balance co 2,Sales stream 8,Sales
+29/12/2013,00033,5519.219491,YE trial balance co 2,Sales stream 9,Sales
+29/12/2013,00034,1322.477,YE trial balance co 2,Sales stream 10,Sales
+29/12/2013,00035,2637.684522,YE trial balance co 2,Sales stream 11,Sales
+29/12/2013,00036,5504.543869,YE trial balance co 2,Advertising,Advertising and PR
+29/12/2013,00037,723.0215896,YE trial balance co 2,Directors salaries,Directors' salaries
+29/12/2013,00038,5450.189764,YE trial balance co 2,Casual labour,Purchases
+29/12/2013,00039,6379.862515,YE trial balance co 2,Client disbursements,Commissions payable
+29/12/2013,00040,1053.067086,YE trial balance co 2,Recruitment expenses,Wages and salaries
+29/12/2013,00041,3320.414424,YE trial balance co 2,Rent,Rent
+29/12/2013,00042,1458.059216,YE trial balance co 2,Electricty,Light and heat
+29/12/2013,00043,31.40800063,YE trial balance co 2,Misc Motor expenses,Travel and subsistence
+29/12/2013,00044,1988.314214,YE trial balance co 2,Travel,Travel and subsistence
+29/12/2013,00045,196.2323691,YE trial balance co 2,Audit and accounting fees,Accountancy fees
+29/12/2013,00046,6997.119932,YE trial balance co 2,Professional Fees,Accountancy fees
+29/12/2013,00047,3137.291998,YE trial balance co 2,Cleaning,Cleaning
+29/12/2013,00048,5481.061623,YE trial balance co 2,Premises expenses,Cleaning
+29/12/2013,00049,-296.450465,YE trial balance co 2,Training costs,Staff training and welfare
+29/12/2013,00050,-4319.047638,YE trial balance co 2,Insurance,Insurance
+29/12/2013,00051,-6188.312396,YE trial balance co 2,Refreshments,Insurance
+29/12/2013,00052,-5467.516921,YE trial balance co 2,Misc Motor expenses,Travel and subsistence
+29/12/2013,00053,-5366.546149,YE trial balance co 2,Travel,Travel and subsistence
+31/12/2014,00001,3272.152649,Opening Balances co 3,Fixtures and Fittings - cost,Plant & machinery cost - b/fwd
+29/12/2014,00002,5198.312257,Opening Balances co 3,Fixtures and Fittings - additions,Plant & machinery cost - additions
+31/12/2014,00003,3386.239868,Opening Balances co 3,Fixtures and Fittings - acc depn,Plant & machinery cost - disposals
+29/12/2014,00004,999.2285636,Opening Balances co 3,Fixtures and Fittings - depn charge,Plant & machinery depn - b/fwd
+29/12/2014,00005,1601.621138,Opening Balances co 3,Debtors Control Account,Trade debtors
+29/12/2014,00006,5999.15692,Opening Balances co 3,Prepayments,Other debtors
+29/12/2014,00007,497.9332226,Opening Balances co 3,Current account,Cash in hand
+29/12/2014,00008,5824.813355,Opening Balances co 3,Savings account,Cash in hand
+29/12/2014,00009,49.01481836,Opening Balances co 3,Petty Cash,Cash in hand
+29/12/2014,00010,108.3358332,Opening Balances co 3,Creditors Control Account,Trade creditors
+29/12/2014,00011,404.054187,Opening Balances co 3,Accruals & other creditors,Accruals and deferred sales
+31/12/2014,00012,801.4373217,Opening Balances co 3,Directors loan,Other creditors
+31/12/2014,00013,2486.526428,Opening Balances co 3,Output VAT,Other taxes and social security costs
+31/12/2014,00014,235.4160982,Opening Balances co 3,Input VAT,Other taxes and social security costs
+31/12/2014,00015,3098.510123,Opening Balances co 3,VAT Control,Other taxes and social security costs
+31/12/2014,00016,3837.791914,Opening Balances co 3,CT liability,Other taxes and social security costs
+31/12/2014,00017,376.0706766,Opening Balances co 3,Dividend Paid,Ordinary shares
+31/12/2014,00018,2897.917928,Opening Balances co 3,Share capital,Ordinary shares
+31/12/2014,00019,5135.301003,Opening Balances co 3,PnL CY,Reserves
+29/12/2014,00020,3758.576062,YE trial balance co 3,Sales stream 5,Sales
+29/12/2014,00021,4448.098186,YE trial balance co 3,Sales stream 6,Sales
+29/12/2014,00022,3193.847797,YE trial balance co 3,Sales stream 7,Sales
+29/12/2014,00023,6755.432418,YE trial balance co 3,Sales stream 8,Sales
+31/12/2014,00024,380.001157,YE trial balance co 3,Sales stream 9,Sales
+31/12/2014,00025,814.7421707,YE trial balance co 3,Sales stream 10,Sales
+29/12/2014,00026,2770.649165,YE trial balance co 3,Sales stream 11,Sales
+29/12/2014,00027,2715.245032,YE trial balance co 3,Advertising,Advertising and PR
+29/12/2014,00028,63.52318159,YE trial balance co 3,Directors salaries,Directors' salaries
+29/12/2014,00029,3244.766607,YE trial balance co 3,Casual labour,Purchases
+29/12/2014,00030,3697.663193,YE trial balance co 3,Client disbursements,Commissions payable
+29/12/2014,00031,7647.65587,YE trial balance co 3,Recruitment expenses,Wages and salaries
+29/12/2014,00032,1793.885109,YE trial balance co 3,Rent,Rent
+29/12/2014,00033,370.9247538,YE trial balance co 3,Electricty,Light and heat
+29/12/2014,00034,3987.460254,YE trial balance co 3,Misc Motor expenses,Travel and subsistence
+29/12/2014,00035,645.9582022,YE trial balance co 3,Travel,Travel and subsistence
+29/12/2014,00036,3328.378288,YE trial balance co 3,Audit and accounting fees,Accountancy fees
+29/12/2014,00037,61.34618603,YE trial balance co 3,Professional Fees,Accountancy fees
+29/12/2014,00038,1811.630517,YE trial balance co 3,Cleaning,Cleaning
+29/12/2014,00039,2019.621496,YE trial balance co 3,Premises expenses,Cleaning
+29/12/2014,00040,7506.802071,YE trial balance co 3,Training costs,Staff training and welfare
+29/12/2014,00041,5103.601709,YE trial balance co 3,Insurance,Insurance
+29/12/2014,00042,958.3447459,YE trial balance co 3,Refreshments,Insurance
+29/12/2014,00043,5325.571689,YE trial balance co 3,Misc Motor expenses,Travel and subsistence
+29/12/2014,00044,851.6597479,YE trial balance co 3,Travel,Travel and subsistence
+29/12/2013,00010,3341.875883,Opening Balances co 3,Fixtures and Fittings - cost,Plant & machinery cost - b/fwd
+29/12/2013,00011,4288.516783,Opening Balances co 3,Fixtures and Fittings - additions,Plant & machinery cost - additions
+29/12/2013,00012,746.3582099,Opening Balances co 3,Fixtures and Fittings - acc depn,Plant & machinery cost - disposals
+29/12/2013,00013,2181.42354,Opening Balances co 3,Fixtures and Fittings - depn charge,Plant & machinery depn - b/fwd
+29/12/2013,00014,1422.642151,Opening Balances co 3,Debtors Control Account,Trade debtors
+29/12/2013,00015,217.9077822,Opening Balances co 3,Prepayments,Other debtors
+29/12/2013,00016,120.1077128,Opening Balances co 3,Current account,Cash in hand
+29/12/2013,00017,3417.189952,Opening Balances co 3,Savings account,Cash in hand
+29/12/2013,00018,6606.815325,Opening Balances co 3,Petty Cash,Cash in hand
+29/12/2013,00019,1463.787905,Opening Balances co 3,Creditors Control Account,Trade creditors
+29/12/2013,00020,4996.689943,Opening Balances co 3,Accruals & other creditors,Accruals and deferred sales
+29/12/2013,00021,1231.919071,Opening Balances co 3,Directors loan,Other creditors
+29/12/2013,00022,1100.303423,Opening Balances co 3,Output VAT,Other taxes and social security costs
+29/12/2013,00023,5095.265364,Opening Balances co 3,Input VAT,Other taxes and social security costs
+29/12/2013,00024,1021.892424,Opening Balances co 3,VAT Control,Other taxes and social security costs
+29/12/2013,00025,3450.791204,Opening Balances co 3,CT liability,Other taxes and social security costs
+29/12/2013,00026,2584.106111,Opening Balances co 3,Dividend Paid,Ordinary shares
+29/12/2013,00027,4708.848943,Opening Balances co 3,Share capital,Ordinary shares
+29/12/2013,00028,6.602905125,Opening Balances co 3,PnL CY,Reserves
+29/12/2013,00029,1359.64502,YE trial balance co 3,Sales stream 5,Sales
+29/12/2013,00030,44.1281319,YE trial balance co 3,Sales stream 6,Sales
+29/12/2013,00031,3190.076598,YE trial balance co 3,Sales stream 7,Sales
+29/12/2013,00032,433.3112771,YE trial balance co 3,Sales stream 8,Sales
+29/12/2013,00033,4670.327308,YE trial balance co 3,Sales stream 9,Sales
+29/12/2013,00034,400.939202,YE trial balance co 3,Sales stream 10,Sales
+29/12/2013,00035,778.9916035,YE trial balance co 3,Sales stream 11,Sales
+29/12/2013,00036,2627.546815,YE trial balance co 3,Advertising,Advertising and PR
+29/12/2013,00037,1023.725675,YE trial balance co 3,Directors salaries,Directors' salaries
+29/12/2013,00038,3290.869489,YE trial balance co 3,Casual labour,Purchases
+29/12/2013,00039,5720.413995,YE trial balance co 3,Client disbursements,Commissions payable
+29/12/2013,00040,4310.495404,YE trial balance co 3,Recruitment expenses,Wages and salaries
+29/12/2013,00041,1826.11359,YE trial balance co 3,Rent,Rent
+29/12/2013,00042,160.8187681,YE trial balance co 3,Electricty,Light and heat
+29/12/2013,00043,1514.707814,YE trial balance co 3,Misc Motor expenses,Travel and subsistence
+29/12/2013,00044,1400.599766,YE trial balance co 3,Travel,Travel and subsistence
+29/12/2013,00045,199.3608148,YE trial balance co 3,Audit and accounting fees,Accountancy fees
+29/12/2013,00046,6522.406024,YE trial balance co 3,Professional Fees,Accountancy fees
+29/12/2013,00047,1929.074511,YE trial balance co 3,Cleaning,Cleaning
+29/12/2013,00048,865.8192803,YE trial balance co 3,Premises expenses,Cleaning
+29/12/2013,00049,-156.2987976,YE trial balance co 3,Training costs,Staff training and welfare
+29/12/2013,00050,-1046.6407,YE trial balance co 3,Insurance,Insurance
+29/12/2013,00051,-4533.634854,YE trial balance co 3,Refreshments,Insurance
+29/12/2013,00052,-655.382202,YE trial balance co 3,Misc Motor expenses,Travel and subsistence
+29/12/2013,00053,-2952.136455,YE trial balance co 3,Travel,Travel and subsistence

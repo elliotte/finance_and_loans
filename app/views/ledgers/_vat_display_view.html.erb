@@ -1,0 +1,58 @@
+
+<article class="type-system-rounded">
+    <p>You can export data to spreadsheet:</p>
+    <div style="margin:1em 0 1em 0;">
+      <%= text_field_tag :description, nil, {placeholder: 'Add description to export...',class: 'jnl-desc'} %>
+      <br>
+    </div>
+     <table class="table-minimal">
+       <tr>
+          <td style="color:#f3655e;">
+          </td>
+          <td class="button-style">
+             <input style="max-width:40%;" value="To spreadsheet" onclick="exportVAT(this)" data-ledger-id="<%= params[:id] %>">
+          </td>
+      </tr>
+    </table>
+    <table class="table-minimal">
+          <% @data[:vat_return].each do |row| %>
+              <tr>
+                  <td style="color:#f3655e;" style="max-width:6em;">
+                    <%= row[0]%>
+                  </td>
+                  <td>
+                    <%= row[1]%>
+                  </td>
+                  <td>
+                    <%= row[2]%>
+                  </td>
+              </tr>
+          <% end %>
+    </table>
+</article>
+
+<script>
+	function exportVAT(data) {
+    id = $(data).data('ledger-id')
+        var token = $("meta[name='csrf-token']").attr("content");
+        var request = new XMLHttpRequest();
+          request.onload = successExport;
+//              request.onerror = errorDisplay;
+          data = {
+            id
+          }
+          request.open("put", '/ledgers/' + id + '/vat_to_google', true );
+          request.setRequestHeader("Content-Type", "application/json");
+          request.setRequestHeader("X-CSRF-Token", token);
+          request.send(JSON.stringify(data));
+	}
+
+  function successExport() {
+    file = JSON.parse(this.responseText)
+    $('#empty-modal-body-shared-vat-append').empty()
+    text = '<p>' + 'Sucess view spreadsheet: ' + '<a target="_blank" href="'+file.alternateLink+'" >' + 'Click' + '</a>' + '</p>'
+    $('#empty-modal-body-shared-vat-append').append(text)
+  }
+
+</script>
+

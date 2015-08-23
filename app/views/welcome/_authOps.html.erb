@@ -1,0 +1,43 @@
+<!-- START OF LANDING AUTH OPS -->
+<div id="user-action-bar">
+	<article class="type-system-rounded">
+		<div class="dropdown">
+			  <div class="dropdown-container">
+			    <p class="dropdown-description">monea.new</p>
+			    <p class="dropdown-button">Choose</p>
+			    <ul class="dropdown-menu dropdown-select">
+			      <li><%= link_to 'Cashbook', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
+			      <li><%= link_to 'Invoice', new_transaction_path, remote: true, class: 'button'%></li>
+			      <li><%= link_to 'Report', new_report_path(type: ''), remote: true, class: 'button'%></li>
+			    </ul>
+			  </div>
+		</div>
+	</article>
+</div>
+
+<div id="latest-ledgers-container">
+	<article class="type-system-rounded">
+		<h1>your latest <%= link_to "monea.ledgers",ledgers_path %></h1>
+	</article>
+	 <article class="type-system-rounded">
+		<div class="append">
+		</div>
+    </article>
+</div>
+
+<div id="latest-reports-container">
+	<article class="type-system-rounded">
+		<h1>your latest <%= link_to "monea.reports",reports_path %></h1>
+	</article>
+	<div class="append">
+	</div>
+</div>
+
+<div id="monea-helpers">
+	<article class="type-system-rounded">
+		<h1>monea business helper tools</h1>
+	</article>
+	<div class="append">
+	</div>
+</div>
+

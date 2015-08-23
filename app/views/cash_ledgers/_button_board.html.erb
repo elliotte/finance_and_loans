@@ -1,0 +1,81 @@
+<% path = request.fullpath %>
+
+<% if route_has_pattern(path, "_manager") || route_has_pattern(path, "trial_balance") %>
+  <header class="navigation" role="banner" style="background-color:#94CFD5;">
+<% else %>
+  <header class="navigation" role="banner">
+<% end %> 
+
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">toolBelt</a>
+
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <% unless route_has_pattern(path, "trial_balance") %>
+          <li class="nav-link">
+            <%= link_to 'TB.generate', eval("trial_balance_#{ledger_type}_path(@ledger)") %>
+          </li>
+        <% end %>
+        <li class="nav-link"><%= link_to 'Ledger.export', eval("new_google_export_#{ledger_type}_path(@ledger, {file: 'ss'})"), remote: true %>
+        </li>
+        <!-- NAV FILTER FOR WORKING INSIDE LEDGERS -->
+            <% if route_has_pattern(path, "_manager") %> 
+                <li class="nav-link">
+                  <%= link_to 'Back', ledger_path(@ledger) %>
+                </li>
+            <% elsif route_has_pattern(path, "trial_balance") %>
+                <li class="nav-link">
+                  <%= link_to 'Back', ledger_path(@ledger) %>
+                </li>
+            <% else %>
+                <li class="nav-link more"><%= link_to 'Book', eval("add_to_#{ledger_type}_path(@ledger, {general: true})"), remote: true %>
+                  <ul class="submenu">
+                    <li><%= link_to 'Payment.new', eval("add_payments_#{ledger_type}_path(@ledger, {payments: true})"), remote: true %></li>
+                    <li><%= link_to 'Lodgement.new', eval("add_lodgements_#{ledger_type}_path(@ledger, {lodgements: true})"), remote: true %></li>
+                  </ul>
+                </li>
+                <li class="nav-link more"><a href="javascript:void(0)">More</a>
+                  <ul class="submenu">
+                    <li class="more"><a href="javascript:void(0)">Import</a>
+                      <ul class="submenu">
+                        <li><%= link_to 'BankCSV.new', eval("import_csv_#{ledger_type}_path(@ledger, {bank: true})"), remote: true  %></li>
+                        <li><%= link_to 'DefaultCSV.new', eval("import_csv_#{ledger_type}_path(@ledger, {bank: false})"), remote: true  %></li>
+                      </ul>
+                    </li>
+                    <li class="nav-link">
+                      <%= link_to 'Tag.manager', eval("ledger_manager_#{ledger_type}_path(@ledger, {blanky: true})") %>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="cashLedgerShow.displayShareLedgerModal();">User.share</a></li>
+                    <li><%= link_to 'Ledger.settings', edit_ledger_path(@ledger), remote: true %></li>
+                  </ul>
+                </li>
+            <% end %>
+        <!-- END OF ROUTE PATTERN AND NAV FILTER -->
+        <li class="nav-link more"><a href="javascript:void(0)">Go</a>
+          <ul class="submenu">
+            <li><%= link_to 'Ledgers.all', ledgers_path %></li>
+            <li><%= link_to 'Reports.all', reports_path %></li>
+            <li><a href="https://quiet-shore-5196.herokuapp.com/" target="_blank">monea.build</a></li>
+            <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form>
+      </div><!--   END OF SEARCH BAR -->
+    </div><!--   END OF NAV TOOLS -->
+
+  </div><!--   END OF NAV WRAPPER -->
+</header>
+

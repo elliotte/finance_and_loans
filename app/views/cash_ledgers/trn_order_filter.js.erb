@@ -1,0 +1,5 @@
+$('#ledger-manager-table-body').empty();
+
+$('#modal-loading-manager').trigger('click')
+
+$('#ledger-manager-table-body').html("<%= j(render partial: 'update_transaction_form') %>") 

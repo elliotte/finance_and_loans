@@ -1,0 +1,2 @@
+class TbValue < Value
+end

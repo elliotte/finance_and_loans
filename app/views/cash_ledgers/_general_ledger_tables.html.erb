@@ -1,0 +1,82 @@
+<table id="<%= key %>" class="table-minimal" style="font-size:90%; display:none;">
+                    <thead>
+                      <tr style="color:#f3655e;">
+                        <th class="acc">ID</th>
+                        <th>Date</th>
+                        <th>yourTag</th>
+                        <th class="debit">Debit</th>
+                        <th class="credit">Credit</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                           
+                            <% @key_amounts = [] %>
+                            <!-- ACCOUNTING METHODOLGY -->
+                            <% @carried_forward = {debits: [], credits: []} %>
+
+                            <% @data[key].each do |tran| %>
+                              <!--  TB SERVICE PASSES DATA BACK AS +ve and -ve ie debits and credits -->
+                                <span style="display:none;" class="gl-export-data" 
+                                      data-gl-name="<%= key %>" 
+                                      data-id="<%= tran[:id] %>"
+                                      data-date="<%= tran[:date] %>"
+                                      data-amt="<%= tran[:amount] %>"   
+                                      data-tag="<%= tran[:mi_tag] %>"
+                                      data-desc="<%= tran[:description] %>"  
+                                      >
+                                </span>
+                                <% amount = tran[:amount] %>
+                                <% if amount >= 0.0 %>
+                                  <% @key_amounts << amount %>
+                                  <% @carried_forward[:debits] << amount %>
+                                  <tr>
+                                    <td><%= tran[:id] %></td>
+                                    <td><%= tran[:date] %></td>
+                                    <td><%= tran[:mi_tag] %></td>
+                                    <td><%= amount %></td>
+                                    <td>-</td>
+                                  </tr>
+                                <% end %>
+                                <% if tran[:amount] < 0.0 %>
+                                  <% amount = tran[:amount] %>
+                                  <% @key_amounts << amount %>
+                                  <% @carried_forward[:credits] << amount %>
+                                  <tr>
+                                    <td><%= tran[:id] %></td>
+                                    <td><%= tran[:date] %></td>
+                                    <td><%= tran[:mi_tag] %></td>
+                                    <td>-</td>
+                                    <td><%= amount %></td>
+                                  </tr>
+                                <% end %>
+                            <% end %>
+                            <!-- LEDGER ACCOUNT SUM OF TRNS  -->
+                            <% debit = @carried_forward[:debits].inject(:+).to_i %>
+                            <% credit = @carried_forward[:credits].inject(:+).to_i %>
+                            <!-- DISPLAY ROW -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><%= debit %></td>
+                                <td><%= credit %></td>
+                            </tr>
+                            <!-- CARRIED FORWARD CALC AND DISPLAY -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>c/f</td>
+                                <% carried_forward = debit + credit %>
+                                <% if carried_forward >= 0 %>
+                                    <!-- FLIP TO CALC CF IN ACCOUNTING VIEW -->
+                                    <td></td>
+                                    <td><%= carried_forward * -1 %></td>
+                                <% else %>
+                                    <!-- FLIP TO CALC CF IN ACCOUNTING VIEW -->
+                                    <td><%= carried_forward * -1 %></td>
+                                    <td></td>
+                                <% end %>
+                            </tr>
+                      </tbody>
+              </table> 

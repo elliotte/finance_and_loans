@@ -1,0 +1,124 @@
+<%= javascript_include_tag 'ledgers', 'ledgerShow' %>
+
+<%= render partial: 'button_board', locals: {ledger_type: @ledger.type.try(:underscore)} %>
+
+<div class="hero" style="background:#f3655e;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1>Opening Balance:  £ <%= @ledger.opening_balance.to_f.round(2) %> </h1>
+        <p style="color:white;"><%= @ledger.user_tag %> cashLedger Display and toolBelt</p>
+        <h3><a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a></h3>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- START OF HEADLINES GRID ITEMS -->
+<div id="headlines-grid">
+  <%= render 'headlines_grid' %>
+</div>
+<!-- END OF FIRST SHOW PAGE HEADLINES GRID -->
+
+<!-- START OF LEDGER SEARCH MANUAL FILTER HTML -->
+<%= render 'filterLedgerTool' %>
+<!-- END OF SEARCH TOOLS FILTER -->
+
+<!-- START OF FILTER BUTTONS -->
+<%= render partial: 'filter_buttons', locals: {ledger_type: @ledger.type.try(:underscore)} %>
+
+<!-- START OF SECOND GRID ITEMS -->
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="javascript:void(0)" class="grid-item" style="height: 20em;">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+      <h1>Timeline</h1>
+      <p style="color:#f3655e;">Ledger transaction timeline for the last 3 months unless filtered</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item grid-item-big" style="height: 20em;">
+      <div id="columnchart_values"></div>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+<!-- END OF SECOND SHOW PAGE GRID -->
+
+<!-- START OF TRANSACTIONS CHARTS -->
+<article class="type-system-rounded">
+      <div class="transaction-summary-cash-show">
+        <div>
+          <h1 style="color:#f3655e;">Ledger Payments</h1>
+          <div id="payment-pie-chart" style="width:100%;"></div>
+        </div>
+         <div>
+          <h1 style="color:#f3655e;">Ledger Lodgements</h1>
+          <div id="lodgement-pie-chart" style="width:100%;"></div>
+        </div>
+      </div>
+</article>
+<!-- END OF TRANSACTIONS CHARTS -->
+
+<!-- START OF TRANSACTIONS SUMMARY -->
+<article class="type-system-rounded">
+      <div class="transaction-summary-cash-show restrict-height">
+        <div>
+          <h1 style="color:#f3655e;">Summary Payments</h1>
+          <div id="ledger-payments">
+             <%= render 'payments_summary_table' %>
+          </div>
+        </div>
+        <div>
+          <h1 style="color:#f3655e;">Summary Lodgements</h1>
+            <div id="ledger-lodgements">
+              <%= render 'lodgements_summary_table' %>
+            </div>
+        </div>
+      </div>
+</article>
+<!-- END OF TRANSACTIONS SUMMARY -->
+
+<!-- START OF CASH BOOK VIEW UP TO 20 TRNS -->
+<div id="cash-book-container">
+    <article class="type-system-rounded">
+      <div class="pie-charts-cash-show" style="margin-bottom:0;">
+        <h1 style="color:#f3655e;">monea.cashBook</h1>
+        <p>Start: <%= (Time.now-3.month).strftime('%B %Y') %> End: <%= Time.now.strftime('%B %Y') %></p>
+      </div>
+    </article>
+
+    <% $trns_for_view = show_first_20 %>
+    <!-- CB VIEW SETUP FOR 20max DISPLAY -->
+    <%= render 'cash_book_view' %>
+    <!-- APPEND CONTAINER FOR NEXT 20 TRNS-->
+    <article class="type-system-rounded" >
+      <div id="next-trns-cash-book-container">
+      </div>
+    </article>
+    <!-- NEXT 20 BUTTON -->
+    <article class="type-system-rounded">
+      <div class="pie-charts-cash-show" id="next-trns-cash-book-container">
+        <table id="" class="table-minimal" style="font-size:80%;">
+           <tr colspan='6'>
+            <td><a id="next-20-button" data-report-id='<%= @ledger.id %>' data-offset='20' href="javascript:void(0);">View Next 20</a></td>
+           </tr>
+        </table>
+      </div>
+    </article>
+</div>
+<!-- END OF CASHBOOK VIEW -->
+
+<!-- START OF TIMELINE TRANSACTIONS DUMP -->
+<div id="timeline-transactions" style="display:none;">
+  <%= render 'transactions_timeline' %>
+</div>
+<!-- START OF MODALS -->
+<div>
+  <%= render 'cash_ledger_modals' %>
+  <%= render 'shared/modals' %>
+</div>
+
+<span id="ledger-id" style="display:none;" ><%= params[:id] %></span>
+

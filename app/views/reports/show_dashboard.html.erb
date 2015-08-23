@@ -1,0 +1,124 @@
+<%= javascript_include_tag 'reports' %>
+<%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
+<!-- DO WE NEED BOTH? H ADDED OTHER.. -->
+<span id="report-id" style="display:none;"><%= params[:id] %></span>
+
+<%= render partial: 'button_board', locals: {report: @report} %>
+<% $report_format = @report.format %>
+
+<div class="hero" style="background:#94CFD5;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1><%= @report.title %> .dash Page </h1>
+        <p style="color:white;">Summary: <%= @report.summary %></p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<% @retained_earnings = {} %>
+
+<% cp = @report.current_end.strftime("%B %Y") %>
+<% pp = @report.comparative_end.strftime("%B %Y") %>
+
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1>Example Name Ltd</h1>
+      <p style="color:#f3655e;">Reporting Entity <%= cp %> and <%= pp %></p>
+    </a>
+    <a href="javascript:void(0)" data-anchor="assets-graph" class="grid-item fs-scroll">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <h1>Business assets</h1>
+      <p style="color:#f3655e;">Financial statements and graphs</p>
+    </a>
+    <a href="javascript:void(0)" data-anchor="liabs-graph" class="grid-item fs-scroll">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+      <h1>Business liabilities</h1>
+      <p style="color:#f3655e;">Financial statements and graphs</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+
+<% if $report_format == 'IFRS' %>
+  <!-- USED IN FSDRAWCHARTS -->
+  <span id="dash-report-format" data-value="IFRS"></span>
+  <!-- IFRS MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
+  <% @tags = Tag.ifrs_fin_stat_tags %>
+  <%= render partial: 'reports/ifrs/p_n_l' %>
+  <br>
+  <br>
+  <%= render partial: 'reports/ifrs/assets' %>
+  <%= render partial: 'reports/ifrs/liabilities' %>
+  <%= render partial: 'reports/ifrs/equity' %>
+<% end %>
+
+<% if $report_format == 'UKGAAP' %>
+  <!-- USED IN FSDRAWCHARTS -->
+  <span id="dash-report-format" data-value="UKGAAP"></span>
+  <!-- UKGAAP MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
+  <% @tags = Tag.gaap_fin_stat_tags %>
+  <%= render :partial => 'reports/ukgaap/p_n_l' %>
+<% end %>
+
+<!-- EMPTY MODAL FOR FILTER -->
+<div class="modal">
+      <input class="modal-state" id="modal-report-dash-empty" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-report-empty"></div>
+              <div id="empty-report-modal-body">
+              </div>
+        </div>
+      </div>
+</div>
+
+<!-- USED FOR COMMENTS AND NOTES -->
+<div class="modal">
+    <input class="modal-state" id="modal-comment-note-form" type="checkbox" />
+    <div class="modal-fade-screen" style="">
+      <div class="modal-inner" style="min-height:70%;">
+        <div class="modal-close" for="modal-ledger-empty"></div>
+        <div>
+            <span id="modal-comment-note-body" class="table-minimal">
+            </span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<%= render 'report_data_modals' %>
+
+<div class="modal">
+  <input class="modal-state" id="dash-breakdown-modal" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <div class="modal-close" for="modal-ledger-empty">
+      </div>
+      <div id="dash-breakdown-modal-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+(function() {
+
+  $(".modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+
+})();
+</script>
+

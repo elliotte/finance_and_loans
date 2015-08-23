@@ -1,0 +1,187 @@
+<!-- HIDDEN PIE CHARTS MITAG PIVOT FIRST -->
+<article class="type-system-rounded">
+      <div class="transaction-summary-cash-show">
+        <div>
+          <h1 class="values-list-show action">List CY graph values</h1>
+          <div style="width:100%;">
+              <table id="cp-table" class="table-minimal" style="display:none;">
+                  <thead>
+                    <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>your Tag</th>
+                        <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                       <!-- FOR PIE CHARTs DATA ANALYSIS -->
+                      <% data = @data[:mitag_summary][:cp] %>
+                      <% data.each_pair do | key, amount | %>
+                            <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                            <tr class="cy-graph-rep-lines" data-key="<%= key %>" data-amount="<%= amount.abs %>">
+                              <td><%= @report.current_end.strftime("%B %Y") %></td>
+                              <td><%= key %></td>
+                              <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= amount %></td>
+                            </tr>
+                      <% end %>
+                  </tbody>
+                </table>
+            </div>
+          </div>  <!-- END OF CP-VALUES -->
+          <div>
+            <h1 class="values-list-show action">List PY graph values</h1>
+            <div style="width:100%;">
+                  <table id="pp-table" class="table-minimal" style="display:none;">
+                    <thead>
+                      <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>your Tag</th>
+                        <th>£</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- FOR PIE CHARTs DATA ANALYSIS -->
+                      <% data = @data[:mitag_summary][:pp] %>
+                      <% data.each_pair do | key, amount | %>
+                            <tr class="pp-graph-rep-lines" data-key="<%= key %>" data-amount="<%= amount.abs %>">
+                              <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                              <td><%= key %></td>
+                              <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= amount %></td>
+                            </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+            </div><!--   END OF TABLE DIV -->
+          </div><!--   END OF PP VALUES -->
+      </div>
+</article>
+<!-- END OF HIDDEN PIE CHARTS MITAG PIVOT FIRST -->
+<!-- PIVOT DESCRIPTION START -->
+<article class="type-system-rounded">
+      <div class="transaction-summary-cash-show">
+        <div>
+          <h1 style="color:#f3655e;">CY by description</h1>
+          <div style="width:100%;">
+              <table id="" class="table-minimal">
+                  <thead>
+                    <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <% data = @data[:description][:cp] %>
+                      <% data.each_pair do | key, amount | %>
+                            <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                              <% if !key %>
+                                <tr>
+                                    <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                    <td>Oops - check values</td>
+                                    <td>Oops</td>
+                                </tr>
+                              <% else %>
+                                  <tr>
+                                    <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                    <td><%= key %></td>
+                                    <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= amount %></td>
+                                  </tr>
+                              <% end %>
+                            
+                      <% end %>
+                  </tbody>
+                </table>
+            </div>
+          </div>  <!-- END OF CP-VALUES -->
+          <div>
+            <h1 style="color:#f3655e;">PY by description</h1>
+            <div style="width:100%;">
+                  <table id="" class="table-minimal">
+                    <thead>
+                      <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>£</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% data = @data[:description][:pp] %>
+                      <% data.each_pair do | key, amount | %>
+                            <tr>
+                              <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                              <td><%= key %></td>
+                              <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'comparative')"><%= amount %></td>
+                            </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+            </div><!--   END OF TABLE DIV -->
+          </div><!--   END OF PP VALUES -->
+      </div>
+</article>
+
+<!-- END PIVOT DESCRIPTION END -->
+<!-- START OF JOURNALS -->
+  <!-- NO MITAG PIVOT USED -->
+<article class="type-system-rounded">
+      <div class="transaction-summary-cash-show">
+        <div>
+          <h1 style="color:#f3655e;">CY Journals</h1>
+          <div style="width:100%;">
+              <table id="cp-table" class="table-minimal">
+                  <thead>
+                    <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>your Tag</th>
+                        <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% data = @data[:description][:cp_etb] %>
+                    <% data.each_pair do | key, amount | %>
+                          <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                          <tr>
+                            <td><%= @report.current_end.strftime("%B %Y") %></td>
+                            <td><%= key %></td>
+                            <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'current')" data-description="<%= key %>"><%= amount %></td>
+                          </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+            </div>
+          </div>  <!-- END OF CP-VALUES -->
+          <div>
+            <h1 style="color:#f3655e;">PY Journals</h1>
+            <div style="width:100%;">
+                  <table id="pp-table" class="table-minimal">
+                    <thead>
+                      <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>your Tag</th>
+                        <th>£</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% data = @data[:description][:pp_etb] %>
+                      <% data.each_pair do | key, amount | %>
+                            <tr>
+                              <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                              <td><%= key %></td>
+                              <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'comparative')" data-description="<%= key %>"><%= amount %></td>
+                            </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+            </div><!--   END OF TABLE DIV -->
+          </div><!--   END OF PP VALUES -->
+      </div>
+</article>
+
+<script>
+
+  $('.values-list-show').on('click', function() {
+      $('#cp-table').toggle()
+      $('#pp-table').toggle()
+  });
+ 
+</script>
+

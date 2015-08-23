@@ -1,0 +1,12 @@
+<div id="disclosure_<%= disclosure.id %>" class="comment">
+  <div class="comment-image">
+  	<%= link_to image_tag("ico4b.png", width: 50), edit_report_disclosure_path(@report, disclosure), remote: true %>
+  </div>
+  <div class="comment-content">
+    <h1 style="color:#f3655e;"><%= disclosure.title %></h1>
+    <p><%= disclosure.body %></p>
+    <p class="comment-detail"><%= disclosure.type %>  <%= link_to "Remove", report_disclosure_path(@report, disclosure), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></p>
+  </div>
+</div>
+
+

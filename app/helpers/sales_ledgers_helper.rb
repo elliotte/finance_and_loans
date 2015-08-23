@@ -1,0 +1,2 @@
+module SalesLedgersHelper
+end

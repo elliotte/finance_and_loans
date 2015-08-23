@@ -1,0 +1,52 @@
+<!-- NAV BUTTON AND POSITION CONTAINER -->
+<div id="nav-button-container">
+	<button type="button" class="js-menu-trigger sliding-panel-button">
+	  <img src="<%= asset_path('menu-white.png') %>" alt="Menu Icon">
+	</button>
+</div>
+
+
+<!-- NAV FADE SCREE AND SLIDER WITH BUTTONS -->
+<div class="js-menu-screen sliding-panel-fade-screen"></div>
+<nav class="js-menu sliding-panel-content">
+  <ul>
+    <% path = request.fullpath %>
+      
+      <% if request.fullpath == "/" %>
+                <br>    
+                <li><a href="/"> Home </a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/ledgers">Ledgers</a></li>
+                <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+                <li><a href="" target="_blank">Resources</a></li>
+                <li><%= link_to('SignOut', "", id: 'disconnect') %></li>
+      <% end %>
+      <% if route_has_pattern(path, "ledgers") %>
+            <br>
+            <li><a href="/"> Home </a></li>
+            <li><%= link_to 'CashBook.new', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+             <li><a href="" target="_blank">Resources</a></li>
+            <li><%= link_to('SignOut', "", id: 'disconnect') %></li>
+
+      <% end %>
+      <% if route_has_pattern(path, "reports") %>
+          <br>
+          <li><a href="/"> Home </a></li>
+          <li><%= link_to 'Report.new', new_report_path(type: ''), remote: true, class: 'button'%></li>
+          <li><a href="/ledgers">Ledgers</a></li>
+          <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+          <li><a href="" target="_blank">Resources</a></li>
+          <li><%= link_to('SignOut', "", id: 'disconnect') %></li>
+      <% end %>
+  </ul>
+</nav>
+
+<script>
+  $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
+    $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+    e.preventDefault();
+  });
+</script>
+

@@ -1,0 +1,124 @@
+<!-- TRIAL BALANCE SERVICE OBJ HAS ALREADY FLIPPED NUMBERS INTO ACCOUNTING DEBIT AND CREDIT DISPLAY LOGIC -->
+<%= javascript_include_tag 'trialBalance' %>
+
+<%= render partial: 'button_board', locals: {ledger_type: @ledger.type.try(:underscore)} %>
+
+<div class="hero" style="background:#94CFD5;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico1hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1> monea.TB </h1>
+        <p style="color:white;">{ and General Ledger view }</p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<article class="type-system-rounded">
+        <!-- FOR PADDING -->
+        <div class="pie-charts-cash-show">
+
+            <h1 style="color:#f3655e;"><%= @ledger.user_tag %>.TB</h1>
+            <p>Generated: <%= Time.now.strftime('%d %B %Y %T') %></p>
+            <% @key_totals = {} %>
+            <!-- FOR FINANCIAL CONTROL -->
+            <% @ledger_account_totals = [] %>
+
+            <table id="tb-header" class="table-minimal" style="font-size:90%;">
+                  <thead>
+                    <tr style="color:#f3655e;">
+                      <th class="acc">Ledger</th>
+                      <th>-</th>
+                      <th>-</th>
+                      <th class="debit">Debit</th>
+                      <th class="credit">Credit</th>
+                    </tr>
+                  </thead>
+            </table>
+
+            <% @data.each_key do |key| %>
+                <!-- HIDDEN GRANULAR TRANSACTIONS FOR T_ACCOUNT DISPLAY -->
+                <%= render partial: 'general_ledger_tables', locals: {key: key} %>
+                <!-- VISIBLE SUMMARY OF LEDGER ACCOUNT FOR TB -->
+                <table class="table-minimal gl-summary-table" style="font-size:90%;">
+                      <tbody>
+                        <tr>
+                          <% total = @key_totals[key] = @key_amounts.inject(:+).to_i %>
+                          <% @ledger_account_totals << total %>
+                          <td data-key="<%= key %>" class="acc"><%= key %></td>
+                          <td>-</td>
+                          <td>-</td>
+                              <% if total >= 0.00 %>
+                                  <td data-key="<%= key %>" class="debit ledger_account"><%= total %></td>
+                                  <td class="credit">0</td>
+                              <% else %>
+                                  <td class="debit">0</td>
+                                  <td data-key="<%= key %>" class="credit ledger_account"><%= total %></td>
+                              <% end %>
+                        </tr>
+                      </tbody>
+                </table>
+            <% end %> <!-- END OF EACH DATA KEY -->
+
+            <table id="tb-totals-check" class="table-minimal">
+                    <tr>
+                         <td class="acc">Financial-control</td>
+                         <td></td>
+                         <td>rounding if < 5</td>
+                        <% total = @ledger_account_totals.inject(:+).to_i %>
+                        <% if total >= 0.00 %>
+                            <td class="debit"><%= total %></td>
+                            <td class="credit">0</td>
+                        <% else %>
+                            <td class="debit">0</td>
+                            <td class="credit"><%= total %></td>
+                        <% end %>
+                    <tr>
+            </table>
+            <!-- USED FOR TB EXPORT TO CSV trialBalanceHelper.exportTBToGoogle() -->
+            <!-- TO ADD FC CHECKS USE -->
+            <% @key_totals.each_pair do |key, amount| %>
+              <p class="key-total-line" data-key="<%= key %>" data-amount="<%= amount %>"></p>
+            <% end %>
+
+        </div>
+</article>
+
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+      <!-- FOR PADDING -->
+      <% route = "javascript:void(0)" %>
+      <div class="pie-charts-cash-show">
+        <h1 style="color:#f3655e;">Export.new</h1>
+        <a class="grid-item" onclick="trialBalanceHelper.exportTBToGoogle();" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png">
+          <h1>Trial balance to google.spreadsheet</h1>
+        </a>
+        <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png">
+          <h1>Trial balance to monea.report</h1>
+        </a>
+        <a class="grid-item" onclick="trialBalanceHelper.exportGLToGoogle();" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png">
+          <h1>General Ledger to google.spreadsheet</h1>
+        </a>
+        <div class="right-cover"></div>
+        <div class="bottom-cover"></div>
+      </div><!--   END OF PADDING -->
+  </div>
+</article>
+
+
+<span id="tb-id" style="display:none;"><%= params[:id] %></span>
+
+<%= render 'shared/modals' %>
+
+
+<script>
+  trialBalanceHelper.setGLTableListeners();
+  $(".modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+</script>

@@ -1,0 +1,8 @@
+
+$('#modal-empty-sales-body-append').empty()
+       
+text = '<article class="type-system-rounded">' + 
+	'<p>' + '<a href="<%= @result.data.alternateLink %>" target="_blank">View Export</a>' + 
+	'</p>' + '</article>';
+
+$('#modal-empty-sales-body-append').html(text)

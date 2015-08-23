@@ -1,0 +1,16 @@
+
+var value_card = $('#' + '<%= @value.id %>' );
+$(value_card).fadeOut();
+
+html = '<tr id="<%= @value.id %>">' + 
+			'<td>' + 'UPDATED' + '</td>' +
+			'<td>' +' <%= @value.id %>' + '</td>' +
+			'<td>' +' <%= @value.mitag %>' + '</td>' +
+			'<td>' + '</td>' +
+			'<td>' + '</td>' +
+		+ '</tr>'
+
+$( "#report-manager-table-body" ).prepend( html );
+
+
+	

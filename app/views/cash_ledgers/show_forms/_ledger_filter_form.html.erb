@@ -1,0 +1,10 @@
+<div class="row" style="float:right; padding-right:150px;">
+	  <div class="col-md-12">
+			<%= form_tag transactions_for_cash_ledger_path, :method => 'get', remote: true do %>
+		  	<%= hidden_field_tag :period , "manual" %>
+		    <p>From:<%= date_select("from", "date", default: 3.months.ago) %></p>
+		    <p>To:<%= date_select("to", "date", default: Date.today)%></p>
+		    <%= button_tag "Filter", class: 'button' %>
+			<% end %>
+	  </div>
+</div>

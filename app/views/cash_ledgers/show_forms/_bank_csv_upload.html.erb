@@ -1,0 +1,20 @@
+
+<article class="type-system-rounded">
+
+      <h1>bank CSV import</h1>
+      <p> (to choose one from your gDrive use ..) </p>
+
+      <%= form_tag user_csv_import_cash_ledgers_path, multipart: true do %>
+                <%= hidden_field_tag :bank, true %>
+                <%= hidden_field_tag :ledger_id , @ledger.id %>
+              <table id="upload-bank-csv-form" class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td style="color:#f3655e;"><%= file_field_tag :file %></td>
+                        <td><%= submit_tag "Import CSV" %></td>
+                      </tr>
+                    </tbody>
+                </table>
+      <% end %> 
+
+</article>

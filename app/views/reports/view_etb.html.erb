@@ -1,0 +1,152 @@
+<%= javascript_include_tag 'reports' %>
+
+<%= render partial: 'button_board', locals: {report: @report} %>
+
+<div class="hero" style="background:#94CFD5;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1><%= @report.title %> .ETB Page </h1>
+        <p style="color:white;">Summary: <%= @report.summary %></p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<br>
+<!-- IFRS MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
+<%# @tags = Tag.ifrs_fin_stat_tags %>
+<% cp = @report.current_end.strftime("%B %Y") %>
+
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="" class="grid-item" data-remote="true">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1>TB.export</h1>
+      <p style="color:#94CFD5;">to spreadsheet</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <h1>Journals.export</h1>
+      <p style="color:#94CFD5;">to spreadsheet</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+      <h1>Export.all</h1>
+      <p style="color:#94CFD5;">to spreadsheet</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+
+<% tb_lines = @data[:tb].group_by(&:ifrstag) %>
+<% @tags = Tag.ifrs_user_select_options %>
+<% @no_mapping = [] %>
+
+<article class="type-system-rounded">
+         <!-- FOR PADDING -->
+        <div class="pie-charts-cash-show">
+          <h1 style="color:#f3655e;"><a href="javascript:void(0);">ETB incl. invalid ifrs tags</a></h1>
+          <table class="table-minimal" style="font-size:80%;">
+               <thead>
+                 <tr style="color:#f3655e;">
+
+                    <th >TAG</th>
+                    <th >Opening (£)</th>
+                    <th></th>
+                    <!-- EXTRACT JNL NUMS FOR HEADERS -->
+                    <% $report_jnl_nums = @data[:etb].map(&:mitag).uniq %>
+                    <%# $report_jnl_tag_lines = @data[:etb].map(&:ifrstag).uniq %>
+                    <% $report_jnl_nums.each do |jnl_num| %>
+                      <th class="etb-jnl-headers" data-id="<% jnl_num %>"><%= jnl_num %></th>
+                    <% end %>
+
+                    <th >Closing TB</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <% tb_lines.keys.each do |description| %>
+
+                      <% amt = tb_lines[description].try(:sum, &:amount).to_f.round(0) || 0 %>
+                      <% if @tags.include? description %>
+                          <tr class="reporting-line" data-desc="<% description %>">
+                            <td><%= description %></td>
+                            <td><%= amt %></td>
+                            <td style="background-color:#f3655e;"></td>
+                          </tr>
+                      <% else %>
+                          <% @no_mapping << { description => amt } %>
+                      <% end %>
+                  <% end %>
+
+                  <% @no_mapping.each do |invalid_line| %>
+                      <% invalid_line.each_pair do |description, amt| %>
+                          <tr>
+                              <td style="color:#f3655e;"><%= description %></td>
+                              <td></td>
+                              <td><%= amt %></td>
+                          </tr>
+                      <% end %>
+                  <% end %>
+
+                </tbody>
+           </table>
+        </div>  <!-- END OF PADDING DIV -->
+</article>
+
+<article class="type-system-rounded">
+         <!-- FOR PADDING -->
+        <div class="pie-charts-cash-show">
+          <h1 style="color:#f3655e;"><a href="javascript:void(0);">ETB excl. invalid ifrstags</a></h1>
+          <table class="table-minimal" style="font-size:80%;">
+               <thead>
+                 <tr style="color:#f3655e;">
+                    <th >TAG</th>
+                    <th >Opening (£)</th>
+                    <th>-</th>
+
+                    <!-- EXTRACT JNL NUMS FOR HEADERS -->
+                    <% $report_jnl_nums = @data[:etb].map(&:mitag).uniq %>
+
+                    <% $report_jnl_nums.each do |jnl_num| %>
+                      <th id="<% jnl_num %>"><%= jnl_num %></th>
+                    <% end %>
+
+                    <th >Closing TB</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% tb_lines = @data[:tb].group_by(&:ifrstag) %>
+                  <% @tags.each do |tag| %>
+                      <% tb_line = tb_lines[tag] %>
+                      <% if !nil %>
+                          <% amt = tb_lines[tag].try(:sum, &:amount).to_f.round(0) || 0 %>
+                          <% if amt != 0 %>
+                            <tr>
+                              <td><%= tag %></td>
+                              <td><%= amt %></td>
+                              <td style="background-color:#f3655e;"></td>
+                            </tr>
+                          <% end %>
+                      <% end %>
+                  <% end %>
+                </tbody>
+           </table>
+        </div>  <!-- END OF PADDING DIV -->
+</article>
+
+<% journals = @data[:etb].group_by(&:mitag) %>
+
+<script>
+  etbHelper.cacheData();
+</script>
+
+
+
+
+

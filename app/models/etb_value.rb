@@ -1,0 +1,2 @@
+class EtbValue < Value
+end

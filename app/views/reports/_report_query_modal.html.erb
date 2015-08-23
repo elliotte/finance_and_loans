@@ -1,0 +1,50 @@
+		<div class="getReport">
+			<h1>yourLead financial statements:</h1>
+			<%= form_tag report_finstats_path(@report), :method => :get , id: "getfinstats" do %>
+			<p>Year One</p>
+			<%= select_date Date::today, :prefix => 'yearOne', :order => [:month, :year] %>
+			<p>Year Two</p>
+			<%= select_date Date::today, :prefix => 'yearTwo', :order => [:month, :year] %>
+			<%= submit_tag 'Generate' %>
+			<% end %>
+	    </div>
+	    <div class="getReport">
+			<h1>yourReportNotes:</h1>
+			<%= form_tag report_finstats_path(@report), :method => :get , id: "" do %>
+			<p>Year One</p>
+			<%= select_date Date::today, :prefix => 'yearOne', :order => [:month, :year] %>
+			<p>Year Two</p>
+			<%= select_date Date::today, :prefix => 'yearTwo', :order => [:month, :year] %>
+			<%= submit_tag 'Generate' %>
+			<% end %>
+	    </div>
+	    <div class="getReport">
+			<h1>yourRatios:</h1>
+			<%= form_tag report_finstats_path(@report), :method => :get , id: "" do %>
+			<p>Year One</p>
+			<%= select_date Date::today, :prefix => 'yearOne', :order => [:month, :year] %>
+			<p>Year Two</p>
+			<%= select_date Date::today, :prefix => 'yearTwo', :order => [:month, :year] %>
+			<%= submit_tag 'Generate' %>
+			<% end %>
+	    </div>
+	    <div class="getReport">
+			<h1>yourDirectorReport:</h1>
+			<%= form_tag report_dirrep_path(@report), :method => :get , id: "getdirrep" do %>
+			<p>Year One</p>
+			<%= select_date Date::today, :prefix => 'yearOne', :order => [:month, :year] %>
+			<p>Year Two</p>
+			<%= select_date Date::today, :prefix => 'yearTwo', :order => [:month, :year] %>
+			<%= submit_tag 'Generate' %>
+			<% end %>
+	    </div>
+	    <div class="getReport">
+			<h1>yourReportModel:</h1>
+			<%= form_tag report_finstats_path(@report), :method => :get , id: "" do %>
+			<p>Year One</p>
+			<%= select_date Date::today, :prefix => 'yearOne', :order => [:month, :year] %>
+			<p>Year Two</p>
+			<%= select_date Date::today, :prefix => 'yearTwo', :order => [:month, :year] %>
+			<%= submit_tag 'Generate' %>
+			<% end %>
+	    </div>

@@ -1,0 +1,11 @@
+// $('.notice').delay(500).fadeIn('slow');
+// $('.notice').html('Updated successfully' + 'to add link_to_transaction_path' + '<%= @transaction.id %>' )
+// $('.notice').delay(1500).fadeOut();
+var transaction_card = $('#' + '<%= @transaction.id %>' );
+//$(transaction_card).remove();
+var ID = '<%= @transaction.id %>'
+$(transaction_card).html(
+  '<td onclick="cashLedgerMgr.displayTransaction(ID);">Transaction ID: ' + '<%= @transaction.id %> ' +' updated..</td>'
+);
+
+

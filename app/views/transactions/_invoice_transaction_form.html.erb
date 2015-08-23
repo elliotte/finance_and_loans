@@ -1,0 +1,63 @@
+<% if current_user.sales_ledgers.count == 0 %>
+
+    <article class="type-system-rounded">
+          <h1 style="color:#f3655e;">No sales Books</h1>
+          <p> ( you need to create a sales Book before you can raise invoices ) </p>
+          <p><%= link_to 'Salesbook.new', new_ledger_path(type: 'SalesLedger'), remote: true, class: 'button'%></p>
+    </article>
+
+<% else %>
+
+    <article class="type-system-rounded">
+
+          <h1>Raise Invoice</h1>
+          <%= form_for @transaction, remote: true do |f| %>
+
+              <table id="" class="table-minimal">
+                  <tbody>
+                        <!-- sets ledgerID unless not given -->
+                        <% if params[:id] %>
+                            <%= hidden_field_tag 'transaction[ledger_id]', params[:id] %>
+                        <% else %>
+                          <tr>
+                            <td style="color:#f3655e;"><%= f.label :choose_sales_book %></td>
+                            <td class="input-style"> <%= f.select :ledger_id, current_user.sales_ledgers.all.collect{|l| [l.user_tag, l.id]} %></td>
+                          </tr>
+                        <% end %>
+                        <tr>
+                          <td style="color:#f3655e;"><%= f.label :amount %></td>
+                          <td> <%= f.text_field :amount, placeholder: 'e.g 1234.56' %></td>
+                        </tr>
+                        <tr>
+                          <td style="color:#f3655e;"><%= f.label :vat %></td>
+                          <td> <%= f.text_field :vat %></td>
+                        </tr>
+                        <tr>
+                          <td style="color:#f3655e;"><%= f.label :acc_date %></td>
+                          <td> <%= f.date_select :acc_date %></td>
+                        </tr>
+                        <tr>
+                          <td style="color:#f3655e;"><%= f.label :invoice_link %></td>
+                          <td> <%= f.text_field :invoice_file_link, placeholder: 'leave blank or paste fileLink' %></td>
+                        </tr>
+                        <tr>
+                          <td style="color:#f3655e;"><%= f.label :mi_tag %></td>
+                          <td> <%= f.text_field :mi_tag, placeholder: 'tag for your analysis' %></td>
+                        </tr>
+                        <tr>
+                          <td style="color:#f3655e;"><%= f.label :description %></td>
+                          <td> <%= f.text_area :description, placeholder: "used in graph display" %></td>
+                        </tr>
+                        <%= hidden_field_tag 'transaction[type]', 'Transaction' %>
+                        <%= hidden_field_tag 'transaction[monea_tag]', 'Sales' %>
+                        <%= hidden_field_tag 'transaction[paid]', false %>
+                        <tr>
+                          <td class="button-style"><%= f.submit %></td>
+                          <td></td>
+                        </tr>
+                    </tbody>
+              </table>
+          <% end %>
+    </article>
+
+<% end %>

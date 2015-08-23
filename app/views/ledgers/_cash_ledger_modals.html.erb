@@ -1,0 +1,48 @@
+<article class="type-system-rounded">
+    <!-- MANUAL FILTER MODAL -->
+    <div class="modal">
+        <input class="modal-state" id="modal-manual-filter" type="checkbox" />
+        <div class="modal-fade-screen">
+          <div class="modal-inner">
+            <div class="modal-close" for="modal-manual-filter"></div>
+            <h1 style="color:#f3655e;">Filter Range</h1>
+            <%= form_tag transactions_for_cash_ledger_path, :method => 'get', remote: true do %>
+                    <%= hidden_field_tag :period , "manual" %>
+                    <table id="upload-bank-csv-form" class="table-minimal">
+                      <tbody>
+                          <tr>
+                            <td style="color:#f3655e;">From</td>
+                            <td><%= date_select("from", "date", default: 3.months.ago) %></td>
+                          </tr>
+                          <tr>
+                            <td style="color:#f3655e;">To</td>
+                            <td><%= date_select("to", "date", default: Date.today)%></td>
+                          </tr>
+                          <tr>
+                           <td class="button-style"><%= button_tag "Filter" %></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                   
+             <% end %>
+          </div>
+        </div>
+    </div>
+    <!-- EMPTY TABLE MODAL -->
+    <!-- USED FOR DISPLAY SUMMARY TRNS BY TAG -->
+    <div class="modal">
+        <input class="modal-state" id="modal-table-empty" type="checkbox" />
+        <div class="modal-fade-screen">
+          <div class="modal-inner">
+            <div class="modal-close" for="modal-ledger-empty"></div>
+            <div id="empty-table-modal-body-append">
+                <div style="color:#f3655e;" id="table-title"></div>
+                <br>
+                <table id="empty-modal-table" class="table-minimal">
+                </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</article>

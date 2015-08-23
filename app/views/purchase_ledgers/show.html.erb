@@ -1,0 +1,130 @@
+
+<%= render partial: 'button_board', locals: {ledger_type: @ledger.type.try(:underscore)} %>
+
+<div class="container-fluid" style="background-color:#F3655E; padding: 15px;">
+      <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-8">
+                  <a class="w-inline-block" style="z-index:2;" href="/">
+                    <img src="<%= asset_path('mfLogo.png') %>" width="120" alt="53e4ba85a4bf49cb45b75241_mfLogo.png" style="margin-left:50px;">
+                  </a>
+              </div>
+              <div class="col-md-4">
+                  <a class="w-inline-block" href="/ledgers">Ledgers</a>
+                  <a class="w-inline-block" href="/reports">Reports</a>
+                  <a class="w-inline-block" href="/files">Files</a>
+                  <a class="w-inline-block" href="/">Teams</a>
+                  <%= link_to('SignOut', sign_out_user_welcome_index_path, 'data-no-turbolink' => true, class: 'w-inline-block') %>
+              </div>
+            </div>
+          </div>
+      </div>
+</div>
+
+<a id="showBottom" class="bottom-bar-activate" href="#">
+    <img src="<%= asset_path('ico5b.png') %>" width="50" alt="53e8b02aa758fb4f3644f741_ico5b.png">
+</a>
+
+<div class="container-fluid ledger-page-show-container">
+      <div class="row" style="float:right; padding-right:150px;">
+          <div class="col-md-12">
+              <%= form_tag transactions_for_purchase_ledger_path, :method => 'get', remote: true do %>
+                  <%= hidden_field_tag :period , "manual" %>
+                  From:  <%= date_select("from", "date", default: 3.months.ago) %>
+                  To:  <%= date_select("to", "date", default: Date.today)%>
+                  <%= button_tag "Filter", class: 'button' %>
+             <% end %>
+          </div>
+      </div>
+      <div class="row" style="float:right; padding-right:150px; margin-top: 5px;">
+          <div class="col-md-12">
+              <%= form_tag share_with_team_purchase_ledger_path(@ledger), :method => 'put' do %>
+                  Share ledger with team
+                  <%= select_tag 'team_id', options_from_collection_for_select(ledger_team_list, 'first', 'last')  %>
+              <%= submit_tag 'Share', class: 'button' %>
+             <% end %>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+            <h2 class="sp"><span class="light">Your <%= @ledger.type %></span></h2>
+          </div>
+      </div>
+      <div class="row" style="margin: 25px 0px 25px 0px;">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-8">
+                  <div class="team-div">
+                    <div class="team-name">Last 3 months transactions</div>
+                  </div>
+                 <div id="columnchart_values"></div>
+              </div>
+              <div class="col-md-4 ledger-page-show-background">
+                  <div class="team-div">
+                    <div class="team-name">Headlines</div>
+                  </div>
+                  <table id="headlines-table" style='margin:10px'>
+                       <%= render 'headlines_summary_table' %>
+                  </table>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="margin: 50px 0px 25px 0px;">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="team-div">
+                    <div class="team-name" >Ledger Payments</div>
+                </div>
+                <div id="payment-pie-chart" style="width: 100%; height: 250px;"></div>
+              </div>
+              <div class="col-md-6">
+                 <div class="team-div">
+                    <div class="team-name">Ledger Lodgements</div>
+                  </div>
+                 <div id="lodgement-pie-chart" style="width: 100%; height: 250px;"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row" style="margin: 50px 0px 25px 0px;">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6 ledger-page-show-background">
+                <div class="team-div">
+                    <div class="team-name" style="padding: 15px;">Ledger Payments</div>
+                </div>
+                <table id="ledger-payments" class="summary-table" style='margin:10px'>
+                    <%= render 'payments_summary_table' %>
+                </table>
+              </div>
+              <div class="col-md-6 ledger-page-show-background">
+                  <div class="team-div">
+                    <div class="team-name" style="padding: 15px;">Ledger Lodgements</div>
+                  </div>
+                <table id="ledger-lodgements" class="summary-table" style='margin:10px'>
+                    <%= render 'lodgements_summary_table' %>
+                </table>
+              </div>
+            </div>
+          </div>
+      </div>
+</div>
+
+<%= render 'transactions_timeline' %>
+
+<div class="container-fluid" style="background-color:#FFFFEB; padding: 15px;">
+    <%= render '/cash_ledgers/cash_book_view' %>
+</div>
+
+<div id="new-transaction" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
+

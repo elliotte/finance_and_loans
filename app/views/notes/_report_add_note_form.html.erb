@@ -1,0 +1,32 @@
+<article class="type-system-rounded">
+  <h1>
+    <% if @note.new_record? %>
+      Report.note.new
+    <% else %>
+      Report.note.edit
+    <% end %>
+  </h1>
+  <p style="color:#f3655e;"><a href="javascript:void(0)">enter comment text below</a></p>
+  <%= form_for([@report, @note], remote: true) do |f| %>
+      <table class="table-minimal">
+      <tbody>
+              <tr>
+                <td></td>
+                <td><%= f.text_area :body, placeholder: "e.g. bank t-account reconciliation spreadsheet" %></td>
+              </tr>
+              <tr>
+                <td>Reference backup file:</td>
+                <td><%= f.text_field :filelink, placeholder: "paste link.." %></td>
+              </tr>
+              <%= f.hidden_field :commenter, value: current_user.email %>
+              <%= f.hidden_field :subject %>
+              <tr>
+                <td class="button-style"><%= submit_tag 'Save Note' %></td>
+                <td></td>
+              </tr>
+          </tbody>
+    </table>
+  <% end %>
+</article>
+
+

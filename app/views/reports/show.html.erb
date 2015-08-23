@@ -1,0 +1,210 @@
+<%= javascript_include_tag 'reports' %>
+
+<%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
+<%= render partial: 'button_board', locals: {report: @report} %>
+
+<div class="hero" style="background:#f3655e;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1><%= @report.title %> .build page </h1>
+        <p style="color:white;">Summary: <%= @report.summary %></p>
+        <h3><a style="color:#fff; text-decoration:none;" href="<%= @report.drive_folder %>" target="_blank">View { Backup Folder }</a></h3>
+        <p style="color:white;"><a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a></p> 
+      </article>
+    </div>
+  </div>
+</div>
+
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1><%= @report.format %></h1>
+      <p style="color:#f3655e;">Format</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <% cp_date = @report.current_end.strftime("%B %Y") %>
+      <h1><%= cp_date %></h1>
+      <p style="color:#f3655e;">Current</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+      <% pp_date = @report.comparative_end.strftime("%B %Y") %>
+      <h1><%= pp_date %></h1>
+      <p style="color:#f3655e;">Comparative</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+
+<!-- START OF TRANSACTIONS CHARTS -->
+<article class="type-system-rounded">
+      <div class="transaction-summary-cash-show">
+        <div>
+          <div id="cp-pie-chart" style="width:100%;"></div>
+        </div>
+         <div>
+          <div id="pp-pie-chart" style="width:100%;"></div>
+        </div>
+      </div>
+</article>
+
+<%= render partial: 'show_values_pivot_summary' %>
+
+<!-- COMMENTS NOTES AND DISCLOSURS -->
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+    <a href="javascript:void(0)" class="grid-item" onclick="$('#report-notes-modal').trigger('click');">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1>Notes.all</h1>
+      <p style="color:#f3655e;"  >View</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item" onclick="$('#report-comments-modal').trigger('click');">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <h1>Comments.all</h1>
+      <p style="color:#f3655e;">View</p>
+    </a>
+    <a href="<%= manager_report_disclosures_path(@report) %>" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+
+      <h1>Disclosures.all</h1>
+      <p style="color:#f3655e;">GoTo</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+</article>
+
+
+<article class="type-system-rounded title-section">
+  <h1 style="color:#f3655e;">Global disclosures</h1>
+</article>
+
+<article class="type-system-rounded disclosures-section">
+      <% @report.disclosures.each do |disclosure| %>
+          <%= render partial: 'report_disclosures', locals: { disclosure: disclosure } %>
+      <% end %>
+</article>
+
+<% @data[:c_period_values].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="tb_<%= v.mitag.gsub(" ", "-") %> value-lookup"
+        data-period="current"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:p_period_values].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="tb_<%= v.mitag.gsub(" ", "-") %> value-lookup"
+        data-period="comparative"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:c_period_values_etb].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="etb_<%= v.mitag.gsub(/[^A-Z0-9]+/i, '') %>"
+        data-period="current"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:p_period_values_etb].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="etb_<%= v.mitag.gsub(/[^A-Z0-9]+/i, '') %>"
+        data-period="comparative"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<!-- USED FOR COMMENTS AND NOTES -->
+<%= render 'report_data_modals' %>
+<!-- EMPTY MODAL FOR FILTER -->
+<div class="modal">
+      <input class="modal-state" id="modal-report-show-empty" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-report-empty"></div>
+              <div id="empty-report-modal-body">
+              </div>
+        </div>
+      </div>
+</div>
+<!-- EMPTY TABLE MODAL -->
+<!-- USED FOR DISPLAY SUMMARY TRNS BY TAG -->
+<div class="modal">
+    <input class="modal-state" id="modal-table-empty" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <div class="modal-close" for="modal-ledger-empty"></div>
+        <div id="empty-table-modal-body-append">
+            <div style="color:#f3655e;" id="table-title"></div>
+            <br>
+            <table id="empty-modal-table" class="table-minimal">
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- USED FOR EXPORT FORM -->
+<div class="modal">
+    <input class="modal-state" id="modal-export-form" type="checkbox" />
+    <div class="modal-fade-screen" style="">
+      <div class="modal-inner" style="min-height:70%;">
+        <div class="modal-close" for="modal-ledger-empty"></div>
+        <div>
+            <span id="modal-export-table-body" class="table-minimal">
+            </span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- USED FOR COMMENTS AND NOTES -->
+<div class="modal">
+    <input class="modal-state" id="modal-comment-note-form" type="checkbox" />
+    <div class="modal-fade-screen" style="">
+      <div class="modal-inner" style="min-height:70%;">
+        <div class="modal-close" for="modal-ledger-empty"></div>
+        <div>
+            <span id="modal-comment-note-body" class="table-minimal">
+            </span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+
+(function() {
+
+  $(".modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+
+})();
+</script>
+

@@ -1,0 +1,37 @@
+<article id="update-ledger-clear" class="type-system-rounded">
+
+      <h1>dayBook settings</h1>
+      <p style="color:#f3655e;"> <%= @ledger.type %> </p>
+
+      <p style="color:#f3655e;">Users ( <%= @ledger.viewers.count %> )  <a href="javascript:void(0)">Manage ledger viewers</a></p>
+
+     <%= form_for(@ledger, :url => {controller: 'ledgers', action: 'update'}, remote: true ) do |f| %>
+
+          <table class="table-minimal">
+              <tbody>
+                  <tr>
+                    <td style="color:#f3655e;"> your Ledger Tag </td>
+                    <td><%= f.text_field :user_tag %></td>
+                  </tr>
+                  <% if @ledger.type == "SalesLedger" %>
+                  <tr>
+                    <td style="color:#f3655e;"> Drive Folder </td>
+                    <td><%= f.text_field :drive_folder %></td>
+                  </tr>
+                  <% else %>
+                  <tr>
+                    <td style="color:#f3655e;"> Opening Balance </td>
+                    <td><%= f.text_field :opening_balance %></td>
+                  </tr>
+                  <% end %>
+                  <tr>
+                    <td style="color:#f3655e;"></td>
+                    <td class="button-style"> <%= f.submit %></td>
+                  </tr>
+                </tbody>
+          </table>
+      <% end %>
+
+
+
+</article>

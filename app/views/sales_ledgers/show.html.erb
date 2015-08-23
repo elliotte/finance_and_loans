@@ -1,0 +1,96 @@
+<%= javascript_include_tag 'salesShow' %>
+
+<%= render partial: 'button_board', locals: {ledger_type: @ledger.type.try(:underscore)} %>
+
+<div class="hero" style="background:#94CFD5;">
+  <div class="hero-inner">
+    <a href="/" class="hero-logo"><img src="<%= asset_path('ico3hover.png') %>
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <article class="type-system-rounded">
+        <h1>Page <%= @ledger.user_tag %>.show</h1>
+        <p style="color:white;"></p> 
+        <h3><a style="color:#fff; text-decoration:none;" href="<%= @ledger.drive_folder %>" target="_blank">View { Invoices Folder }</a></h3>
+        <p style="color:white;"><a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a></p> 
+      </article>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'show_headlines_and_graph', locals: {ledger_type: @ledger.type.try(:underscore)} %>
+
+<!-- AGED FILTER BUTTONS -->
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+      <!-- FOR PADDING -->
+      <div class="pie-charts-cash-show"> 
+        <% route = transactions_for_sales_ledger_path(@ledger, range: "transactions_current_month") %>
+        <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png">
+          <h1>Aged this month</h1>
+        </a>
+       <% route = transactions_for_sales_ledger_path(@ledger, range: "transactions_prior_month") %>
+       <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png">
+          <h1>Aged last month</h1>
+        </a>
+        <% route = transactions_for_sales_ledger_path(@ledger, range: "aged_30_to_90_days") %>
+        <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png">
+          <h1>Aged 30-90 days</h1>
+        </a>
+        <div class="right-cover"></div>
+        <div class="bottom-cover"></div>
+      </div><!--   END OF PADDING -->
+  </div>
+</article>
+
+<div id="inv-list-display-container">
+    <!-- CONTAINER USED IN FITLER TRANSACTIONS -->
+    <%= render partial: 'show_inv_transactions' %>
+</div>
+
+<!-- AGED FILTER BUTTONS -->
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+      <!-- FOR PADDING -->
+      <div class="pie-charts-cash-show"> 
+        <% route = transactions_for_sales_ledger_path(@ledger, range: "paid" ) %>
+        <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png">
+          <h1>Invoices Paid</h1>
+        </a>
+       <% route = transactions_for_sales_ledger_path(@ledger, range: "not_paid") %>
+       <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png">
+          <h1>Invoices Not Paid</h1>
+        </a>
+      <% route = "" %>
+        <a class="grid-item" data-remote="true" href="#" onclick="$('#modal-empty-sales').trigger('click');">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png">
+          <h1>Export.new</h1>
+        </a>
+        <div class="right-cover"></div>
+        <div class="bottom-cover"></div>
+      </div><!--   END OF PADDING -->
+  </div>
+</article>
+
+
+<span id="ledger-id" style="display:none" data-id="<%= @ledger.id %>"></span>
+
+<%= render 'shared/modals' %>
+
+<div class="modal">
+    <input class="modal-state" id="modal-empty-sales" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <div class="modal-close" for="modal-empty-sales"></div>
+            <div id="modal-empty-sales-body-append">
+                  <%= render partial: "show_google_export_form" %>
+            </div>
+         </article>
+      </div>
+    </div>
+</div>
+

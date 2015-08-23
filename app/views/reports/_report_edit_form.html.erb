@@ -1,0 +1,45 @@
+
+<article id="update-ledger-clear" class="type-system-rounded">
+
+      <h1>report settings</h1>
+
+      <p style="color:#f3655e;">Users ( <%#= @ledger.viewers.count %> )  <a href="javascript:void(0)">Manage ledger viewers</a></p>
+     
+      <%= form_for(@report, :url => {controller: 'reports', action: 'update'}, remote: true ) do |f| %>
+
+          <table id="new-report-form" class="table-minimal">
+              <tbody>
+                  <tr>
+                    <td style="color:#f3655e;"> your Report Tag </td>
+                    <td><%= f.text_field :title, placeholder: @report.title %></td>
+                  </tr>
+                  <tr>
+                    <td style="color:#f3655e;"><%= f.label :current_end %></td>
+                    <td> <%= f.date_select(:current_end, order: [:year, :month], selected: @report.current_end) %></td>
+                  </tr>
+                  <tr>
+                    <td style="color:#f3655e;"><%= f.label :comparative_end %></td>
+                    <td> <%= f.date_select(:comparative_end, order: [:year, :month], selected: @report.comparative_end) %></td>
+                  </tr>
+                  <tr>
+                    <td style="color:#f3655e;"><%= f.label :drive_folder %></td>
+                    <td><%= f.text_field :drive_folder, placeholder: @report.drive_folder %></td>
+                  </tr>
+                  <tr>
+                    <td style="color:#f3655e;"> Format </td>
+                    <td><%= f.select :format, options_for_select( [['IFRS'], ['UKGAAP']], {selected: @report.format} ) %></td>
+                  </tr>
+                  <tr>
+                      <td><%#= f.label :report_type %></td>
+                      <td><%#= f.select :report_type, options_for_select( ['Statutory', 'Management'] ) %></td>
+                  </tr>
+                  <tr>
+                    <td style="color:#f3655e;"></td>
+                    <td class="button-style"> <%= f.submit %></td>
+                  </tr>
+                  
+                </tbody>
+          </table>
+      <% end %>
+
+</article>

@@ -1,0 +1,249 @@
+/*---- reset CSS ---- */
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+/*---- reset CSS ---- */
+
+.notice {
+  position: fixed;
+  top: 0;
+  padding-left: 3em;
+  padding-top: 2px;
+  color: white;
+
+}
+
+.hero {  
+  $base-border-radius: 3px !default;
+  $action-color: #94CFD5 !default;
+  $large-screen: em(860) !default;
+  $hero-background-top: #f3655e; 
+  $hero-background-bottom: #f3655e;
+  $hero-color: white;
+  $gradient-angle: 10deg;
+  $hero-image: '<%= asset_path('bg.png') %>';
+  @include background(url($hero-image));
+  
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 3em;
+  min-height: 40em;
+
+  .hero-logo img {
+    height: 7em;
+    margin-bottom: 3em;
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    color: $hero-color;
+    margin: auto;
+    padding: 3.5em;
+    text-align: center;
+
+    .hero-copy {
+      text-align: center;
+      
+      h1 {
+        font-size: 1.6em;
+        margin-bottom: 0.5em;
+
+        @include media($large-screen) {
+          font-size: 1.8em;
+        }
+      }
+
+      p {
+        font-weight: 200;
+        line-height: 1.4em;
+        margin: 0 auto 3em auto; 
+
+        @include media($large-screen) {
+          font-size: 1.1em;
+          max-width: 40%;
+        }
+      }
+    }
+
+    button {
+      @include button(flat, $action-color);
+      padding: 0.7em 1em;
+    }
+  }
+}
+
+
+/*INPUT FORM CSS*/
+$base-line-height: 1.5em !default;
+
+td.input-style > input {
+  border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #FFC2DC;
+    outline: none;
+    color: #F072A9;
+    padding: 5px 8px 5px 8px;
+    box-shadow: inset 1px 1px 4px #FFD5E7;
+    -moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+    -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+    background: #FFEFF6;
+    width:50%;
+}
+
+td.button-style > input {
+
+        @include button(flat, #94CFD5);
+        display: inline-block;
+        font-size: .7em;
+        color: white;
+        line-height: $base-line-height;
+        margin-bottom: .3em;
+        margin-right: 0.5em;
+        outline: none;
+        padding: .3em 1em;
+        width: 100%;
+
+}
+
+/*END OF INPUT FORM CSS*/
+
+/*HOVER CARD SCSS*/
+
+.hover-tile-outer {
+  $base-border-color: gainsboro !default;
+  $base-line-height: 1.5em !default;
+  $medium-screen: em(640) !default;
+  $hover-tile-height: 20em;
+  $base-spacing: 3em;
+
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
+  background-position: center;
+  background-size: cover;
+  background-color: beige;
+  border: 1px solid $base-border-color;
+  cursor: pointer;
+  height: $hover-tile-height;
+  margin-bottom: $base-line-height;
+  
+  @include media($medium-screen) {
+    width: 40%;
+  }
+
+  .hover-tile-container {
+    height: $hover-tile-height;
+    overflow: hidden;
+  }
+
+  .hover-tile-container:hover > .hover-tile {
+    @include transform(translate(0, -100%));
+  }
+
+  .hover-tile {
+    @include transition(all, 0.2s ease-in-out);
+    background: inherit;
+    color: white;
+    height: inherit;
+    overflow: hidden;
+    padding: $base-spacing;
+  }
+
+  .hover-tile-hidden {
+    background: transparentize(#000, 0.5);
+
+    p {
+      color: transparentize(#fff, 0.3);
+      line-height: $base-line-height;
+    }
+
+    h4 {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+#latest-reports-container {
+    $base-spacing: 3em !default;
+    padding: $base-spacing;
+}
+
+#latest-ledgers-container {
+    $base-spacing: 3em !default;
+    padding: $base-spacing;
+}
+
+#monea-helpers {
+    $base-spacing: 3em !default;
+    padding: $base-spacing;
+    
+}
+
+.append {
+    @include outer-container;
+        li.block {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+}
+
+#user-action-bar {
+    $base-spacing: 3em !default;
+    padding: $base-spacing;
+    article {
+      text-align: center;
+    }
+}
+
+#dash-view-collaboration-action {
+    $base-spacing: 2em !default;
+    padding: $base-spacing;
+    article {
+      text-align: center;
+    }
+}
+
+

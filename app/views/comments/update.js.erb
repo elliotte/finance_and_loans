@@ -1,0 +1,14 @@
+
+text = '<article class="type-system-rounded">' +
+       '<p>' + "Successfully added comment:  " +
+       '<%= @comment.body %>' +
+       '</p>' +
+       '<p>' + 'To see the changes click:' +
+       '</p>' +
+       '<p>' + '<a href="<%= report_path(@report) %>"> ' + 'REFRESH' + '</a>' +
+       '</p>' +
+     '</article>'
+
+$('#modal-comment-note-body').html(text)
+
+

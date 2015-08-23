@@ -1,0 +1,28 @@
+result = '<%= result %>'
+
+if(result) {
+	html = '<tr>' + '<td>' + 'Successfully added' + '</td>' + '</tr>'
+} else {
+	html = '<tr>' + '<td>' + 'Failure to add transaction try again' + '</td>' + '</tr>'
+}
+
+if ( $('#add-general-single').length ) {
+	
+	$('#add-general-single').empty();
+	$('#add-general-single').append(html);
+
+};
+
+if ( $('#add-payment-single').length )  {
+
+	$('#add-payment-single').empty();
+	$('#add-payment-single').append(html);
+}; 
+
+if ($('#add-lodgement-single').length) {
+
+	$('#add-lodgement-single').empty();
+	$('#add-lodgement-single').append(html);
+
+};
+

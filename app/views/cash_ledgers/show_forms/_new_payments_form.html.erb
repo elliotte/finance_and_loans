@@ -1,0 +1,40 @@
+<h1> Add Payment </h1>
+<p> (accounting Credit) </p>
+
+<%= form_tag(book_single_trn_cash_ledger_path(@ledger), method: "post", remote: true) do %>
+    <table id="add-payment-single" class="table-minimal">
+        <tbody>
+            <%= hidden_field_tag :id, params[:id] %>
+            <%= hidden_field_tag 'transaction[type]', 'Credit' %>
+            <tr>
+              <td style="color:#f3655e;">Amount:</td>
+              <td><%= text_field_tag 'transaction[amount]', nil, placeholder: 'e.g 100.01' %></td>
+            </tr>
+            <tr>
+              <td style="color:#f3655e;">VAT:</td>
+              <td><%= text_field_tag 'transaction[vat]', nil, placeholder: 'e.g. leave blank if 0.00' %></td>
+            </tr>
+            <tr>
+              <td style="color:#f3655e;">Date:</td>
+              <td><%= date_field_tag 'transaction[acc_date]' %></td>
+            </tr>
+            <tr>
+              <td style="color:#f3655e;">userTag:</td>
+              <td><%= text_field_tag 'transaction[mi_tag]', nil, placeholder: 'eg. PURC-001' %></td>
+            </tr>
+            <tr>
+              <td style="color:#f3655e;">description:</td>
+              <td><%= text_field_tag 'transaction[description]', nil, placeholder: 'e.g supplier payment' %></td>
+            </tr>
+            <tr style="color:#f3655e;">
+              <td>moneaTag:</td>
+              <td><%= select_tag 'transaction[monea_tag]', options_for_select( $form_select_tags ) %></td>
+            </tr>
+            
+            <tr style="color:#f3655e;">
+              <td></td>
+              <td><div class="trigger"><%= button_tag 'Book Trn' %></div></td>
+            </tr>
+        </tbody>
+    </table>
+<% end %>

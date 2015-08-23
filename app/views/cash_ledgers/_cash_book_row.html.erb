@@ -1,0 +1,28 @@
+<% if transaction.type == "Credit" %>
+    <% amt = transaction.amount * -1 %>
+    <% vat_amt = transaction.vat * -1 %>
+<% else %>
+    <% amt = transaction.amount %>
+    <% vat_amt = transaction.vat %>
+<% end %>
+
+<tr>
+    <td style="max-width:6%;"><%= transaction.acc_date.strftime('%d - %b') %></td>
+    <td style="max-width:12%;"><%= transaction.mi_tag %></td>
+    <td style="max-width:6%;"><%= amt.to_f.round(2) %></td>
+    <td style="max-width:6%;"><%= vat_amt.to_f.round(2) %></td>
+    <td style="background-color:#FFB5B1; color:white; max-width:2%;">-</td>
+    
+    <% $cash_book_columns.times do |column| %>
+    
+        <% if matching_header?(transaction, column) %>
+          <% trn_amt = (amt - vat_amt).to_f.round(2) %>
+          <!-- FOR SUM OF COLUMN -->
+          <% $cash_book_column_trns[column] << trn_amt  %>
+          <td style="max-width: <%= number_to_percentage($css_column_width) %>;"><%= trn_amt %></td>
+        <% else %>
+          <td>-</td>
+        <% end %>
+    <% end %>
+
+</tr>

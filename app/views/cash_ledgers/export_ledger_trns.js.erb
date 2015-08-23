@@ -1,0 +1,21 @@
+$('#empty-modal-body-append').empty();
+
+link = '<%= @result.data.alternateLink %>'
+status = '<%= @result.status %>'
+html = "";
+
+if (status != 200 ) {
+
+	html = '<p>' + 'Error:' + '</p>' +
+	   
+	   '<a href="/" data-no-turbolinks=true>' + 'CLICK TO REFRESH' + '</a>'
+
+} else {
+
+	html = '<article class="type-system-rounded">' + '<p>' + 'Successfully exported:' + '</p>' +
+	   
+	   '<a href="'+link+'" target="_blank">' + 'view' + '</a>' + '</article>'
+
+}
+
+$('#empty-modal-body-append').append(html)

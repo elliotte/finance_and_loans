@@ -1,0 +1,4 @@
+class PurchaseLedger < Ledger
+
+  
+end

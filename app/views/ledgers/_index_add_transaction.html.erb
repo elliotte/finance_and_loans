@@ -1,0 +1,31 @@
+<%= nested_form_for Ledger.new, url: add_transactions_cash_ledgers_path do |f| %>
+    <p>
+      <%= f.label :Choose_a_DayBook %><br />
+      <%= select_tag :ledger_id, ledger_options %>
+    </p>
+  <br>
+  <h1>Transactions</h1>
+
+  <div>
+  <%= f.fields_for :transactions do |value| %>
+      <table style='margin:10px'>
+        <tr class="trans-row">
+          <td ><%= value.text_field :amount, placeholder: 'Amount' %></td>
+          <td><%= value.select :type, ["Credit","Debit"] %></td>
+          <td><%= value.text_field :mi_tag, placeholder: 'MI tag' %></td>
+        </tr>
+        <tr>
+          <td><%= value.text_field :currency, placeholder: 'Currency' %></td>
+          <td><%= value.date_select :acc_date %></td>
+          <td><%= value.link_to_remove "Remove" %></td>
+        </tr>
+      </table>
+    <% end %>
+    <%= f.link_to_add "Add more", :transactions %>
+  </div>
+
+<br><br>
+<%= f.submit %>
+
+<% end %>
+

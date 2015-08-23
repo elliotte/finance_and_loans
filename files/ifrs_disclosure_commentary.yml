@@ -1,0 +1,24 @@
+Global:
+  company_name: Example Company Name Ltd
+  director_1: Director Name 1
+  director_2: Director Name 2
+  director_3: Director Name 3
+  secretary: Example Name
+  registered_office: 1 Office Address
+  auditor: Accountants LLP
+  country_residence: England
+  business_year_end: December 2014
+DirectorReport:
+  change_of_name_from: Before Name Ltd
+  change_of_name_after: After Name Ltd
+  principal_activity: Distribution of products to customers
+  revenue_current: 10000
+  revenue_prior: 9000
+  profit_current: 3000
+  profit_prior: 2000
+  dividend_current: 500
+  dividend_prior: 500
+  assets_current: 40000
+  assets_prior: 37000
+  equity_current: 5000  
+  equity_prior: 4000

@@ -1,0 +1,28 @@
+<article class="type-system-rounded">
+  <div class="grid-items-lines">
+      <!-- FOR PADDING -->
+      <div class="pie-charts-cash-show"> 
+        <% route = eval("transactions_for_#{ledger_type}_path(@ledger, {period: 'last_month'})") %>
+        <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png">
+          <h1>Last Month</h1>
+        </a>
+        <% route = eval("transactions_for_#{ledger_type}_path(@ledger, {period: 'this_month'})") %>
+        <a class="grid-item" data-remote="true" href="<%= route %>">
+          <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png">
+          <h1>This Month</h1>
+        </a>
+        <a href="javascript:void(0)" class="grid-item">
+            <img alt="Pogo 1 dark" src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png">
+            <label for="modal-manual-filter">
+              <div class="modal-trigger"><h1>Manual Filter</h1></div>
+            </label>
+        </a>
+        <div class="right-cover"></div>
+        <div class="bottom-cover"></div>
+      </div><!--   END OF PADDING -->
+  </div>
+</article>
+
+
+

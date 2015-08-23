@@ -1,0 +1,23 @@
+
+$('#ledger-payments').empty();
+$('#ledger-lodgements').empty();
+$('#timeline-transactions').empty();
+$('#headlines-grid').empty();
+$('#cash-book-container').empty();
+
+$('#ledger-payments').html("<%= j(render partial: 'payments_summary_table') %>") 
+$('#ledger-lodgements').html("<%= j(render partial: 'lodgements_summary_table') %>")
+$('#timeline-transactions').html("<%= j(render partial: 'transactions_timeline') %>") 
+$('#headlines-grid').html("<%= j(render partial: 'headlines_grid') %>") 
+$('#cash-book-container').html("<%= j(render partial: 'cash_book_view') %>") 
+
+var show_page_data = cashLedgerShow.loadData();
+graphHelper.drawCharts(show_page_data);
+
+cashLedgerShow.setSummaryModals();
+
+if ( $('#modal-manual-filter').prop("checked") ) {
+	$('#modal-manual-filter').prop("checked", false).change();
+} 
+
+

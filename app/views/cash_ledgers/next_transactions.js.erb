@@ -1,0 +1,14 @@
+
+
+<% $trns_for_view = @transactions %>
+
+$('#next-trns-cash-book-container').addClass('pie-charts-cash-show')
+$('#next-trns-cash-book-container').append('<%= j render partial: "cash_book_view" %>')
+
+$('#next-20-button').attr('data-offset', '<%= params[:offset].to_i + 20 rescue 20 %>');
+
+//$('#cb-totals-row').hide();
+
+<% if @transactions.count < 19 %>
+  $('#next-20-button').parent('td').parent('tr').hide();
+<% end %>
