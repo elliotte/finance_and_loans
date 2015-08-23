@@ -1,10 +1,10 @@
 AUTH_URI: https://accounts.google.com/o/oauth2/auth
-CLIENT_SECRET: yux592HlZjk9TlPC6AgQESwe
+CLIENT_SECRET: SqY9_aMjkdIlPYNHMlAIhl4h
 TOKEN_URI: https://accounts.google.com/o/oauth2/token
 CLIENT_EMAIL: 792513003123-ok9t5e2oqver2v15tr5v049ov6286bjc@developer.gserviceaccount.com
 REDIRECT_URIS: https://serene-brook-5729.herokuapp.com/welcome/connect
 CLIENT_X509_CERT_URL: https://www.googleapis.com/robot/v1/metadata/x509/901506026811-q0am03i585627ptu5r38o7cpkt8pk98l@developer.gserviceaccount.com
-CLIENT_ID: 792513003123-ok9t5e2oqver2v15tr5v049ov6286bjc.apps.googleusercontent.com
+CLIENT_ID: 464680693197-el77matr168lkhvasq6kebeep4gc9o1v.apps.googleusercontent.com
 AUTH_PROVIDER_X509_CERT_URL: https://www.googleapis.com/oauth2/v1/certs
 JAVASCRIPT_ORIGINS: https://serene-brook-5729.herokuapp.com/
 PLUS_LOGIN_SCOPE: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read
