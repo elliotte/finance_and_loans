@@ -47,7 +47,7 @@ private
   def set_default_template
     # to connect when switch to admin acc done
     drive_folder.match(/id=([\S]+)&/)
-    @google_service.copy_file('1acyxVwOmDnGqWOCPSZutFIrhIf0dMR1OwWoQoHaPPAc', 'invoice.template', $1)
+    @google_service.copy_file('1lZc388wIR44MoZnhfzir1JhoIsvFf0q4kztXtfwjozo', 'template', $1)
   end
 
   def copy_user_inv_template
