@@ -487,13 +487,24 @@ function showDashComments(type){
 $(document).on('page:load ready', function(){
 
   $(document).on('click', '.values_breakdown', function(){
-    $.ajax({
-      url: '/reports/' + $('#report-id').val() + '/get_breakdown_values',
-      dataType: 'SCRIPT',
-      type: 'GET',
-      data: {"ifrstag" : $(this).attr('data-ifrstag'), "period" : $(this).attr('data-period') }
-    })
+      range = $(this).attr('data-period')
+      lineTag = $(this).attr('data-ifrstag')
+      summary = $(this).data('summary-line')
+
+      if (summary) {
+        summaryTag = $(this).data('summary-tag')
+        _data = {"ifrstag" : lineTag, "period" : range, "summary" : summaryTag }
+      } else {
+        _data = {"ifrstag" : lineTag, "period" : range }
+      }
+     $.ajax({
+        url: '/reports/' + $('#report-id').val() + '/get_breakdown_values',
+        dataType: 'SCRIPT',
+        type: 'GET',
+        data: _data
+      })
   })
+  // end of values breakdown
 
   var route = document.location.href
   var endOfRoute = route.slice(-4);

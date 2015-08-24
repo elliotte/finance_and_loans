@@ -12,19 +12,11 @@ module ReportHelper
 		@data[yr].find { |val| val[:lv_1] == tag }
 	end
 
-	def calc_margin numerator, denominator
+	def margin_percentage numerator, denominator
 		num = numerator.to_f
 		dum = denominator.to_f
-		case
-		when num == 0.00
-			return '0%'
-		end
-		case
-		when dum == 0.00
-			return '-100%'
-		end
 		margin = num / dum * 100
-		return margin.round(0).to_s + '%'
+		return number_to_percentage(margin)
 	end
 	
 	def month_list

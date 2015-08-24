@@ -1,2 +1,16 @@
-ledger_id,id,type,amount,monea_tag,mi_tag,created_at,updated_at,description,currency,acc_date,vat,invoice_file_link,paid
-65,1678,Transaction,10.01,,,2015-08-23 19:24:44 UTC,2015-08-23 19:24:44 UTC,,,2015-08-22,0.0,,false
+Reporting Line,December 2014,December 2013,FS Mapping
+Sales,108633,61370,gp-rev
+Purchases,7225,17288,gp-cos
+Subcontractor costs,0,2344,gp-cos
+Commissions payable,13000,18831,gp-cos
+Other operating income,0,0,op-rev
+Wages and salaries,16836,11100,op-cos
+Directors' salaries,162,3023,op-cos
+Staff training and welfare,22873,1081,op-cos
+Travel and subsistence,44169,10452,op-cos
+Insurance,19513,28746,op-cos
+Accountancy fees,12024,23029,op-cos
+Advertising and PR,9410,16976,op-cos
+Rent,11721,9365,op-cos
+Light and heat,7236,3111,op-cos
+Cleaning,16545,25587,op-cos

@@ -182,7 +182,16 @@ class ReportsController < ApplicationController
 
     def get_breakdown_values
       period = params[:period] || 'current'
-      @data = @report.get_values_for(@report.send("#{period}_end".to_sym)).where(ifrstag: params[:ifrstag])
+      if params[:summary]
+        @data = []
+         Tag.gaap_fin_stat_tags[params[:summary].to_sym].each do |tag| 
+            _data = @report.get_values_for(@report.send("#{period}_end".to_sym)).where(ifrstag: tag)
+            @data << _data
+        end
+        @data
+      else
+        @data = @report.get_values_for(@report.send("#{period}_end".to_sym)).where(ifrstag: params[:ifrstag])
+      end
       puts @data
     end
 

@@ -10,13 +10,32 @@
     <td>£</td>
     <td>IFRS tag</td>
   </tr>
-  <% @data.each do |value| %>
-    <tr>
-      <td><%= value.type %></td>
-      <td><%= value.repdate.strftime('%B %Y') %></td>
-      <td><%= value.mitag %></td>
-      <td><%= value.amount %></td>
-      <td><%= value.ifrstag %></td>
-    </tr>
+
+  <% if params[:summary] %>
+  
+    <% @data.each do |line| %>
+        <% line.each do |value| %>
+          <tr>
+            <td><%= value.type rescue nil%></td>
+            <td><%= value.repdate.strftime('%B %Y') rescue nil %></td>
+            <td><%= value.mitag %></td>
+            <td><%= value.amount %></td>
+            <td><%= value.ifrstag %></td>
+          </tr>
+        <% end %>
+    <% end %>
+
+  <% else %>
+
+    <% @data.each do |value| %>
+      <tr>
+        <td><%= value.type rescue nil%></td>
+        <td><%= value.repdate.strftime('%B %Y') rescue nil %></td>
+        <td><%= value.mitag %></td>
+        <td><%= value.amount %></td>
+        <td><%= value.ifrstag %></td>
+      </tr>
+    <% end %>
+
   <% end %>
 </table>

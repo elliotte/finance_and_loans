@@ -122,8 +122,8 @@
                   	<!-- GROSS MARGIN ROW -->
                   	<tr>
 	                  	<td></td>
-	                  	<td style="color:#f3655e;"><%= gp_margin_cy = calc_margin(gp_cy, cy_rev) %></td>
-	                  	<td style="color:#f3655e;"><%= gp_margin_py = calc_margin(gp_py, py_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= gp_margin_cy = margin_percentage(gp_cy, cy_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= gp_margin_py = margin_percentage(gp_py, py_rev) %></td>
 	                  	<td></td>
                   	</tr>
                     <!-- HIDDEN JS STATS INFO LINE -->
@@ -189,8 +189,8 @@
                   	<!-- OP MARGIN DISPLAY ROW -->
                   	<tr>
 	                  	<td></td>
-	                  	<td style="color:#f3655e;"><%= op_margin_cy = calc_margin(op_cy, cy_rev) %></td>
-	                  	<td style="color:#f3655e;"><%= op_margin_py = calc_margin(op_py, py_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= op_margin_cy = margin_percentage(op_cy, cy_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= op_margin_py = margin_percentage(op_py, py_rev) %></td>
 	                  	<td></td>
                   	</tr>
                     <!-- HIDDEN JS STATS INFO LINE -->
@@ -229,8 +229,8 @@
                   	<!-- PAT MARGIN DISPLAY ROW -->
                   	<tr>
 	                  	<td></td>
-	                  	<td style="color:#f3655e;"><%= cy_margin = calc_margin(cy_amt, cy_rev) %></td>
-	                  	<td style="color:#f3655e;"><%= py_margin = calc_margin(py_amt, py_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= cy_margin = margin_percentage(cy_amt, cy_rev) %></td>
+	                  	<td style="color:#f3655e;"><%= py_margin = margin_percentage(py_amt, py_rev) %></td>
 	                  	<td></td>
                   	</tr>
                     <!-- HIDDEN JS STATS INFO LINE -->
