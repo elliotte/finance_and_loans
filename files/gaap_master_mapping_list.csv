@@ -44,12 +44,6 @@ Consultancy fees,op_admin
 Management fees,op_admin
 Advertising and PR,op_admin
 Other legal and professional,op_admin
-Rent,op_admin
-Rates,op_admin
-Service charges,op_admin
-Light and heat,op_admin
-Cleaning,op_admin
-Use of home,op_admin
 Depreciation of owned fixed assets,op_admin
 Depreciation of leased assets,op_admin
 Amortisation of goodwill,op_admin
@@ -60,10 +54,90 @@ Exceptional costs,op_admin
 Non-equity dividends,op_admin
 Interest receiveable,pbiat_sales
 Other interest receceiveable,pbiat_sales
-Interest payable,pbiat_cos
-Other interest payable,pbiat_cos
+Bank loan interest payable,pbiat_cos
+Operating lease charges,pbiat_cos
+Hire purchase charges,pbiat_cos
+Finance lease charges,pbiat_cos
 Other finance income,pbiat_sales
+Other interest payable,pbiat_cos
 Other finance costs,pbiat_cos
 Taxation on profit,tax_cos
 Equity dividends,pat_cos
 Non-equity dividends,pat_cos
+Cash in hand,curr_assets
+Plant & machinery cost - b/fwd,fa_tang
+Plant & machinery cost - additions,fa_tang
+Plant & machinery cost - disposals,fa_tang
+Plant & machinery depn - b/fwd,fa_tang
+Plant & machinery depn - provided in year,fa_tang
+Plant & machinery depn - disposals,fa_tang
+Motor vehicles cost - b/fwd,fa_tang
+Motor vehicles cost - additions,fa_tang
+Motor vehicles cost - disposals,fa_tang
+Motor vehicles depn - b/fwd,fa_tang
+Motor vehicles depn - provided in year,fa_tang
+Motor vehicles depn - disposals,fa_tang
+Land & buildings cost - b/fwd,fa_tang
+Land & buildings cost - additions,fa_tang
+Land & buildings cost - revaluation,fa_tang
+Land & buildings cost - disposals,fa_tang
+Land & buildings depn - b/fwd,fa_tang
+Land & buildings depn - charge for the year,fa_tang
+Land & buildings depn - revaluation,fa_tang
+Land & buildings depn - disposals,fa_tang
+Goodwill cost,fa_intang
+Goodwill additions,fa_intang
+Goodwill disposals,fa_intang
+Goodwill amortisation b/fwd,fa_intang
+Goodwill amortisation charge for the year,fa_intang
+Goodwill amortisation on on disposals,fa_intang
+Goodwill amortisation c/fwd,fa_intang
+Intangible assets cost - b/fwd,fa_intang
+Intangible assets cost - additions,fa_intang
+Intangible assets cost - disposals,fa_intang
+Intangible assets  amortisation - b/fwd,fa_intang
+Intangible assets amortisation - provided in year,fa_intang
+Intangible assets  amortisation - disposals,fa_intang
+Investments in subsidiary undertakings cost - b/fwd,fa_invest
+Investments in subsidiary undertakings cost - additions,fa_invest
+Investments in subsidiary undertakings cost - disposals,fa_invest
+Other investments cost - b/fwd,fa_invest
+Other investments cost - additions,fa_invest
+Other investments cost - disposals,fa_invest
+Listed investments cost - b/fwd,fa_invest
+Listed investments cost - additions,fa_invest
+Listed investments cost - disposals,fa_invest
+Unlisted investments cost - b/fwd,fa_invest
+Unlisted investments cost - additions,fa_invest
+Unlisted investments cost - disposals,fa_invest
+Trade debtors,curr_assets
+Amounts owed by group undertakings,curr_assets
+Deferred tax asset ,curr_assets
+Prepayments and accrued income,curr_assets
+Other debtors,curr_assets
+Non-equity preference shares,cred_current
+Bank loans and overdrafts,cred_current
+Obligations under lease contracts,cred_current
+Trade creditors,cred_current
+Amounts owed to group undertakings ,cred_current
+Corporation tax,cred_current
+Other taxes and social security costs,cred_current
+VAT payments,cred_current
+Accruals and deferred sales,cred_current
+Other creditors,cred_current
+Non-equity preference shares,cred_greater
+Bank loans,cred_greater
+Obligations under lease contracts,cred_greater
+Amounts owed to group undertakings ,cred_greater
+Other creditors,cred_greater
+Profit and loss account,capital
+Ordinary shares,capital
+B Ordinary shares,capital
+Share premium,capital
+Revaluation reserve - b/fwd,capital
+Arising on revaluation during the year,capital
+Capital redemption reserve - b/fwd,capital
+Transfer from the profit and loss account,capital
+Prior year adjustments,capital
+Dividends,capital
+Transfer to capital redemption reserve,capital
