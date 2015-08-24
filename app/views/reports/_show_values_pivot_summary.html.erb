@@ -17,10 +17,10 @@
                       <% data = @data[:mitag_summary][:cp] %>
                       <% data.each_pair do | key, amount | %>
                             <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
-                            <tr class="cy-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_f.round(2).abs %>">
-                              <td><%= @report.current_end.strftime("%B %Y") %></td>
+                            <tr class="cy-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
+                              <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                               <td><%= key %></td>
-                              <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= amount %></td>
+                              <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                             </tr>
                       <% end %>
                   </tbody>
@@ -42,10 +42,10 @@
                       <!-- FOR PIE CHARTs DATA ANALYSIS -->
                       <% data = @data[:mitag_summary][:pp] %>
                       <% data.each_pair do | key, amount | %>
-                            <tr class="pp-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_f.round(2).abs %>">
+                            <tr class="pp-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
                               <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                               <td><%= key %></td>
-                              <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= amount %></td>
+                              <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                             </tr>
                       <% end %>
                     </tbody>
@@ -83,7 +83,7 @@
                                   <tr>
                                     <td><%= @report.current_end.strftime("%B %Y") %></td>
                                     <td><%= key %></td>
-                                    <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= amount %></td>
+                                    <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
                                   </tr>
                               <% end %>
                             
@@ -109,7 +109,7 @@
                             <tr>
                               <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                               <td><%= key %></td>
-                              <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'comparative')"><%= amount %></td>
+                              <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'comparative')"><%= number_with_delimiter(amount.to_i) %></td>
                             </tr>
                       <% end %>
                     </tbody>
@@ -142,7 +142,7 @@
                           <tr>
                             <td><%= @report.current_end.strftime("%B %Y") %></td>
                             <td><%= key %></td>
-                            <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'current')" data-description="<%= key %>"><%= amount %></td>
+                            <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'current')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
                           </tr>
                     <% end %>
                   </tbody>
@@ -166,7 +166,7 @@
                             <tr>
                               <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                               <td><%= key %></td>
-                              <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'comparative')" data-description="<%= key %>"><%= amount %></td>
+                              <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'comparative')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
                             </tr>
                       <% end %>
                     </tbody>
