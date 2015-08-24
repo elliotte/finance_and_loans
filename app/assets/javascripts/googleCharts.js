@@ -87,6 +87,13 @@ var graphHelper = (function() {
               legend: {position: "none" },
               colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
              };
+             console.log(data["cp"])
+
+             $.each(data["cp"], function(index, repLine) {
+              tag = $(repLine[0])
+              amt = $(repLine[0][1])
+              console.log([repLine[0], repLine[1], tag, amt])
+             });
 
              var chart = new google.visualization.PieChart(document.getElementById('cp-pie-chart'));
              chart.draw(cpData, options);

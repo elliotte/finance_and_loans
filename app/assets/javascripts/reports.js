@@ -169,6 +169,7 @@ var reportHelper = (function() {
                 data.push([tag, amt])
               }
            });
+           
            repShowData["pp"] = data
            console.log(repShowData)
            return repShowData
@@ -556,6 +557,7 @@ $(document).on('page:load ready', function(){
   } else {
       data = reportHelper.loadShowPageData()
       reportHelper.drawCharts(data);
+      // calls graphhelper.drawReportShow
   }
 
 })

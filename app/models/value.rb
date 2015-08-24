@@ -13,7 +13,7 @@ class Value < ActiveRecord::Base
 
   def default_values
     self.ifrstag ||= 'No-Mapping'
-    self.description ||= 'No-description'
+    self.description ||= 'No description'
     if mitag === nil || mitag === ""
       self.mitag = "No-tag set"
     end
