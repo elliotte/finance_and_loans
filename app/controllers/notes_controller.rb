@@ -8,9 +8,11 @@ class NotesController < ApplicationController
 
   def create
     @note = @report.notes.create(note_params)
-    if @note
-       @google_service ||= GoogleService.new($client, $authorization)
-       @result = @note.copy_file_if_google_link(@google_service)
+    if @note.filelink.blank?
+        @result = nil
+    else
+        @google_service ||= GoogleService.new($client, $authorization)
+        @result = @note.copy_file_if_google_link(@google_service)
     end
   end
 

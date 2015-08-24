@@ -68,12 +68,12 @@
 		                  <% py_amt = yield_amount { py }.to_i %>
                       <% unless (cy_amt + py_amt == 0.00) %>
                   		<tr>
-		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<td style="color:#f3655e;"><%= master_tag %></td>
 		                  	<% cy_gp_rev << cy_amt %>
                   			<% py_gp_rev << py_amt %>
 		                  	<% mvmt = cy_amt - py_amt %>
-		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
-		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
 		                  	<td><%= display_ifrs(mvmt) %></td>
 	                  	</tr>
                       <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
@@ -95,12 +95,12 @@
 	                  	<% py_amt = yield_amount { py }.to_i %>
                       <% unless (cy_amt + py_amt == 0.00) %>
                   		<tr>
-		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<td style="color:#f3655e;"><%= master_tag %></td>
 		                  	<% cy_gp_cos << cy_amt %>
                   			<% py_gp_cos << py_amt %>
 		                  	<% mvmt = cy_amt - py_amt %>
-		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
-		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= number_with_delimiter(cy_amt) %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= number_with_delimiter(py_amt) %>)</td>
 		                  	<td><%= display_ifrs(mvmt) %></td>
 	                  	</tr>
                       <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
@@ -123,8 +123,8 @@
                   	<% gp_py = py_rev - py_cos %>
               		  <tr>
 	                  	<td>Gross Profit</td>
-	                  	<td><%= display_ifrs(gp_cy) %></td>
-	                  	<td><%= display_ifrs(gp_py) %></td>
+	                  	<td><%= number_with_delimiter(gp_cy) %></td>
+	                  	<td><%= number_with_delimiter(gp_py) %></td>
 	                  	<td></td>
                   	</tr>
                   	<!-- GROSS MARGIN ROW -->
@@ -143,19 +143,18 @@
               		 	  <% cy_amt = yield_amount { cy }.to_i %>
 	                  	<% py_amt = yield_amount { py }.to_i %>
                   		<tr>
-		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<td style="color:#f3655e;"><%= master_tag %></td>
 		                  	<% cy_op_rev << cy_amt %>
                   			<% py_op_rev << py_amt %>
 		                  	<% mvmt = cy_amt - py_amt %>
-		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
-		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
-		                  	<td><%= display_ifrs(mvmt) %></td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
 	                  	</tr>
                       <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
                      <span class="js-fs-line" data-tag="op-rev" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                   	<% end %>
+
                   	<!-- OP MARGIN COS ROWS -->
-                    <!-- SUM ALL DIST EXPENSES -->
                   	<% @tags[:op_dis].each do | master_tag | %>
                   		<% cy = find_data(master_tag, :cy)  %>
                       <% py = find_data(master_tag, :py)  %>
@@ -163,22 +162,22 @@
 	                  	<% py_amt = yield_amount { py }.to_i %>
                       <% unless (cy_amt + py_amt == 0.00) %>
                   		<tr>
-		                  	<td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+		                  	<td style="color:#f3655e;"><%= master_tag %></td>
 		                  	<% cy_op_cos << cy_amt %>
                   			<% py_op_cos << py_amt %>
 		                  	<% mvmt = cy_amt - py_amt %>
-		                  	<td class="values_breakdown" data-summary-line="true" data-summary-tag="op_dis" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
-		                  	<td class="values_breakdown" data-summary-line="true" data-summary-tag="op_dis" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= number_with_delimiter(cy_amt) %>)</td>
+		                  	<td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= number_with_delimiter(py_amt) %>)</td>
 		                  	<td><%= display_ifrs(mvmt) %></td>
 	                  	</tr>
                       <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
                       <span class="js-fs-line" data-tag="op-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                       <% end %>
                   	<% end %>
-
+                    <!-- !!!!!!!! SUMMARY ITERATION !!!!!!!!! -->
+                    <!-- SUM ALL ADMIN EXPENSES -->
                     <% $cy_admin_expenses_amt = 0 %>
                     <% $py_admin_expenses_amt = 0 %>
-                    <!-- SUM ALL ADMIN EXPENSES -->
                     <% @tags[:op_admin].each do | master_tag | %>
                       <% cy = find_data(master_tag, :cy)  %>
                       <% py = find_data(master_tag, :py)  %>
@@ -194,12 +193,12 @@
                     <% end %>
                   	<!-- DISPLAY SUMMARIES ADMIN EXPENSES -->
                     <tr>
-                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="Admininstrative expenses" data-period="">Administration expenses</td>
+                        <td style="color:#f3655e;">Administration expenses</td>
                         <% cy_op_cos << $cy_admin_expenses_amt %>
                         <% py_op_cos << $py_admin_expenses_amt %>
                         <% mvmt = $cy_admin_expenses_amt - $py_admin_expenses_amt %>
-                        <td class="values_breakdown" data-summary-line="true" data-summary-tag="op_admin" data-ifrstag="Admininstrative expenses" data-period="current">(<%= $cy_admin_expenses_amt %>)</td>
-                        <td class="values_breakdown" data-summary-line="true" data-summary-tag="op_admin" data-ifrstag="Admininstrative expenses" data-period="comparative">(<%= $py_admin_expenses_amt %>)</td>
+                        <td class="values_breakdown" data-summary-line="true" data-summary-tag="op_admin" data-ifrstag="Admininstrative expenses" data-period="current">(<%= number_with_delimiter($cy_admin_expenses_amt) %>)</td>
+                        <td class="values_breakdown" data-summary-line="true" data-summary-tag="op_admin" data-ifrstag="Admininstrative expenses" data-period="comparative">(<%= number_with_delimiter($py_admin_expenses_amt) %>)</td>
                         <td><%= display_ifrs(mvmt) %></td>
                     </tr>
                     <!-- OP PROFIT DISPLAY ROW -->
@@ -209,7 +208,6 @@
                   	<% py_cos = py_op_cos.inject(:+) %>
                   	<% op_cy = gp_cy + cy_rev_op - cy_cos %>
                   	<% op_py = gp_py + py_rev_op - py_cos %>
-                    
                     <tr>
                         <td></td>
                         <td></td>
@@ -218,8 +216,8 @@
                     </tr>
               		  <tr>
 	                  	<td>Profit/(loss) on ordinary activities before tax</td>
-	                  	<td><%= display_ifrs(op_cy) %></td>
-	                  	<td><%= display_ifrs(op_py) %></td>
+	                  	<td><%= number_with_delimiter(op_cy) %></td>
+	                  	<td><%= number_with_delimiter(op_py) %></td>
 	                  	<td></td>
                   	</tr>
                     <!-- OP MARGIN PERCEMTAGE DISPLAY ROW -->
@@ -240,12 +238,12 @@
                       <% py_amt = yield_amount { py }.to_i %>
                       <% unless (cy_amt + py_amt == 0.00) %>
                       <tr>
-                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+                        <td style="color:#f3655e;"><%= master_tag %></td>
                         <% cy_iat << cy_amt %>
                         <% py_iat << py_amt %>
                         <% mvmt = cy_amt - py_amt %>
-                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
-                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
                         <td><%= display_ifrs(mvmt) %></td>
                       </tr>
                       <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
@@ -264,8 +262,8 @@
                         <% cy_iat << cy_amt %>
                         <% py_iat << py_amt %>
                         <% mvmt = cy_amt - py_amt %>
-                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= cy_amt %>)</td>
-                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= py_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= number_with_delimiter(cy_amt) %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= number_with_delimiter(py_amt) %>)</td>
                         <td><%= display_ifrs(mvmt) %></td>
                       </tr>
                       <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
@@ -297,19 +295,19 @@
                     <% end %>
                     <!-- DISPLAY SUMMARIES TAX EXPENSES -->
                     <tr>
-                        <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="">Taxation on profit and ordinary activities</td>
+                        <td style="color:#f3655e;">Taxation on profit and ordinary activities</td>
                         <% cy_iat << $cy_tax_expenses_amt %>
                         <% py_iat << $py_tax_expenses_amt %>
                         <% mvmt = $cy_tax_expenses_amt - $py_tax_expenses_amt %>
-                        <td class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="current">(<%= $cy_tax_expenses_amt %>)</td>
-                        <td class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="comparative">(<%= $py_tax_expenses_amt %>)</td>
+                        <td class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="current">(<%= number_with_delimiter($cy_tax_expenses_amt) %>)</td>
+                        <td class="values_breakdown" data-ifrstag="Taxation on profit and ordinary activities" data-period="comparative">(<%= number_with_delimiter($py_tax_expenses_amt) %>)</td>
                         <td><%= display_ifrs(mvmt) %></td>
                     </tr>
                     <!-- PAT CALCULATION and PROFIT DISPLAY ROW -->
                     <% cy_tax_and_int = cy_iat.inject(:+) %>
                     <% py_tax_and_int = py_iat.inject(:+) %>
-                    <% cy_pat = op_cy - cy_tax_and_int %>
-                    <% py_pat = op_py - py_tax_and_int %>
+                    <% $cy_pat = op_cy - cy_tax_and_int %>
+                    <% $py_pat = op_py - py_tax_and_int %>
                     <tr>
                         <td></td>
                         <td></td>
@@ -318,15 +316,15 @@
                     </tr>
                     <tr>
                       <td>Profit/(loss) on ordinary activities after interest and tax</td>
-                      <td><%= display_ifrs(cy_pat) %></td>
-                      <td><%= display_ifrs(py_pat) %></td>
+                      <td><%= number_with_delimiter($cy_pat) %></td>
+                      <td><%= number_with_delimiter($py_pat) %></td>
                       <td></td>
                     </tr>
                     <!-- PAT MARGIN PERCEMTAGE DISPLAY ROW -->
                     <tr>
                       <td></td>
-                      <td style="color:#f3655e;"><%= pat_margin_cy = margin_percentage(cy_pat, cy_rev) %></td>
-                      <td style="color:#f3655e;"><%= pat_margin_py = margin_percentage(py_pat, py_rev) %></td>
+                      <td style="color:#f3655e;"><%= pat_margin_cy = margin_percentage($cy_pat, $cy_rev) %></td>
+                      <td style="color:#f3655e;"><%= pat_margin_py = margin_percentage($py_pat, $py_rev) %></td>
                       <td></td>
                     </tr>
                     <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->

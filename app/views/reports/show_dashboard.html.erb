@@ -69,7 +69,8 @@
   <!-- UKGAAP MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
   <% @tags = Tag.gaap_fin_stat_tags %>
   <%= render :partial => 'reports/ukgaap/p_n_l' %>
-  <%= render :partial => 'reports/ukgaap/assets' %>
+  <%= render :partial => 'reports/ukgaap/balance_sheet' %>
+  <%= render :partial => 'reports/ukgaap/balance_sheet_cont' %>
 <% end %>
 
 <!-- EMPTY MODAL FOR FILTER -->

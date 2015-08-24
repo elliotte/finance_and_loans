@@ -23,14 +23,12 @@ class Note < ActiveRecord::Base
   end
 
   def copy_file_if_google_link googleService
-    if filelink
-      if google_file_link then file_id = google_file_link end
-         
-       parent_folder_id = self.report.drive_folder.match(/id=([\S]+)&/)[1]
-       new_URL = googleService.copy_file(file_id, 'backUp', parent_folder_id, self.subject)
-       self.filelink = new_URL
-        
-    end
+       google_id = google_file_link rescue nil
+       if google_id
+         parent_folder_id = self.report.drive_folder.match(/id=([\S]+)&/)[1]
+         new_URL = googleService.copy_file(google_id, 'backUp', parent_folder_id, self.subject)
+         self.filelink = new_URL
+       end
   end
  
 private

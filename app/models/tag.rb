@@ -76,6 +76,23 @@ class Tag
 		end
 		result
     end
+
+    def self.report_mgr_gaap_options
+    	result = []
+		Tag.load_master_gaap_csv.each do |r|
+			result <<  r[0] 
+		end
+		result
+    end
+      
+    def self.report_mgr_ifrs_options
+    	result = []
+		Tag.load_master_ifrs_csv.each do |r|
+			result <<  r[0] 
+		end
+		result
+    end
+
 	# HELPER IFRS FIN STAT	
 	def self.extract_unique_keys 
 		yield.flat_map(&:keys).uniq

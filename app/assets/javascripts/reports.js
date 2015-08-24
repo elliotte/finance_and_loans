@@ -252,9 +252,37 @@ var ifrsDashShow = (function() {
                       data.cy.tax.push(cy_info)
                       data.py.tax.push(py_info)
                       break;
+                  case "tax":
+                      data.cy.tax.push(cy_info)
+                      data.py.tax.push(py_info)
+                      break;
+                  case "fa_tang":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                  case "fa_intang":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                  case "curr_assets":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
                   case "assets":
                       data.cy.assets.push(cy_info)
                       data.py.assets.push(py_info)
+                      break;
+                  case "cred_current":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "cred_greater":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "capital":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
                       break;
                   case "liabs":
                       data.cy.liabs.push(cy_info)

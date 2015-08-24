@@ -52,7 +52,7 @@ class ReportsController < ApplicationController
     #END OF CRUD ROUTES
     #FEATURE ROUTES
     def report_manager
-      @report = current_user.reports.find(params[:id])
+      @report = current_user.reports.where(id: params[:id]).last
       @values = @report.values.order("repdate")
     end
 
