@@ -8,7 +8,7 @@
           <div class="hover-tile hover-tile-hidden">
             <h4><%= report.title %></h4>
             
-            <h5><a href="<%= report.drive_folder %>" target="_blank" style="text-decoration:none;color:#94CFD5;">View Invoice folder</a></h5>
+            <h5><a href="<%= report.drive_folder %>" target="_blank" style="text-decoration:none;color:#94CFD5;">View Backup folder</a></h5>
             <p><%= truncate(report.summary, length: 40) %></p>
             <p>Last updated: <%= time_ago_in_words(report.updated_at) %></p>
             <br>

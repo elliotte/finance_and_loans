@@ -1,20 +1,5 @@
-Reporting Line,December 2014,December 2013,FS Mapping
-Sales,107134,59870,gp-rev
-Purchases,7225,17288,gp-cos
-Discounts allowed,124551,0,gp-cos
-Commissions payable,11769,18831,gp-cos
-Other operating income,0,0,op-rev
-Wages and salaries,16836,11100,op-cos
-Directors' salaries,162,3023,op-cos
-Pensions,10002,0,op-cos
-Staff training and welfare,22873,1081,op-cos
-Travel and subsistence,44169,10452,op-cos
-Insurance,19513,28746,op-cos
-Accountancy fees,12024,23029,op-cos
-Advertising and PR,9410,16976,op-cos
-Plant & machinery cost - additions,15146,12214,fa_tang
-Plant & machinery cost - disposals,18369,2772,fa_tang
-Trade debtors,3893,13503,curr_assets
-Trade creditors,1537,3383,cred_current
-Other taxes and social security costs,36657,48268,cred_current
-No-Mapping,111404,133087,capital
+ledger_id,id,type,amount,monea_tag,mi_tag,created_at,updated_at,description,currency,acc_date,vat,invoice_file_link,paid
+127,18750,Transaction,1231.0,Sales,"",2015-08-19 11:12:58 UTC,2015-08-19 15:23:55 UTC,"",,2015-08-19,0.0,https://docs.google.com/document/d/17ZiTMIcDDyi-reFzNhTEDGooG7IEwvUUSYfMzChG8RE/edit?usp=drivesdk,true
+127,18748,Transaction,4322.0,Sales,NEWTAG,2015-08-19 10:31:30 UTC,2015-08-19 15:06:01 UTC,withVAT notPAID,,2015-08-19,123.0,https://docs.google.com/document/d/1dRWcibIe32db46QGLKV4y4JNW9gF3bCEjuTXUaZOsSs/edit?usp=drivesdk,true
+127,18745,Transaction,1000.45,Sales,"",2015-08-18 17:36:26 UTC,2015-08-19 15:05:55 UTC,UPDATEDDDDDD,,2015-08-18,112.0,https://docs.google.com/document/d/1K90XGRATWs2Dk1aQGIHukVbzyqBhHbcSJx-PSugSuuk/edit?usp=drivesdk,true
+127,18747,Transaction,4567.0,Sales,"",2015-08-18 17:39:05 UTC,2015-08-19 17:00:18 UTC,STILL IN FOLDER?,,2015-08-18,1234.0,https://docs.google.com/document/d/1mVVyp0OMuLMlbMjDGH8hm1zwL2gNT1jFi3ROeMDOnL8/edit?usp=drivesdk,true
