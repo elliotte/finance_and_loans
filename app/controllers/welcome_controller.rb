@@ -17,30 +17,23 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
           google_service.set_session(access_codes)
           set_app_user_session(google_service.session)
           @user = User.find_or_create_by(uid: session[:gplus_id], email: session[:email])
+          redirect_to(action: "/") and return if @user.nil?
           render json: "New connection made".to_json
         else
           render json: 'The client state does not match the server state.'.to_json
         end
     else
-        #to change to gProfile so smaller call..
-        google_service.get_user_files(session[:token])
-        result = google_service.files
-        case 
-        when result.has_key?('error')
-          reset_session
-          render json: "Invalid Credentials, app session cleared".to_json
-        when result.has_key?('kind')
-          #to cache files to localStorage?  CurrentJS fetches again after result render
-          #google_service.set_files(result.to_json)
+        result = google_service.check_user_session(session[:token])
+        if result.status == 200
+          result = result.data
           render json: result.to_json
-        end
+        else
+          reset_session
+          result = "Invalid Credentials, app session cleared".to_json
+          render json: result
+       end
     end
   end
-
-  # def do_something
-  #   redirect_to(action: "/index") and return if @user.nil?
-  #   render action: "overthere" # won't be called if monkeys is nil
-  # end
 
   def sign_out_user
     reset_session
@@ -57,8 +50,8 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
     render json: 'User disconnected.'.to_json
   end
 
-  def set_app_user_session google_session_info
-     google_session_info.each_pair do |key, value|
+  def set_app_user_session _GoogleAuthInfo
+     _GoogleAuthInfo.each_pair do |key, value|
           session[key] = value
      end
   end

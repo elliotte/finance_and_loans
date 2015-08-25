@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
         :client_secret => ENV['CLIENT_SECRET'],
         :redirect_uri => ENV['REDIRECT_URIS'],
         :scope => ENV['PLUS_LOGIN_SCOPE'])
-    $client = Google::APIClient.new
+    $client = Google::APIClient.new(:application_name => 'monea.build',
+                              :application_version => '1.0.0')
 
     def verify_token
       # Check for stored credentials in the current user's session.

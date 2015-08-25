@@ -37,6 +37,16 @@
 			@client.authorization.access_token = token
 		end
 
+		def check_user_session token
+			plus = @client.discovered_api('plus', 'v1')
+			set_auth(token)
+			result = @client.execute(
+	          :api_method => plus.people.get,
+	          :parameters => {'userId' => 'me'}
+	        )
+			result
+		end
+
 		def set_files files
 			@files = files
 		end
