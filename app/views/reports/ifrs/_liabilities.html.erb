@@ -104,6 +104,8 @@
 
                       <% cy_cl = cl_amounts[:cy].inject(:+) %>
                       <% py_cl = cl_amounts[:py].inject(:+) %>
+
+
                       <% mvmt = cy_cl - py_cl %>
                       <tr>
                         <td> Total current liabilities</td>
@@ -117,10 +119,14 @@
                         <td></td>
                         <td></td>
                       </tr>
+                      <!-- FOR FC CHECKS -->
+                      <% $cy_tot_liab = cy_cl + cy_ncl %>
+                      <% $py_tot_liab = py_cl + cy_ncl %>
+                      
                       <tr>
                         <td>Total liabilities</td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_ncl + cy_cl) %></td>
-                        <td style="color:#f3655e;"><%=  number_with_delimiter(py_ncl + cy_cl) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter($cy_tot_liab) %></td>
+                        <td style="color:#f3655e;"><%=  number_with_delimiter($py_tot_liab) %></td>
                         <td></td>
                       </tr>
                       <tr>

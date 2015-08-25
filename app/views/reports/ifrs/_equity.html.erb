@@ -76,11 +76,21 @@
                         <td style="color:#f3655e;"><%= number_with_delimiter(py_equity) %></td>
                         <td><%= display_ifrs(mvmt) %></td>
                       </tr>
+
+                      <% $check_cy =  $cy_tot_a - $cy_tot_liab - cy_equity %>
+                      <% $check_py =  $py_tot_a - $py_tot_liab - py_equity %>
+
                       <tr>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
+                      </tr>
+                      <tr style="font-size:50%;">
+                        <td>financial control difference total assets minus total liabilities less equity</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter($check_cy) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter($check_py) %></td>
+                        <td><%= mvmt %></td>
                       </tr>
                   </tbody>
                </table>

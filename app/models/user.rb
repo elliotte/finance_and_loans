@@ -23,13 +23,13 @@ class User < ActiveRecord::Base
   	def load_welcome_reports
   		file = "#{Rails.root}/files/welcome_rep.csv"
   		values = ParseValuesCSV.new(file).return_data
-  		report = self.reports.build(title: 'IFRS example report', summary: "Demo monea.report IFRS reporting .. view various current and comparative summaries of report values, add notes and comments, view your financial statements dashboard and link reconciliations, create statutory accounts, export contents to Google or share with other colleagues or accountants", current_end: Date.new(2014,12,31), comparative_end: Date.new(2013,12,31), format: 'IFRS', report_type: 'Statutory')
-  		report.save
+  		report = self.reports.create(title: 'IFRS example report', summary: "Demo monea.report IFRS reporting .. view various current and comparative summaries of report values, add notes and comments, view your financial statements dashboard and link reconciliations, create statutory accounts, export contents to Google or share with other colleagues or accountants", current_end: Date.new(2014,12,31), comparative_end: Date.new(2013,12,31), format: 'IFRS', report_type: 'Statutory')
+      return if report.nil?
   		WelcomeService.new(report).load_ifrs_report(values)
       file = "#{Rails.root}/files/welcome_rep_gaap.csv"
       values = ParseValuesCSV.new(file, "UKGAAP").return_data
-      report_gaap = self.reports.build(title: 'UK-GAAP example report', summary: "Demo monea.report reporting .. view various current and comparative summaries of report values, add notes and comments, view your financial statements dashboard and link reconciliations, create statutory accounts, export contents to Google or share with other colleagues or accountants", current_end: Date.new(2014,12,31), comparative_end: Date.new(2013,12,31), format: 'UKGAAP', report_type: 'Statutory')
-      report_gaap.save
+      report_gaap = self.reports.create(title: 'UK-GAAP example report', summary: "Demo monea.report reporting .. view various current and comparative summaries of report values, add notes and comments, view your financial statements dashboard and link reconciliations, create statutory accounts, export contents to Google or share with other colleagues or accountants", current_end: Date.new(2014,12,31), comparative_end: Date.new(2013,12,31), format: 'UKGAAP', report_type: 'Statutory')
+      return if report.nil?
       WelcomeService.new(report_gaap).load_gaap_report(values)
   	end
 

@@ -39,8 +39,8 @@ Other financial assets,nca
 Other assets,nca
 Investments in equity-accounted associates,nca
 Investments in equity-accounted joint ventures,nca
-Available-for-sale investments,nca
-Derivative financial assets,nca
+Available-for-sale investments more than 1 year,nca
+Derivative financial assets more than 1 year,nca
 Other receivables,ca
 Deferred tax assets,ca
 Trade and other payables,cl
@@ -50,9 +50,9 @@ Income Tax Payable,cl
 Employee benefit liabilities,cl
 Provisions,cl
 Liabilities directly associated with assets in HFS,cl
-Loans and borrowings,ncl
-Derivative financial liabilities,ncl
-Employee benefit liabilities,ncl
+Loans and borrowings more than 1 year,ncl
+Derivative financial liabilities more than 1 year,ncl
+Employee benefit liabilities more than 1 year,ncl
 Provisions ,ncl
 Deferred tax liability,ncl
 Other financial liabilities,ncl

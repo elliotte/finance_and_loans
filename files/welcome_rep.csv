@@ -1,8 +1,8 @@
 reporting month,TB code,amount,description,mi_tag,ifrstag
-31/12/2014,00001,4696.690611,Opening Balances co 1,Fixtures and Fittings - cost,"Property, plant and equipment"
-29/12/2014,00002,9667.011797,Opening Balances co 1,Fixtures and Fittings - additions,"Property, plant and equipment"
-31/12/2014,00003,8734.446753,Opening Balances co 1,Fixtures and Fittings - acc depn,"Property, plant and equipment"
-29/12/2014,00004,2146.316367,Opening Balances co 1,Fixtures and Fittings - depn charge,"Property, plant and equipment"
+31/12/2014,00001,4696.690611,Opening Balances co 1,Fixtures and Fittings - cost,Property plant and equipment
+29/12/2014,00002,9667.011797,Opening Balances co 1,Fixtures and Fittings - additions,Property plant and equipment
+31/12/2014,00003,8734.446753,Opening Balances co 1,Fixtures and Fittings - acc depn,Property plant and equipment
+29/12/2014,00004,2146.316367,Opening Balances co 1,Fixtures and Fittings - depn charge,Property plant and equipment
 29/12/2014,00005,1602.438244,Opening Balances co 1,Debtors Control Account,Trade and other receivables
 29/12/2014,00006,6721.907283,Opening Balances co 1,Prepayments,Other assets
 29/12/2014,00007,1084.277692,Opening Balances co 1,Current account,Cash and cash equivalents
@@ -16,6 +16,9 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 31/12/2014,00015,6464.662154,Opening Balances co 1,VAT Control,Other liabilities
 31/12/2014,00016,6985.126243,Opening Balances co 1,CT liability,Income Tax Payable
 31/12/2014,00017,1740.605874,Opening Balances co 1,Dividend Paid,Other liabilities
+31/12/2014,00017,500000,Opening Balances co 1,Loan Bank 1,Loans and borrowings
+31/12/2014,00017,500000,Opening Balances co 1,Loan Bank 2,Loans and borrowings
+31/12/2014,00017,43132,Opening Balances co 1,Bad debtors,Provisions
 31/12/2014,00018,6169.377489,Opening Balances co 1,Share capital,Share capital
 31/12/2014,00019,7476.776825,Opening Balances co 1,PnL CY,Retained earnings
 29/12/2014,00020,8877.167947,YE trial balance co 1,Sales stream 5,Revenue
@@ -43,10 +46,10 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 29/12/2014,00042,3551.475117,YE trial balance co 1,Refreshments,Administrative expenses
 29/12/2014,00043,8844.865837,YE trial balance co 1,Misc Motor expenses,Administrative expenses
 29/12/2014,00044,1276.956081,YE trial balance co 1,Travel,Administrative expenses
-29/12/2013,00010,6061.321027,Opening Balances co 1,Fixtures and Fittings - cost,"Property, plant and equipment"
-29/12/2013,00011,5948.039832,Opening Balances co 1,Fixtures and Fittings - additions,"Property, plant and equipment"
-29/12/2013,00012,1068.794228,Opening Balances co 1,Fixtures and Fittings - acc depn,"Property, plant and equipment"
-29/12/2013,00013,5767.645916,Opening Balances co 1,Fixtures and Fittings - depn charge,"Property, plant and equipment"
+29/12/2013,00010,6061.321027,Opening Balances co 1,Fixtures and Fittings - cost,Property plant and equipment
+29/12/2013,00011,5948.039832,Opening Balances co 1,Fixtures and Fittings - additions,Property plant and equipment
+29/12/2013,00012,1068.794228,Opening Balances co 1,Fixtures and Fittings - acc depn,Property plant and equipment
+29/12/2013,00013,5767.645916,Opening Balances co 1,Fixtures and Fittings - depn charge,Property plant and equipment
 29/12/2013,00014,6975.98303,Opening Balances co 1,Debtors Control Account,Trade and other receivables
 29/12/2013,00015,2981.57352,Opening Balances co 1,Prepayments,Other assets
 29/12/2013,00016,566.5755648,Opening Balances co 1,Current account,Cash and cash equivalents
@@ -87,10 +90,10 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 29/12/2013,00051,-6190.589621,YE trial balance co 1,Refreshments,Administrative expenses
 29/12/2013,00052,-8897.98546,YE trial balance co 1,Misc Motor expenses,Administrative expenses
 29/12/2013,00053,-5424.334675,YE trial balance co 1,Travel,Administrative expenses
-31/12/2014,00001,515.7733018,Opening Balances co 2,Fixtures and Fittings - cost,"Property, plant and equipment"
-29/12/2014,00002,5162.452031,Opening Balances co 2,Fixtures and Fittings - additions,"Property, plant and equipment"
-31/12/2014,00003,2731.19867,Opening Balances co 2,Fixtures and Fittings - acc depn,"Property, plant and equipment"
-29/12/2014,00004,1219.225764,Opening Balances co 2,Fixtures and Fittings - depn charge,"Property, plant and equipment"
+31/12/2014,00001,515.7733018,Opening Balances co 2,Fixtures and Fittings - cost,Property plant and equipment
+29/12/2014,00002,5162.452031,Opening Balances co 2,Fixtures and Fittings - additions,Property plant and equipment
+31/12/2014,00003,2731.19867,Opening Balances co 2,Fixtures and Fittings - acc depn,Property plant and equipment
+29/12/2014,00004,1219.225764,Opening Balances co 2,Fixtures and Fittings - depn charge,Property plant and equipment
 29/12/2014,00005,834.0097612,Opening Balances co 2,Debtors Control Account,Trade and other receivables
 29/12/2014,00006,100.5495895,Opening Balances co 2,Prepayments,Other assets
 29/12/2014,00007,459.2084031,Opening Balances co 2,Current account,Cash and cash equivalents
@@ -131,10 +134,10 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 29/12/2014,00042,653.0457744,YE trial balance co 2,Refreshments,Administrative expenses
 29/12/2014,00043,1804.208597,YE trial balance co 2,Misc Motor expenses,Administrative expenses
 29/12/2014,00044,47.08305737,YE trial balance co 2,Travel,Administrative expenses
-29/12/2013,00010,5734.503565,Opening Balances co 2,Fixtures and Fittings - cost,"Property, plant and equipment"
-29/12/2013,00011,5551.4281,Opening Balances co 2,Fixtures and Fittings - additions,"Property, plant and equipment"
-29/12/2013,00012,68.08244849,Opening Balances co 2,Fixtures and Fittings - acc depn,"Property, plant and equipment"
-29/12/2013,00013,758.3809728,Opening Balances co 2,Fixtures and Fittings - depn charge,"Property, plant and equipment"
+29/12/2013,00010,5734.503565,Opening Balances co 2,Fixtures and Fittings - cost,Property plant and equipment
+29/12/2013,00011,5551.4281,Opening Balances co 2,Fixtures and Fittings - additions,Property plant and equipment
+29/12/2013,00012,68.08244849,Opening Balances co 2,Fixtures and Fittings - acc depn,Property plant and equipment
+29/12/2013,00013,758.3809728,Opening Balances co 2,Fixtures and Fittings - depn charge,Property plant and equipment
 29/12/2013,00014,5147.172089,Opening Balances co 2,Debtors Control Account,Trade and other receivables
 29/12/2013,00015,2496.386991,Opening Balances co 2,Prepayments,Other assets
 29/12/2013,00016,337.8200233,Opening Balances co 2,Current account,Cash and cash equivalents
@@ -175,10 +178,10 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 29/12/2013,00051,-4884.976087,YE trial balance co 2,Refreshments,Administrative expenses
 29/12/2013,00052,-2354.32511,YE trial balance co 2,Misc Motor expenses,Administrative expenses
 29/12/2013,00053,-853.2620257,YE trial balance co 2,Travel,Administrative expenses
-31/12/2014,00001,2896.282813,Opening Balances co 3,Fixtures and Fittings - cost,"Property, plant and equipment"
-29/12/2014,00002,8377.438346,Opening Balances co 3,Fixtures and Fittings - additions,"Property, plant and equipment"
-31/12/2014,00003,1611.636619,Opening Balances co 3,Fixtures and Fittings - acc depn,"Property, plant and equipment"
-29/12/2014,00004,779.8201422,Opening Balances co 3,Fixtures and Fittings - depn charge,"Property, plant and equipment"
+31/12/2014,00001,2896.282813,Opening Balances co 3,Fixtures and Fittings - cost,Property plant and equipment
+29/12/2014,00002,8377.438346,Opening Balances co 3,Fixtures and Fittings - additions,Property plant and equipment
+31/12/2014,00003,1611.636619,Opening Balances co 3,Fixtures and Fittings - acc depn,Property plant and equipment
+29/12/2014,00004,779.8201422,Opening Balances co 3,Fixtures and Fittings - depn charge,Property plant and equipment
 29/12/2014,00005,826.8038101,Opening Balances co 3,Debtors Control Account,Trade and other receivables
 29/12/2014,00006,1668.118215,Opening Balances co 3,Prepayments,Other assets
 29/12/2014,00007,957.976224,Opening Balances co 3,Current account,Cash and cash equivalents
@@ -219,10 +222,10 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 29/12/2014,00042,2731.348523,YE trial balance co 3,Refreshments,Administrative expenses
 29/12/2014,00043,7028.747724,YE trial balance co 3,Misc Motor expenses,Administrative expenses
 29/12/2014,00044,87.07999565,YE trial balance co 3,Travel,Administrative expenses
-29/12/2013,00010,1422.818591,Opening Balances co 3,Fixtures and Fittings - cost,"Property, plant and equipment"
-29/12/2013,00011,4401.78908,Opening Balances co 3,Fixtures and Fittings - additions,"Property, plant and equipment"
-29/12/2013,00012,562.9697483,Opening Balances co 3,Fixtures and Fittings - acc depn,"Property, plant and equipment"
-29/12/2013,00013,1296.018871,Opening Balances co 3,Fixtures and Fittings - depn charge,"Property, plant and equipment"
+29/12/2013,00010,1422.818591,Opening Balances co 3,Fixtures and Fittings - cost,Property plant and equipment
+29/12/2013,00011,4401.78908,Opening Balances co 3,Fixtures and Fittings - additions,Property plant and equipment
+29/12/2013,00012,562.9697483,Opening Balances co 3,Fixtures and Fittings - acc depn,Property plant and equipment
+29/12/2013,00013,1296.018871,Opening Balances co 3,Fixtures and Fittings - depn charge,Property plant and equipment
 29/12/2013,00014,5308.013852,Opening Balances co 3,Debtors Control Account,Trade and other receivables
 29/12/2013,00015,648.9402514,Opening Balances co 3,Prepayments,Other assets
 29/12/2013,00016,182.4798015,Opening Balances co 3,Current account,Cash and cash equivalents
@@ -263,3 +266,39 @@ reporting month,TB code,amount,description,mi_tag,ifrstag
 29/12/2013,00051,-5883.233953,YE trial balance co 3,Refreshments,Administrative expenses
 29/12/2013,00052,-2126.523805,YE trial balance co 3,Misc Motor expenses,Administrative expenses
 29/12/2013,00053,-4108.793403,YE trial balance co 3,Travel,Administrative expenses
+29/12/2013,00054,600000,Opening Balances co 1,Loan Bank 1,Loans and borrowings more than 1 year
+29/12/2013,00055,600000,Opening Balances co 1,Loan Bank 2,Loans and borrowings
+29/12/2013,00056,43132,Opening Balances co 1,Bad debtors,Provisions
+29/12/2013,00054,1000000,Opening Balances co 2,Cash savings 1,Cash and cash equivalents
+29/12/2013,00055,1233332,Opening Balances co 2,Investment account,Cash and cash equivalents
+29/12/2013,00056,543000,Opening Balances co 2,Working capital account,Cash and cash equivalents
+29/12/2014,00054,2000000,Opening Balances co 2,Cash savings 1,Cash and cash equivalents
+29/12/2014,00055,1560000,Opening Balances co 2,Investment account,Cash and cash equivalents
+29/12/2014,00056,321022,Opening Balances co 2,Working capital account,Cash and cash equivalents
+29/12/2013,00054,75000,Finance lease mvmts,HP 1,Loans and borrowings more than 1 year
+29/12/2013,00055,75000,Finance lease mvmts,HP 2,Loans and borrowings
+29/12/2013,00056,75000,Finance lease mvmts,HP 3,Loans and borrowings more than 1 year
+29/12/2014,00054,50000,Finance lease mvmts,HP 1,Loans and borrowings more than 1 year
+29/12/2014,00055,50000,Finance lease mvmts,HP 2,Loans and borrowings
+29/12/2014,00056,50000,Finance lease mvmts,HP 3,Loans and borrowings more than 1 year
+29/12/2013,00054,-1322,Opening FX mvmts BS,Trading with china GBP acc mvmts,Cash and cash equivalents
+29/12/2013,00055,4321,Opening FX mvmts BS,Trading with india GBP mvmts,Foreign exchange reserve
+29/12/2013,00056,4567,Opening FX mvmts BS,Trading with USA GBP mvmts,Foreign exchange reserve
+29/12/2014,00054,-6648.333333,Opening FX mvmts BS,Trading with china GBP mvts,Cash and cash equivalents
+29/12/2014,00055,8270.833333,Opening FX mvmts BS,Trading with india GBP mvts,Foreign exchange reserve
+29/12/2014,00056,9893.333333,Opening FX mvmts BS,Trading with USA GBP mvts,Foreign exchange reserve
+29/12/2013,00054,50021,Hedging items not on TB,Trading with china futures,Derivative financial assets
+29/12/2013,00055,12340,Hedging items not on TB,Trading with india futures,Derivative financial assets
+29/12/2013,00056,67812,Hedging items not on TB,Trading with USA futures,Derivative financial assets
+29/12/2014,00054,12451,Hedging items not on TB,Trading with china futures,Derivative financial assets
+29/12/2014,00055,1255,Hedging items not on TB,Trading with india futures,Derivative financial assets
+29/12/2014,00056,12551,Hedging items not on TB,Trading with USA futures,Derivative financial assets
+29/12/2013,00054,50021,Not in TB shares,FTSE 100,Available-for-sale investments
+29/12/2013,00055,12340,Not in TB shares,NASDAQ,Available-for-sale investments
+29/12/2014,00054,12451,Not in TB shares,FTSE 100,Available-for-sale investments
+29/12/2014,00055,1255,Not in TB shares,NASDAQ,Available-for-sale investments
+29/12/2014,00054,12451,"Co 1, 2 and 3 direct overheads",Overhead 1 2 and 3,Other direct costs
+29/12/2014,00055,1255,"Co 1, 2 and 3 direct overheads",Overhead 3 4 5,Other direct costs
+29/12/2014,00056,12551,"Co 1, 2 and 3 direct overheads",Overhead 3 4 5,Other direct costs
+29/12/2013,00054,50021,"Co 1, 2 and 3 direct overheads",Overhead 1 2 and 3,Other direct costs
+29/12/2013,00055,12340,"Co 1, 2 and 3 direct overheads",Overhead 3 4 5,Other direct costs

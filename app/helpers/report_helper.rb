@@ -4,7 +4,7 @@ module ReportHelper
 		if yield.nil?
 			0.00
 		else
-			yield[:amount].round(2).abs
+			yield[:amount].to_i
 		end
 	end
 

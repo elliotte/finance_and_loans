@@ -98,6 +98,10 @@
 
                       <% cy_ca = ca_amounts[:cy].inject(:+) %>
                       <% py_ca = ca_amounts[:py].inject(:+) %>
+                      <!-- FOR FINANCIAL CONTROL TOTS CHECK -->
+                      <% $cy_tot_a = cy_ca %>
+                      <% $py_tot_a = py_ca %>
+
                       <% mvmt = cy_ca - py_ca %>
                       <tr>
                         <td> Total current assets</td>

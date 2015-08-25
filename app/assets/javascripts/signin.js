@@ -160,7 +160,7 @@ var helper = (function() {
         var image = document.createElement('img');
         image.src = resp.result.image.url;
         
-        html = 'Welcome ' + '<span style="color: #f3655e;">' + resp.result.displayName + '</span>'
+        html = 'Welcome ' + '<span style="color: #eee;">' + resp.result.displayName + '</span>'
         $('#welcome-name-append').empty().append(html)
         $('#welcome-profile-append').empty().append(image)
 
