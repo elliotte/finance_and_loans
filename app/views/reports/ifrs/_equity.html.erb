@@ -29,13 +29,15 @@
                           <% py_amt = yield_amount { py }.to_i %>
                           <% unless (cy_amt + py_amt == 0.00) %>
                           <tr>
-                            <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+                            <td style="color:#f3655e;"><%= master_tag %></td>
                             <% eq_amounts[:cy] << cy_amt %>
                             <% eq_amounts[:py] << py_amt %>
                             <% mvmt = cy_amt - py_amt %>
-                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
-                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
+                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
                             <td><%= display_ifrs(mvmt) %></td>
+                            <!-- HIDDEN JS LINE ASSETS -->
+                            <span class="js-fs-line" data-tag="eq" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           </tr>
                           <% end %>
                       <% end %>
@@ -47,8 +49,8 @@
                           <% eq_amounts[:cy] << cy_profit %>
                           <% eq_amounts[:py] << py_profit %>
                           <% mvmt = cy_profit - py_profit %>
-                          <td><%= cy_profit %></td>
-                          <td><%= py_profit %></td>
+                          <td><%= display_ifrs(cy_profit) %></td>
+                          <td><%= display_ifrs(py_profit) %></td>
                           <td><%= display_ifrs(mvmt) %></td>
                       </tr>
 
@@ -58,8 +60,8 @@
 
                       <tr>
                         <td> Total Equity</td>
-                        <td style="color:#f3655e;"><%= cy_equity %></td>
-                        <td style="color:#f3655e;"><%= py_equity %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_equity) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_equity) %></td>
                         <td><%= mvmt %></td>
                       </tr>
                       <tr>
@@ -70,9 +72,9 @@
                       </tr>
                       <tr>
                         <td> Total Equity and liabilities</td>
-                        <td style="color:#f3655e;"><%= cy_equity %></td>
-                        <td style="color:#f3655e;"><%= py_equity %></td>
-                        <td><%= mvmt %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_equity) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_equity) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
                       </tr>
                       <tr>
                         <td></td>

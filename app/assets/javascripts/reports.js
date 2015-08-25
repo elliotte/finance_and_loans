@@ -162,7 +162,7 @@ var reportHelper = (function() {
 
            data =[['yourTag','Amount']]
 
-           $.each(all_cy_RepLines, function(index, repLine) {
+           $.each(all_pp_RepLines, function(index, repLine) {
               tag = $(repLine).data('key')
               amt = $(repLine).data('amount')
               if(typeof tag !== "undefined" && typeof amt !== "undefined") {
@@ -233,6 +233,7 @@ var ifrsDashShow = (function() {
               py_info = [ lineDescription, py_amt ]
 
               switch (tag) {
+                // PNL GAAP AND IFRS
                   case "gp-rev":
                       data.cy.gp_rev.push(cy_info)
                       data.py.gp_rev.push(py_info)
@@ -249,7 +250,7 @@ var ifrsDashShow = (function() {
                       data.cy.op_cos.push(cy_info)
                       data.py.op_cos.push(py_info)
                       break;
-                  case "tax":
+                  case "pbt-cos":
                       data.cy.tax.push(cy_info)
                       data.py.tax.push(py_info)
                       break;
@@ -257,6 +258,7 @@ var ifrsDashShow = (function() {
                       data.cy.tax.push(cy_info)
                       data.py.tax.push(py_info)
                       break;
+                // ASSETS GAAP
                   case "fa_tang":
                       data.cy.assets.push(cy_info)
                       data.py.assets.push(py_info)
@@ -269,10 +271,20 @@ var ifrsDashShow = (function() {
                       data.cy.assets.push(cy_info)
                       data.py.assets.push(py_info)
                       break;
+                // ASSETS IFRS
+                  case "ca":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                   case "nca":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
                   case "assets":
                       data.cy.assets.push(cy_info)
                       data.py.assets.push(py_info)
                       break;
+                // CREDITORS n EQUITY GAAP
                   case "cred_current":
                       data.cy.liabs.push(cy_info)
                       data.py.liabs.push(py_info)
@@ -282,6 +294,15 @@ var ifrsDashShow = (function() {
                       data.py.liabs.push(py_info)
                       break;
                   case "capital":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                //CREDITORS n EQUTY IFRS
+                  case "ncl":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "cl":
                       data.cy.liabs.push(cy_info)
                       data.py.liabs.push(py_info)
                       break;

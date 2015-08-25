@@ -33,8 +33,9 @@
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);
+  
+  @include radial-gradient(circle at 50% 50%, #eee 10%, #94CFD5 30%, #efefef);
 
-  background: $footer-background;
   padding: $base-spacing;
   width: 100%;
   display: inline-block;
@@ -83,7 +84,7 @@
 
     &:focus,
     &:hover {
-      color: transparentize($footer-color, 0);
+      color: transparentize($action-color, 0);
     }
   }
 

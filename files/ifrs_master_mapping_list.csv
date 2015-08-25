@@ -1,73 +1,73 @@
 LV1,LV2
-Revenue,GP_Rev
-Other trading income,GP_Rev
-Cost of sales,GP_Cos
-Other direct costs,GP_Cos
-Other operating income,OP_Rev
-Finance income,OP_Rev
-Share of post-tax profits of equity associates,OP_Rev
-Share of post-tax profits of equity joint ventures,OP_Rev
-Administrative expenses,OP_Cos
-Distribution expenses,OP_Cos
-Finance expense,OP_Cos
-Tax expense,tax
-Changes in inventories of finished goods and work in progress,GP_Cos
-Raw materials and consumables used,GP_Cos
-Employee benefit expenses,OP_Cos
-Depreciation and amortisation expense,OP_Cos
-Research and development,OP_Cos
-Other expenses,OP_Cos
-Loss on property revaluation,PAT_Cos
-Remeasurements of defined benefit pension schemes,PAT_Cos
-Share of associates' other,PAT_Cos
-Exchange gains arising on translation of foreign operations,OP_Cos
-Inventories,CA
-Trade and other receivables,CA
-Available-for-sale investments,CA
-Derivative financial assets,CA
-Current tax assets,CA
-Other assets,CA
-Cash and cash equivalents,CA
-Assets in disposal groups classified as held for sale,CA
-Finance lease receiveable,CA
-Property plant and equipment,NCA
-Investment property,NCA
-Goodwill,NCA
-Other intangible assets,NCA
-Finance lease receiveable,NCA
-Other financial assets,NCA
-Other assets,NCA
-Investments in equity-accounted associates,NCA
-Investments in equity-accounted joint ventures,NCA
-Available-for-sale investments,NCA
-Derivative financial assets,NCA
-Other receivables,CA
-Deferred tax assets,CA
-Trade and other payables,CL
-Loans and borrowings,CL
-Derivative financial liabilities,CL
-Income Tax Payable,CL
-Employee benefit liabilities,CL
-Provisions,CL
-Liabilities directly associated with assets in HFS,CL
-Loans and borrowings,NCL
-Derivative financial liabilities,NCL
-Employee benefit liabilities,NCL
-Provisions ,NCL
-Deferred tax liability,NCL
-Other financial liabilities,NCL
-Deferred revenue,NCL
-Other liabilities,NCL
-Revaluation reserve,EQ
-Available-for-sale reserve,EQ
-Cash flow hedging reserve,EQ
-Foreign exchange reserve,EQ
-Issued capital and share premium,EQ
-Other reserves,EQ
-Retained earnings,EQ
-Equity attributable to parent,EQ
-Non-controlling interest,EQ
-Share capital,EQ
-Share premium reserve,EQ
-Shares to be issued,EQ
-No-Mapping,EQ
+Revenue,gp_rev
+Other trading income,gp_rev
+Cost of sales,gp_cos
+Other direct costs,gp_cos
+Other operating income,op_rev
+Finance income,op_rev
+Share of post-tax profits of equity associates,op_rev
+Share of post-tax profits of equity joint ventures,op_rev
+Administrative expenses,op_cos
+Distribution expenses,op_cos
+Other expenses,op_cos
+Finance expense,op_cos
+Tax expense,pbt_cos
+Changes in inventories of finished goods and work in progress,gp_cos
+Raw materials and consumables used,gp_cos
+Employee benefit expenses,op_cos
+Depreciation and amortisation expense,op_cos
+Research and development,op_cos
+Loss on property revaluation,pat_cos
+Remeasurements of defined benefit pension schemes,pat_cos
+Share of associates' other,pat_cos
+Exchange gains arising on translation of foreign operations,op_cos
+Inventories,ca
+Trade and other receivables,ca
+Available-for-sale investments,ca
+Derivative financial assets,ca
+Current tax assets,ca
+Other assets,ca
+Cash and cash equivalents,ca
+Assets in disposal groups classified as held for sale,ca
+Finance lease receiveable,ca
+Property plant and equipment,nca
+Investment property,nca
+Goodwill,nca
+Other intangible assets,nca
+Finance lease receiveable,nca
+Other financial assets,nca
+Other assets,nca
+Investments in equity-accounted associates,nca
+Investments in equity-accounted joint ventures,nca
+Available-for-sale investments,nca
+Derivative financial assets,nca
+Other receivables,ca
+Deferred tax assets,ca
+Trade and other payables,cl
+Loans and borrowings,cl
+Derivative financial liabilities,cl
+Income Tax Payable,cl
+Employee benefit liabilities,cl
+Provisions,cl
+Liabilities directly associated with assets in HFS,cl
+Loans and borrowings,ncl
+Derivative financial liabilities,ncl
+Employee benefit liabilities,ncl
+Provisions ,ncl
+Deferred tax liability,ncl
+Other financial liabilities,ncl
+Deferred revenue,ncl
+Other liabilities,ncl
+Revaluation reserve,eq
+Available-for-sale reserve,eq
+Cash flow hedging reserve,eq
+Foreign exchange reserve,eq
+Issued capital and share premium,eq
+Other reserves,eq
+Retained earnings,eq
+Equity attributable to parent,eq
+Non-controlling interest,eq
+Share capital,eq
+Share premium reserve,eq
+Shares to be issued,eq
+No-Mapping,eq

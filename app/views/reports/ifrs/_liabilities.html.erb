@@ -46,16 +46,16 @@
 
                           <% unless (cy_amt + py_amt == 0.00) %>
                             <tr>
-                              <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+                              <td style="color:#f3655e;"><%= master_tag %></td>
                               <% ncl_amounts[:cy] << cy_amt %>
                               <% ncl_amounts[:py] << py_amt %>
                               <% mvmt = cy_amt - py_amt %>
-                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
-                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
+                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
                               <td><%= display_ifrs(mvmt) %></td>
                             </tr>
                             <!-- HIDDEN JS LINE ASSETS -->
-                            <span class="js-fs-line" data-tag="liabs" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                            <span class="js-fs-line" data-tag="ncl" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           <% end %>
                       <% end %>
 
@@ -64,9 +64,9 @@
                       <% mvmt = cy_ncl - py_ncl %>
                       <tr>
                         <td> Total non-current liabilities</td>
-                        <td style="color:#f3655e;"><%= cy_ncl %></td>
-                        <td style="color:#f3655e;"><%= py_ncl %></td>
-                        <td><%= mvmt %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_ncl) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_ncl) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
                       </tr>
                       <tr>
                         <td></td>
@@ -89,16 +89,16 @@
                           <% py_amt = yield_amount { py }.to_i %>
                           <% unless (cy_amt + py_amt == 0.00) %>
                           <tr>
-                            <td style="color:#f3655e;" class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period=""><%= master_tag %></td>
+                            <td style="color:#f3655e;"><%= master_tag %></td>
                             <% cl_amounts[:cy] << cy_amt %>
                             <% cl_amounts[:py] << py_amt %>
                             <% mvmt = cy_amt - py_amt %>
-                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= cy_amt %></td>
-                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= py_amt %></td>
+                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
                             <td><%= display_ifrs(mvmt) %></td>
                           </tr>
                           <!-- HIDDEN JS LINE ASSETS -->
-                          <span class="js-fs-line" data-tag="liabs" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                          <span class="js-fs-line" data-tag="cl" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           <% end %>
                       <% end %>
 
@@ -107,9 +107,9 @@
                       <% mvmt = cy_cl - py_cl %>
                       <tr>
                         <td> Total current liabilities</td>
-                        <td style="color:#f3655e;"><%= cy_cl  %></td>
-                        <td style="color:#f3655e;"><%= py_cl %></td>
-                        <td><%= mvmt %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_cl)  %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_cl) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
                       </tr>
                       <tr>
                         <td></td>
@@ -119,8 +119,8 @@
                       </tr>
                       <tr>
                         <td>Total liabilities</td>
-                        <td style="color:#f3655e;"><%= cy_ncl + cy_cl %></td>
-                        <td style="color:#f3655e;"><%=  py_ncl + cy_cl %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_ncl + cy_cl) %></td>
+                        <td style="color:#f3655e;"><%=  number_with_delimiter(py_ncl + cy_cl) %></td>
                         <td></td>
                       </tr>
                       <tr>

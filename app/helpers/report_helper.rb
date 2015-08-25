@@ -13,9 +13,7 @@ module ReportHelper
 	end
 
 	def margin_percentage numerator, denominator
-		num = numerator.to_f
-		dum = denominator.to_f
-		margin = num / dum * 100
+		margin = numerator.to_f / denominator.to_f * 100 rescue 0.00
 		return number_to_percentage(margin)
 	end
 	
@@ -36,14 +34,12 @@ module ReportHelper
 	end
 	#to test
 	def display_ifrs(amount)
-		if amount == nil
-			return 0.00
-		elsif amount.class == String
-			return 0.00
+		return 0.00 if amount.nil?
+		if amount < 0.00
+			bracket_display = '(' + number_with_delimiter(amount.abs) + ')'
+			bracket_display
 		else
-			bracket_display = '(' + (amount * -1).round(0).to_s + ')'
-			normal_display = amount.round(0)
-			amount >= 0.00 ? normal_display : bracket_display
+			number_with_delimiter(amount)
 		end
 	end
 	# Input data data object and amount amount_sum

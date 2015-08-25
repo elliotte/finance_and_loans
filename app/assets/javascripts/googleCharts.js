@@ -79,21 +79,21 @@ var graphHelper = (function() {
           },
 
           drawReportShowCharts: function(data) {
-            
+             
              var cpData = google.visualization.arrayToDataTable(data["cp"]);
              var options = {
               title: 'Current values by your tag',
               is3D: true,
               legend: {position: "none" },
+              slices: {  4: {offset: 0.2},
+                    12: {offset: 0.3},
+                    14: {offset: 0.4},
+                    19: {offset: 0.5},
+                    24: {offset: 0.6},
+              },
+              sliceVisibilityThreshold: .001,
               colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
              };
-             console.log(data["cp"])
-
-             $.each(data["cp"], function(index, repLine) {
-              tag = $(repLine[0])
-              amt = $(repLine[0][1])
-              console.log([repLine[0], repLine[1], tag, amt])
-             });
 
              var chart = new google.visualization.PieChart(document.getElementById('cp-pie-chart'));
              chart.draw(cpData, options);
@@ -103,11 +103,18 @@ var graphHelper = (function() {
               title: 'Prior values by your tag',
               is3D: true,
               legend: {position: "none" },
+              slices: {  4: {offset: 0.2},
+                    12: {offset: 0.3},
+                    14: {offset: 0.4},
+                    19: {offset: 0.5},
+                    24: {offset: 0.6},
+              },
+              sliceVisibilityThreshold: .001,
               colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
              };
 
              var chart = new google.visualization.PieChart(document.getElementById('pp-pie-chart'));
-             chart.draw(cpData, options);
+             chart.draw(ppData, options);
 
           },
 
