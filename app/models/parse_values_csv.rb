@@ -43,7 +43,7 @@ class ParseValuesCSV
 	end
 
 	def set_ukgaap_tags
-		@tags = Tag.gaap_user_options
+		@tags = Tag.report_mgr_gaap_options
 	end
 
 end

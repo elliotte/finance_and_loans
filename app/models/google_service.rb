@@ -120,7 +120,7 @@
 		def create_user_invoice_folder salesLedgerName
 			@drive = discovered_api
 			file = @drive.files.insert.request_schema.new({
-	    		'title' => '[monea][' + salesLedgerName +']',
+	    		'title' => '[sales.folder][' + salesLedgerName +'][monea]',
 	    		'description' => 'monea.invoices',
 	    		'mimeType' => 'application/vnd.google-apps.folder'
   			})
@@ -131,7 +131,7 @@
 		def create_user_report_folder reportName
 			@drive = discovered_api
 			file = @drive.files.insert.request_schema.new({
-	    		'title' => '[monea][' + reportName +']',
+	    		'title' => '[report.folder][' + reportName +'][monea]',
 	    		'description' => 'monea.reports',
 	    		'mimeType' => 'application/vnd.google-apps.folder'
   			})
