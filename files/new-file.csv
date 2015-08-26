@@ -1,2 +1,32 @@
-ledger_id,id,type,amount,monea_tag,mi_tag,created_at,updated_at,description,currency,acc_date,vat,invoice_file_link,paid
-65,1678,Transaction,10.01,,,2015-08-26 10:18:24 UTC,2015-08-26 10:18:24 UTC,,,2015-08-25,0.0,,false
+VAT due this period on sales and other outputs,Box 1,0
+VAT due in this period on acquisitions from other EC Member States,Box 2,0
+Total VAT due,Box 3,0
+VAT reclaimed in this period on purchases and other inputs (including acquisitions from EC),Box 4,0
+VAT to/from customs,Box 5,0
+Total value of sales and all other outputs excluding VAT (including supplies to EC),Box 6,796463
+Total value of purchases and all other inputs excluding VAT (including acquisitions from EC),Box 7,351442
+"Total value of all supplies of goods, excluding any VAT, to other EC Member States",Box 8,0
+"Total value of all acquisitions of goods, excluding any VAT, from EC Member States",Box 9,0
+
+Payments
+
+Number of transactions,61
+Vat,0
+Net,351442
+Gross,351442
+
+Receipts
+
+Number of transactions,153
+Vat,0
+Net,796463
+Gross,796463
+
+Headlines
+
+No of trns,214
+total net purchases,351442
+vat_paid,0
+Total net sales,796463
+VAT sales,0
+Vat amount due,0

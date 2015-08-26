@@ -139,7 +139,7 @@
         data-amount="<%= amt %>"></span>
 <% end %>
 
-<!-- USED FOR COMMENTS AND NOTES -->
+<!-- USED FOR COMMENTS AND NOTES [ USES JS HANDLEBARS ] -->
 <%= render 'report_data_modals' %>
 <!-- EMPTY MODAL FOR FILTER -->
 <div class="modal">
@@ -157,8 +157,8 @@
 <div class="modal">
     <input class="modal-state" id="modal-table-empty" type="checkbox" />
     <div class="modal-fade-screen">
-      <div class="modal-inner">
-        <div class="modal-close" for="modal-ledger-empty"></div>
+      <div class="modal-inner widen">
+        <div class="modal-close" for="modal-table-empty"></div>
         <div id="empty-table-modal-body-append">
             <div style="color:#f3655e;" id="table-title"></div>
             <br>

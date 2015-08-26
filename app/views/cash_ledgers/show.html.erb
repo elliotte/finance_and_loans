@@ -8,8 +8,8 @@
 " alt="Logo Image"></a>
     <div class="hero-copy">
       <article class="type-system-rounded">
-        <h1>Opening Balance:  £ <%= @ledger.opening_balance.to_f.round(2) %> </h1>
-        <p style="color:white;"><%= @ledger.user_tag %> cashLedger Display and toolBelt</p>
+        <h1>Opening Balance:  £ <%= number_with_delimiter(@ledger.opening_balance) %> </h1>
+        <p style="color:white;"><%= @ledger.user_tag %> monea.Display and toolBelt</p>
         <h3><a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a></h3>
       </article>
     </div>

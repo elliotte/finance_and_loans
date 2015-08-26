@@ -51,11 +51,11 @@
                           <td>-</td>
                           <td>-</td>
                               <% if total >= 0.00 %>
-                                  <td data-key="<%= key %>" class="debit ledger_account"><%= total %></td>
+                                  <td data-key="<%= key %>" class="debit ledger_account"><%= number_with_delimiter(total) %></td>
                                   <td class="credit">0</td>
                               <% else %>
                                   <td class="debit">0</td>
-                                  <td data-key="<%= key %>" class="credit ledger_account"><%= total %></td>
+                                  <td data-key="<%= key %>" class="credit ledger_account"><%= number_with_delimiter(total) %></td>
                               <% end %>
                         </tr>
                       </tbody>
@@ -69,11 +69,11 @@
                          <td>rounding if < 5</td>
                         <% total = @ledger_account_totals.inject(:+).to_i %>
                         <% if total >= 0.00 %>
-                            <td class="debit"><%= total %></td>
+                            <td class="debit"><%= number_with_delimiter(total) %></td>
                             <td class="credit">0</td>
                         <% else %>
                             <td class="debit">0</td>
-                            <td class="credit"><%= total %></td>
+                            <td class="credit"><%= number_with_delimiter(total) %></td>
                         <% end %>
                     <tr>
             </table>

@@ -9,8 +9,8 @@
 <tr>
     <td style="max-width:6%;"><%= transaction.acc_date.strftime('%d - %b') %></td>
     <td style="max-width:12%;"><%= transaction.mi_tag %></td>
-    <td style="max-width:6%;"><%= amt.to_f.round(2) %></td>
-    <td style="max-width:6%;"><%= vat_amt.to_f.round(2) %></td>
+    <td style="max-width:6%;"><%= number_with_delimiter(amt.to_f.round(2)) %></td>
+    <td style="max-width:6%;"><%= number_with_delimiter(vat_amt.to_f.round(2)) %></td>
     <td style="background-color:#FFB5B1; color:white; max-width:2%;">-</td>
     
     <% $cash_book_columns.times do |column| %>
@@ -19,7 +19,7 @@
           <% trn_amt = (amt - vat_amt).to_f.round(2) %>
           <!-- FOR SUM OF COLUMN -->
           <% $cash_book_column_trns[column] << trn_amt  %>
-          <td style="max-width: <%= number_to_percentage($css_column_width) %>;"><%= trn_amt %></td>
+          <td style="max-width: <%= number_to_percentage($css_column_width) %>;"><%= number_with_delimiter(trn_amt.to_i) %></td>
         <% else %>
           <td>-</td>
         <% end %>

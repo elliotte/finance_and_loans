@@ -1,5 +1,5 @@
 <div style="color:#f3655e;" id="table-title">
-  <%= "Summary : " + params[:ifrstag] %>
+  <%= "Summary of moneaTag : " + params[:ifrstag] %>
 </div>
 <br>
 <table id="empty-modal-table" class="table-minimal">
@@ -8,7 +8,7 @@
     <td>Date</td>
     <td>miTag</td>
     <td>£</td>
-    <td>IFRS tag</td>
+    <td>moneaTag</td>
   </tr>
 
   <% if params[:summary] %>
@@ -16,10 +16,10 @@
     <% @data.each do |line| %>
         <% line.each do |value| %>
           <tr>
-            <td><%= value.type rescue nil%></td>
+            <td><%= value.type rescue nil %></td>
             <td><%= value.repdate.strftime('%B %Y') rescue nil %></td>
             <td><%= value.mitag %></td>
-            <td><%= value.amount %></td>
+            <td><%= number_with_delimiter(value.amount.to_i) %></td>
             <td><%= value.ifrstag %></td>
           </tr>
         <% end %>
@@ -29,10 +29,10 @@
 
     <% @data.each do |value| %>
       <tr>
-        <td><%= value.type rescue nil%></td>
+        <td><%= value.type rescue nil %></td>
         <td><%= value.repdate.strftime('%B %Y') rescue nil %></td>
         <td><%= value.mitag %></td>
-        <td><%= value.amount %></td>
+        <td><%= number_with_delimiter(value.amount.to_i) %></td>
         <td><%= value.ifrstag %></td>
       </tr>
     <% end %>

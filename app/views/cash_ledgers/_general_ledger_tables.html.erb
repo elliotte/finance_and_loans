@@ -34,7 +34,7 @@
                                     <td><%= tran[:id] %></td>
                                     <td><%= tran[:date] %></td>
                                     <td><%= tran[:mi_tag] %></td>
-                                    <td><%= amount %></td>
+                                    <td><%= number_with_delimiter(amount.to_i) %></td>
                                     <td>-</td>
                                   </tr>
                                 <% end %>
@@ -47,7 +47,7 @@
                                     <td><%= tran[:date] %></td>
                                     <td><%= tran[:mi_tag] %></td>
                                     <td>-</td>
-                                    <td><%= amount %></td>
+                                    <td><%= number_with_delimiter(amount.to_i) %></td>
                                   </tr>
                                 <% end %>
                             <% end %>
@@ -59,8 +59,8 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><%= debit %></td>
-                                <td><%= credit %></td>
+                                <td><%= number_with_delimiter(debit.to_i) %></td>
+                                <td><%= number_with_delimiter(credit.to_i) %></td>
                             </tr>
                             <!-- CARRIED FORWARD CALC AND DISPLAY -->
                             <tr>
@@ -71,10 +71,10 @@
                                 <% if carried_forward >= 0 %>
                                     <!-- FLIP TO CALC CF IN ACCOUNTING VIEW -->
                                     <td></td>
-                                    <td><%= carried_forward * -1 %></td>
+                                    <td><%= number_with_delimiter(carried_forward * -1) %></td>
                                 <% else %>
                                     <!-- FLIP TO CALC CF IN ACCOUNTING VIEW -->
-                                    <td><%= carried_forward * -1 %></td>
+                                    <td><%= number_with_delimiter(carried_forward * -1) %></td>
                                     <td></td>
                                 <% end %>
                             </tr>

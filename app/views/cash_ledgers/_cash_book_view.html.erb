@@ -34,7 +34,8 @@
                         <td></td>
                         <td style="color:#f3655e;"></td>
                         <% $cash_book_column_trns.each do |column_collection| %>
-                           <td style="color:#f3655e;"><%= sum_list {column_collection } %></td>
+                           <% amt = sum_list {column_collection } %>
+                           <td style="color:#f3655e;"><%= number_with_delimiter(amt) %></td>
                         <% end %>
                     </tr>
                 </tbody>

@@ -24,7 +24,7 @@
                     <%= row[1]%>
                   </td>
                   <td>
-                    <%= row[2]%>
+                    <%= number_with_delimiter(row[2].to_i) %>
                   </td>
               </tr>
           <% end %>

@@ -9,10 +9,10 @@
 	</thead>
 	<tbody>
 	  <% @data[:lodgements].each_pair do |tag, total| %>
-	  	 <% _tot = total.to_f.round(2) %>
+	  	 <% _tot = total.to_i %>
 		  <tr class="lodgement_line" data-tag="<%= tag %>" data-total="<%= _tot %>">
 		    <td><%= tag %></td>
-		    <td><%= _tot %></td>
+		    <td><%= number_with_delimiter(_tot) %></td>
 		    <td><button data-tag="<%= tag %>" class="lodgement-summary-display">View</button></td>
 		  </tr>
 	  <% end %>

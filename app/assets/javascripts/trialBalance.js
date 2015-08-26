@@ -12,6 +12,8 @@ var trialBalanceHelper = (function() {
                       var ledger_account = $(this).data('key')  
                       var table = document.getElementById(ledger_account)
                       
+                      $(".modal-inner").addClass('widen')
+
                       $("#modal-empty").trigger("click")
                       $('#empty-modal-body-append').append(table) 
                       $('#empty-modal-body-append').prepend('<p>' + ledger_account + '</p>') 
@@ -24,6 +26,7 @@ var trialBalanceHelper = (function() {
 
                       $(".modal-close").on("click", function() {
                           $(".modal-state:checked").prop("checked", false).change();
+                          $(".modal-inner").removeClass('widen')
                       });
                 });
                 // END OF display Function

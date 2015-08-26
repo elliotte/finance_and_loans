@@ -140,12 +140,14 @@ var cashLedgerShow = (function() {
               // APPEND TO TABLE HELPER
               function appendToTable(tag) {
                   $(trns).each(function(i, trn) {
+
+                        amt = addCommas($(trn).data('total'))
                         html = '<tr>' +
                                   '<td>' + 
                                       $(trn).data('date') +
                                   '</td>' +
                                   '<td>' + 
-                                      $(trn).data('total') +
+                                      amt +
                                   '</td>' +
                                   '<td>' + 
                                       $(trn).data('desc') +
@@ -182,7 +184,18 @@ function shareSuccess() {
 
 };
 
-
+function addCommas(nStr) {
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}
+// helper for display nicely in modals
 
 
 

@@ -112,6 +112,9 @@ var reportHelper = (function() {
             body.append(header)
 
             $.each(values, function(i, tag){
+
+               amt = addCommas($(tag).data('amount'))
+
                html = '<tr>' +
                             '<td>' +
                               $(tag).data('type') +
@@ -123,7 +126,7 @@ var reportHelper = (function() {
                               $(tag).data('mitag') +
                             '</td>' +
                             '<td>' +
-                              $(tag).data('amount') +
+                              amt +
                             '</td>' +
                             '<td>' +
                               $(tag).data('ifrstag') +
@@ -133,7 +136,19 @@ var reportHelper = (function() {
 
             });
             title.append('<p style="color:#f3655e;">' + ' Summary: ' + lineDescription + '</p>')
-
+            
+            function addCommas(nStr) {
+                nStr += '';
+                var x = nStr.split('.');
+                var x1 = x[0];
+                var x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+            // helper for display nicely in modals
         },
 
         // END OF LOAD VALUES SUMMARY

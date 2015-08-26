@@ -8,10 +8,10 @@
 	</thead>
 	<tbody>
 	  <% @data[:payments].each_pair do |tag, total| %>
-	  	<% _tot = total.to_f.round(2) %>
-		  <tr class="payment_line" data-tag="<%= tag %>" data-total="<%= _tot %>">
+	  <% tot = total.to_i %>
+		  <tr class="payment_line" data-tag="<%= tag %>" data-total="<%= tot %>">
 		    <td><%= tag %></td>
-		    <td><%= _tot %></td>
+		    <td><%= number_with_delimiter(tot) %></td>
 		    <td><button data-tag="<%= tag %>" class="payments-summary-display">View</button></td>
 		  </tr>
 	  <% end %>
