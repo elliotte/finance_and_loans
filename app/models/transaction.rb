@@ -49,8 +49,10 @@ class Transaction < ActiveRecord::Base
       template_file = ledger.invoice_template_file_link
       template_file.match(/d\/((.)+)\/edit/)
       file_id = $1
-      name = "[INV][#{self.mi_tag}][£#{self.amount.to_f.round(2)}][#{Time.now.strftime('%B %Y')}]"
-      self.invoice_file_link = @google_service.copy_file(file_id, name, folder_id)
+      mi_tag.blank? ? _tag = "No-tag given" : _tag = mi_tag
+      name = _tag + "( #{self.amount.to_i} )"
+      newInvID = @google_service.copy_file(file_id, name, folder_id, "INV")
+      self.invoice_file_link = newInvID
       self.save
     end
 

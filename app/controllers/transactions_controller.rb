@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   
   # MAINLY HANDLES INVOICE (SALESLEDGERS) TRANSACTION FUNCTIONALITY
-
   def new
     #for creating invoice transactions ONLY
     @transaction = Transaction.new

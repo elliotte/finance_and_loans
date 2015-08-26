@@ -55,6 +55,7 @@
 
 }
 
+
 .hero {  
   $base-border-radius: 3px !default;
   $action-color: #94CFD5 !default;
@@ -116,7 +117,9 @@
   }
 }
 
-
+.hero.gradient {
+  @include radial-gradient(circle at 50% 80%, #eee 10%, #94CFD5 30%, #efefef);
+}
 /*INPUT FORM CSS*/
 $base-line-height: 1.5em !default;
 

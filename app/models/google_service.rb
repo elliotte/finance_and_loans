@@ -141,14 +141,13 @@
 
 		# USED BY SALES INVOICING FUNC and NOTES fileLINK
 		def copy_file(source_file_id, title, parent_folder_id = nil, backup_title=nil )
-			monea_title = "[monea]"
 			if backup_title
-				monea_title += "[#{backup_title}][#{title}]"
+				 $title = "[#{backup_title}][#{title}][monea]" 
 			else
-				monea_title += "[#{title}]"
+				 $title = "[#{title}][monea]" 
 			end
 			file = @drive.files.copy.request_schema.new({
-			  'title' => monea_title
+			  'title' => $title
 			})
 			file.parents = [{'id' => parent_folder_id}] if parent_folder_id
 			result = @client.execute(

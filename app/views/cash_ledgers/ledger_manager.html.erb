@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'ledgers', 'ledgerShow', 'ledger_manager' %>
 <%= render partial: 'button_board', locals: {ledger_type: @ledger.type.try(:underscore)} %>
 
-<div class="hero" style="background:#94CFD5;">
+<div class="hero gradient">
   <div class="hero-inner">
     <a href="/" class="hero-logo"><img src="<%= asset_path('ico3hover.png') %>
 " alt="Logo Image"></a>
