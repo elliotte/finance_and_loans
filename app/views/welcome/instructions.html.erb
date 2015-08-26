@@ -1,0 +1,169 @@
+<div id="landing-loadwrapper">	
+	<!-- CONTAINS A SLIDE NAV OR LANDING ONLY -->
+	<%= render 'shared/baselayout' %>
+	<!-- unAUTH OPS includes GPLUS button -->
+      <div class="hero">
+          <div class="hero-inner">
+                <a href="http://quiet-shore-5196.herokuapp.com/" target="_blank" class="hero-logo"> 
+                    <img src="<%= asset_path('MAP.png') %>" alt="Logo Image">
+                </a>
+            <div class="hero-copy">
+              <article class="type-system-rounded">
+                <h1 id="welcome-name-append" >Instructions <span style="color: #eee;" >monea.Finance</span></h1>
+              </article>
+            </div>
+          </div>
+      </div>
+</div>
+
+<article class="type-system-rounded" style="padding:10em 3em 0 3em;">
+      <ul class="accordion-tabs-minimal">
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link is-active">Introduction</a>
+          <div class="tab-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat. Fusce adipiscing, mauris quis congue tincidunt, sapien purus suscipit odio, quis dictum odio tortor in sem. Ut sit amet libero nec orci mattis fringilla. Praesent eu ipsum in sapien tincidunt molestie sed ut magna. Nam accumsan dui at orci rhoncus pharetra tincidunt elit ullamcorper. Sed ac mauris ipsum. Nullam imperdiet sapien id purus pretium id aliquam mi ullamcorper.</p>
+          </div>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Bookkeeping</a>
+          <div class="tab-content">
+            <p>Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum lacus quis metus condimentum ac accumsan orci vulputate. Aenean fringilla massa vitae metus facilisis congue. Morbi placerat eros ac sapien semper pulvinar. Vestibulum facilisis, ligula a molestie venenatis, metus justo ullamcorper ipsum, congue aliquet dolor tortor eu neque. Sed imperdiet, nibh ut vestibulum tempor, nibh dui volutpat lacus, vel gravida magna justo sit amet quam. Quisque tincidunt ligula at nisl imperdiet sagittis. Morbi rutrum tempor arcu, non ultrices sem semper a. Aliquam quis sem mi.</p>
+          </div>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Invoicing</a>
+          <div class="tab-content">
+            <p>Donec mattis mauris gravida metus laoreet non rutrum sem viverra. Aenean nibh libero, viverra vel vestibulum in, porttitor ut sapien. Phasellus tempor lorem id justo ornare tincidunt. Nulla faucibus, purus eu placerat fermentum, velit mi iaculis nunc, bibendum tincidunt ipsum justo eu mauris. Nulla facilisi. Vestibulum vel lectus ac purus tempus suscipit nec sit amet eros. Nullam fringilla, enim eu lobortis dapibus, quam magna tincidunt nibh, sit amet imperdiet dolor justo congue turpis.</p>    
+          </div>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Business reporting</a>
+          <div class="tab-content">
+            <p>Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dui urna.</p>
+          </div>
+        </li>
+      </ul>
+</article>
+
+<article class="type-system-rounded" style="padding:10em 3em 0 3em;">
+      <div class="cards">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+          </div>
+          <div class="card-header">
+            Cash Ledgers
+          </div>
+          <div class="card-copy">
+            <p>View helpers and instructions</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-4.png" alt="">
+          </div>
+          <div class="card-header">
+            Sales ledgers
+          </div>
+          <div class="card-copy">
+            <p>View helpers and instructions</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains-3.png" alt="">
+          </div>
+          <div class="card-header">
+            Reporting
+          </div>
+          <div class="card-copy">
+            <p>View helpers and instructions</p>
+          </div>
+        </div>
+      </div>
+</article>
+
+<article class="type-system-rounded" style="padding:10em 3em 0 3em;">
+    <h3 class="instruction-heading">[helpers].cashLedger</h3>
+    <div class="device-background">
+      <div class="device-text">
+        <h4>Bank account</h4>
+        <p>A cashLedger is used to manage your cash and bookkeeping, and is meant to mirror your business bank account.  Bank payments or lodgements can be tagged with cost or VAT information; to use with your accountant or finance teams.</p>
+      </div>
+      <div class="device">
+        <div class="screen two"></div>
+      </div>
+    </div>
+</article>
+
+<article class="type-system-rounded" style="padding:10em 3em 0 3em;">
+    <h3 class="instruction-heading">cashLedger[transactions]</h3>
+    <div class="device-background">
+      <div class="device-text">
+        <h4>Transactions</h4>
+        <p>A cashledger stores many transactions, with each transaction having particular attributes.  You can enter payments or lodgements manually, or import transactions using a CSV file: headers detailed right.</p>
+      </div>
+      <div class="device">
+        <div class="screen"></div>
+      </div>
+    </div>
+</article>
+
+<article class="type-system-rounded" style="padding:10em 3em 0 3em;">
+    <h3 class="instruction-heading">cashLedger[vat]</h3>
+    <div class="device-background">
+      <div class="device-text">
+        <h4>Vat returns</h4>
+        <p>A cashledger stores transactions with the option to input VAT.  Calculate VAT using monea.ledgers, or export transactions to your accountant.</p>
+      </div>
+      <div class="device">
+        <div class="screen one"></div>
+      </div>
+    </div>
+</article>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+
+<!-- instructions ONLY MODALS -->
+<div class="modal">
+    <input class="modal-state" id="modal-instructions" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <div class="modal-close" for="modal-instructions"></div>
+        <div id="instructions-modal-body">
+         
+
+        </div>  
+      </div>
+    </div>
+</div>
+
+<script>
+      
+
+$(document).ready(function () {
+  $('.accordion-tabs-minimal').each(function(index) {
+    $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+  });
+  $('.accordion-tabs-minimal').on('click', 'li > a.tab-link', function(event) {
+    if (!$(this).hasClass('is-active')) {
+      event.preventDefault();
+      var accordionTabs = $(this).closest('.accordion-tabs-minimal');
+      accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+      $(this).next().toggleClass('is-open').toggle();
+      accordionTabs.find('.is-active').removeClass('is-active');
+      $(this).addClass('is-active');
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+
+
+
+</script>
+
+

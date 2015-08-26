@@ -56,5 +56,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
      end
   end
 
+  def instructions; end
+
 
 end
