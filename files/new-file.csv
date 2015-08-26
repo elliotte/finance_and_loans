@@ -1,32 +1,36 @@
-VAT due this period on sales and other outputs,Box 1,0
-VAT due in this period on acquisitions from other EC Member States,Box 2,0
-Total VAT due,Box 3,0
-VAT reclaimed in this period on purchases and other inputs (including acquisitions from EC),Box 4,0
-VAT to/from customs,Box 5,0
-Total value of sales and all other outputs excluding VAT (including supplies to EC),Box 6,796463
-Total value of purchases and all other inputs excluding VAT (including acquisitions from EC),Box 7,351442
-"Total value of all supplies of goods, excluding any VAT, to other EC Member States",Box 8,0
-"Total value of all acquisitions of goods, excluding any VAT, from EC Member States",Box 9,0
-
-Payments
-
-Number of transactions,61
-Vat,0
-Net,351442
-Gross,351442
-
-Receipts
-
-Number of transactions,153
-Vat,0
-Net,796463
-Gross,796463
-
-Headlines
-
-No of trns,214
-total net purchases,351442
-vat_paid,0
-Total net sales,796463
-VAT sales,0
-Vat amount due,0
+Reporting Line,-,Debit,Credit
+Bank account,-,0,-65408
+VAT,-,0,0
+Sales,-,0,-125029
+Trade debtors,-,0,-862907
+Bank loans,-,0,-249609
+Other taxes and social security costs,-,0,-56015
+Purchases,-,118453,0
+Trade creditors,-,644238,0
+No-Mapping,-,371310,0
+Bank charges,-,135212,0
+Other sales,-,0,-10023
+Subcontractor costs,-,6016,0
+Direct labour,-,4898,0
+Carriage,-,2457,0
+Discounts allowed,-,5823,0
+Commissions payable,-,5728,0
+Other direct costs,-,9106,0
+Other operating income,-,2457,0
+Distribution costs,-,5823,0
+Wages and salaries,-,5728,0
+Directors' salaries,-,9106,0
+Pensions,-,1232,0
+Bonuses,-,1632,0
+Employer's NI,-,5136,0
+Temporary staff and recruitment,-,2156,0
+Staff training and welfare,-,1232,0
+Travel and subsistence,-,1632,0
+Motor expenses,-,5136,0
+Entertaining,-,2156,0
+Rent,-,5823,0
+Rates,-,5728,0
+Service charges,-,9106,0
+Light and heat,-,1232,0
+Cleaning,-,1632,0
+Use of home,-,0,-1204
