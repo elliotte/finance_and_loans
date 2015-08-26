@@ -4,7 +4,6 @@ Draftapp::Application.routes.draw do
 
   resources :welcome, :only => [:index] do
     collection do
-      get :instructions
       post :connect
       post :disconnect
       get :sign_out_user
