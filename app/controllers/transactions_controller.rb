@@ -39,7 +39,6 @@ class TransactionsController < ApplicationController
   end
   #mark INVOICE AS PAID
   def invoice_paid
-    byebug
     @transaction = Transaction.find(params[:id])
     @transaction.update(paid: true)
     @transaction.save
