@@ -1,5 +1,29 @@
 <article class="type-system-rounded">
       <h1 style="color:#f3655e;">Export:</h1>
+      <p style="color:#94CFD5;">VAT return</p>
+		<%= form_tag vat_csv_ledger_path(params[:id]), :method => 'put', remote: true do %>
+	          <table class="table-minimal">
+	              <tbody>
+	                  <tr>
+	                    <td style="color:#f3655e;">From</td>
+	                    <td class="input-style"> <%= date_select("from", "date", default: 3.months.ago) %></td>
+	                  </tr>
+	                  <tr>
+	                    <td style="color:#f3655e;">To</td>
+	                    <td class="input-style"> <%= date_select("to", "date", default: Date.today)%></td>
+	                  </tr>
+	                  <tr>
+	                    <td style="color:#f3655e;"></td>
+	                    <td class="input-style"> <%= button_tag "Calculate"  %></td>
+	                  </tr>
+	                </tbody>
+	          </table>
+		 <% end %>	
+</article>
+
+<br><br>
+
+<article class="type-system-rounded">
       <p style="color:#94CFD5;">Transactions:</p>
 		<%= form_tag export_transactons_cash_ledger_path, :method => 'post', remote: true do %>
       	 <%= hidden_field_tag :period , "manual" %>
@@ -22,26 +46,3 @@
 	          </table>
 		 <% end %>	
 </article>
-<br><br>
-<article class="type-system-rounded">
-      <p style="color:#94CFD5;">VAT return</p>
-		<%= form_tag vat_csv_ledger_path(params[:id]), :method => 'put', remote: true do %>
-	          <table class="table-minimal">
-	              <tbody>
-	                  <tr>
-	                    <td style="color:#f3655e;">From</td>
-	                    <td class="input-style"> <%= date_select("from", "date", default: 3.months.ago) %></td>
-	                  </tr>
-	                  <tr>
-	                    <td style="color:#f3655e;">To</td>
-	                    <td class="input-style"> <%= date_select("to", "date", default: Date.today)%></td>
-	                  </tr>
-	                  <tr>
-	                    <td style="color:#f3655e;"></td>
-	                    <td class="input-style"> <%= button_tag "Calculate"  %></td>
-	                  </tr>
-	                </tbody>
-	          </table>
-		 <% end %>	
-</article>
-

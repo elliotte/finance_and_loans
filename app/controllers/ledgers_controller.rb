@@ -77,6 +77,7 @@ class LedgersController < ApplicationController
     #write to csv file ONLY.. exported lataer
     @ledger.write_vat_to_csv(@data)
   end
+  
   def vat_to_google
     find_ledger
     @result = @ledger.upload_vat_csv("VAT return", session[:token]).data

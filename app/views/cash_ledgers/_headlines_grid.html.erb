@@ -2,17 +2,17 @@
   <div class="grid-items-lines">
     <a href="javascript:void(0)" class="grid-item">
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-      <h1><%= @data[:headlines][:count] %></h1>
+      <h1><%= number_with_delimiter(@data[:headlines][:count].to_i) %></h1>
       <p style="color:#f3655e;">Number of Ledger transactions</p>
     </a>
     <a href="javascript:void(0)" class="grid-item">
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-      <h1>£<%= @data[:headlines][:sum_lodgements].round(2) %></h1>
+      <h1>£<%= number_with_delimiter(@data[:headlines][:sum_lodgements].to_i) %></h1>
       <p style="color:#f3655e;">Sum of Lodgements</p>
     </a>
     <a href="javascript:void(0)" class="grid-item">
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-      <h1>£<%= @data[:headlines][:sum_payments].round(2) %></h1>
+      <h1>£<%= number_with_delimiter(@data[:headlines][:sum_payments].to_i) %></h1>
       <p style="color:#f3655e;">Sum of Payments</p>
     </a>
     <div class="right-cover"></div>

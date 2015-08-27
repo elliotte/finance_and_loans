@@ -2,6 +2,9 @@ $('.modal-close').trigger('click')
 $(".modal-state:checked").prop("checked", false).change();
 
 $("#empty-modal-shared-vat").trigger("click")
+
+$(".modal-inner").addClass("widen")
+
 $('#empty-modal-body-shared-vat-append').html("<%= j(render partial: 'vat_display_view') %>") 
 
 
