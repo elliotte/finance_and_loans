@@ -48,7 +48,7 @@ function upDateTrnPaid(button) {
               request.onload = successPaid;
 //              request.onerror = errorDisplay;
               data = {
-                id
+                id: id
               };
               request.open("put", '/transactions/' + id + '/invoice_paid', true );
               request.setRequestHeader("Content-Type", "application/json");
@@ -80,8 +80,8 @@ function updateGoogleFileTitle(trnID) {
     request.onload = successFileInvPaid;
     //request.onerror = errorHome;
     data = {
-      trnID
-    }
+      trnID: trnID
+    };
     request.open("put", '/transactions/' + trnID + '/update_invoice_file_paid', true );
     request.setRequestHeader("Content-Type", "application/json");
     request.setRequestHeader("X-CSRF-Token", token);
