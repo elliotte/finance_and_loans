@@ -91,7 +91,7 @@ function updateGoogleFileTitle(trnID) {
 function successFileInvPaid() {
     if (this.responseText == "ERROR") {
         $(".notice").html('<p>'+"AUTH ERROR"+'</p>');
-        window.location.href = "/"
+        window.location.href = "/";
     } else {
         file = JSON.parse(this.responseText)
         var flashText = '<p style="color:#f3655e;">' 
