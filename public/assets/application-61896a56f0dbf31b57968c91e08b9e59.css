@@ -1,0 +1,2954 @@
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+/* line 2, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 6, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded {
+  text-align: left;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+article.type-system-rounded:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 22, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded h1, article.type-system-rounded h2, article.type-system-rounded h3, article.type-system-rounded p {
+  margin: 0;
+}
+/* line 26, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded hr {
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.5em 0;
+}
+/* line 34, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded p {
+  color: #333333;
+  line-height: 1.5em;
+}
+/* line 39, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded a {
+  color: #94cfd5;
+  text-decoration: none;
+}
+/* line 44, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded .type {
+  border-bottom: 1px solid;
+  display: inline-block;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.7em;
+  font-weight: 800;
+  margin-bottom: 2em;
+  padding: 0.3em 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+/* line 56, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded h1 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 40em) {
+  /* line 56, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+  article.type-system-rounded h1 {
+    font-size: 2.4em;
+  }
+}
+/* line 66, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded h2 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4em;
+  margin-bottom: 0.9em;
+}
+@media screen and (min-width: 40em) {
+  /* line 66, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+  article.type-system-rounded h2 {
+    font-size: 1.4em;
+  }
+}
+/* line 78, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded code {
+  background: #F7F7F7;
+  border-radius: 4.5px;
+  border: 1px solid #E0E0E0;
+  font-family: monaco;
+  font-size: 0.7em;
+  font-style: normal;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+}
+/* line 90, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded h3 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.3em;
+  margin-bottom: 0.4em;
+}
+/* line 98, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded p.date {
+  color: rgba(51, 51, 51, 0.4);
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
+}
+/* line 105, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.05em;
+  font-weight: 300;
+  line-height: 1.4em;
+  margin-bottom: 1.5em;
+}
+/* line 112, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded p span {
+  font-family: "Varela Round", sans-serif;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+/* line 119, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded a.read-more {
+  display: inline-block;
+  font-family: "Varela Round", sans-serif;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-left: 0.2em;
+  position: relative;
+  text-transform: uppercase;
+}
+/* line 128, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded a.read-more span {
+  font-size: 1.5em;
+  position: absolute;
+  right: -12px;
+  top: -1px;
+}
+/* line 136, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded hr {
+  width: 3em;
+}
+/* line 140, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/typesystemfont.scss */
+article.type-system-rounded p.author {
+  font-family: "Nunito", sans-serif;
+}
+
+/*CUSTOM*/
+/* line 2, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+#nav-button-container {
+  position: fixed;
+  top: 4em;
+  left: 5em;
+  z-index: 99999;
+  /*@include size(220px 100%);*/
+}
+/* line 5, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+#nav-button-container button {
+  background: transparent;
+}
+
+/* line 11, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-button img {
+  width: 3.5em;
+  height: 3.5em;
+}
+
+/*CUSTOM*/
+/* line 17, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content {
+  position: fixed;
+  top: 0px;
+  right: auto;
+  bottom: 0px;
+  left: 0px;
+  width: 220px;
+  height: 100%;
+  -webkit-transform: translateX(-220px);
+  -moz-transform: translateX(-220px);
+  -ms-transform: translateX(-220px);
+  -o-transform: translateX(-220px);
+  transform: translateX(-220px);
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+  /*LOOKS NICE?*/
+  background: transparent;
+  z-index: 999999;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 38, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content ul {
+  padding: 0;
+  margin: 0;
+}
+/* line 43, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content li {
+  list-style: none;
+}
+/* line 47, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content li a {
+  border-bottom: 1px solid #f3655e;
+  color: white;
+  display: block;
+  font-weight: bold;
+  padding: 1em;
+  text-decoration: none;
+}
+/* line 55, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content li a:focus {
+  background-color: #f7928d;
+}
+/* line 59, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content li a:hover {
+  background-color: #94cfd5;
+  color: white;
+}
+/* line 65, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-content.is-visible {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+
+/* line 70, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-fade-screen {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  background: black;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999998;
+}
+/* line 78, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.sliding-panel-fade-screen.is-visible {
+  opacity: 0.4;
+  visibility: visible;
+}
+
+/* --------------------ACTION BAR DROPDWON LANDING -------------------- */
+/* line 89, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown {
+  line-height: 1.5em;
+}
+/* line 110, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-container {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+/* line 116, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-description {
+  background: white;
+  border-bottom-left-radius: 3px;
+  border-bottom: 1px solid silver;
+  border-left: 1px solid silver;
+  border-top-left-radius: 3px;
+  border-top: 1px solid silver;
+  color: #999999;
+  float: left;
+  font-size: 0.7em;
+  line-height: 40px;
+  margin: 0;
+  padding: 0 0.5em 0 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 116, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+  .dropdown .dropdown-description {
+    font-size: 1em;
+  }
+}
+/* line 135, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-button {
+  background: white;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top: 1px solid silver;
+  border-right: 1px solid silver;
+  border-bottom: 1px solid silver;
+  cursor: pointer;
+  float: right;
+  font-size: 0.7em;
+  font-weight: 800;
+  line-height: 40px;
+  margin: 0;
+  padding: 0 2.5em 0 0.5em;
+  position: relative;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 135, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+  .dropdown .dropdown-button {
+    font-size: 1em;
+    padding: 0 2.5em 0 0.5em;
+  }
+}
+/* line 157, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-button:hover {
+  background-color: #f7f7f7;
+}
+/* line 161, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-button:after {
+  color: #333333;
+  content: "\25BE";
+  display: block;
+  position: absolute;
+  right: 1em;
+  top: 0;
+}
+/* line 170, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-menu {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background: white;
+  border-radius: 3px;
+  border: 1px solid silver;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: #333333;
+  cursor: pointer;
+  display: none;
+  margin: 0;
+  overflow: show;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 228px;
+  z-index: 99999;
+}
+/* line 188, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-menu:before {
+  position: absolute;
+  right: 1em;
+  color: white;
+  content: "\25b2";
+  font-size: 1.4em;
+  pointer-events: none;
+  text-shadow: 0 -2px 2px rgba(0, 0, 0, 0.3);
+  top: -0.7em;
+}
+/* line 199, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-menu li {
+  border-bottom: 1px solid silver;
+  color: #333333;
+  list-style: none;
+  padding: 0.5em;
+}
+/* line 206, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-menu li:hover {
+  background: #f7f7f7;
+}
+/* line 210, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-menu li:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+/* line 215, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .dropdown-menu li:last-child {
+  border: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+/* line 221, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/navandtoolbelt.scss */
+.dropdown .show-menu {
+  display: block;
+}
+
+/* line 27, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 {
+  background-image: -webkit-radial-gradient(50% 50%, circle, #eeeeee 10%, #94cfd5 30%, #efefef);
+  background-image: radial-gradient(  circle at 50% 50%, #eeeeee 10%, #94cfd5 30%, #efefef);
+  padding: 1.5em;
+  width: 100%;
+  display: inline-block;
+}
+/* line 43, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-logo {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 43, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+  .footer-2 .footer-logo {
+    float: left;
+    margin-bottom: 0;
+  }
+}
+/* line 53, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-logo img {
+  height: 1.6em;
+}
+/* line 57, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 ul {
+  line-height: 1.5em;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 57, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+  .footer-2 ul {
+    float: left;
+    line-height: 1.8em;
+    margin-left: 1em;
+    margin-bottom: 0;
+  }
+}
+/* line 70, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 ul li {
+  font-weight: 800;
+  list-style: none;
+  padding-right: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 70, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+  .footer-2 ul li {
+    display: inline;
+    text-align: left;
+  }
+}
+/* line 81, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 ul li a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+/* line 86, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 ul li a:focus, .footer-2 ul li a:hover {
+  color: #f3655e;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 91, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+  .footer-2 .footer-secondary-links {
+    float: right;
+  }
+}
+/* line 96, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-secondary-links li {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+/* line 101, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-secondary-links ul.footer-social {
+  margin: 1em 0 0 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 101, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+  .footer-2 .footer-secondary-links ul.footer-social {
+    float: right;
+    margin-top: 0;
+  }
+}
+/* line 109, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-secondary-links ul.footer-social li {
+  font-size: 1em;
+  float: left;
+  line-height: 0;
+  margin: 0;
+  padding-right: 0.7em;
+}
+/* line 116, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-secondary-links ul.footer-social li:last-child {
+  padding-right: 0;
+}
+/* line 121, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-secondary-links ul.footer-social img {
+  height: 1.6em;
+  opacity: 0.7;
+  padding: 1px;
+}
+/* line 127, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/footer.scss */
+.footer-2 .footer-secondary-links ul.footer-social img:focus, .footer-2 .footer-secondary-links ul.footer-social img:hover {
+  opacity: 1;
+}
+
+/*---- reset CSS ---- */
+/* line 16, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 26, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 29, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+body {
+  line-height: 1;
+}
+
+/* line 32, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+ol, ul {
+  list-style: none;
+}
+
+/* line 35, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 39, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 43, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*---- reset CSS ---- */
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.notice {
+  position: fixed;
+  top: 0;
+  padding-left: 3em;
+  padding-top: 2px;
+  color: white;
+}
+
+/* line 60, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero {
+  background: url("/assets/bg-fin.jpg");
+  background: url("/assets/bg-fin.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 3em;
+  min-height: 40em;
+}
+/* line 77, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero .hero-logo img {
+  height: 7em;
+  margin-bottom: 3em;
+}
+/* line 82, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero .hero-inner {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  margin: auto;
+  padding: 3.5em;
+  text-align: center;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.hero .hero-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.hero .hero-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 90, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero .hero-inner .hero-copy {
+  text-align: center;
+}
+/* line 93, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero .hero-inner .hero-copy h1 {
+  font-size: 1.6em;
+  margin-bottom: 0.5em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 93, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+  .hero .hero-inner .hero-copy h1 {
+    font-size: 1.8em;
+  }
+}
+/* line 102, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero .hero-inner .hero-copy p {
+  font-weight: 200;
+  line-height: 1.4em;
+  margin: 0 auto 3em auto;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 102, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+  .hero .hero-inner .hero-copy p {
+    font-size: 1.1em;
+    max-width: 40%;
+  }
+}
+/* line 114, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero .hero-inner button {
+  background-color: #94cfd5;
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  padding: 0.7em 1em;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.hero .hero-inner button:hover:not(:disabled) {
+  background-color: #a4d9df;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.hero .hero-inner button:active:not(:disabled), .hero .hero-inner button:focus:not(:disabled) {
+  background-color: #85c4ca;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.hero .hero-inner button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* line 121, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hero.gradient {
+  background-image: -webkit-radial-gradient(50% 80%, circle, #eeeeee 10%, #94cfd5 30%, #efefef);
+  background-image: radial-gradient(  circle at 50% 80%, #eeeeee 10%, #94cfd5 30%, #efefef);
+}
+
+/*INPUT FORM CSS*/
+/* line 127, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+td.input-style > input {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border: 1px solid #FFC2DC;
+  outline: none;
+  color: #F072A9;
+  padding: 5px 8px 5px 8px;
+  box-shadow: inset 1px 1px 4px #FFD5E7;
+  -moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+  -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+  background: #FFEFF6;
+  width: 50%;
+}
+
+/* line 142, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+td.button-style > input {
+  background-color: #94cfd5;
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  display: inline-block;
+  font-size: .7em;
+  color: white;
+  line-height: 1.5em;
+  margin-bottom: .3em;
+  margin-right: 0.5em;
+  outline: none;
+  padding: .3em 1em;
+  width: 100%;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+td.button-style > input:hover:not(:disabled) {
+  background-color: #a4d9df;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+td.button-style > input:active:not(:disabled), td.button-style > input:focus:not(:disabled) {
+  background-color: #85c4ca;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+td.button-style > input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*END OF INPUT FORM CSS*/
+/*HOVER CARD SCSS*/
+/* line 161, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
+  background-position: center;
+  background-size: cover;
+  background-color: beige;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  height: 20em;
+  margin-bottom: 1.5em;
+}
+@media screen and (min-width: 40em) {
+  /* line 161, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+  .hover-tile-outer {
+    width: 40%;
+  }
+}
+/* line 181, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer .hover-tile-container {
+  height: 20em;
+  overflow: hidden;
+}
+/* line 186, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer .hover-tile-container:hover > .hover-tile {
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  -o-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+}
+/* line 190, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer .hover-tile {
+  -webkit-transition: all, 0.2s ease-in-out;
+  -moz-transition: all, 0.2s ease-in-out;
+  transition: all, 0.2s ease-in-out;
+  background: inherit;
+  color: white;
+  height: inherit;
+  overflow: hidden;
+  padding: 3em;
+}
+/* line 199, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer .hover-tile-hidden {
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 202, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer .hover-tile-hidden p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5em;
+}
+/* line 207, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.hover-tile-outer .hover-tile-hidden h4 {
+  margin: 0 0 0.5em 0;
+}
+
+/* line 213, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#latest-reports-container {
+  padding: 3em;
+}
+
+/* line 218, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#latest-ledgers-container {
+  padding: 3em;
+}
+
+/* line 223, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#monea-helpers {
+  padding: 3em;
+}
+
+/* line 229, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.append {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.append:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 231, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+.append li.block {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.append li.block:last-child {
+  margin-right: 0;
+}
+/* line 52, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+.append li.block:nth-child(4n) {
+  margin-right: 0;
+}
+/* line 57, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+.append li.block:nth-child(4n+1) {
+  clear: left;
+}
+
+/* line 237, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#user-action-bar {
+  padding: 3em;
+}
+/* line 240, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#user-action-bar article {
+  text-align: center;
+}
+
+/* line 245, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#dash-view-collaboration-action {
+  padding: 2em;
+}
+/* line 248, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/welcome.scss.erb */
+#dash-view-collaboration-action article {
+  text-align: center;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation {
+  /*$dark-gray: #94CFD5 !default;*/
+  background-color: #f3655e;
+  min-height: 60px;
+  width: 100%;
+  z-index: 999;
+  padding: 1em;
+}
+/* line 29, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .navigation-wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 9999;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+header.navigation .navigation-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+header.navigation .navigation-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 36, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .logo {
+  float: left;
+  max-height: 60px;
+  padding-left: 1em;
+  padding-right: 2em;
+}
+/* line 42, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .logo img {
+  max-height: 60px;
+  padding: 0.8em 0;
+}
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .navigation-menu-button {
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  float: right;
+  font-weight: 700;
+  line-height: 60px;
+  margin: 0;
+  padding-right: 1em;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation .navigation-menu-button {
+    display: none;
+  }
+}
+/* line 65, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .navigation-menu-button:focus, header.navigation .navigation-menu-button:hover {
+  color: #94cfd5;
+}
+/* line 72, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation nav {
+  float: none;
+  min-height: 60px;
+  z-index: 9999999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 72, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation nav {
+    float: left;
+  }
+}
+/* line 82, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul.navigation-menu {
+  -webkit-transform-style: preserve-3d;
+  clear: both;
+  display: none;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0;
+  width: 100%;
+  z-index: 9999;
+}
+/* line 92, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul.navigation-menu.show {
+  display: block;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 82, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.navigation-menu {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
+/* line 105, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul li.nav-link {
+  background: #f3655e;
+  display: block;
+  line-height: 60px;
+  overflow: hidden;
+  padding-right: 0.8em;
+  text-align: right;
+  width: 100%;
+  z-index: 9999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 105, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul li.nav-link {
+    background: transparent;
+    display: inline;
+    line-height: 60px;
+    text-decoration: none;
+    width: auto;
+  }
+}
+/* line 123, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul li.nav-link a {
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 123, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul li.nav-link a {
+    padding-right: 1em;
+  }
+}
+/* line 134, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul li.nav-link a:focus, header.navigation ul li.nav-link a:hover {
+  color: #94cfd5;
+}
+/* line 140, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .active-nav-item a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 3px;
+}
+/* line 147, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more.nav-link {
+  padding-right: 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 147, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation li.more.nav-link {
+    padding-right: 1em;
+  }
+}
+/* line 154, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more.nav-link > ul > li:first-child a {
+  padding-top: 1em;
+}
+/* line 158, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more.nav-link a {
+  margin-right: 1em;
+}
+/* line 162, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more.nav-link > a {
+  padding-right: 0.6em;
+}
+/* line 166, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more.nav-link > a:after {
+  position: absolute;
+  top: auto;
+  right: -0.4em;
+  bottom: auto;
+  left: auto;
+  content: '\25BE';
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 173, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more {
+  overflow: visible;
+  padding-right: 0;
+}
+/* line 177, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more a {
+  padding-right: 0.8em;
+}
+/* line 181, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more > a {
+  padding-right: 1.6em;
+  position: relative;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 181, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation li.more > a {
+    margin-right: 1em;
+  }
+}
+/* line 189, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more > a:after {
+  content: '›';
+  font-size: 1.2em;
+  position: absolute;
+  right: 0.5em;
+}
+/* line 198, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation li.more:focus > .submenu, header.navigation li.more:hover > .submenu {
+  display: block;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 173, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation li.more {
+    padding-right: 0.8em;
+    position: relative;
+  }
+}
+/* line 208, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul.submenu {
+  display: none;
+  padding-left: 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 208, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.submenu {
+    left: -1em;
+    position: absolute;
+    top: 1.5em;
+  }
+}
+@media screen and (min-width: 53.75em) {
+  /* line 218, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.submenu .submenu {
+    left: 11.8em;
+    top: 0;
+  }
+}
+/* line 225, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul.submenu li {
+  display: block;
+  padding-right: 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 225, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.submenu li {
+    line-height: 46.15385px;
+  }
+  /* line 232, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.submenu li:first-child > a {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  /* line 237, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.submenu li:last-child > a {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding-bottom: 0.7em;
+  }
+}
+/* line 244, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation ul.submenu li a {
+  background-color: #f25750;
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 244, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation ul.submenu li a {
+    background-color: #f3655e;
+    padding-left: 1em;
+    text-align: left;
+    width: 12em;
+  }
+}
+/* line 262, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .navigation-tools {
+  background: #505050;
+  clear: both;
+  display: block;
+  height: 60px;
+  padding-left: 0.5em;
+  padding-right: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 262, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation .navigation-tools {
+    background: transparent;
+    clear: none;
+    float: right;
+  }
+}
+/* line 277, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .sign-up {
+  background-color: #94cfd5;
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  display: inline;
+  float: right;
+  font-size: 0.8em;
+  margin-top: 1em;
+  padding: 0.75em 1em;
+  text-transform: uppercase;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+header.navigation .sign-up:hover:not(:disabled) {
+  background-color: #a4d9df;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+header.navigation .sign-up:active:not(:disabled), header.navigation .sign-up:focus:not(:disabled) {
+  background-color: #85c4ca;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+header.navigation .sign-up:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 289, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .search-bar {
+  float: left;
+  padding: 0.85em 0.6em 0.7em 0.6em;
+  width: 60%;
+}
+/* line 298, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .search-bar form {
+  position: relative;
+}
+/* line 301, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .search-bar form input[type=search] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #f57c76;
+  border-radius: 6px;
+  border: 1px solid #f14e46;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9em;
+  font-style: italic;
+  margin: 0;
+  padding: 0.5em 0.8em;
+  width: 100%;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 301, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation .search-bar form input[type=search] {
+    width: 100%;
+  }
+}
+/* line 318, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .search-bar form button[type=submit] {
+  background-color: #f57c76;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  bottom: 0.3em;
+  left: auto;
+  outline: none;
+  padding: 0 9px;
+  position: absolute;
+  right: 0.3em;
+  top: 0.3em;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar form button[type=submit]:hover:not(:disabled) {
+  background-color: #f9908b;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar form button[type=submit]:active:not(:disabled), header.navigation .search-bar form button[type=submit]:focus:not(:disabled) {
+  background-color: #f06861;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar form button[type=submit]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 328, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+header.navigation .search-bar form button[type=submit] img {
+  height: 12px;
+  opacity: 0.7;
+  padding: 1px;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 289, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation .search-bar {
+    display: inline-block;
+    position: relative;
+    width: 16em;
+  }
+  /* line 341, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgerButtonBoard.scss */
+  header.navigation .search-bar input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+  }
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools {
+  background: #f6f6f6;
+  border-radius: 3px;
+  border: 1px solid gainsboro;
+  padding: 0.809em;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.search-tools:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 20, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools ol {
+  margin: 0;
+  padding: 0;
+}
+/* line 25, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools li {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  list-style: none;
+}
+/* line 31, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.375em;
+}
+/* line 37, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter {
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 37, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+  .search-tools .filter {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 27.49666%;
+    margin-bottom: 0;
+  }
+  /* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .search-tools .filter:last-child {
+    margin-right: 0;
+  }
+}
+/* line 45, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter > div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  transition: border-color;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid gainsboro;
+  font-size: 1em;
+  margin-bottom: 0.75em;
+  padding: 0.5em 0.5em;
+  position: relative;
+  width: 100%;
+}
+/* line 58, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter > div:focus, .search-tools .filter > div:hover {
+  border-color: #c3c3c3;
+}
+/* line 62, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter > div label {
+  cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+/* line 69, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter ol {
+  margin-top: 1em;
+}
+/* line 72, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter ol label {
+  display: inline;
+}
+/* line 77, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter button {
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 white;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  background-color: white;
+  background-image: -webkit-linear-gradient(white, #e3e3e3);
+  background-image: linear-gradient(white, #e3e3e3);
+  padding: 7px 18px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 white;
+  background-clip: padding-box;
+  border: 1px solid #dfd8d8;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 white;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  background-color: white;
+  background-image: -webkit-linear-gradient(white, #e5e0e0);
+  background-image: linear-gradient(white, #e5e0e0);
+  padding: 7px 18px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 white;
+  background-clip: padding-box;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: auto;
+  left: auto;
+  font-size: 0.7em;
+}
+/* line 131, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .filter button:hover:not(:disabled) {
+  box-shadow: inset 0 1px 0 0 white;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  background-image: -webkit-linear-gradient(#f2f2f2, #dbdbdb);
+  background-image: linear-gradient(#f2f2f2, #dbdbdb);
+}
+/* line 148, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .filter button:active:not(:disabled), .search-tools .filter button:focus:not(:disabled) {
+  border: 1px solid #dbdbdb;
+  box-shadow: inset 0 0 8px 4px #d4d4d4, inset 0 0 8px 4px #d4d4d4;
+}
+/* line 131, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .filter button:hover:not(:disabled) {
+  box-shadow: inset 0 1px 0 0 white;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  background-image: -webkit-linear-gradient(#f2f2f2, #ded8d8);
+  background-image: linear-gradient(#f2f2f2, #ded8d8);
+}
+/* line 148, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .filter button:active:not(:disabled), .search-tools .filter button:focus:not(:disabled) {
+  border: 1px solid #dfd8d8;
+  box-shadow: inset 0 0 8px 4px #d7d1d1, inset 0 0 8px 4px #d7d1d1;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .filter button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 83, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter .hide-options {
+  margin-bottom: 0;
+}
+/* line 86, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .filter .hide-options ol, .search-tools .filter .hide-options button {
+  display: none;
+}
+/* line 92, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .trigger {
+  width: 100%;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 92, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+  .search-tools .trigger {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 10.43705%;
+  }
+  /* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .search-tools .trigger:last-child {
+    margin-right: 0;
+  }
+}
+/* line 99, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+.search-tools .trigger button {
+  background-color: #f3655e;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  margin-top: 1em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  width: 100%;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .trigger button:hover:not(:disabled) {
+  background-color: #f87973;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .trigger button:active:not(:disabled), .search-tools .trigger button:focus:not(:disabled) {
+  background-color: #ed524a;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.search-tools .trigger button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 99, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/searchTools.scss */
+  .search-tools .trigger button {
+    margin-top: 1.55em;
+  }
+}
+
+/* line 5, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines {
+  position: relative;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.grid-items-lines:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 23, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .grid-item {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background: white;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+  border-right: 1px solid rgba(51, 51, 51, 0.2);
+  cursor: pointer;
+  float: left;
+  height: 14em;
+  overflow: hidden;
+  outline: none;
+  padding: 2em;
+  text-decoration: none;
+  width: 100%;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 23, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+  .grid-items-lines .grid-item {
+    width: 33.33333%;
+  }
+}
+/* line 42, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .grid-item:focus, .grid-items-lines .grid-item:hover {
+  background: rgba(51, 51, 51, 0.05);
+}
+/* line 47, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .grid-item img {
+  display: block;
+  height: 2.5em;
+  margin-bottom: 1.2em;
+  opacity: 0.2;
+}
+/* line 54, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .grid-item h1 {
+  color: #333333;
+  font-size: 1.3em;
+  margin-bottom: 0.4em;
+}
+/* line 60, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .grid-item p {
+  color: rgba(51, 51, 51, 0.6);
+  line-height: 1.5em;
+}
+@media screen and (min-width: 40em) {
+  /* line 60, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+  .grid-items-lines .grid-item p {
+    max-width: 70%;
+  }
+}
+@media screen and (min-width: 53.75em) {
+  /* line 69, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+  .grid-items-lines .grid-item-big {
+    width: 66.66667%;
+  }
+}
+@media screen and (min-width: 40em) {
+  /* line 73, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+  .grid-items-lines .grid-item-big p {
+    max-width: 60%;
+  }
+}
+/* line 81, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .bottom-cover {
+  background: white;
+  bottom: 0px;
+  height: 3px;
+  position: absolute;
+  width: 100%;
+}
+/* line 89, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/gridItems.scss */
+.grid-items-lines .right-cover {
+  background: white;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  width: 4px;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+.pie-charts-cash-show {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.pie-charts-cash-show:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 6, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+.pie-charts-cash-show div {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.pie-charts-cash-show div:last-child {
+  margin-right: 0;
+}
+
+/* line 11, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+#ledger-payments {
+  width: 100%;
+}
+
+/* line 15, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+#ledger-lodgements {
+  width: 100%;
+}
+
+/* line 18, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+.transaction-summary-cash-show {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.transaction-summary-cash-show:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 24, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+.transaction-summary-cash-show div {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.transaction-summary-cash-show div:last-child {
+  margin-right: 0;
+}
+
+/* line 30, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/neatGridDisplay.scss */
+.restrict-height div {
+  max-height: 30em;
+  overflow: scroll;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 90%;
+}
+/* line 30, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal.not-visible {
+  display: none;
+}
+/* line 35, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal tbody tr:hover > td, .table-minimal tbody tr:hover > th {
+  background-color: #fafafa;
+}
+/* line 38, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal tbody tr:first-child td {
+  border-top: 2px solid gainsboro;
+}
+/* line 44, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal thead th {
+  background-color: white;
+  border-bottom: 0px;
+  padding: 0.75em 1em;
+  text-align: center;
+}
+/* line 52, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal tbody {
+  background-color: white;
+}
+/* line 55, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal tbody td {
+  border-bottom: 0px;
+  border-top: 1px solid gainsboro;
+  line-height: 1.5em;
+  padding: 0.75em 1em;
+}
+/* line 61, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+.table-minimal tbody td button {
+  background-color: #94cfd5;
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  display: inline-block;
+  font-size: .7em;
+  color: white;
+  line-height: 1.5em;
+  margin-bottom: .3em;
+  margin-right: 0.5em;
+  outline: none;
+  padding: .3em 1em;
+  width: 100%;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.table-minimal tbody td button:hover:not(:disabled) {
+  background-color: #a4d9df;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.table-minimal tbody td button:active:not(:disabled), .table-minimal tbody td button:focus:not(:disabled) {
+  background-color: #85c4ca;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.table-minimal tbody td button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media screen and (min-width: 40em) {
+  /* line 61, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/tableDisplay.scss */
+  .table-minimal tbody td button {
+    margin-bottom: 0;
+    width: auto;
+  }
+}
+
+/* line 20, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal label {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+/* line 25, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal label img {
+  border-radius: 150px;
+  display: block;
+  max-width: 300px;
+}
+/* line 31, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-state {
+  display: none;
+}
+/* line 35, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-trigger {
+  background-color: #94cfd5;
+  border-radius: 3px;
+  border: none;
+  color: #333333;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 7px 18px;
+  text-decoration: none;
+  background-clip: padding-box;
+  padding: 0.8em 1em;
+}
+/* line 352, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.modal .modal-trigger:hover:not(:disabled) {
+  background-color: #a4d9df;
+  cursor: pointer;
+}
+/* line 364, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.modal .modal-trigger:active:not(:disabled), .modal .modal-trigger:focus:not(:disabled) {
+  background-color: #85c4ca;
+  cursor: pointer;
+}
+/* line 51, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_button.scss */
+.modal .modal-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 40, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-fade-screen {
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  padding-top: 0.6em;
+  text-align: left;
+  visibility: hidden;
+  z-index: 99999999999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 40, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+  .modal .modal-fade-screen {
+    padding-top: 10em;
+  }
+}
+/* line 54, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-fade-screen .modal-bg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  cursor: pointer;
+}
+/* line 60, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-close {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background: white;
+  cursor: pointer;
+}
+/* line 67, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-close:after, .modal .modal-close:before {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  left: 50%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 0.15em;
+  height: 1.5em;
+  background: #dddddd;
+  content: '';
+  display: block;
+  margin: -3px 0 0 -1px;
+}
+/* line 78, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-close:hover:after, .modal .modal-close:hover:before {
+  background: #c4c4c4;
+}
+/* line 82, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-close:before {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/* line 87, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner {
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+  background: white;
+  border-radius: 3px;
+  margin-top: 0;
+  margin: auto;
+  max-height: 95%;
+  overflow: auto;
+  padding: 1.5em;
+  position: relative;
+  width: 95%;
+}
+@media screen and (min-width: 40em) {
+  /* line 87, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+  .modal .modal-inner {
+    max-height: 70%;
+    padding: 3em;
+    width: 60%;
+  }
+}
+@media screen and (min-width: 53.75em) {
+  /* line 87, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+  .modal .modal-inner {
+    width: 50%;
+  }
+}
+/* line 111, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner h1 {
+  color: #333333;
+  margin-bottom: 0 0 0.6em 0;
+  text-align: left;
+  text-transform: capitalize;
+}
+/* line 118, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner p {
+  color: #333333;
+  line-height: 1.5em;
+}
+/* line 123, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner .modal-intro {
+  font-weight: 800;
+}
+/* line 127, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner .modal-content {
+  color: #333333;
+}
+@media screen and (min-width: 40em) {
+  /* line 127, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+  .modal .modal-inner .modal-content {
+    -webkit-columns: 2 8em;
+    -moz-columns: 2 8em;
+    columns: 2 8em;
+  }
+}
+/* line 135, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner a.cta {
+  color: white;
+  display: inline-block;
+  margin-right: 0.5em;
+  margin-top: 1em;
+}
+/* line 141, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-inner a.cta:last-child {
+  padding: 0 2em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 147, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+  .modal .widen {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 40em) {
+  /* line 147, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+  .modal .widen {
+    width: 65%;
+  }
+}
+/* line 156, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-state:checked + .modal-fade-screen {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 161, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal .modal-state:checked + .modal-fade-screen .modal-inner {
+  top: 0.5em;
+}
+
+/* line 166, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/modal.scss */
+.modal-open {
+  overflow: hidden;
+}
+
+/*LEDGERS INDEX CSS*/
+/* line 4, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.main-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 6.25em;
+  padding-bottom: 6.25em;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.main-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 10, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.main-container li.block {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.main-container li.block:last-child {
+  margin-right: 0;
+}
+/* line 52, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+.main-container li.block:nth-child(4n) {
+  margin-right: 0;
+}
+/* line 57, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+.main-container li.block:nth-child(4n+1) {
+  clear: left;
+}
+
+/*END OF LEDGERS INDEX CSS*/
+/*TRIAL BALANCE HEADER TBALE CSS*/
+/* line 21, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-header tr {
+  text-align: center;
+}
+/* line 24, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-header th.acc {
+  width: 30%;
+  background-color: #94CFD5;
+  color: white;
+}
+/* line 29, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-header th.debit {
+  width: 25%;
+}
+/* line 33, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-header th.credit {
+  width: 25%;
+}
+
+/*TRIAL BALANCE CSS*/
+/* line 39, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.gl-summary-table tr {
+  text-align: center;
+}
+/* line 42, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.gl-summary-table td.acc {
+  width: 30%;
+  color: #94CFD5;
+}
+/* line 48, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.gl-summary-table td.debit {
+  width: 25%;
+}
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.gl-summary-table td.debit:hover {
+  color: #f3655e;
+  cursor: pointer;
+}
+/* line 56, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.gl-summary-table td.credit {
+  width: 25%;
+}
+/* line 58, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.gl-summary-table td.credit:hover {
+  color: #f3655e;
+  cursor: pointer;
+}
+
+/*TRIAL BALANCE  TOTALS CSS*/
+/* line 67, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-totals-check tr {
+  text-align: center;
+}
+/* line 70, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-totals-check td.acc {
+  width: 30%;
+  background-color: #94CFD5;
+  color: white;
+}
+/* line 76, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-totals-check td.debit {
+  width: 25%;
+  color: #f3655e;
+}
+/* line 81, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#tb-totals-check td.credit {
+  width: 25%;
+  color: #f3655e;
+}
+
+/* line 87, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+.show-trn:hover {
+  color: #f3655e;
+}
+
+/* line 92, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+#cashbook-table th {
+  text-align: left;
+}
+
+/* line 97, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+input[name*="transaction"] {
+  width: 100%;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 110, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+input[name*="transaction"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/*INPUT FORMS RESIZING FOR LEDGER ADD PAY OR LODGER */
+/* line 121, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/ledgers.scss */
+input[id*="transaction"] {
+  width: 25em;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.split-screen-half {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.split-screen-half:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 3, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.split-screen-half div {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  max-height: 35em;
+  overflow: scroll;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.split-screen-half div:last-child {
+  margin-right: 0;
+}
+
+/* line 12, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.split-screen {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.split-screen:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 14, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.split-screen aside {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.split-screen aside:last-child {
+  margin-right: 0;
+}
+/* line 16, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.split-screen aside h1 {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+/* line 23, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.title-section {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.title-section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*FOR REPORT SHOW PAGE*/
+/* line 29, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.disclosures-section {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+.disclosures-section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 31, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.disclosures-section .comment {
+  width: 45%;
+  display: inline-block;
+}
+
+/* line 37, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+article.fin-statement {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+article.fin-statement:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 42, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+article.stats {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+article.stats:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 44, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+article.stats aside {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 38, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+article.stats aside:last-child {
+  margin-right: 0;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_1_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_2_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_3_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_4_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_5_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_6_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_7_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_8_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_9_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_10_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_11_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_12_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_13_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_14_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_15_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_16_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_17_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_18_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_19_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_20_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_21_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_22_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_23_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_24_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_25_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_26_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_27_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_28_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_29_ifrstag {
+  max-width: 50%;
+}
+
+/* line 50, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#report_etb_values_30_ifrstag {
+  max-width: 50%;
+}
+
+/* line 55, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+select#ifrstag {
+  max-width: 95%;
+}
+
+/* line 59, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+textarea#comment_body {
+  width: 25em;
+  height: 7em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 71, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+textarea#comment_body:focus {
+  width: 25em;
+  height: 7em;
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 82, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+textarea#note_body {
+  width: 25em;
+  height: 7em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 94, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+textarea#note_body:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 103, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#note_filelink {
+  width: 25em;
+  height: 2.5em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 115, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#note_filelink:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 124, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+.error {
+  color: red !important;
+}
+
+/* line 128, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="report"] {
+  width: 100%;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 141, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="report"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 151, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="value"] {
+  width: 100%;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 164, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="value"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 174, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="sales_ledger"] {
+  width: 100%;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 187, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="sales_ledger"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 197, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="cash_ledger"] {
+  width: 100%;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 210, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="cash_ledger"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 220, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="disclosure"] {
+  width: 25em;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 233, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input[name*="disclosure"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 243, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+textarea[name*="disclosure"] {
+  width: 25em;
+  height: 7em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 255, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+textarea[name*="disclosure"]:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_1_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_2_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_3_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_4_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_5_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_6_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_7_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_8_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_9_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_10_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_11_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_12_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_13_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_14_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_15_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_16_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_17_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_18_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_19_amount {
+  min-width: 10em;
+}
+
+/* line 266, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input#report_etb_values_20_amount {
+  min-width: 10em;
+}
+
+/* line 271, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input.jnl-desc {
+  width: 25em;
+  height: 2em;
+  border: #999 1px solid;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+/* line 283, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+input.jnl-desc:focus {
+  color: #000;
+  outline: none;
+  border: #f3655e 1px solid;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+
+/* line 293, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+h1.action {
+  color: #94CFD5;
+}
+
+/*SHOW PAGE TITLE LIST ACTION*/
+/* line 297, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+h1.action:hover {
+  color: #f3655e;
+  cursor: pointer;
+}
+
+/*DASH PAGE ON BALANCE HOVER CELL CSSS*/
+/* line 302, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+td.values_breakdown:hover {
+  color: #94CFD5;
+  cursor: pointer;
+}
+
+/*SHOW PAGE PIVOTS ON BALANCE HOVER CSS*/
+/* line 307, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/reports.scss */
+td.display-action:hover {
+  color: #94CFD5;
+  cursor: pointer;
+}
+
+/*INPUT FORMS RESIZING FOR LEDGER ADD PAY OR LODGER */
+/*input[id*="report"] {
+  width: 25em;
+}*/
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment {
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+  display: table;
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  width: 100%;
+}
+/* line 22, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-image,
+.comment .comment-content {
+  display: table-cell;
+  vertical-align: top;
+}
+/* line 27, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-image {
+  padding-right: 1.4em;
+}
+/* line 30, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-image > img {
+  background: #82a7db;
+  border-radius: 3px;
+  display: block;
+  height: auto;
+  max-width: none;
+  padding: 0.7em;
+  width: 4em;
+}
+/* line 40, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment-reverse-order .comment .comment-image {
+  padding-right: 0;
+  padding-left: 10px;
+}
+/* line 46, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-content {
+  width: 100%;
+}
+/* line 49, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-content h1 {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+}
+/* line 54, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-content p {
+  line-height: 1.5em;
+  margin-bottom: 0.5em;
+}
+/* line 59, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/comments.scss */
+.comment .comment-content p.comment-detail {
+  color: rgba(51, 51, 51, 0.5);
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/stats.scss */
+.stats {
+  padding: 0.75em;
+}
+/* line 10, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/stats.scss */
+.stats ul {
+  padding: 0;
+}
+/* line 14, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/stats.scss */
+.stats li {
+  border-right: 1px solid rgba(51, 51, 51, 0.2);
+  color: #6f99d5;
+  display: inline;
+  float: left;
+  font-size: 1.2em;
+  font-weight: 800;
+  line-height: 1.1em;
+  padding: 0 0.7em;
+}
+/* line 24, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/stats.scss */
+.stats li:first-child {
+  padding-left: 0;
+}
+/* line 28, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/stats.scss */
+.stats li:last-child {
+  border-right: 0;
+}
+/* line 33, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/stats.scss */
+.stats span {
+  color: #333333;
+  display: block;
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/managers.scss */
+article.report-manager {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+article.report-manager:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 15, /Users/edwardelliott/.rvm/gems/ruby-2.2.0/gems/bourbon-3.2.4/app/assets/stylesheets/addons/_clearfix.scss */
+article.report-manager:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 1, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 40px auto;
+  /*
+   * Spinner positions
+   * 1 2 3
+   * 4 5 6
+   * 7 8 9
+   */
+}
+
+/* line 11, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #94CFD5;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+/* line 18, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+/* line 21, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+/* line 24, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+/* line 27, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+/* line 30, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+/* line 33, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+/* line 36, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0.0s;
+  animation-delay: 0.0s;
+}
+
+/* line 39, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+/* line 42, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  /* line 46, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+
+  /* line 49, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  /* line 53, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+
+  /* line 56, /Users/edwardelliott/Documents/Projects/monea-finance/app/assets/stylesheets/loading.scss.erb */
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
+}

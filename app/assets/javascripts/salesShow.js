@@ -49,7 +49,7 @@ function upDateTrnPaid(button) {
 //              request.onerror = errorDisplay;
               data = {
                 id
-              }
+              };
               request.open("put", '/transactions/' + id + '/invoice_paid', true );
               request.setRequestHeader("Content-Type", "application/json");
               request.setRequestHeader("X-CSRF-Token", token);
