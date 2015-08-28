@@ -212,7 +212,6 @@ var reportHelper = (function() {
 
 var ifrsDashShow = (function() {
 
-
       return {
 
           cacheData: function() {
@@ -476,6 +475,22 @@ function shareReport(obj){
   request.setRequestHeader("Content-Type", "application/json");
   request.setRequestHeader("X-CSRF-Token", token);
   request.send(JSON.stringify(data));
+  
+  function shareSuccess() {
+    
+      $('#table-title').empty();
+      $('#empty-modal-table').empty();
+
+      response = this.responseText
+      if (response.indexOf("ERROR") > -1) {
+        html = '<p>' + 'ERROR' + '</p>' +
+             '<a href="/" data-no-turbolinks=true>' + 'RECONNECT' + '</a>'
+      } else {
+        html = '<td>' + 'Successfully shared Ledger with: ' + response + '</td>'
+      }
+      $('#empty-modal-table').append(html) 
+  };
+  // END OF SHARE SUCCESS
 }
 
 function cacheNotes(reportId){
@@ -590,7 +605,12 @@ $(document).on('page:load ready', function(){
          $('html, body').animate({ scrollTop: top }, 1500)
       });
 
+  } else if (route.indexOf('report_manager') > -1) {
+
+
+
   } else {
+
       data = reportHelper.loadShowPageData()
       reportHelper.drawCharts(data);
       // calls graphhelper.drawReportShow

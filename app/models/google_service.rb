@@ -137,6 +137,11 @@
   			})
 		    response = @client.execute(:api_method => @drive.files.insert, :body_object => file)
 			response.data.alternateLink
+			if result.data['error']
+				result.data['error']['message']
+			else
+				result.data.alternateLink
+			end
 		end
 
 		# USED BY SALES INVOICING FUNC and NOTES fileLINK
@@ -154,7 +159,11 @@
 			  :api_method => @drive.files.copy,
 			  :body_object => file,
 			  :parameters => { 'fileId' => source_file_id })
-			result.data.alternateLink
+			if result.data['error']
+				result.data['error']['message']
+			else
+				result.data.alternateLink
+			end
 		end
 
 		def rename_inv_file_paid(file_id, token)
