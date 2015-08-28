@@ -25,6 +25,8 @@ group :test do
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.1'
+# CAN TAKE OUT?  https://devcenter.heroku.com/articles/rails-asset-pipeline#the-rails-4-asset-pipeline
+# If you were previously using therubyracer or therubyracer-heroku, 
 gem 'therubyracer'
 gem 'responders', '~> 2.0'
 
