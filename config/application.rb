@@ -17,8 +17,6 @@ Bundler.require(:default, Rails.env)
 module Draftapp
   class Application < Rails::Application
 
-    config.serve_static_files = true
-
     # PUT IN??
     #config.assets.initialize_on_precompile=false
 
