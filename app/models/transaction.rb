@@ -47,7 +47,7 @@ class Transaction < ActiveRecord::Base
       ledger.drive_folder.match(/id=([\S]+)&/)
       folder_id = $1
       template_file = ledger.invoice_template_file_link
-      template_file.match(/d\/((.)+)\/edit/)
+      template_file.match(/document\/d\/((.)+)\/edit/)
       file_id = $1
       mi_tag.blank? ? _tag = "No-tag given" : _tag = mi_tag
       name = _tag + "( #{self.amount.to_i} )"

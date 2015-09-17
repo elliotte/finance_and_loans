@@ -137,10 +137,10 @@
   			})
 		    response = @client.execute(:api_method => @drive.files.insert, :body_object => file)
 			response.data.alternateLink
-			if result.data['error']
-				result.data['error']['message']
+			if response.data['error']
+				response.data['error']['message']
 			else
-				result.data.alternateLink
+				response.data.alternateLink
 			end
 		end
 
