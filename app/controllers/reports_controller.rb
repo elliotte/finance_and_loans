@@ -206,6 +206,7 @@ class ReportsController < ApplicationController
     end
 
     def set_report
+      #to change for shared?
       @report = current_user.reports.where(id: params[:id]).last
       if @report.format == "UKGAAP"
         $form_select_tags = Tag.gaap_user_options

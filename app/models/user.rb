@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
           format: 'UKGAAP', 
           report_type: 'Statutory')
 
-      return if report.nil?
+      return if report_gaap.nil?
       WelcomeService.new(report_gaap).load_gaap_report(values)
   	end
 
