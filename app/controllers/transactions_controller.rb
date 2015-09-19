@@ -46,7 +46,7 @@ class TransactionsController < ApplicationController
   end
   #udpate GOOGLE FILE title
   def update_invoice_file_paid
-    $fileID = Transaction.find(params[:id]).invoice_file_link.match(/d\/(.*)?.edit/)[1]
+    $fileID = Transaction.find(params[:id]).invoice_file_link.match(/document\/d\/((.)+)\/edit/)[1]
     begin
       @result = google_service.rename_inv_file_paid($fileID, session[:token])
       render json: @result
