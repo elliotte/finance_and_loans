@@ -34,7 +34,7 @@ class Note < ActiveRecord::Base
 private
 
   def google_file_link
-    self.call('filelink').match(/d\/(.*)?.edit/)[1]
+    self.send('filelink').match(/d\/(.*)?.edit/)[1]
   end
 
 end

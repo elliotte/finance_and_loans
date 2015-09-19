@@ -48,10 +48,6 @@ class User < ActiveRecord::Base
   	end
 
   	def load_welcome_ledgers
-  		# file = "#{Rails.root}/files/welcome_led.csv"
-  		# trns = ParseDefaultCSV.new(file).return_data
-  		# ledger = self.ledgers.create(user_tag: "No VAT demo simple booking, TBs and exporting", type: "CashLedger" )
-		  # WelcomeService.new(ledger).load_ledger(trns)
       file = "#{Rails.root}/files/with_vat_ledgerCSV.csv"
       vat_trns = ParseDefaultCSV.new(file).return_data
       vat_ledger = self.ledgers.create(user_tag: "Demo Cash with VAT, simple booking, TBs and exporting", type: "CashLedger")
@@ -63,8 +59,6 @@ class User < ActiveRecord::Base
       return if ledger.nil?
       ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 4560.00, vat: 345.00, description: "First sale in monea.build", paid: false)
       ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 14560.00, vat: 3145.00, description: "2nd sale in monea.build", paid: false)
-      #fileID = trn_to_be_paid.invoice_file_link.match(/d\/(.*)?.edit/)[1]
-      #google_service.rename_inv_file_paid($fileID, session[:token])
     end
 
 end

@@ -23,7 +23,7 @@ describe LedgerImportService do
 
       it 'sets data using parse file method' do
         import_service.parse_file
-        expect(import_service.data.count).to eq 272
+        expect(import_service.data.count).to eq 516
       end
 
       it 'can get master monea_tags' do
@@ -49,18 +49,18 @@ describe LedgerImportService do
         import_service.parse_file
         import_service.set_monea_tags
         a = import_service.index_null_monea_tags
-        expect(a.count).to eq 65
+        expect(a.count).to eq 48
       end
       #how to test set_invalid no mapping?
       it 'should have 82 transactions' do
         expect(import_service.ledger_collection.count).to eq 0
         import_service.book_data
-        expect(ledger.transactions.count).to eq 272
+        expect(ledger.transactions.count).to eq 516
       end
       it 'should have two no-mapping transactions' do
         import_service.book_data
         no_mappings_count = ledger.transactions.select{|trn| trn[:monea_tag] == "No-Mapping"}.count
-        expect(no_mappings_count).to eq 130
+        expect(no_mappings_count).to eq 96
       end
 
       it 'should return true as all data trans booked' do
@@ -70,7 +70,7 @@ describe LedgerImportService do
       it 'should book vat' do
         import_service.book_data
         lst_trn = ledger.transactions.last
-        expect(lst_trn.vat.to_f.round(2)).to eq 776.27
+        expect(lst_trn.vat.to_f.round(2)).to eq 240.8
       end
 
       it 'should not book negative vat' do

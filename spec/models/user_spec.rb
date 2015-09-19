@@ -49,14 +49,14 @@ describe User do
 		user = FactoryGirl.create(:user)
 		expect(user.reports.first.values.count).to eq 315
 	end
-	it 'should have 3 ledgers after being created' do
+	it 'should have 2 ledgers after being created' do
 		user = FactoryGirl.create(:user)
-		expect(user.ledgers.count).to eq 3
+		expect(user.ledgers.count).to eq 2
 	end
 	it 'should have a ledger with transactions' do
 		user = FactoryGirl.create(:user)
-		expect(user.ledgers.first.transactions.credit.count).to eq 101
-		expect(user.ledgers.first.transactions.debit.count).to eq 153
+		expect(user.ledgers.first.transactions.credit.count).to eq 266
+		expect(user.ledgers.first.transactions.debit.count).to eq 250
 	end
 	it 'should have a ledger transaction with monea_tag' do
 		user = FactoryGirl.create(:user)
