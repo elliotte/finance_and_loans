@@ -16,6 +16,7 @@
               this.py = PY;
 
               this.loadList = function(firstRow) {
+                
                 _list = [firstRow]
                 current_yr = this.cy;
                 comparative_year = this.py;
@@ -36,7 +37,7 @@
                     _list.push([ reportLine, cy, py ]);
                 })
 
-                 return _list
+                return _list
 
                  function totalLines(_collection, tag) {
                   result = 0;
@@ -49,10 +50,6 @@
                   }
 
 
-              };
-
-              this.draw = function(chartObject, data, options) {
-                chartObject.draw(data, options)
               };
 
          }

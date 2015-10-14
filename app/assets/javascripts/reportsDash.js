@@ -1,6 +1,5 @@
+$(document).on('page:load ready', function() {
 
-$(document).on('page:load ready', function(){
-         // end of values breakdown
          // cache graph data
          var dashData = ifrsDashShow.loadData();
          // LOAD MARGIN STATISTICS
@@ -11,46 +10,65 @@ $(document).on('page:load ready', function(){
 
          try {
 
-           google.setOnLoadCallback(graphHelper.drawIncomeStatCharts(dashData.cy, dashData.py));
-           //google.setOnLoadCallback(graphHelper.drawAssetStatCharts(dashData.cy.assets, dashData.py.assets));
+           var CY = dashData.cy.assets
+           var PY = dashData.py.assets
+           graphHelper.drawAssetStatCharts(CY,PY);
+
+           // function draw1() {
+              
+           //    var incomeData = new google.visualization.arrayToDataTable([
+           //      ['Income Statement Categories', 'Current', 'Comparative'],
+           //      ['Gross profit revenue', sumAmts(CY.gp_rev), sumAmts(PY.gp_rev) ],
+           //      ['Gross profit COS', sumAmts(CY.gp_cos), sumAmts(PY.gp_cos) ],
+           //      ['Operating profit revenue', sumAmts(CY.op_rev), sumAmts(PY.op_rev) ],
+           //      ['Operating profit COS', sumAmts(CY.op_cos), sumAmts(PY.op_cos) ],
+           //      ['Sum of tax paid', sumAmts(CY.tax), sumAmts(PY.tax) ],
+           //    ]);
+           //    console.log(incomeData)
+           //    var PNLoptions = {
+           //      height: 400,
+           //      chart: {
+           //        title: 'Current vs Comparative analysis of Profit and Loss',
+           //        subtitle: subtitleText,
+           //      },
+           //      bars: 'horizontal', // Required for Material Bar Charts.
+           //      hAxis: {format: 'decimal'},
+           //      colors: ['#94CFD5', '#FF8C86']
+           //    };
+
+           //    var chartPNL = new google.charts.Bar(document.getElementById("income-statement-graph"));
+           //    chartPNL.draw(incomeData, google.charts.Bar.convertOptions(PNLoptions));
+           //    console.log(chartPNL.error)
+
+           // }
+
+           //google.setOnLoadCallback(draw2);
 
          } catch (e) {
 
            console.log(e); // pass exception object to error handler
 
          }
-         //graphHelper.drawLiabCharts(dashData.cy.liabs, dashData.py.liabs);
 
-         var builder = new Page(dashData.cy.liabs, dashData.py.liabs);
-         firstRow = ['Company Liabilities', 'Current', 'Comparative']
-         
-         var _data = builder.loadList(firstRow)
-         var _chart = new Chart(google);
+         try {
 
-         var liabData = _chart.newDataTable(_data)
+             var CY = dashData.cy
+             var PY = dashData.py
+             graphHelper.drawIncomeStatCharts(CY,PY);
 
-         var liabOptions = {
-            height: 400,
-            chart: {
-              title: 'Current vs Comparative analysis of liabilities',
-              subtitle: subtitleText,
-            },
-            colors: ['#94CFD5', '#FF8C86']
-          };
-         console.log(liabData)
+         } catch (e) {
+          console.log(e); // pass exception object to error handler
 
-         newBarLiabs = _chart.newBarChart(document.getElementById("liabs-graph"))
-         builder.draw(newBarLiabs, liabData, google.charts.Bar.convertOptions(liabOptions))
+         }
 
-         //graphHelper.loadStats(stats)
          $('.fs-scroll').on('click', function(e) {
-           e.preventDefault();
-           anchor = $(this).data('anchor')
-           var top = $('#' + anchor).offset().top - 50
-           $('html, body').animate({ scrollTop: top }, 1500)
-         });
+                   e.preventDefault();
+                   anchor = $(this).data('anchor')
+                   var top = $('#' + anchor).offset().top - 50
+                   $('html, body').animate({ scrollTop: top }, 1500)
+                 });
 
-         $(document).on('click', '.values_breakdown', function(){
+         $('.values_breakdown').on('click', function(){
              range = $(this).attr('data-period')
              lineTag = $(this).attr('data-ifrstag')
              summary = $(this).data('summary-line')
@@ -67,7 +85,12 @@ $(document).on('page:load ready', function(){
                 data: _data
              })
           })
-  });
-  // END OF PAGELOAD READY
+
+
+        
+
+ });        
+
+
 
 

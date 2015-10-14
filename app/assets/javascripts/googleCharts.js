@@ -57,26 +57,26 @@ var graphHelper = (function() {
 
           },
 
-          drawDashCharts: function(data) {
-            var cyData = google.visualization.arrayToDataTable(data["cy"]);
-            var options = {
-              title: 'Income statement analysis',
-              is3D: true,
-              colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
-            };
-            var chart = new google.visualization.PieChart(document.getElementById('cy-pie-chart'));
-            chart.draw(cyData, options);
+          // drawDashCharts: function(data) {
+          //   var cyData = google.visualization.arrayToDataTable(data["cy"]);
+          //   var options = {
+          //     title: 'Income statement analysis',
+          //     is3D: true,
+          //     colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
+          //   };
+          //   var chart = new google.visualization.PieChart(document.getElementById('cy-pie-chart'));
+          //   chart.draw(cyData, options);
 
-            var pyData = google.visualization.arrayToDataTable(data["py"]);
-            var options = {
-              title: 'Income statement analysis',
-              is3D: true,
-              colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
-            };
-            var chart = new google.visualization.PieChart(document.getElementById('py-pie-chart'));
-            chart.draw(pyData, options);
+          //   var pyData = google.visualization.arrayToDataTable(data["py"]);
+          //   var options = {
+          //     title: 'Income statement analysis',
+          //     is3D: true,
+          //     colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
+          //   };
+          //   var chart = new google.visualization.PieChart(document.getElementById('py-pie-chart'));
+          //   chart.draw(pyData, options);
 
-          },
+          // },
 
           drawReportShowCharts: function(data) {
              
@@ -120,7 +120,7 @@ var graphHelper = (function() {
 
           drawIncomeStatCharts: function(CY, PY) {
 
-              var incomeData = google.visualization.arrayToDataTable([
+              var incomeData = new google.visualization.arrayToDataTable([
                 ['Income Statement Categories', 'Current', 'Comparative'],
                 ['Gross profit revenue', sumAmts(CY.gp_rev), sumAmts(PY.gp_rev) ],
                 ['Gross profit COS', sumAmts(CY.gp_cos), sumAmts(PY.gp_cos) ],
@@ -135,49 +135,36 @@ var graphHelper = (function() {
                   title: 'Current vs Comparative analysis of Profit and Loss',
                   subtitle: subtitleText,
                 },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                hAxis: {format: 'decimal'},
                 colors: ['#94CFD5', '#FF8C86']
               };
 
               var chartPNL = new google.charts.Bar(document.getElementById("income-statement-graph"));
-              chartPNL.draw(incomeData, PNLoptions);
+              chartPNL.draw(incomeData, google.charts.Bar.convertOptions(PNLoptions));
               console.log(chartPNL.error)
               
 
           },
 
           drawAssetStatCharts: function(dataCY, dataPY) {
+                
+                  var page = new Page(dataCY, dataPY)
+                  firstRow = ['Company assets', 'Current', 'Comparative']
+                  
+                  var assetData = new google.visualization.arrayToDataTable(page.loadList(firstRow));
+                  var op = {
+                    height: 400,
+                    chart: {
+                      title: 'Current vs Comparative analysis of assets',
+                      //subtitle: subtitleText,
+                    },
+                    colors: ['#94CFD5', '#FF8C86'],
+                  };
 
-            
-             // try {
-             //          dataList = [
-             //              ['Company assets', 'Current', 'Comparative'],
-             //          ]
-             //          cy_assets = dataCY
-             //          py_assets = dataPY
-             //          cyAssetLines = getReportingLines( cy_assets )
-             //          pyAssetLines = getReportingLines( py_assets )
-             //          assetLines = cyAssetLines.concat(pyAssetLines)
-
-             //          buildBalSheetDataList(assetLines, cy_assets, py_assets);
-             //          console.log(dataList)
-             //          var graphData = google.visualization.arrayToDataTable(dataList);
-             //          console.log(graphData)
-             //          var options = {
-             //            height: 400,
-             //            chart: {
-             //              title: 'Current vs Comparative analysis of assets',
-             //              subtitle: subtitleText,
-             //            },
-             //            colors: ['#94CFD5', '#FF8C86']
-             //          };
-             //          var chart = new google.charts.Bar(document.getElementById("assets-graph"));
-             //          chart.draw(graphData, options);
-             //          console.log(chart.error)
-
-             // }
-             // catch (e) {
-             //    console.log(e); // pass exception object to error handler
-             // }
+                chartAssets = new google.charts.Bar(document.getElementById("assets-graph"));
+                chartAssets.draw(assetData, google.charts.Bar.convertOptions(op));
+                console.log(chartAssets.error)
 
           },
 
@@ -218,39 +205,32 @@ var graphHelper = (function() {
 })();
 
  // DRAWFSCHART HELPERS
-              function buildBalSheetDataList(reportingLines, current_yr, comparative_year, dataList) {
-                 $.each($.unique(reportingLines), function(index, reportLine) {
-                    cy = getLineAmt(current_yr, reportLine);
-                    py = getLineAmt(comparative_year, reportLine);
-                    dataForGraph = [
-                      reportLine, cy, py
-                    ]
-                    dataList.push(dataForGraph);
-                  })
-                 return dataList
-              }
-              function getLineAmt(collection, tag) {
-                  result = 0;
-                  for(var i = 0, len = collection.length; i < len; i++) {
-                    if ( collection[i][0] == tag ) {
-                       result = collection[i][1]
-                    }
-                  }
-                  return result
-              }
-              function getReportingLines(collection) {
-                  reportingLines = []
-                  for(var i = 0, len = collection.length; i < len; i++) {
-                    name = collection[i][0]
-                    reportingLines.push(name);
-                  }
-                  return reportingLines
-              }
-              function sumAmts(collection) {
-                var sumOf = 0; 
-                for(var i = 0, len = collection.length; i < len; i++) {
-                    amt = parseInt(collection[i][1])
-                    sumOf += amt;  
-                }
-                return sumOf
-              }
+              // function buildBalSheetDataList(reportingLines, current_yr, comparative_year, dataList) {
+              //    $.each($.unique(reportingLines), function(index, reportLine) {
+              //       cy = getLineAmt(current_yr, reportLine);
+              //       py = getLineAmt(comparative_year, reportLine);
+              //       dataForGraph = [
+              //         reportLine, cy, py
+              //       ]
+              //       dataList.push(dataForGraph);
+              //     })
+              //    return dataList
+              // }
+              // function getLineAmt(collection, tag) {
+              //     result = 0;
+              //     for(var i = 0, len = collection.length; i < len; i++) {
+              //       if ( collection[i][0] == tag ) {
+              //          result = collection[i][1]
+              //       }
+              //     }
+              //     return result
+              // }
+              // function getReportingLines(collection) {
+              //     reportingLines = []
+              //     for(var i = 0, len = collection.length; i < len; i++) {
+              //       name = collection[i][0]
+              //       reportingLines.push(name);
+              //     }
+              //     return reportingLines
+              // }
+       
