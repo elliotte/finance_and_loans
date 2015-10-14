@@ -1,3 +1,4 @@
+
 var graphHelper = (function() {
   
       return {
@@ -119,111 +120,98 @@ var graphHelper = (function() {
 
           drawIncomeStatCharts: function(CY, PY) {
 
-            try {
-                if ($("#income-statement-graph").length) { 
-                    var incomeData = google.visualization.arrayToDataTable([
-                      ['Income Statement Categories', 'Current', 'Comparative'],
-                      ['Gross profit revenue', sumAmts(CY.gp_rev), sumAmts(PY.gp_rev) ],
-                      ['Gross profit COS', sumAmts(CY.gp_cos), sumAmts(PY.gp_cos) ],
-                      ['Operating profit revenue', sumAmts(CY.op_rev), sumAmts(PY.op_rev) ],
-                      ['Operating profit COS', sumAmts(CY.op_cos), sumAmts(PY.op_cos) ],
-                      ['Sum of tax paid', sumAmts(CY.tax), sumAmts(PY.tax) ],
-                    ]);
-                    console.log(incomeData)
-                    var PNLoptions = {
-                      height: 400,
-                      chart: {
-                        title: 'Current vs Comparative analysis of Profit and Loss',
-                        subtitle: subtitleText,
-                      },
-                      colors: ['#94CFD5', '#FF8C86']
-                    };
+              var incomeData = google.visualization.arrayToDataTable([
+                ['Income Statement Categories', 'Current', 'Comparative'],
+                ['Gross profit revenue', sumAmts(CY.gp_rev), sumAmts(PY.gp_rev) ],
+                ['Gross profit COS', sumAmts(CY.gp_cos), sumAmts(PY.gp_cos) ],
+                ['Operating profit revenue', sumAmts(CY.op_rev), sumAmts(PY.op_rev) ],
+                ['Operating profit COS', sumAmts(CY.op_cos), sumAmts(PY.op_cos) ],
+                ['Sum of tax paid', sumAmts(CY.tax), sumAmts(PY.tax) ],
+              ]);
+              console.log(incomeData)
+              var PNLoptions = {
+                height: 400,
+                chart: {
+                  title: 'Current vs Comparative analysis of Profit and Loss',
+                  subtitle: subtitleText,
+                },
+                colors: ['#94CFD5', '#FF8C86']
+              };
 
-                    var chartPNL = new google.charts.Bar(document.getElementById("income-statement-graph"));
-                    chartPNL.draw(incomeData, PNLoptions);
-                    console.log(chartPNL.error)
-                };
-              }
-              catch (e) {
-                 console.log(e); // pass exception object to error handler
-              }
+              var chartPNL = new google.charts.Bar(document.getElementById("income-statement-graph"));
+              chartPNL.draw(incomeData, PNLoptions);
+              console.log(chartPNL.error)
+              
 
           },
 
           drawAssetStatCharts: function(dataCY, dataPY) {
+
             
-            // format = $('#dash-report-format').data('value')
-            // subtitleText = 'Using '+ format +' classifications'
+             // try {
+             //          dataList = [
+             //              ['Company assets', 'Current', 'Comparative'],
+             //          ]
+             //          cy_assets = dataCY
+             //          py_assets = dataPY
+             //          cyAssetLines = getReportingLines( cy_assets )
+             //          pyAssetLines = getReportingLines( py_assets )
+             //          assetLines = cyAssetLines.concat(pyAssetLines)
 
-            //  try {
-            //       if ($("#assets-graph").length) { 
-            //           dataList = [
-            //               ['Company assets', 'Current', 'Comparative'],
-            //           ]
-            //           cy_assets = dataCY
-            //           py_assets = dataPY
-            //           cyAssetLines = getReportingLines( cy_assets )
-            //           pyAssetLines = getReportingLines( py_assets )
-            //           assetLines = cyAssetLines.concat(pyAssetLines)
+             //          buildBalSheetDataList(assetLines, cy_assets, py_assets);
+             //          console.log(dataList)
+             //          var graphData = google.visualization.arrayToDataTable(dataList);
+             //          console.log(graphData)
+             //          var options = {
+             //            height: 400,
+             //            chart: {
+             //              title: 'Current vs Comparative analysis of assets',
+             //              subtitle: subtitleText,
+             //            },
+             //            colors: ['#94CFD5', '#FF8C86']
+             //          };
+             //          var chart = new google.charts.Bar(document.getElementById("assets-graph"));
+             //          chart.draw(graphData, options);
+             //          console.log(chart.error)
 
-            //           buildBalSheetDataList(assetLines, cy_assets, py_assets);
-            //           console.log(dataList)
-            //           var graphData = google.visualization.arrayToDataTable(dataList);
-            //           console.log(graphData)
-            //           var options = {
-            //             height: 400,
-            //             chart: {
-            //               title: 'Current vs Comparative analysis of assets',
-            //               subtitle: subtitleText,
-            //             },
-            //             colors: ['#94CFD5', '#FF8C86']
-            //           };
-            //           var chart = new google.charts.Bar(document.getElementById("assets-graph"));
-            //           chart.draw(graphData, options);
-            //           console.log(chart.error)
-            //       }        
-
-
-            //  }
-            //  catch (e) {
-            //     console.log(e); // pass exception object to error handler
-            //  }
+             // }
+             // catch (e) {
+             //    console.log(e); // pass exception object to error handler
+             // }
 
           },
 
           drawLiabCharts: function(CY, PY) {
           // LIABS DASH SHOW REPORTS
-            if ($("#liabs-graph").length) { 
-                dataListLiabs = [
-                    ['Company Liabilities', 'Current', 'Comparative'],
-                ]
-                cy_liabs = CY
-                py_liabs = PY
+                // dataListLiabs = [
+                //     ['Company Liabilities', 'Current', 'Comparative'],
+                // ]
+                // cy_liabs = CY
+                // py_liabs = PY
 
-                cyLiabsLines = getReportingLines( cy_liabs )
-                pyLiabsLines = getReportingLines( py_liabs )
-                liabLines = cyLiabsLines.concat(pyLiabsLines)
+                // cyLiabsLines = getReportingLines( cy_liabs )
+                // pyLiabsLines = getReportingLines( py_liabs )
+                // liabLines = cyLiabsLines.concat(pyLiabsLines)
                 
-                var dataListLiabs = buildBalSheetDataList(liabLines, cy_liabs, py_liabs, dataListLiabs);
-                console.log(dataListLiabs)
+                // var dataListLiabs = buildBalSheetDataList(liabLines, cy_liabs, py_liabs, dataListLiabs);
+                // console.log(dataListLiabs)
 
-                var graphDataLiabs = google.visualization.arrayToDataTable(dataListLiabs);
-                console.log(graphDataLiabs)
-                var options = {
-                  height: 400,
-                  chart: {
-                    title: 'Current vs Comparative analysis of liabilities',
-                    subtitle: subtitleText,
-                  },
-                  colors: ['#94CFD5', '#FF8C86']
-                };
-                var chartLiabs = new google.charts.Bar(document.getElementById("liabs-graph"));
-                chartLiabs.draw(graphDataLiabs, options);
-                console.log(chartLiabs.error)
-            }
+                // var graphDataLiabs = google.visualization.arrayToDataTable(dataListLiabs);
+                // console.log(graphDataLiabs)
+                // var options = {
+                //   height: 400,
+                //   chart: {
+                //     title: 'Current vs Comparative analysis of liabilities',
+                //     subtitle: subtitleText,
+                //   },
+                //   colors: ['#94CFD5', '#FF8C86']
+                // };
+                // var chartLiabs = new google.charts.Bar(document.getElementById("liabs-graph"));
+                // chartLiabs.draw(graphDataLiabs, options);
+                // console.log(chartLiabs.error)
 
           },  
-          // END OF DRAW FS CHART
+          // END OF drawLiabCharts CHART
 
       };
       // END OF RETURN
