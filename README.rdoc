@@ -7,6 +7,10 @@ https://console.developers.google.com/project/monea-finance
 
 https://dashboard.heroku.com/apps
 
+After asset change.. run 
+ - RAILS_ENV=production bundle exec rake assets:precompile
+Before pushing to heroku
+
 ==
 
 This README would normally document whatever steps are necessary to get the
