@@ -1,7 +1,8 @@
 <%= javascript_include_tag 'reports' %>
+<%= javascript_include_tag 'reportsDash' %>
+
 <%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
 <!-- DO WE NEED BOTH? H ADDED OTHER.. -->
-<span id="report-id" style="display:none;"><%= params[:id] %></span>
 
 <%= render partial: 'button_board', locals: {report: @report} %>
 
@@ -117,13 +118,12 @@
 </div>
 
 <script>
+  (function() {
 
-(function() {
-
-  $(".modal-close").on("click", function() {
-    $(".modal-state:checked").prop("checked", false).change();
-  });
-
-})();
+    $(".modal-close").on("click", function() {
+      $(".modal-state:checked").prop("checked", false).change();
+    });
+    
+  })();
 </script>
 

@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   		  load_welcome_reports
         load_welcome_sales
       rescue
+        # so no error and continues logic.. hacky
         true
       end
       #load_templates

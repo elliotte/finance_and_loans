@@ -1,4 +1,3 @@
-
 var graphHelper = (function() {
   
       return {
@@ -118,76 +117,98 @@ var graphHelper = (function() {
 
           },
 
-          drawFSCharts: function(data) {
+          drawIncomeStatCharts: function(CY, PY) {
+
+            try {
+                if ($("#income-statement-graph").length) { 
+                    var incomeData = google.visualization.arrayToDataTable([
+                      ['Income Statement Categories', 'Current', 'Comparative'],
+                      ['Gross profit revenue', sumAmts(CY.gp_rev), sumAmts(PY.gp_rev) ],
+                      ['Gross profit COS', sumAmts(CY.gp_cos), sumAmts(PY.gp_cos) ],
+                      ['Operating profit revenue', sumAmts(CY.op_rev), sumAmts(PY.op_rev) ],
+                      ['Operating profit COS', sumAmts(CY.op_cos), sumAmts(PY.op_cos) ],
+                      ['Sum of tax paid', sumAmts(CY.tax), sumAmts(PY.tax) ],
+                    ]);
+                    console.log(incomeData)
+                    var PNLoptions = {
+                      height: 400,
+                      chart: {
+                        title: 'Current vs Comparative analysis of Profit and Loss',
+                        subtitle: subtitleText,
+                      },
+                      colors: ['#94CFD5', '#FF8C86']
+                    };
+
+                    var chartPNL = new google.charts.Bar(document.getElementById("income-statement-graph"));
+                    chartPNL.draw(incomeData, PNLoptions);
+                    console.log(chartPNL.error)
+                };
+              }
+              catch (e) {
+                 console.log(e); // pass exception object to error handler
+              }
+
+          },
+
+          drawAssetStatCharts: function(dataCY, dataPY) {
             
-            format = $('#dash-report-format').data('value')
-            subtitleText = 'Using '+ format +' classifications'
-    // INCOME STATEMENT
-            if ($("#income-statement-graph").length) { 
-                graphContainer = document.getElementById("income-statement-graph")
-                var graphData = google.visualization.arrayToDataTable([
-                  ['Income Statement Categories', 'Current', 'Comparative'],
-                  ['Gross profit revenue', sumAmts(data.cy.gp_rev), sumAmts(data.py.gp_rev) ],
-                  ['Gross profit COS', sumAmts(data.cy.gp_cos), sumAmts(data.py.gp_cos) ],
-                  ['Operating profit revenue', sumAmts(data.cy.op_rev), sumAmts(data.py.op_rev) ],
-                  ['Operating profit COS', sumAmts(data.cy.op_cos), sumAmts(data.py.op_cos) ],
-                  ['Sum of tax paid', sumAmts(data.cy.tax), sumAmts(data.py.tax) ],
-                ]);
+            // format = $('#dash-report-format').data('value')
+            // subtitleText = 'Using '+ format +' classifications'
 
-                var options = {
-                  height: 400,
-                  chart: {
-                    title: 'Current vs Comparative analysis of Profit and Loss',
-                    subtitle: subtitleText,
-                  },
-                  colors: ['#94CFD5', '#FF8C86']
-                };
+            //  try {
+            //       if ($("#assets-graph").length) { 
+            //           dataList = [
+            //               ['Company assets', 'Current', 'Comparative'],
+            //           ]
+            //           cy_assets = dataCY
+            //           py_assets = dataPY
+            //           cyAssetLines = getReportingLines( cy_assets )
+            //           pyAssetLines = getReportingLines( py_assets )
+            //           assetLines = cyAssetLines.concat(pyAssetLines)
 
-                var chart = new google.charts.Bar(graphContainer);
-                chart.draw(graphData, options);
-            };
-      // ASSETS
-            if ($("#assets-graph").length) { 
-                graphConatiner = document.getElementById("assets-graph")
-                dataList = [
-                    ['Company assets', 'Current', 'Comparative'],
-                ]
-                cy_assets = data.cy.assets
-                py_assets = data.py.assets
-                cyAssetLines = getReportingLines( cy_assets )
-                pyAssetLines = getReportingLines( py_assets )
-                assetLines = cyAssetLines.concat(pyAssetLines)
+            //           buildBalSheetDataList(assetLines, cy_assets, py_assets);
+            //           console.log(dataList)
+            //           var graphData = google.visualization.arrayToDataTable(dataList);
+            //           console.log(graphData)
+            //           var options = {
+            //             height: 400,
+            //             chart: {
+            //               title: 'Current vs Comparative analysis of assets',
+            //               subtitle: subtitleText,
+            //             },
+            //             colors: ['#94CFD5', '#FF8C86']
+            //           };
+            //           var chart = new google.charts.Bar(document.getElementById("assets-graph"));
+            //           chart.draw(graphData, options);
+            //           console.log(chart.error)
+            //       }        
 
-                buildBalSheetDataList(assetLines, cy_assets, py_assets);
-                
-                var graphData = google.visualization.arrayToDataTable(dataList);
-                var options = {
-                  height: 400,
-                  chart: {
-                    title: 'Current vs Comparative analysis of assets',
-                    subtitle: subtitleText,
-                  },
-                  colors: ['#94CFD5', '#FF8C86']
-                };
-                var chart = new google.charts.Bar(graphConatiner);
-                chart.draw(graphData, options);
-            }        
-      // LIABS
+
+            //  }
+            //  catch (e) {
+            //     console.log(e); // pass exception object to error handler
+            //  }
+
+          },
+
+          drawLiabCharts: function(CY, PY) {
+          // LIABS DASH SHOW REPORTS
             if ($("#liabs-graph").length) { 
-                graphConatiner = document.getElementById("liabs-graph")
-                dataList = [
+                dataListLiabs = [
                     ['Company Liabilities', 'Current', 'Comparative'],
                 ]
-                cy_liabs = data.cy.liabs
-                py_liabs = data.py.liabs
+                cy_liabs = CY
+                py_liabs = PY
 
                 cyLiabsLines = getReportingLines( cy_liabs )
                 pyLiabsLines = getReportingLines( py_liabs )
                 liabLines = cyLiabsLines.concat(pyLiabsLines)
+                
+                var dataListLiabs = buildBalSheetDataList(liabLines, cy_liabs, py_liabs, dataListLiabs);
+                console.log(dataListLiabs)
 
-                buildBalSheetDataList(liabLines, cy_liabs, py_liabs);
-
-                var graphData = google.visualization.arrayToDataTable(dataList);
+                var graphDataLiabs = google.visualization.arrayToDataTable(dataListLiabs);
+                console.log(graphDataLiabs)
                 var options = {
                   height: 400,
                   chart: {
@@ -196,11 +217,20 @@ var graphHelper = (function() {
                   },
                   colors: ['#94CFD5', '#FF8C86']
                 };
-                var chart = new google.charts.Bar(graphConatiner);
-                chart.draw(graphData, options);
+                var chartLiabs = new google.charts.Bar(document.getElementById("liabs-graph"));
+                chartLiabs.draw(graphDataLiabs, options);
+                console.log(chartLiabs.error)
             }
-        // DRAWFSCHART HELPERS
-              function buildBalSheetDataList(reportingLines, current_yr, comparative_year) {
+
+          },  
+          // END OF DRAW FS CHART
+
+      };
+      // END OF RETURN
+})();
+
+ // DRAWFSCHART HELPERS
+              function buildBalSheetDataList(reportingLines, current_yr, comparative_year, dataList) {
                  $.each($.unique(reportingLines), function(index, reportLine) {
                     cy = getLineAmt(current_yr, reportLine);
                     py = getLineAmt(comparative_year, reportLine);
@@ -236,11 +266,3 @@ var graphHelper = (function() {
                 }
                 return sumOf
               }
-          },  
-          // END OF DRAW FS CHART
-
-      };
-      // END OF RETURN
-})();
-
-

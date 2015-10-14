@@ -394,7 +394,6 @@ var ifrsDashShow = (function() {
             var request = new XMLHttpRequest();
               request.onload = successDashExport;
 //              request.onerror = errorDisplay;
-
               request.open("post", '/reports/' + $('#report-id').val() + '/export_dash', true );
               request.setRequestHeader("Content-Type", "application/json");
               request.setRequestHeader("X-CSRF-Token", token);
@@ -404,21 +403,6 @@ var ifrsDashShow = (function() {
 
       };
       // END OF RETURN
-
-})();
-
-var etbHelper = (function() {
-
-  return {
-      cacheData: function() {
-
-          jnlNumbers = $('.etb-jnl-headers')
-          reportingLines = $('.reporting-line')
-          console.log(jnlNumbers)
-          console.log(reportingLines)
-
-      }
-  };
 
 })();
 
@@ -563,58 +547,3 @@ function showDashComments(type){
   $("#report-comments-modal").trigger("click")
 }
 
-
-$(document).on('page:load ready', function(){
-
-  $(document).on('click', '.values_breakdown', function(){
-      range = $(this).attr('data-period')
-      lineTag = $(this).attr('data-ifrstag')
-      summary = $(this).data('summary-line')
-
-      if (summary) {
-        summaryTag = $(this).data('summary-tag')
-        _data = {"ifrstag" : lineTag, "period" : range, "summary" : summaryTag }
-      } else {
-        _data = {"ifrstag" : lineTag, "period" : range }
-      }
-     $.ajax({
-        url: '/reports/' + $('#report-id').val() + '/get_breakdown_values',
-        dataType: 'SCRIPT',
-        type: 'GET',
-        data: _data
-      })
-  })
-  // end of values breakdown
-
-  var route = document.location.href
-  var endOfRoute = route.slice(-4);
-  console.log(endOfRoute);
-        
-  if (route.indexOf('show_dashboard') > -1) {
-       // cache graph data
-       var dashData = ifrsDashShow.loadData();
-       // LOAD MARGIN STATISTICS
-       ifrsDashShow.loadStats();
-       // DRAW GOOGLE CHARTS
-       graphHelper.drawFSCharts(dashData);
-       //graphHelper.loadStats(stats)
-       $('.fs-scroll').on('click', function(e) {
-         e.preventDefault();
-         anchor = $(this).data('anchor')
-         var top = $('#' + anchor).offset().top - 50
-         $('html, body').animate({ scrollTop: top }, 1500)
-      });
-
-  } else if (route.indexOf('report_manager') > -1) {
-
-
-
-  } else {
-
-      data = reportHelper.loadShowPageData()
-      reportHelper.drawCharts(data);
-      // calls graphhelper.drawReportShow
-  }
-
-})
-// END OF REPORTS DOCUMENT ON LOAD JS

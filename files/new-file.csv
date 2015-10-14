@@ -1,11 +1,30 @@
-Disclosures,Exported from monea.build
-1588,NEW DISC,DirectorReport,170,mark.e.w.elliott@gmail.com,2015-09-19 12:54:47 UTC,2015-09-19 12:54:47 UTC,,TEST??
-1579,Example Company Name Ltd,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Company name
-1580,December 2014,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Year end
-1581,Director Name 1,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Directors
-1582,Director Name 2,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Directors
-1583,Director Name 3,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Directors
-1584,Example Name,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Secretary
-1585,1 Office Address,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Registered Office
-1586,Accountants LLP,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Auditor
-1587,England,Disclosure,170,,2015-09-19 12:44:20 UTC,2015-09-19 12:44:20 UTC,true,Registered in
+Reporting Line,December 2014,December 2013,FS Mapping
+Revenue,382544,229608,gp-rev
+Other trading income,0.0,0.0,gp-rev
+Other direct costs,26257,62361,gp-cos
+Other operating income,0.0,0.0,op-rev
+Finance income,0.0,0.0,op-rev
+Share of post-tax profits of equity associates,0.0,0.0,op-rev
+Share of post-tax profits of equity joint ventures,0.0,0.0,op-rev
+Administrative expenses,75091,8764,op-cos
+Distribution expenses,15333,43981,op-cos
+Other expenses,39722,47272,op-cos
+Tax expense,15442,13422,pbt-cos
+Property plant and equipment,48538,38641,nca
+Other assets,8490,6126,nca
+Trade and other receivables,3263,17431,ca
+Available-for-sale investments,13706,62361,ca
+Derivative financial assets,26257,130173,ca
+Other assets,8490,6126,ca
+Cash and cash equivalents,3896792,2804345,ca
+Assets in disposal groups classified as held for sale,32578,10817,ca
+Loans and borrowings more than 1 year,172542,829942,ncl
+Other liabilities,47629,80126,ncl
+Trade and other payables,2064,3593,cl
+Loans and borrowings,1050000,675000,cl
+Income Tax Payable,19558,20210,cl
+Employee benefit liabilities,1212411,1512411,cl
+Provisions,43132,43132,cl
+Foreign exchange reserve,36585,54400,eq
+Retained earnings,12359,17086,eq
+Share capital,9962,12427,eq
