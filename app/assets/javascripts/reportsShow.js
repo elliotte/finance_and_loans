@@ -7,9 +7,10 @@ $(document).on('page:load ready', function(){
   if (route.indexOf('show_dashboard') > -1) {
 
   } else {
+
       data = reportHelper.loadShowPageData()
-      reportHelper.drawCharts(data);
-      // calls graphhelper.drawReportShow
+      graphHelper.drawReportShowCharts(data);
+      
   }
 
 })

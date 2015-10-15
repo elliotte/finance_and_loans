@@ -191,10 +191,6 @@ var reportHelper = (function() {
 
         },
         // END OF LOAD CACHE SHOW PAGE DATA
-        drawCharts: function(data) {
-           graphHelper.drawReportShowCharts(data);
-        },
-
         addValueToJournalForm: function() {
             if(values_index > 30){
               alert('Only 30 Values allowed');
