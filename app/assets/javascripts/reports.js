@@ -547,12 +547,4 @@ function showDashComments(type){
   $("#report-comments-modal").trigger("click")
 }
 
-function sumAmts(collection) {
-        var sumOf = 0; 
-        for(var i = 0, len = collection.length; i < len; i++) {
-            amt = parseInt(collection[i][1])
-            sumOf += amt;  
-        }
-        return sumOf
-}
 

@@ -16,7 +16,7 @@
 //= require signin
 //= require filterTool
 //= require googleCharts
-//= require chart
+//= require page
 //= require handlebars
 
 
