@@ -11,6 +11,10 @@ After asset change.. run
  - RAILS_ENV=production bundle exec rake assets:precompile
 Before pushing to heroku
 
+
+googleCharts [ material charts ] threw error and bug on display of more than one graph.
+ - fix implemented pushed 15-Oct
+
 ==
 
 This README would normally document whatever steps are necessary to get the
