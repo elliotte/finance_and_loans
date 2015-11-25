@@ -3,11 +3,19 @@ class WelcomeController < ApplicationController
 skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
 
   def index
+    @login_url = get_login_url
     if !session[:state]
       state = (0...13).map{('a'..'z').to_a[rand(26)]}.join
       session[:state] = state
     end
     @state = session[:state]
+  end
+
+  def gettoken
+    token = get_token_from_code params[:code]
+    session[:token] = token.token
+    session[:email] = get_email_from_id_token token.params['id_token']
+    redirect_to root_path 
   end
 
   def connect
