@@ -2,17 +2,86 @@
 	
    <div class="top-nav-wrapper">	
 
-   		   <div>
-	   		   <%= link_to image_tag('a-menu-button.png') %>
-	   		   <%= link_to "Hives" %>
+   		   <div class="buttons-vertical-align">
+	   		   <%= link_to image_tag('a-menu-button.png'), {}, class: "sliding-panel-button" %>
+	   		   <%= link_to "Hives", {}, class: "ui-flash" %>
 	   		   <%= link_to "Bees" %>
 		   </div>
 		   <div class="float-links-right">
 			   <%= link_to image_tag('settings-button.png') %>
-			   <%= link_to image_tag('menu-buttons.png') %>
+			   <%#= link_to image_tag('menu-buttons.png') %>
 		   </div>
 
    </div>	
 
-
 </header>
+
+<nav class="js-menu sliding-panel-content">
+  <ul>
+    <li><a href="javascript:void(0)">Item 1</a></li>
+    <li><a href="javascript:void(0)">Item 2</a></li>
+    <li><a href="javascript:void(0)">Item 3</a></li>
+  </ul>
+</nav>
+
+<div class="js-menu-screen sliding-panel-fade-screen"></div>
+
+<section class="layout-container">
+	<div class="hives-box fade-in-element nice-display">
+		<p>Hello</p>
+	</div>
+	<div class="hives-box fade-in-element">
+		<p>Hello</p>
+	</div>
+	<div class="hives-box fade-in-element">
+		<p>Hello</p>
+	</div>
+</section>
+
+
+<script>
+
+	  $(document).ready(function(){
+		  $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
+		    $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+		    e.preventDefault();
+		  });
+	  });
+
+	  $(window).scroll(function() {
+	  	
+
+	  	fadeElements = $(".fade-in-element")
+
+	  	$.each( fadeElements, function( index, el ){
+		    setFadeInScrollTriggers(el)
+		});
+
+	    
+	  });
+
+	  function setFadeInScrollTriggers(element) {
+
+	  	if( $(element).length > 0 ) {
+
+	      var elementTopToPageTop = $(element).offset().top;
+	      var windowTopToPageTop = $(window).scrollTop();
+	      var windowInnerHeight = window.innerHeight;
+	      var elementTopToWindowTop = elementTopToPageTop - windowTopToPageTop;
+	      var elementTopToWindowBottom = windowInnerHeight - elementTopToWindowTop;
+	      var distanceFromBottomToAppear = 300;
+
+	      if(elementTopToWindowBottom > distanceFromBottomToAppear) {
+	        $(element).addClass('nice-display');
+	      }
+	     
+	    }
+	    // END OF IF
+	  }
+
+</script>
+
+
+
+
+
