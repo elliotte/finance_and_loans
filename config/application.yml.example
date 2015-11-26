@@ -8,3 +8,11 @@ CLIENT_ID: 464680693197-el77matr168lkhvasq6kebeep4gc9o1v.apps.googleusercontent.
 AUTH_PROVIDER_X509_CERT_URL: https://www.googleapis.com/oauth2/v1/certs
 JAVASCRIPT_ORIGINS: https://serene-brook-5729.herokuapp.com/
 PLUS_LOGIN_SCOPE: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read
+
+
+Office 365 Auth.
+
+WINDOWS_CLIENT_ID = 0805eae6-bdf8-49c2-93cf-5a8aced01b36
+WINDOWS_CLIENT_SECRET = pVCdXWDYnK9jB3brsoqmYUU
+WINDOWS_REDIRECT_URI = http://localhost:3000/authorize
+

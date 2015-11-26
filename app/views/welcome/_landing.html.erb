@@ -9,20 +9,23 @@
 				<p id="welcome-profile-append" style="color:white;">Simple and user friendly software specialising in business bookkeeping and financial reporting</p>	
 			</article>
 		</div>
-		<div id="gConnect">
-            <button class="g-signin" id='googleLogin'
-              data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me"
-              data-requestvisibleactions="http://schemas.google.com/AddActivity"
-                data-clientId="464680693197-el77matr168lkhvasq6kebeep4gc9o1v.apps.googleusercontent.com"
-                data-accesstype="offline"
-                data-callback="onSignInCallback"
-                data-theme="dark"
-                data-cookiepolicy="single_host_origin">
-            </button>            
-        </div>
-        <div>
-            <%=link_to image_tag("/assets/microsoft_login.png",width: "114", height: "36"), @login_url%>
-        </div>
+    <% unless current_user %>
+  		<div id="gConnect">
+        <button class="g-signin" id='googleLogin'
+          data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me"
+          data-requestvisibleactions="http://schemas.google.com/AddActivity"
+            data-clientId="464680693197-el77matr168lkhvasq6kebeep4gc9o1v.apps.googleusercontent.com"
+            data-accesstype="offline"
+            data-callback="onSignInCallback"
+            data-theme="dark"
+            data-cookiepolicy="single_host_origin">
+        </button>            
+      </div>
+
+      <div>
+        <%=link_to image_tag("/assets/microsoft_login.png",width: "114", height: "36"), @login_url%>
+      </div>
+    <% end %>
 	</div>
 </div>
 
