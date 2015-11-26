@@ -5,6 +5,7 @@ $navigation-background: $white-gray;
 $border-color:#FB7D98;
 $body-bg-color:#e5e5e5;
 $between-hive-box-padding: 5em;
+$hive-box-padding:2em;
 
 body {
   background-color: lighten($body-bg-color, 5);
@@ -12,7 +13,6 @@ body {
 
 
 .top-nav {
-
   background-color: $navigation-background;
   border-bottom: 1px solid lighten($border-color, 10);
   width: 100%;
@@ -76,17 +76,45 @@ section.layout-container {
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: $between-hive-box-padding;
+  padding: $hive-box-padding;
+  .hb-container {
+    padding-top: $hive-box-padding * 1.2;
+    padding-bottom: $hive-box-padding * 1.2;
+    background-color: red;
+    @include clearfix;
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(stretch);
+    @include flex-wrap(wrap);
+    clear: both;
+    text-align: center;
 
+  }
+}
+
+.hb-container {
+  $top-gutter:1em;
+  aside {
+    /*@include transition (all 0.2s ease-in-out);*/
+    background-color: yellow;
+    @include flex(4);
+    @include align-self(stretch);
+    min-height: 10em;
+    padding-top: $top-gutter;
+    padding-bottom: $top-gutter;
+    img {
+      @include size(5.5em);
+      margin-bottom: $top-gutter;
+    }
+    p {
+      background-color: black;
+    }
+  }
 }
 
 .nice-display {
   @include transition(opacity 1.25s ease);
   opacity: 1;
-}
-
-.nice-hide {
-  @include transition(opacity 1.25s ease);
-  opacity: 0;
 }
 
 /*@include keyframes(opacity) {
