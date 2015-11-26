@@ -12,6 +12,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
   end
 
   def gettoken
+    
     token = get_token_from_code params[:code]
     session[:token] = token.token
     session[:email] = get_email_from_id_token token.params['id_token']
