@@ -1,7 +1,7 @@
 Draftapp::Application.routes.draw do
 
   root :to => "welcome#index"
-
+  get 'authorize' => 'welcome#gettoken'
   resources :welcome, :only => [:index] do
     collection do
       post :connect
