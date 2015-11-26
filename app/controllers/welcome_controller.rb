@@ -11,12 +11,15 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
     @state = session[:state]
   end
 
-  def gettoken
-    
+  def get_token
     token = get_token_from_code params[:code]
+    email = get_email_from_id_token token.params['id_token']
+    @user = User.find_by(email: email)
+    @user = User.create(token: token.token , email: email ) unless @user.present?
+    @user.update(token: token.token) unless @user.token
+    session[:user_id] = @user.id
     session[:token] = token.token
-    session[:email] = get_email_from_id_token token.params['id_token']
-    redirect_to root_path 
+    redirect_to root_path
   end
 
   def connect
