@@ -27,36 +27,51 @@
 <div class="js-menu-screen sliding-panel-fade-screen"></div>
 
 <section class="layout-container">
-	<div class="hives-box fade-in-element nice-display">
-		<div class="hb-container">
-			<aside>
-				<%= image_tag('settings-button.png') %>
-				<p>Title</p>
-			</aside>
-			<aside>
-				<p>Hello</p>
-				<p>Hello</p>
-				<p>Hello</p>
-			</aside>
-			<aside>
-				<p>Hello</p>
-				<p>Hello</p>
-				<p>Hello</p>
-			</aside>
-			<aside>
-				<p>Hello</p>
-				<p>Hello</p>
-				<p>Hello</p>
-			</aside>
+	<article class="type-system-slab">
+	<!-- FONT ARTICLE WRAPPER -->
+		<div class="hives-box fade-in-element nice-display">
+			<div class="hb-container">
+				<aside>
+					<%= image_tag('settings-button.png') %>
+					<p>Cash Hives</p>
+				</aside>
+				<aside class="box-hover">
+					<p><span><%= truncate("ProfitBees Cash Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
+					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
+					<p class="author">OwnerName</p>
+				</aside>
+				<aside class="box-hover">
+					<p><span><%= truncate("ProfitBees Data Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
+					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
+					<p class="author">OwnerName</p>
+				</aside>
+				<aside class="last-box">
+					  <%= link_to "View All", ledgers_path, class: "lovely-link-button" %>
+				</aside>
+			</div>
 		</div>
-	</div>
-	<div class="hives-box fade-in-element">
-		<p>Hello</p>
-	</div>
-	<div class="hives-box fade-in-element">
-		<p>Hello</p>
-	</div>
+		<div class="hives-box fade-in-element">
+			<p>Hello</p>
+		</div>
+		<div class="hives-box fade-in-element">
+			<p>Hello</p>
+		</div>
+	</article>
 </section>
+
+<article class="type-system-slab">
+  <p class="type">Article Type</p>
+  <h1>Article Heading</h1>
+  <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, perferendis! Odit quisquam <code>code block</code> dicta illum ipsa quod natus iure aliquid necessitatibus veritatis, itaque magnam aliquam, dolorum nostrum nemo, explicabo perspiciatis nobis!</h2>
+  <p class="date">30 Mar 2014</p>
+  <p><span>Lorem ipsum dolor sit amet</span>, consectetur adipisicing elit. Consequatur a, ullam, voluptatum incidunt neque doloremque vel inventore distinctio laudantium harum</a> illo quam nulla dolor alias iure impedit! Accusamus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, a, ullam, voluptatum incidunt neque porro numquam doloremque vel inventore distinctio laudantium harum illo quam nulla dolor alias iure impedit.
+    <a href="javascript:void(0)" class="read-more">Read More <span>&rsaquo;</span></a>
+  </p>
+  <h3>Subheading lorem</h3>
+  <p><span>Consequatur ullam, voluptatum</span> incidunt neque porro numquam doloremque vel inventore distinctio laudantium harum illo quam nulla dolor alias iure impedit. Accusamus. Consequatur, a, ullam, voluptatum incidunt neque porro numquam doloremque vel inventore distinctio laudantium harum illo quam nulla dolor alias iure impedit! Accusamus.</p>
+  <hr>
+  <p class="author">Author Name</p>
+</article>
 
 
 <script>

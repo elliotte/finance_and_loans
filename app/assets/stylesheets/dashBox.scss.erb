@@ -6,6 +6,7 @@ $border-color:#FB7D98;
 $body-bg-color:#e5e5e5;
 $between-hive-box-padding: 5em;
 $hive-box-padding:2em;
+$min-box-height: 10em;
 
 body {
   background-color: lighten($body-bg-color, 5);
@@ -17,13 +18,11 @@ body {
   width: 100%;
   z-index: 999;
   padding: $navigation-padding;
-
   a {
     img {
       @include size(3em);
     }
   }
-
 }
 
 .top-nav-wrapper {
@@ -81,7 +80,7 @@ section.layout-container {
     @include clearfix;
     @include display(flex);
     @include justify-content(center);
-    @include align-items(stretch);
+    @include align-items(center);
     @include flex-wrap(wrap);
     clear: both;
     text-align: center;
@@ -92,24 +91,45 @@ section.layout-container {
 .hb-container {
   $top-gutter:1em;
   aside {
-    /*@include transition (all 0.2s ease-in-out);*/
     @include flex(4);
-    @include align-self(stretch);
-    min-height: 10em;
+    min-height: $min-box-height;
     padding-top: $top-gutter;
     padding-bottom: $top-gutter;
+    border-right: 1px solid #d8d8d8;
     img {
       @include size(5.5em);
       margin-bottom: $top-gutter;
-      
-    }
-    p {
-
     }
   }
   aside:first-child {
     border-right:1px solid #FB7D98;
   }
+  aside:last-child {
+    border-right:0px solid #FB7D98;
+    padding-top: $min-box-height * 0.4;
+  }
+}
+.lovely-link-button {
+    border: 1px solid #FFA66F;
+    padding: 1em;
+    border-radius: 1em;
+}
+.lovely-link-button:hover {
+    border: 1px solid #477dca;
+    padding: 1em;
+    border-radius: 1em;
+    color:#FFA66F;
+}
+
+.box-hover:hover {
+    transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -webkit-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -moz-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -o-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -ms-transform: rotate(0deg) scale(1.022) skew(0deg) translate(0px);
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(216,216,216,1);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(216,216,216,1);
+    box-shadow: 4px 4px 5px 0px rgba(216,216,216,1);
 }
 
 .nice-display {
@@ -117,23 +137,6 @@ section.layout-container {
   opacity: 1;
 }
 
-/*@include keyframes(opacity) {
-  from {
-    @include transform(scale(0));
-  }
-  to {
-    @include transform(scale(1));
-  }
-}
-*/
-/*@include keyframes(hive-move) {
-  0% {
-    @include transform(translate(-15px, -15px));
-  }
-  12.5% {
-    @include transform(translate(-30px, -30px));
-  }
-}*/
 
 /*SLIDING PANEL*/
 .sliding-panel-content {  
