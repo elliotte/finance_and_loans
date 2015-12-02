@@ -15,7 +15,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
     token = get_token_from_code params[:code]
     email = get_email_from_id_token token.params['id_token']
     @user = User.find_by(email: email)
-    @user = User.create(token: token.token , email: email ) unless @user.present?
+    @user = User.create(email: email ) unless @user.present?
     @user.update(provider: "Office 365")
     session[:user_id] = @user.id
     session[:token] = token.token
