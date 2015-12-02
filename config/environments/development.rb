@@ -1,3 +1,7 @@
+ENV['WINDOWS_CLIENT_ID'] = '0805eae6-bdf8-49c2-93cf-5a8aced01b36'
+ENV['WINDOWS_CLIENT_SECRET'] = 'pVCdXWDYnK9jB3brsoqmYUU'
+ENV['WINDOWS_REDIRECT_URI'] = 'http://localhost:3000/authorize'
+#ENV['WINDOWS_SCOPES'] = [ 'openid', 'https://outlook.office.com/mail.read' ]
 Draftapp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
