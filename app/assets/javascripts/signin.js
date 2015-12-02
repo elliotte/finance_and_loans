@@ -93,6 +93,7 @@ var helper = (function() {
         helper.loadWelcomeLedgers();
         helper.loadWelcomeReports();
         $('#gConnect').hide();
+        $("#office365_connct").hide();
         $('#authOps').show();
         $('.modal-close').trigger('click')
         $(".modal-state:checked").prop("checked", false).change();

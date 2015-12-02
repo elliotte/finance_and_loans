@@ -15,8 +15,8 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
     token = get_token_from_code params[:code]
     email = get_email_from_id_token token.params['id_token']
     @user = User.find_by(email: email)
-    @user = User.create(token: token.token , email: email ) unless @user.present?
-    @user.update(token: token.token) unless @user.token
+    @user = User.create(email: email ) unless @user.present?
+    @user.update(provider: "Office 365")
     session[:user_id] = @user.id
     session[:token] = token.token
     redirect_to root_path
@@ -29,6 +29,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
           google_service.set_session(access_codes)
           set_app_user_session(google_service.session)
           @user = User.find_or_create_by(uid: session[:gplus_id], email: session[:email])
+          session[:user_id] = @user.id
           redirect_to(action: "/") and return if @user.nil?
           render json: "New connection made".to_json
         else
@@ -48,6 +49,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
   end
 
   def sign_out_user
+    current_user.update(:provider => '' )
     reset_session
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Signed Out Boss" }

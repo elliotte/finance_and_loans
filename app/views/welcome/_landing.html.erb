@@ -1,12 +1,12 @@
 <div class="hero">
 	<div class="hero-inner">
-        <a href="https://salty-bayou-5729.herokuapp.com/" target="_blank" class="hero-logo"> 
+        <a href="https://salty-bayou-5729.herokuapp.com/" target="_blank" class="hero-logo">
             <img src="<%= asset_path('MAP.png') %>" alt="Logo Image">
         </a>
 		<div class="hero-copy">
 			<article class="type-system-rounded">
 				<h1 id="welcome-name-append" >Welcome to <span style="color: #eee;" >monea.Finance</span></h1>
-				<p id="welcome-profile-append" style="color:white;">Simple and user friendly software specialising in business bookkeeping and financial reporting</p>	
+				<p id="welcome-profile-append" style="color:white;">Simple and user friendly software specialising in business bookkeeping and financial reporting</p>
 			</article>
 		</div>
 
@@ -20,12 +20,12 @@
             data-callback="onSignInCallback"
             data-theme="dark"
             data-cookiepolicy="single_host_origin">
-        </button>            
+        </button>
       </div>
-      <!-- END OF GCONNECT DIV -->
-      <div>
+
+      <div id="office365_connct" >
         <%=link_to image_tag("/assets/microsoft_login.png",width: "114", height: "36"), @login_url%>
-       </div>
+      </div>
     <% end %>
 
 

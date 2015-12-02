@@ -13,37 +13,55 @@
     <% path = request.fullpath %>
       
       <% if request.fullpath == "/" %>
-                <br>    
-                <li><a href="/"> Home </a></li>
-                <li><a href="/reports">Reports</a></li>
-                <li><a href="/ledgers">Ledgers</a></li>
-                <% if current_user && current_user.token.present? %>
-                  <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
-                <% end %>
-                <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
-                <li><a href="" target="_blank">Resources</a></li>
-                <% if current_user %>
-                  <li><%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %></li>
-                <% end  %>
+          <br>    
+          <li><a href="/"> Home </a></li>
+          <li><a href="/reports">Reports</a></li>
+          <li><a href="/ledgers">Ledgers</a></li>
+          <% if current_user %>
+            <% if current_user.office_user? %>
+              <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
+            <% else %>
+              <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+            <% end %>
+          <% end %>
+          <li><a href="" target="_blank">Resources</a></li>
+        <% if current_user %>
+          <li><%= link_to('SignOut', sign_out_user_welcome_index_path) %></li>
+        <% end  %>
       <% end %>
       <% if route_has_pattern(path, "ledgers") %>
-            <br>
-            <li><a href="/"> Home </a></li>
-            <li><%= link_to 'CashBook.new', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
-            <li><a href="/reports">Reports</a></li>
-            <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
-             <li><a href="" target="_blank">Resources</a></li>
-            <li><%= link_to('SignOut', "", id: 'disconnect') %></li>
-
+        <br>
+        <li><a href="/"> Home </a></li>
+        <li><%= link_to 'CashBook.new', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
+        <li><a href="/reports">Reports</a></li>
+          <% if current_user %>
+            <% if current_user.office_user? %>
+              <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
+            <% else %>
+              <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+            <% end %>
+          <% end %>
+         <li><a href="" target="_blank">Resources</a></li>
+        <% if current_user %>
+          <li><%= link_to('SignOut', sign_out_user_welcome_index_path) %></li>
+        <% end  %>
       <% end %>
       <% if route_has_pattern(path, "reports") %>
-          <br>
-          <li><a href="/"> Home </a></li>
-          <li><%= link_to 'Report.new', new_report_path(type: ''), remote: true, class: 'button'%></li>
-          <li><a href="/ledgers">Ledgers</a></li>
-          <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
-          <li><a href="" target="_blank">Resources</a></li>
-          <li><%= link_to('SignOut', "", id: 'disconnect') %></li>
+        <br>
+        <li><a href="/"> Home </a></li>
+        <li><%= link_to 'Report.new', new_report_path(type: ''), remote: true, class: 'button'%></li>
+        <li><a href="/ledgers">Ledgers</a></li>
+        <% if current_user %>
+          <% if current_user.office_user? %>
+            <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
+          <% else %>
+            <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+          <% end %>
+        <% end %>
+        <li><a href="" target="_blank">Resources</a></li>
+        <% if current_user %>
+          <li><%= link_to('SignOut', sign_out_user_welcome_index_path) %></li>
+        <% end  %>
       <% end %>
   </ul>
 </nav>
