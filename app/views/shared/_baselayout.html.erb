@@ -26,7 +26,7 @@
           <% end %>
           <li><a href="" target="_blank">Resources</a></li>
         <% if current_user %>
-          <li><%= link_to('SignOut', sign_out_user_welcome_index_path) %></li>
+          <li><%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %></li>
         <% end  %>
       <% end %>
       <% if route_has_pattern(path, "ledgers") %>
@@ -43,7 +43,7 @@
           <% end %>
          <li><a href="" target="_blank">Resources</a></li>
         <% if current_user %>
-          <li><%= link_to('SignOut', sign_out_user_welcome_index_path) %></li>
+          <li><%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %></li>
         <% end  %>
       <% end %>
       <% if route_has_pattern(path, "reports") %>
@@ -60,7 +60,7 @@
         <% end %>
         <li><a href="" target="_blank">Resources</a></li>
         <% if current_user %>
-          <li><%= link_to('SignOut', sign_out_user_welcome_index_path) %></li>
+          <li><%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %></li>
         <% end  %>
       <% end %>
   </ul>
