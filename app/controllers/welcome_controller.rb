@@ -16,7 +16,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
     email = get_email_from_id_token token.params['id_token']
     @user = User.find_by(email: email)
     @user = User.create(email: email ) unless @user.present?
-    @user.update(provider: "Office 365")
+    session[:provider] = "Office 365"
     session[:user_id] = @user.id
     session[:token] = token.token
     redirect_to root_path
@@ -49,7 +49,6 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
   end
 
   def sign_out_user
-    current_user.update(:provider => '' )
     reset_session
     respond_to do |format|
       format.html { redirect_to root_path, notice: "Signed Out Boss" }

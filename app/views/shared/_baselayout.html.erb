@@ -18,7 +18,7 @@
           <li><a href="/reports">Reports</a></li>
           <li><a href="/ledgers">Ledgers</a></li>
           <% if current_user %>
-            <% if current_user.office_user? %>
+            <% if session[:provider] == "Office 365" %>
               <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
             <% else %>
               <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
@@ -35,7 +35,7 @@
         <li><%= link_to 'CashBook.new', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
         <li><a href="/reports">Reports</a></li>
           <% if current_user %>
-            <% if current_user.office_user? %>
+            <% if session[:provider] == "Office 365" %>
               <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
             <% else %>
               <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
@@ -52,7 +52,7 @@
         <li><%= link_to 'Report.new', new_report_path(type: ''), remote: true, class: 'button'%></li>
         <li><a href="/ledgers">Ledgers</a></li>
         <% if current_user %>
-          <% if current_user.office_user? %>
+          <% if session[:provider] == "Office 365" %>
             <li><a href="https://onedrive.live.com/" target="_blank">OneDrive</a></li>
           <% else %>
             <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
