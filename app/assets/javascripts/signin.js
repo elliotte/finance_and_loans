@@ -7,8 +7,7 @@ function onSignInCallback(authResult) {
             }
         if (authResult['error'] == "user_signed_out") {
             helper.displaySignedOutModal();
-
-            console.log('SignedOut googleCa llBack')
+            console.log('SignedOut googleCallBack')
             console.log(authResult['status'])
             // catch for legacy signin..
             if (helper.authResult) {
