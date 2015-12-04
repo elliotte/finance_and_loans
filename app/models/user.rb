@@ -62,10 +62,6 @@ class User < ActiveRecord::Base
       ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 14560.00, vat: 3145.00, description: "2nd sale in monea.build", paid: false)
     end
 
-  def office_user?
-    self.provider == "Office 365"
-  end
-
 end
 
 
