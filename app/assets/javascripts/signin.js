@@ -20,6 +20,26 @@ function onSignInCallback(authResult) {
   }
 }
 
+var signIn = (function() {
+
+  return {
+
+    authOffice365: function() {
+      $.ajax({
+        type: 'GET',
+        url: '/welcome/auth_office_365',
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          //console.log('welcomeLedgers route hit');
+        },
+        processData: false
+      });
+    },
+
+  }
+
+})();
+
 var helper = (function() {
   
   var authResult = undefined;

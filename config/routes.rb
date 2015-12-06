@@ -1,13 +1,15 @@
 Draftapp::Application.routes.draw do
 
   root :to => "welcome#index"
-  get 'authorize' => 'welcome#get_token'
+  get 'authorize' => 'welcome#set_365_auth_tokens'
+  
   resources :welcome, :only => [:index] do
     collection do
       post :connect
       post :disconnect
       get :sign_out_user
       get :auth_landing
+      get :auth_office_365
     end
   end
 

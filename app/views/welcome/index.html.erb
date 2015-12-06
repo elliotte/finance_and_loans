@@ -1,55 +1,62 @@
-
-
-
-
-
-
-
-
-<div id="landing-loadwrapper">	
-	<!-- CONTAINS A SLIDE NAV OR LANDING ONLY -->
-	<%= render 'shared/baselayout' %>
-	<!-- unAUTH OPS includes GPLUS button -->
-	<%= render 'landing' %>
+<div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+    <div class="hero-copy">
+      <h1>ProfitBees</h1>
+      <p>Simple Finance Director tools to support running business.</p>  
+    </div>
+  </div>
 </div>
 
-<div id="authOps" style="display:none;">
-	<%= render 'authOps' %>
-</div>
+<section class="user-welcome-landing">
+    <article class="type-system-slab">
+      <h3>Choose your sign-in engine;</h1>
+      <div class="flex-boxes">
+          <a href="javascript:void(0)" class="flex-box" onclick="signIn.authOffice365();">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+            <h1 class="flex-title">Google Apps</h1>
+            <p>Authenticate and Sign-in using your Google cloud profile</p>
+          </a>
+          <a href="javascript:void(0)" class="flex-box">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+            <h1 class="flex-title">Office 365</h1>
+            <p>Authenticate and Sign-in using your Office 365 cloud profile.</p>
+          </a>
+      </div>
+      
+    </article>
+</section>
+
+<footer class="footer-welcome-landing" role="contentinfo">
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="javascript:void(0)">Products</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+</footer>
 
 <div id="state" style="display:none;"><%= @state %></div>
 
-<!-- LANDING INDEX ONLY MODALS -->
-<div class="modal">
-    <input class="modal-state" id="modal-loading-landing" type="checkbox" />
-    <div class="modal-fade-screen">
-      <div class="modal-inner">
-        <div class="modal-close" for="modal-ledger-landing-load"></div>
-        <div id="loading-landing-modal-body">
-          
-          <article class="type-system-rounded">
-              <h3>Monea.finance</h3>
-              <p style="color:#f3655e;" > Signing in: please be patient.. </p>
-          </article>
 
-          <p></p>
-            <div class="sk-cube-grid">
-              <div class="sk-cube sk-cube1"></div>
-              <div class="sk-cube sk-cube2"></div>
-              <div class="sk-cube sk-cube3"></div>
-              <div class="sk-cube sk-cube4"></div>
-              <div class="sk-cube sk-cube5"></div>
-              <div class="sk-cube sk-cube6"></div>
-              <div class="sk-cube sk-cube7"></div>
-              <div class="sk-cube sk-cube8"></div>
-              <div class="sk-cube sk-cube9"></div>
-            </div>
-            <article class="type-system-rounded">
-              <p>If this is your first time signing in, it will take longer as we load example ledgers and reports</p>
-            </article>
-        </div>  
-      </div>
-    </div>
-</div>
-
-<%= render 'shared/modals' %>

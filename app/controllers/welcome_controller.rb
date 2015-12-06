@@ -11,17 +11,6 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
     @state = session[:state]
   end
 
-  def get_token
-    token = get_token_from_code params[:code]
-    email = get_email_from_id_token token.params['id_token']
-    @user = User.find_by(email: email)
-    @user = User.create(email: email ) unless @user.present?
-    session[:provider] = "Office 365"
-    session[:user_id] = @user.id
-    session[:token] = token.token
-    redirect_to root_path
-  end
-
   def connect
     if !session[:token]
         if session[:state] == params[:state]
@@ -45,6 +34,24 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
           result = "Invalid Credentials, app session cleared".to_json
           render json: result
        end
+    end
+  end
+
+  def set_365_auth_tokens
+    token = get_token_from_code params[:code]
+    email = get_email_from_id_token token.params['id_token']
+    @user = User.find_by(email: email)
+    @user = User.create(email: email ) unless @user.present?
+    session[:provider] = "Office 365"
+    session[:user_id] = @user.id
+    session[:token] = token.token
+    redirect_to  auth_landing_welcome_index_path
+  end
+
+  def auth_office_365
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "Error" }
+      format.js
     end
   end
 

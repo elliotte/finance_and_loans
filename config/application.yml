@@ -7,17 +7,10 @@ REDIRECT_URIS: http://localhost:3000/signin/connect
 CLIENT_X509_CERT_URL: https://www.googleapis.com/robot/v1/metadata/x509/901506026811-q0am03i585627ptu5r38o7cpkt8pk98l@developer.gserviceaccount.com
 CLIENT_ID: 792042861273-5b8b4e51kh4vrqompa2apjga6tge54jg.apps.googleusercontent.com
 AUTH_PROVIDER_X509_CERT_URL: https://www.googleapis.com/oauth2/v1/certs
-<<<<<<< HEAD:config/application.yml.example
 
-JAVASCRIPT_ORIGINS: http://localhost:3000
-PLUS_LOGIN_SCOPE: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read
-
-
-WINDOWS_CLIENT_ID = 0805eae6-bdf8-49c2-93cf-5a8aced01b36
-WINDOWS_CLIENT_SECRET = pVCdXWDYnK9jB3brsoqmYUU
-WINDOWS_REDIRECT_URI = http://localhost:3000/authorize
-=======
->>>>>>> 657ae68d0a19b0eab4acbab71e3b516fb3c7e8ca:config/application.yml
+WINDOWS_CLIENT_ID: 0805eae6-bdf8-49c2-93cf-5a8aced01b36
+WINDOWS_CLIENT_SECRET: pVCdXWDYnK9jB3brsoqmYUU
+WINDOWS_REDIRECT_URI: http://localhost:3000/authorize
 
 JAVASCRIPT_ORIGINS: http://localhost:3000
 PLUS_LOGIN_SCOPE: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read

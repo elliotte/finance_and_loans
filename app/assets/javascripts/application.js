@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require welcome
+//= require landingWelcome
 //= require signin
 //= require filterTool
 //= require googleCharts
