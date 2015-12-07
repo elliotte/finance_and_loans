@@ -40,6 +40,8 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
   def set_365_auth_tokens
     token = get_token_from_code params[:code]
     email = get_email_from_id_token token.params['id_token']
+    #why not use find or create by?  Do an error catch on 'new_record'
+    #in case a bad Sign Up occurs 
     @user = User.find_by(email: email)
     @user = User.create(email: email ) unless @user.present?
     session[:provider] = "Office 365"
