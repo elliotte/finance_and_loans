@@ -116,7 +116,7 @@
                                 <span class="trn-monea-tag" data-trn-id="<%= id %>" data-monea-tag="<%= transaction.monea_tag %>" style="display:none;"></span>
                                 <%= form_for(transaction, :url => {:controller => 'transactions', :action => 'update_transaction_controlled'}, remote: true, method: 'put') do |f| %>
                                    <%= f.hidden_field(:transaction_id, :value => id, name: 'transaction[transaction_id]') %>
-                                   <td class="trn-acc-date"><%= transaction.acc_date.strftime("%d/%m/%Y") unless transaction.acc_date == nil   %></td>
+                                   <td class="trn-acc-date"><%= transaction.acc_date.strftime("%d/%m/%Y") unless transaction.acc_date == nil %></td>
                                    <td><%= transaction.type %></td>
                                    <td class="show-trn" onclick="cashLedgerMgr.displayTransaction($(this).parent().attr('id'));"><%= transaction.amount.to_f.round(2) %></td>
                                    <td>
@@ -141,18 +141,38 @@
 
 <span id="ledger-id" style="display:none" data-id="<%= @ledger.id %>"></span>
 
+
 <!-- LOADING MODAL FOR FILTER -->
 <div class="modal">
-      <input class="modal-state" id="modal-loading-manager" type="checkbox" />
-      <div class="modal-fade-screen">
-        <div class="modal-inner">
-          <div class="modal-close" for="modal-ledger-manager"></div>
-          <div id="loading-manager-modal-body">
-                <img src="<%= asset_path('mfLogo.gif') %>">
-                <h1>Loading Filter Please Wait</h1>
-          </div>
-        </div>
+    <input class="modal-state" id="modal-loading-manager" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <div class="modal-close" for="modal-ledger-manager"></div>
+        <div id="loading-landing-modal-body">
+          
+          <article class="type-system-rounded">
+              <h3>Monea.finance</h3>
+              <p style="color:#f3655e;" > Loading Filter Please Wait </p>
+          </article>
+
+          <p></p>
+            <div class="sk-cube-grid">
+              <div class="sk-cube sk-cube1"></div>
+              <div class="sk-cube sk-cube2"></div>
+              <div class="sk-cube sk-cube3"></div>
+              <div class="sk-cube sk-cube4"></div>
+              <div class="sk-cube sk-cube5"></div>
+              <div class="sk-cube sk-cube6"></div>
+              <div class="sk-cube sk-cube7"></div>
+              <div class="sk-cube sk-cube8"></div>
+              <div class="sk-cube sk-cube9"></div>
+            </div>
+            <article class="type-system-rounded">
+              <p>Depending on the amount of transactions in your database, and in range, drives processing time.</p>
+            </article>
+        </div>  
       </div>
+    </div>
 </div>
 
 <!-- EMPTY MODAL FOR FILTER -->

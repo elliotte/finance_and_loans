@@ -64,7 +64,7 @@ class CashLedgersController < LedgersController
   end
 
   def ledger_manager
-    @transactions = @ledger.transactions.order("acc_date")
+    @transactions = @ledger.transactions.order(acc_date: :desc)
   end
   # TB > EXPORT SPEC NOT FINALISED YET
   def trial_balance

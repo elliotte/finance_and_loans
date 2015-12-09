@@ -1,0 +1,36 @@
+$white-gray: #fff !default;
+$large-screen: em(860) !default;
+$navigation-padding: 1em;
+$navigation-background: $white-gray;
+
+.top-nav {
+
+  background-color: $navigation-background;
+  border-bottom: 1px solid darken($navigation-background, 10);
+  width: 100%;
+  z-index: 999;
+  padding: $navigation-padding;
+
+  a {
+    img {
+      @include size(3em);
+    }
+  }
+
+}
+
+.top-nav-wrapper {
+
+    @include clearfix;
+    @include outer-container;
+    div {
+      @include span-columns(6);
+    }
+}
+
+.float-links-right {
+  a {
+    float: right;
+    padding-left: 1em;
+  }
+}

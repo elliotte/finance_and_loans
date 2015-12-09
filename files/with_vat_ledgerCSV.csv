@@ -311,207 +311,207 @@ accounting date,amount,description,mi_tag,monea_tag,vat
 12/8/2015,-5136,Some expenses 14,Business running costs,Employer's NI,-1027.2
 12/8/2015,-5136,Some expenses 18,Business running costs,Motor expenses,-1027.2
 12/9/2015,8415.711112,Receipt from customer 1,CUST_001,Sales,1683.142222
-1/9/2016,1979.724144,Receipt from customer 2,CUST_002,Sales,395.9448288
-2/9/2016,6968.405256,Receipt from customer 3,CUST_003,Trade debtors,1393.681051
-3/9/2016,2672.686877,Receipt from customer 4,CUST_004,Trade debtors,534.5373754
-4/9/2016,765.9822262,Receipt from customer 5,CUST_005,Trade debtors,153.1964452
-5/9/2016,5821.217779,Receipt from customer 11,CUST_011,Trade debtors,1164.243556
-5/9/2016,9092.116245,Receipt from customer 6,CUST_006,Trade debtors,1818.423249
-6/9/2016,9613.87276,Receipt from customer 12,CUST_012,Trade debtors,1922.774552
+12/9/2015,1979.724144,Receipt from customer 2,CUST_002,Sales,395.9448288
+12/9/2015,6968.405256,Receipt from customer 3,CUST_003,Trade debtors,1393.681051
+12/9/2015,2672.686877,Receipt from customer 4,CUST_004,Trade debtors,534.5373754
+12/9/2015,765.9822262,Receipt from customer 5,CUST_005,Trade debtors,153.1964452
+12/9/2015,5821.217779,Receipt from customer 11,CUST_011,Trade debtors,1164.243556
+12/9/2015,9092.116245,Receipt from customer 6,CUST_006,Trade debtors,1818.423249
+12/9/2015,9613.87276,Receipt from customer 12,CUST_012,Trade debtors,1922.774552
 13/10/2015,4453.968545,Loan from bank,Bank loans cash in,Bank loans,890.793709
 13/10/2015,9059.192304,Receipt from customer 7,CUST_007,Trade debtors,1811.838461
 13/10/2015,3211.946736,Receipt from customer 18,CUST_018,Trade debtors,642.3893471
 13/10/2015,-66.2970614,Creditor payment costs 22,PURC_22,Trade creditors,-13.25941228
-13/10/2016,9787.004235,Receipt from customer 23,CUST_023,Sales,1957.400847
-13/10/2016,3532.313331,Receipt from customer 8,CUST_008,Trade debtors,706.4626661
-13/10/2016,5178.123391,Receipt from customer 19,CUST_019,Trade debtors,1035.624678
-13/10/2016,-3558.527162,Creditor payment costs 23,PURC_23,Trade creditors,-711.7054324
-13/10/2017,172.4015316,Receipt from customer 1,CUST_001,Sales,34.48030631
-13/10/2017,8338.516109,Receipt from customer 9,CUST_009,Trade debtors,1667.703222
-13/10/2017,6266.839836,Receipt from customer 20,CUST_020,Trade debtors,1253.367967
-13/10/2017,-5000.040251,Creditor payment costs 24,PURC_24,Trade creditors,-1000.00805
-13/10/2018,9469.549356,Receipt from customer 2,CUST_002,Sales,1893.909871
-13/10/2018,1461.106848,Receipt from customer 10,CUST_010,Trade debtors,292.2213695
-13/10/2018,134.1078675,Receipt from customer 21,CUST_021,Trade debtors,26.82157351
-13/10/2018,-7723.094226,Creditor payment costs 25,PURC_25,Trade creditors,-1544.618845
-13/10/2019,2764.293994,Receipt from customer 3,CUST_003,Trade debtors,552.8587988
-13/10/2019,1287.040972,Receipt from customer 11,CUST_011,Trade debtors,257.4081945
-13/10/2019,6199.189507,Receipt from customer 22,CUST_022,Trade debtors,1239.837901
-13/10/2019,-5475.699775,Creditor payment costs 26,PURC_26,Trade creditors,-1095.139955
-13/10/2020,9024.485229,Receipt from customer 4,CUST_004,Trade debtors,1804.897046
-13/10/2020,3808.985748,Receipt from customer 12,CUST_012,Trade debtors,761.7971496
-13/10/2020,668.338056,Receipt from customer 23,CUST_023,Sales,133.6676112
-13/10/2020,-3551.475117,Creditor payment costs 27,PURC_27,Trade creditors,-710.2950235
-13/10/2021,1398.703154,Receipt from customer 5,CUST_005,Trade debtors,279.7406308
-13/10/2021,7181.145467,Receipt from customer 13,CUST_013,Trade debtors,1436.229093
-13/10/2021,4586.578257,Receipt from customer 6,CUST_006,Trade debtors,917.3156513
-13/10/2021,-8844.865837,Creditor payment costs 28,PURC_28,Trade creditors,-1768.973167
-13/10/2022,3694.717128,Receipt from customer 6,CUST_006,Trade debtors,738.9434256
-13/10/2022,8611.203608,Receipt from customer 14,CUST_014,Trade debtors,1722.240722
-13/10/2022,1141.372164,Receipt from customer 7,CUST_007,Trade debtors,228.2744327
-13/10/2022,-1276.956081,Creditor payment costs 29,PURC_29,Trade creditors,-255.3912163
-13/10/2023,9319.682342,Receipt from customer 7,CUST_007,Trade debtors,1863.936468
-13/10/2023,3881.346201,Receipt from customer 15,CUST_015,Trade debtors,776.2692402
-13/10/2023,7006.866276,Receipt from customer 8,CUST_008,Trade debtors,1401.373255
-13/10/2023,-8547.746785,Creditor payment costs 30,PURC_30,Trade creditors,-1709.549357
-13/10/2024,2773.415084,Receipt from customer 8,CUST_008,Trade debtors,554.6830168
-13/10/2024,2229.288215,Receipt from customer 16,CUST_016,Trade debtors,445.857643
-13/10/2024,5041.300032,Receipt from customer 6,CUST_006,Trade debtors,1008.260006
-13/10/2024,-6731.486682,Creditor payment costs 31,PURC_31,Trade creditors,-1346.297336
-13/10/2025,5366.676167,Receipt from customer 9,CUST_009,Trade debtors,1073.335233
-13/10/2025,3679.223553,Receipt from customer 17,CUST_017,Trade debtors,735.8447106
-13/10/2025,6467.135827,Receipt from customer 7,CUST_007,Trade debtors,1293.427165
-13/10/2025,-5736.67437,Creditor payment costs 32,PURC_32,Trade creditors,-1147.334874
-13/10/2026,6285.547589,Loan from bank,Bank loans cash in,Bank loans,1257.109518
-13/10/2026,7330.031396,Receipt from customer 18,CUST_018,Trade debtors,1466.006279
-13/10/2026,131.6816114,Receipt from customer 8,CUST_008,Trade debtors,26.33632228
-13/10/2026,-4219.231959,Creditor payment costs 33,PURC_33,Trade creditors,-843.8463917
-13/10/2027,6805.068427,VAT,VAT cash in,Other taxes and social security costs,1361.013685
-13/10/2027,8693.022363,Receipt from customer 19,CUST_019,Trade debtors,1738.604473
-13/10/2027,8889.008985,Receipt from customer 6,CUST_006,Trade debtors,1777.801797
-13/10/2027,-1492.505394,Creditor payment costs 34,PURC_34,Trade creditors,-298.5010788
-13/10/2028,3912.35583,Receipt from customer 13,CUST_013,Trade debtors,782.471166
-13/10/2028,5407.135808,Loan from bank,Bank loans cash in,Bank loans,1081.427162
-13/10/2028,7762.834826,Receipt from customer 20,CUST_020,Trade debtors,1552.566965
-13/10/2028,1023.968452,Receipt from customer 7,CUST_007,Trade debtors,204.7936904
-13/10/2028,-4143.597964,Creditor payment costs 35,PURC_35,Trade creditors,-828.7195929
-13/10/2029,8644.410318,Receipt from customer 14,CUST_014,Trade debtors,1728.882064
-13/10/2029,2867.50609,VAT,VAT cash in,Other taxes and social security costs,573.501218
-13/10/2029,7566.923164,Receipt from customer 21,CUST_021,Trade debtors,1513.384633
-13/10/2029,9531.44463,Receipt from customer 8,CUST_008,Trade debtors,1906.288926
-13/10/2029,-9232.356471,Creditor payment costs 36,PURC_36,Trade creditors,-1846.471294
-13/10/2030,8527.952356,Receipt from customer 15,CUST_015,Trade debtors,1705.590471
-13/10/2030,4294.815233,Loan from bank,Bank loans cash in,Bank loans,858.9630467
-13/10/2030,2414.526482,Receipt from customer 22,CUST_022,Trade debtors,482.9052964
-13/10/2030,2316.549394,Receipt from customer 9,CUST_009,Trade debtors,463.3098788
-13/10/2030,-226.9698311,Creditor payment costs 37,PURC_37,Trade creditors,-45.39396622
-13/10/2031,4689.67045,Receipt from customer 16,CUST_016,Trade debtors,937.93409
-13/10/2031,1455.221354,Loan from bank,Bank loans cash in,Bank loans,291.0442708
-13/10/2031,9321.589093,Receipt from customer 23,CUST_023,Sales,1864.317819
-13/10/2031,9153.877316,Receipt from customer 10,CUST_010,Trade debtors,1830.775463
-13/10/2031,-8887.282833,Creditor payment costs 38,PURC_38,Trade creditors,-1777.456567
-13/10/2032,2394.261418,Receipt from customer 17,CUST_017,Trade debtors,478.8522837
-13/10/2032,5494.946482,VAT,VAT cash in,Other taxes and social security costs,1098.989296
-13/10/2032,6894.33628,Receipt from customer 6,CUST_006,Trade debtors,1378.867256
-13/10/2032,6934.451541,Receipt from customer 11,CUST_011,Trade debtors,1386.890308
-13/10/2032,-8318.663454,Creditor payment costs 39,PURC_39,Trade creditors,-1663.732691
-13/10/2033,7733.856044,Receipt from customer 18,CUST_018,Trade debtors,1546.771209
-13/10/2033,5022.674124,Receipt from customer 6,CUST_006,Trade debtors,1004.534825
-13/10/2033,1760.171491,Receipt from customer 7,CUST_007,Trade debtors,352.0342982
-13/10/2033,4609.289158,Receipt from customer 12,CUST_012,Trade debtors,921.8578316
-13/10/2033,-5855.095054,Creditor payment costs 40,PURC_40,Trade creditors,-1171.019011
-13/8/2015,5000.040251,VAT,VAT cash in,Other taxes and social security costs,1000.00805
-13/8/2015,9232.356471,Loan from bank,Bank loans cash in,Bank loans,1846.471294
-13/8/2015,6044.35378,VAT,VAT cash in,Other taxes and social security costs,1208.870756
-13/8/2015,6683.887904,Loan from bank,Bank loans cash in,Bank loans,1336.777581
-13/8/2015,-4898.770052,Some expenses 3,Business running costs,Direct labour,-979.7540104
-13/8/2015,-2156,Some expenses 15,Business running costs,Temporary staff and recruitment,-431.2
-13/8/2016,8844.865837,Loan from bank,Bank loans cash in,Bank loans,1768.973167
-13/8/2016,5855.095054,Receipt from customer 4,CUST_004,Trade debtors,1171.019011
-13/8/2016,9785.337489,Loan from bank,Bank loans cash in,Bank loans,1957.067498
-13/8/2016,1438.034573,Receipt from customer 6,CUST_006,Trade debtors,287.6069146
-13/8/2016,-9106.446684,Some expenses 7,Business running costs,Other direct costs,-1821.289337
-13/8/2016,-2156,Some expenses 19,Business running costs,Entertaining,-431.2
-21/9/15,2146.316367,Receipt from customer 4,CUST_004,Trade debtors,429.2632735
-21/9/15,1602.438244,Receipt from customer 5,CUST_005,Trade debtors,320.4876488
-21/9/15,6721.907283,Receipt from customer 6,CUST_006,Trade debtors,1344.381457
-21/9/15,1084.277692,Receipt from customer 7,CUST_007,Trade debtors,216.8555384
-21/9/15,6061.321027,Receipt from customer 8,CUST_008,Trade debtors,1212.264205
-21/9/15,5948.039832,Receipt from customer 9,CUST_009,Trade debtors,1189.607966
-21/9/15,1068.794228,Receipt from customer 10,CUST_010,Trade debtors,213.7588455
-21/9/15,5767.645916,Receipt from customer 11,CUST_011,Trade debtors,1153.529183
-21/9/15,6975.98303,Receipt from customer 12,CUST_012,Trade debtors,1395.196606
-21/9/15,2981.57352,Receipt from customer 13,CUST_013,Trade debtors,596.314704
-21/9/15,566.5755648,Receipt from customer 14,CUST_014,Trade debtors,113.315113
-21/9/15,6464.662154,Receipt from customer 15,CUST_015,Trade debtors,1292.932431
-21/9/15,6985.126243,Receipt from customer 16,CUST_016,Trade debtors,1397.025249
-21/9/15,1740.605874,Receipt from customer 17,CUST_017,Trade debtors,348.1211749
-21/9/15,6169.377489,Receipt from customer 18,CUST_018,Trade debtors,1233.875498
-21/9/15,7476.776825,Receipt from customer 19,CUST_019,Trade debtors,1495.355365
-21/9/15,8877.167947,Receipt from customer 20,CUST_020,Trade debtors,1775.433589
-21/9/15,6233.591119,Receipt from customer 21,CUST_021,Trade debtors,1246.718224
-21/9/15,3258.82416,Receipt from customer 22,CUST_022,Trade debtors,651.764832
-21/9/15,8620.937626,Receipt from customer 23,CUST_023,Sales,1724.187525
-21/9/15,8440.046494,Loan from bank,Bank loans cash in,Bank loans,1688.009299
-21/9/15,5108.680704,VAT,VAT cash in,Other taxes and social security costs,1021.736141
-21/9/15,8396.286085,Loan from bank,Bank loans cash in,Bank loans,1679.257217
-21/9/15,1396.547203,Receipt from customer 10,CUST_010,Trade debtors,279.3094406
-21/9/15,8476.394292,Receipt from customer 11,CUST_011,Trade debtors,1695.278858
-21/9/15,6389.885887,Receipt from customer 12,CUST_012,Trade debtors,1277.977177
-21/9/15,7908.241695,Receipt from customer 13,CUST_013,Trade debtors,1581.648339
-21/9/15,6058.475669,Receipt from customer 14,CUST_014,Trade debtors,1211.695134
-21/9/15,8059.609595,Receipt from customer 15,CUST_015,Trade debtors,1611.921919
-21/9/15,6754.950483,Receipt from customer 16,CUST_016,Trade debtors,1350.990097
-21/9/15,9204.458406,Receipt from customer 17,CUST_017,Trade debtors,1840.891681
-21/9/15,314.0339119,Receipt from customer 18,CUST_018,Trade debtors,62.80678237
-21/9/15,3676.929254,Receipt from customer 19,CUST_019,Trade debtors,735.3858508
-21/9/15,1666.780046,Receipt from customer 20,CUST_020,Trade debtors,333.3560091
-21/9/15,7340.268248,Receipt from customer 21,CUST_021,Trade debtors,1468.05365
-21/9/15,2252.399516,Receipt from customer 22,CUST_022,Trade debtors,450.4799031
-21/9/15,8797.216096,Receipt from customer 23,CUST_023,Sales,1759.443219
-21/9/15,9125.308103,Receipt from customer 1,CUST_001,Sales,1825.061621
-21/9/15,8564.509307,Receipt from customer 2,CUST_002,Sales,1712.901861
-21/9/15,8107.081478,Receipt from customer 3,CUST_003,Trade debtors,1621.416296
-21/9/15,5104.740216,Receipt from customer 4,CUST_004,Trade debtors,1020.948043
-21/9/15,6484.365836,Receipt from customer 5,CUST_005,Trade debtors,1296.873167
-21/9/15,3022.706443,Receipt from customer 6,CUST_006,Trade debtors,604.5412885
-21/9/15,3762.720775,Receipt from customer 7,CUST_007,Trade debtors,752.5441551
-21/9/15,7501.886826,Receipt from customer 8,CUST_008,Trade debtors,1500.377365
-21/9/15,7042.276884,Receipt from customer 9,CUST_009,Trade debtors,1408.455377
-21/9/15,-1141.372164,Creditor payment costs 32,PURC_32,Trade creditors,-228.2744327
-21/9/15,-7006.866276,Creditor payment costs 33,PURC_33,Trade creditors,-1401.373255
-21/9/15,-5041.300032,Creditor payment costs 34,PURC_34,Trade creditors,-1008.260006
-21/9/15,-6467.135827,Creditor payment costs 35,PURC_35,Trade creditors,-1293.427165
-21/9/15,-131.6816114,Creditor payment costs 36,PURC_36,Trade creditors,-26.33632228
-21/9/15,-8889.008985,Creditor payment costs 37,PURC_37,Trade creditors,-1777.801797
-21/9/15,-1023.968452,Creditor payment costs 38,PURC_38,Trade creditors,-204.7936904
-21/9/15,-9531.44463,Creditor payment costs 39,PURC_39,Trade creditors,-1906.288926
-21/9/15,-2316.549394,Creditor payment costs 40,PURC_40,Trade creditors,-463.3098788
-21/9/15,-9153.877316,Creditor payment costs 41,PURC_41,Trade creditors,-1830.775463
-21/9/15,-6934.451541,Creditor payment costs 42,PURC_42,Trade creditors,-1386.890308
-21/9/15,-4609.289158,Creditor payment costs 43,PURC_43,Purchases,-921.8578316
-21/9/15,-2429.523948,Creditor payment costs 44,PURC_44,Trade creditors,-485.9047896
-21/9/15,-3816.703371,Creditor payment costs 45,PURC_45,Purchases,-763.3406742
-21/9/15,-5621.978626,Creditor payment costs 46,PURC_46,Purchases,-1124.395725
-21/9/15,-5135.099491,Creditor payment costs 41,PURC_41,Trade creditors,-1027.019898
-21/9/15,-9223.01636,Creditor payment costs 42,PURC_42,Trade creditors,-1844.603272
-21/9/15,-6016.599039,Creditor payment costs 43,PURC_43,Purchases,-1203.319808
-21/9/15,-4898.770052,Creditor payment costs 41,PURC_41,Trade creditors,-979.7540104
-21/9/15,-2457.888349,Creditor payment costs 42,PURC_42,Trade creditors,-491.5776698
-21/9/15,-5823.023659,Creditor payment costs 43,PURC_43,Purchases,-1164.604732
-21/9/15,-5728.447242,Creditor payment costs 44,PURC_44,Trade creditors,-1145.689448
-21/9/15,-9106.446684,Creditor payment costs 45,PURC_45,Purchases,-1821.289337
+13/10/2015,9787.004235,Receipt from customer 23,CUST_023,Sales,1957.400847
+13/10/2015,3532.313331,Receipt from customer 8,CUST_008,Trade debtors,706.4626661
+13/10/2015,5178.123391,Receipt from customer 19,CUST_019,Trade debtors,1035.624678
+13/10/2015,-3558.527162,Creditor payment costs 23,PURC_23,Trade creditors,-711.7054324
+13/10/2015,172.4015316,Receipt from customer 1,CUST_001,Sales,34.48030631
+13/10/2015,8338.516109,Receipt from customer 9,CUST_009,Trade debtors,1667.703222
+13/10/2015,6266.839836,Receipt from customer 20,CUST_020,Trade debtors,1253.367967
+13/10/2015,-5000.040251,Creditor payment costs 24,PURC_24,Trade creditors,-1000.00805
+13/10/2015,9469.549356,Receipt from customer 2,CUST_002,Sales,1893.909871
+13/10/2015,1461.106848,Receipt from customer 10,CUST_010,Trade debtors,292.2213695
+13/10/2015,134.1078675,Receipt from customer 21,CUST_021,Trade debtors,26.82157351
+13/10/2015,-7723.094226,Creditor payment costs 25,PURC_25,Trade creditors,-1544.618845
+13/10/2015,2764.293994,Receipt from customer 3,CUST_003,Trade debtors,552.8587988
+13/10/2015,1287.040972,Receipt from customer 11,CUST_011,Trade debtors,257.4081945
+13/10/2015,6199.189507,Receipt from customer 22,CUST_022,Trade debtors,1239.837901
+13/10/2015,-5475.699775,Creditor payment costs 26,PURC_26,Trade creditors,-1095.139955
+13/10/2015,9024.485229,Receipt from customer 4,CUST_004,Trade debtors,1804.897046
+13/10/2015,3808.985748,Receipt from customer 12,CUST_012,Trade debtors,761.7971496
+13/10/2015,668.338056,Receipt from customer 23,CUST_023,Sales,133.6676112
+13/10/2015,-3551.475117,Creditor payment costs 27,PURC_27,Trade creditors,-710.2950235
+13/10/2015,1398.703154,Receipt from customer 5,CUST_005,Trade debtors,279.7406308
+13/10/2015,7181.145467,Receipt from customer 13,CUST_013,Trade debtors,1436.229093
+13/10/2015,4586.578257,Receipt from customer 6,CUST_006,Trade debtors,917.3156513
+13/10/2015,-8844.865837,Creditor payment costs 28,PURC_28,Trade creditors,-1768.973167
+13/10/2015,3694.717128,Receipt from customer 6,CUST_006,Trade debtors,738.9434256
+13/10/2015,8611.203608,Receipt from customer 14,CUST_014,Trade debtors,1722.240722
+13/10/2015,1141.372164,Receipt from customer 7,CUST_007,Trade debtors,228.2744327
+13/10/2015,-1276.956081,Creditor payment costs 29,PURC_29,Trade creditors,-255.3912163
+13/10/2015,9319.682342,Receipt from customer 7,CUST_007,Trade debtors,1863.936468
+13/10/2015,3881.346201,Receipt from customer 15,CUST_015,Trade debtors,776.2692402
+13/10/2015,7006.866276,Receipt from customer 8,CUST_008,Trade debtors,1401.373255
+13/10/2015,-8547.746785,Creditor payment costs 30,PURC_30,Trade creditors,-1709.549357
+13/10/2015,2773.415084,Receipt from customer 8,CUST_008,Trade debtors,554.6830168
+13/10/2015,2229.288215,Receipt from customer 16,CUST_016,Trade debtors,445.857643
+13/10/2015,5041.300032,Receipt from customer 6,CUST_006,Trade debtors,1008.260006
+13/10/2015,-6731.486682,Creditor payment costs 31,PURC_31,Trade creditors,-1346.297336
+13/10/2015,5366.676167,Receipt from customer 9,CUST_009,Trade debtors,1073.335233
+13/10/2015,3679.223553,Receipt from customer 17,CUST_017,Trade debtors,735.8447106
+13/10/2015,6467.135827,Receipt from customer 7,CUST_007,Trade debtors,1293.427165
+13/10/2015,-5736.67437,Creditor payment costs 32,PURC_32,Trade creditors,-1147.334874
+13/10/2015,6285.547589,Loan from bank,Bank loans cash in,Bank loans,1257.109518
+13/10/2015,7330.031396,Receipt from customer 18,CUST_018,Trade debtors,1466.006279
+13/10/2015,131.6816114,Receipt from customer 8,CUST_008,Trade debtors,26.33632228
+13/10/2015,-4219.231959,Creditor payment costs 33,PURC_33,Trade creditors,-843.8463917
+13/10/2015,6805.068427,VAT,VAT cash in,Other taxes and social security costs,1361.013685
+13/10/2015,8693.022363,Receipt from customer 19,CUST_019,Trade debtors,1738.604473
+13/10/2015,8889.008985,Receipt from customer 6,CUST_006,Trade debtors,1777.801797
+13/10/2015,-1492.505394,Creditor payment costs 34,PURC_34,Trade creditors,-298.5010788
+13/10/2015,3912.35583,Receipt from customer 13,CUST_013,Trade debtors,782.471166
+13/10/2015,5407.135808,Loan from bank,Bank loans cash in,Bank loans,1081.427162
+13/10/2015,7762.834826,Receipt from customer 20,CUST_020,Trade debtors,1552.566965
+13/10/2015,1023.968452,Receipt from customer 7,CUST_007,Trade debtors,204.7936904
+13/10/2015,-4143.597964,Creditor payment costs 35,PURC_35,Trade creditors,-828.7195929
+13/10/2015,8644.410318,Receipt from customer 14,CUST_014,Trade debtors,1728.882064
+13/10/2015,2867.50609,VAT,VAT cash in,Other taxes and social security costs,573.501218
+13/10/2015,7566.923164,Receipt from customer 21,CUST_021,Trade debtors,1513.384633
+13/10/2015,9531.44463,Receipt from customer 8,CUST_008,Trade debtors,1906.288926
+13/10/2015,-9232.356471,Creditor payment costs 36,PURC_36,Trade creditors,-1846.471294
+13/10/2015,8527.952356,Receipt from customer 15,CUST_015,Trade debtors,1705.590471
+13/10/2015,4294.815233,Loan from bank,Bank loans cash in,Bank loans,858.9630467
+13/10/2015,2414.526482,Receipt from customer 22,CUST_022,Trade debtors,482.9052964
+13/10/2015,2316.549394,Receipt from customer 9,CUST_009,Trade debtors,463.3098788
+13/10/2015,-226.9698311,Creditor payment costs 37,PURC_37,Trade creditors,-45.39396622
+13/10/2015,4689.67045,Receipt from customer 16,CUST_016,Trade debtors,937.93409
+13/10/2015,1455.221354,Loan from bank,Bank loans cash in,Bank loans,291.0442708
+13/10/2015,9321.589093,Receipt from customer 23,CUST_023,Sales,1864.317819
+13/10/2015,9153.877316,Receipt from customer 10,CUST_010,Trade debtors,1830.775463
+13/10/2015,-8887.282833,Creditor payment costs 38,PURC_38,Trade creditors,-1777.456567
+13/10/2015,2394.261418,Receipt from customer 17,CUST_017,Trade debtors,478.8522837
+13/10/2015,5494.946482,VAT,VAT cash in,Other taxes and social security costs,1098.989296
+13/10/2015,6894.33628,Receipt from customer 6,CUST_006,Trade debtors,1378.867256
+13/10/2015,6934.451541,Receipt from customer 11,CUST_011,Trade debtors,1386.890308
+13/10/2015,-8318.663454,Creditor payment costs 39,PURC_39,Trade creditors,-1663.732691
+13/10/2015,7733.856044,Receipt from customer 18,CUST_018,Trade debtors,1546.771209
+13/10/2015,5022.674124,Receipt from customer 6,CUST_006,Trade debtors,1004.534825
+13/10/2015,1760.171491,Receipt from customer 7,CUST_007,Trade debtors,352.0342982
+13/10/2015,4609.289158,Receipt from customer 12,CUST_012,Trade debtors,921.8578316
+13/10/2015,-5855.095054,Creditor payment costs 40,PURC_40,Trade creditors,-1171.019011
+13/10/2015,5000.040251,VAT,VAT cash in,Other taxes and social security costs,1000.00805
+13/10/2015,9232.356471,Loan from bank,Bank loans cash in,Bank loans,1846.471294
+13/10/2015,6044.35378,VAT,VAT cash in,Other taxes and social security costs,1208.870756
+13/10/2015,6683.887904,Loan from bank,Bank loans cash in,Bank loans,1336.777581
+13/10/2015,-4898.770052,Some expenses 3,Business running costs,Direct labour,-979.7540104
+13/10/2015,-2156,Some expenses 15,Business running costs,Temporary staff and recruitment,-431.2
+13/10/2015,8844.865837,Loan from bank,Bank loans cash in,Bank loans,1768.973167
+13/10/2015,5855.095054,Receipt from customer 4,CUST_004,Trade debtors,1171.019011
+13/10/2015,9785.337489,Loan from bank,Bank loans cash in,Bank loans,1957.067498
+13/10/2015,1438.034573,Receipt from customer 6,CUST_006,Trade debtors,287.6069146
+13/10/2015,-9106.446684,Some expenses 7,Business running costs,Other direct costs,-1821.289337
+13/10/2015,-2156,Some expenses 19,Business running costs,Entertaining,-431.2
+13/10/2015,2146.316367,Receipt from customer 4,CUST_004,Trade debtors,429.2632735
+13/10/2015,1602.438244,Receipt from customer 5,CUST_005,Trade debtors,320.4876488
+21/10/2015,6721.907283,Receipt from customer 6,CUST_006,Trade debtors,1344.381457
+21/10/2015,1084.277692,Receipt from customer 7,CUST_007,Trade debtors,216.8555384
+21/10/2015,6061.321027,Receipt from customer 8,CUST_008,Trade debtors,1212.264205
+21/10/2015,5948.039832,Receipt from customer 9,CUST_009,Trade debtors,1189.607966
+21/10/2015,1068.794228,Receipt from customer 10,CUST_010,Trade debtors,213.7588455
+21/10/2015,5767.645916,Receipt from customer 11,CUST_011,Trade debtors,1153.529183
+21/10/2015,6975.98303,Receipt from customer 12,CUST_012,Trade debtors,1395.196606
+21/10/2015,2981.57352,Receipt from customer 13,CUST_013,Trade debtors,596.314704
+21/10/2015,566.5755648,Receipt from customer 14,CUST_014,Trade debtors,113.315113
+21/10/2015,6464.662154,Receipt from customer 15,CUST_015,Trade debtors,1292.932431
+21/10/2015,6985.126243,Receipt from customer 16,CUST_016,Trade debtors,1397.025249
+21/10/2015,1740.605874,Receipt from customer 17,CUST_017,Trade debtors,348.1211749
+21/10/2015,6169.377489,Receipt from customer 18,CUST_018,Trade debtors,1233.875498
+21/10/2015,7476.776825,Receipt from customer 19,CUST_019,Trade debtors,1495.355365
+21/10/2015,8877.167947,Receipt from customer 20,CUST_020,Trade debtors,1775.433589
+21/10/2015,6233.591119,Receipt from customer 21,CUST_021,Trade debtors,1246.718224
+21/10/2015,3258.82416,Receipt from customer 22,CUST_022,Trade debtors,651.764832
+21/10/2015,8620.937626,Receipt from customer 23,CUST_023,Sales,1724.187525
+21/10/2015,8440.046494,Loan from bank,Bank loans cash in,Bank loans,1688.009299
+21/10/2015,5108.680704,VAT,VAT cash in,Other taxes and social security costs,1021.736141
+21/10/2015,8396.286085,Loan from bank,Bank loans cash in,Bank loans,1679.257217
+21/10/2015,1396.547203,Receipt from customer 10,CUST_010,Trade debtors,279.3094406
+21/10/2015,8476.394292,Receipt from customer 11,CUST_011,Trade debtors,1695.278858
+21/10/2015,6389.885887,Receipt from customer 12,CUST_012,Trade debtors,1277.977177
+21/10/2015,7908.241695,Receipt from customer 13,CUST_013,Trade debtors,1581.648339
+21/10/2015,6058.475669,Receipt from customer 14,CUST_014,Trade debtors,1211.695134
+21/10/2015,8059.609595,Receipt from customer 15,CUST_015,Trade debtors,1611.921919
+21/10/2015,6754.950483,Receipt from customer 16,CUST_016,Trade debtors,1350.990097
+21/10/2015,9204.458406,Receipt from customer 17,CUST_017,Trade debtors,1840.891681
+21/10/2015,314.0339119,Receipt from customer 18,CUST_018,Trade debtors,62.80678237
+21/10/2015,3676.929254,Receipt from customer 19,CUST_019,Trade debtors,735.3858508
+21/10/2015,1666.780046,Receipt from customer 20,CUST_020,Trade debtors,333.3560091
+21/10/2015,7340.268248,Receipt from customer 21,CUST_021,Trade debtors,1468.05365
+21/10/2015,2252.399516,Receipt from customer 22,CUST_022,Trade debtors,450.4799031
+21/10/2015,8797.216096,Receipt from customer 23,CUST_023,Sales,1759.443219
+21/10/2015,9125.308103,Receipt from customer 1,CUST_001,Sales,1825.061621
+21/10/2015,8564.509307,Receipt from customer 2,CUST_002,Sales,1712.901861
+21/10/2015,8107.081478,Receipt from customer 3,CUST_003,Trade debtors,1621.416296
+21/10/2015,5104.740216,Receipt from customer 4,CUST_004,Trade debtors,1020.948043
+21/10/2015,6484.365836,Receipt from customer 5,CUST_005,Trade debtors,1296.873167
+21/10/2015,3022.706443,Receipt from customer 6,CUST_006,Trade debtors,604.5412885
+21/10/2015,3762.720775,Receipt from customer 7,CUST_007,Trade debtors,752.5441551
+21/10/2015,7501.886826,Receipt from customer 8,CUST_008,Trade debtors,1500.377365
+21/10/2015,7042.276884,Receipt from customer 9,CUST_009,Trade debtors,1408.455377
+21/10/2015,-1141.372164,Creditor payment costs 32,PURC_32,Trade creditors,-228.2744327
+21/10/2015,-7006.866276,Creditor payment costs 33,PURC_33,Trade creditors,-1401.373255
+21/10/2015,-5041.300032,Creditor payment costs 34,PURC_34,Trade creditors,-1008.260006
+21/10/2015,-6467.135827,Creditor payment costs 35,PURC_35,Trade creditors,-1293.427165
+21/10/2015,-131.6816114,Creditor payment costs 36,PURC_36,Trade creditors,-26.33632228
+21/10/2015,-8889.008985,Creditor payment costs 37,PURC_37,Trade creditors,-1777.801797
+21/10/2015,-1023.968452,Creditor payment costs 38,PURC_38,Trade creditors,-204.7936904
+21/10/2015,-9531.44463,Creditor payment costs 39,PURC_39,Trade creditors,-1906.288926
+21/10/2015,-2316.549394,Creditor payment costs 40,PURC_40,Trade creditors,-463.3098788
+21/10/2015,-9153.877316,Creditor payment costs 41,PURC_41,Trade creditors,-1830.775463
+21/10/2015,-6934.451541,Creditor payment costs 42,PURC_42,Trade creditors,-1386.890308
+21/10/2015,-4609.289158,Creditor payment costs 43,PURC_43,Purchases,-921.8578316
+21/10/2015,-2429.523948,Creditor payment costs 44,PURC_44,Trade creditors,-485.9047896
+21/10/2015,-3816.703371,Creditor payment costs 45,PURC_45,Purchases,-763.3406742
+21/10/2015,-5621.978626,Creditor payment costs 46,PURC_46,Purchases,-1124.395725
+21/10/2015,-5135.099491,Creditor payment costs 41,PURC_41,Trade creditors,-1027.019898
+21/10/2015,-9223.01636,Creditor payment costs 42,PURC_42,Trade creditors,-1844.603272
+21/10/2015,-6016.599039,Creditor payment costs 43,PURC_43,Purchases,-1203.319808
+21/10/2015,-4898.770052,Creditor payment costs 41,PURC_41,Trade creditors,-979.7540104
+21/10/2015,-2457.888349,Creditor payment costs 42,PURC_42,Trade creditors,-491.5776698
+21/10/2015,-5823.023659,Creditor payment costs 43,PURC_43,Purchases,-1164.604732
+21/10/2015,-5728.447242,Creditor payment costs 44,PURC_44,Trade creditors,-1145.689448
+21/10/2015,-9106.446684,Creditor payment costs 45,PURC_45,Purchases,-1821.289337
 22/8/2015,8897.98546,Receipt from customer 8,CUST_008,Trade debtors,1779.597092
 22/8/2015,5596.142424,Receipt from customer 10,CUST_010,Trade debtors,1119.228485
 22/8/2015,-1232,Some expenses 23,Business running costs,Light and heat,-246.4
 23/8/2015,5424.334675,Receipt from customer 9,CUST_009,Trade debtors,1084.866935
 23/8/2015,1854.583473,Receipt from customer 11,CUST_011,Trade debtors,370.9166945
 23/8/2015,-1632,Some expenses 24,Business running costs,Cleaning,-326.4
-24/08/15,986.5992927,Receipt from customer 10,CUST_010,Trade debtors,197.3198585
-24/08/15,3536.049512,Receipt from customer 12,CUST_012,Trade debtors,707.2099025
-24/08/15,1204,Some expenses 25,Business running costs,Use of home,240.8
-31/9/15,4696.690611,Receipt from customer 1,CUST_001,Sales,939.3381221
-31/9/15,9667.011797,Receipt from customer 2,CUST_002,Sales,1933.402359
-31/9/15,8734.446753,Receipt from customer 3,CUST_003,Trade debtors,1746.889351
-31/9/15,9024.043299,Receipt from customer 7,CUST_007,Trade debtors,1804.80866
-31/9/15,5873.254081,Receipt from customer 8,CUST_008,Trade debtors,1174.650816
-31/9/15,2357.579107,Receipt from customer 9,CUST_009,Trade debtors,471.5158213
-31/9/15,-6894.33628,Creditor payment costs 13,PURC_13,Trade creditors,-1378.867256
-31/9/15,-1760.171491,Creditor payment costs 14,PURC_14,Trade creditors,-352.0342982
-31/9/15,-206.6504908,Creditor payment costs 15,PURC_15,Trade creditors,-41.33009815
-31/9/15,-4497.115168,Creditor payment costs 16,PURC_16,Trade creditors,-899.4230337
-31/9/15,-876.1851672,Creditor payment costs 17,PURC_17,Trade creditors,-175.2370334
-31/9/15,-9870.659853,Creditor payment costs 18,PURC_18,Trade creditors,-1974.131971
-31/9/15,-7801.261188,Creditor payment costs 19,PURC_19,Trade creditors,-1560.252238
-31/9/15,-6428.944333,Creditor payment costs 20,PURC_20,Trade creditors,-1285.788867
-31/9/15,-9459.131145,Creditor payment costs 21,PURC_21,Trade creditors,-1891.826229
-31/9/15,-7830.464497,Creditor payment costs 22,PURC_22,Trade creditors,-1566.092899
-31/9/15,-7037.278956,Creditor payment costs 23,PURC_23,Trade creditors,-1407.455791
-31/9/15,-6639.820858,Creditor payment costs 24,PURC_24,Trade creditors,-1327.964172
-31/9/15,-3211.946736,Creditor payment costs 25,PURC_25,Trade creditors,-642.3893471
-31/9/15,-5178.123391,Creditor payment costs 26,PURC_26,Trade creditors,-1035.624678
-31/9/15,-6266.839836,Creditor payment costs 27,PURC_27,Trade creditors,-1253.367967
-31/9/15,-134.1078675,Creditor payment costs 28,PURC_28,Trade creditors,-26.82157351
-31/9/15,-6199.189507,Creditor payment costs 29,PURC_29,Trade creditors,-1239.837901
-31/9/15,-668.338056,Creditor payment costs 30,PURC_30,Trade creditors,-133.6676112
-31/9/15,-4586.578257,Creditor payment costs 31,PURC_31,Trade creditors,-917.3156513
+23/8/2015,986.5992927,Receipt from customer 10,CUST_010,Trade debtors,197.3198585
+23/8/2015,3536.049512,Receipt from customer 12,CUST_012,Trade debtors,707.2099025
+23/8/2015,1204,Some expenses 25,Business running costs,Use of home,240.8
+30/9/2015,4696.690611,Receipt from customer 1,CUST_001,Sales,939.3381221
+30/9/2015,9667.011797,Receipt from customer 2,CUST_002,Sales,1933.402359
+30/9/2015,8734.446753,Receipt from customer 3,CUST_003,Trade debtors,1746.889351
+30/9/2015,9024.043299,Receipt from customer 7,CUST_007,Trade debtors,1804.80866
+30/9/2015,5873.254081,Receipt from customer 8,CUST_008,Trade debtors,1174.650816
+30/9/2015,2357.579107,Receipt from customer 9,CUST_009,Trade debtors,471.5158213
+30/9/2015,-6894.33628,Creditor payment costs 13,PURC_13,Trade creditors,-1378.867256
+30/9/2015,-1760.171491,Creditor payment costs 14,PURC_14,Trade creditors,-352.0342982
+30/9/2015,-206.6504908,Creditor payment costs 15,PURC_15,Trade creditors,-41.33009815
+30/9/2015,-4497.115168,Creditor payment costs 16,PURC_16,Trade creditors,-899.4230337
+30/9/2015,-876.1851672,Creditor payment costs 17,PURC_17,Trade creditors,-175.2370334
+30/9/2015,-9870.659853,Creditor payment costs 18,PURC_18,Trade creditors,-1974.131971
+30/9/2015,-7801.261188,Creditor payment costs 19,PURC_19,Trade creditors,-1560.252238
+30/9/2015,-6428.944333,Creditor payment costs 20,PURC_20,Trade creditors,-1285.788867
+30/9/2015,-9459.131145,Creditor payment costs 21,PURC_21,Trade creditors,-1891.826229
+30/9/2015,-7830.464497,Creditor payment costs 22,PURC_22,Trade creditors,-1566.092899
+30/9/2015,-7037.278956,Creditor payment costs 23,PURC_23,Trade creditors,-1407.455791
+30/9/2015,-6639.820858,Creditor payment costs 24,PURC_24,Trade creditors,-1327.964172
+30/9/2015,-3211.946736,Creditor payment costs 25,PURC_25,Trade creditors,-642.3893471
+30/9/2015,-5178.123391,Creditor payment costs 26,PURC_26,Trade creditors,-1035.624678
+30/9/2015,-6266.839836,Creditor payment costs 27,PURC_27,Trade creditors,-1253.367967
+30/9/2015,-134.1078675,Creditor payment costs 28,PURC_28,Trade creditors,-26.82157351
+30/9/2015,-6199.189507,Creditor payment costs 29,PURC_29,Trade creditors,-1239.837901
+30/9/2015,-668.338056,Creditor payment costs 30,PURC_30,Trade creditors,-133.6676112
+30/9/2015,-4586.578257,Creditor payment costs 31,PURC_31,Trade creditors,-917.3156513

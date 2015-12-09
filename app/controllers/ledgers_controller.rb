@@ -1,8 +1,8 @@
 class LedgersController < ApplicationController
 
   def index
-    @cash = current_user.cash_ledgers
-    @sales = current_user.sales_ledgers
+    @cash = current_user.cash_ledgers.order(created_at: :desc)
+    @sales = current_user.sales_ledgers.order(created_at: :desc)
   end
 
   def new

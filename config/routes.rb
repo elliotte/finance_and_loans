@@ -7,6 +7,7 @@ Draftapp::Application.routes.draw do
       post :connect
       post :disconnect
       get :sign_out_user
+      get :auth_landing
     end
   end
 
