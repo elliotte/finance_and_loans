@@ -16,11 +16,28 @@
 
 </header>
 
+ <% path = request.fullpath %>
+ <% if request.fullpath == "/" %>
+ <% end%>
+
 <nav class="js-menu sliding-panel-content">
   <ul>
-    <li><a href="javascript:void(0)">Item 1</a></li>
-    <li><a href="javascript:void(0)">Item 2</a></li>
-    <li><a href="javascript:void(0)">Item 3</a></li>
+      <% if current_user %>
+        <% if session[:provider] == "Office 365" %>
+          <li>
+          	<a href="https://onedrive.live.com/" target="_blank">OneDrive</a>
+          </li>
+        <% else %>
+          <li>
+          	<a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a>
+			</li>
+        <% end %>
+      <% end %>
+	  <% if current_user %>
+        <li>
+        	<%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %>
+        </li>
+      <% end  %>
   </ul>
 </nav>
 
@@ -81,6 +98,12 @@
 		    $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
 		    e.preventDefault();
 		  });
+		  $('#disconnect').on('click', function(e) {
+	          e.preventDefault();
+	          helper.disconnectUser()
+	          helper.disconnectServer();
+	          window.location.href = "/"
+	       });
 	  });
 
 	  $(window).scroll(function() {
@@ -113,6 +136,8 @@
 	    }
 	    // END OF IF
 	  }
+
+
 
 </script>
 

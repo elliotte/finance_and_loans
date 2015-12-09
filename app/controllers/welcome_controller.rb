@@ -22,7 +22,7 @@ class WelcomeController < ApplicationController
      elsif params.include? :code 
        email = get_email_for_office_365
        get_or_create_user_auth(email)
-       redirect_to root_url
+       redirect_to auth_landing_welcome_index_path
      else
       render json: 'The client state does not match the server state.'.to_json
      end
@@ -37,19 +37,6 @@ class WelcomeController < ApplicationController
         render json: result
      end
     end
-  end
-
-  def set_365_auth_tokens
-    token = get_token_from_code params[:code]
-    email = get_email_from_id_token token.params['id_token']
-    #why not use find or create by?  Do an error catch on 'new_record'
-    #in case a bad Sign Up occurs 
-    @user = User.find_by(email: email)
-    @user = User.create(email: email ) unless @user.present?
-    session[:provider] = "Office 365"
-    session[:user_id] = @user.id
-    session[:token] = token.token
-    redirect_to  auth_landing_welcome_index_path
   end
 
   def auth_office_365
@@ -68,22 +55,16 @@ class WelcomeController < ApplicationController
   end
 
   def disconnect
+    #for revoking GoogleApp
     token = session[:token]
     reset_session
     google_service.disconnect_user(token)
     render json: 'User disconnected.'.to_json
   end
 
-  def set_app_user_session _GoogleAuthInfo
-    _GoogleAuthInfo.each_pair do |key, value|
-          session[key] = value
-     end
-  end
+  def auth_landing; end
 
-  def auth_landing
-  end
-
-  private
+private
 
   def set_google_service_auths
     access_codes = google_service.parse_access_codes(request)
@@ -102,4 +83,11 @@ class WelcomeController < ApplicationController
     session[:user_id] = @user.id
     session[:provider] = "Office 365" if @user.uid.blank?
   end
+  
+  def set_app_user_session _GoogleAuthInfo
+    _GoogleAuthInfo.each_pair do |key, value|
+          session[key] = value
+     end
+  end
+
 end

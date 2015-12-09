@@ -48,15 +48,16 @@ var helper = (function() {
   return {
 
     loadServerSideAuth: function(authResult) {
-      
-      $('#modal-loading-landing').trigger('click')
-      
       if (authResult['access_token']) {
         // The user is signed in
         this.authResult = authResult;
         // After loading the Google+ API, set the profile data from Google+ to load after serverSide connection.
         this.googleApi = gapi;
         helper.connectServer();
+        // Put the object into storage
+        localStorage.setItem('accessToken', authResult.access_token);
+        // Retrieve the object from storage
+        
 
       } else if (authResult['error']) {
         // SHOULD NEVER GET HERE
@@ -74,9 +75,14 @@ var helper = (function() {
             contentType: 'application/octet-stream; charset=utf-8',
             success: function(result) {
               //console.log(result);
+              path = window.location.href
+              reRoute = path + 'welcome/auth_landing'
+              console.log('success and ' + result)
               if ( result == 'New connection made' ) {
-                  helper.loadLandingAssets();
-                  console.log('success and ' + result)
+                  //helper.loadLandingAssets();
+                  // TO ADD SOME LOCALSTORAGE CACHE
+                  window.location.href = reRoute
+
                 } else if ( result == 'The client state does not match the server state.' ) {
                   console.log('success BUT' + result )
                   window.location.reload();
@@ -84,7 +90,7 @@ var helper = (function() {
                   window.location.reload();
                 } else {
                   // to add connection validated and cache trans
-                  helper.loadLandingAssets();
+                  //helper.loadLandingAssets();
                   console.log('success AND using already established server side connection, message being:');
               };
             },
@@ -188,8 +194,10 @@ var helper = (function() {
 
     disconnectUser: function() {
         // NEED TO SPLIT INTO CHECK BACK END AND FRONT END
-        var access_token = this.authResult.access_token;
+        // var access_token = this.authResult.access_token;
+        var access_token = localStorage.getItem('accessToken');
         var url = 'https://accounts.google.com/o/oauth2/revoke?token=' + access_token;
+        
         try {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, false);
