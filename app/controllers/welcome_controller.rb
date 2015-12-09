@@ -73,7 +73,7 @@ skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
   end
 
   def set_app_user_session _GoogleAuthInfo
-     _GoogleAuthInfo.each_pair do |key, value|
+    _GoogleAuthInfo.each_pair do |key, value|
           session[key] = value
      end
   end

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
   before_filter :verify_token
+  
   include ApplicationHelper
   
   $authorization = Signet::OAuth2::Client.new(

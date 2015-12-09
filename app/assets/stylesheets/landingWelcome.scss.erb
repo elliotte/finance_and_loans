@@ -1,23 +1,30 @@
+$base-border-radius: 3px !default;
+$action-color: #477DCA !default;
+$large-screen: em(860) !default;
+$hero-background-top: #7F99BE; 
+$hero-background-bottom: #20392B;
+$hero-color: white;
+$gradient-angle: 10deg;
+/* Rails 4 production settings code*/
+//= depend_on_asset "buz-landing.gif"
+//= depend_on_asset "giphy.gif"
+
 .user-welcome-landing {
   @include outer-container;
   padding-top: 4em;
   padding-bottom: 4em;
 }
 
-/* Rails 4 production setting code*/
-//= depend_on_asset "buz-landing.gif"
+.landing-welcome {
+  $hero-image: '<%= asset_path("buz-landing.gif") %> ';
+  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+} 
+.reports-hero-index {
+  $hero-image: '<%= asset_path("giphy.gif") %> ';
+  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+}
 
 .hero {  
-  $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
-  $large-screen: em(860) !default;
-  $hero-background-top: #7F99BE; 
-  $hero-background-bottom: #20392B;
-  $hero-color: white;
-  $gradient-angle: 10deg;
-  $hero-image: '<%= asset_path("buz-landing.gif") %> ';
-
-  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
   background-color: #324766;
   background-position: top;
   background-repeat: no-repeat;
