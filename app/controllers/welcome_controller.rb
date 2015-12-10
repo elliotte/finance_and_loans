@@ -65,7 +65,7 @@ private
   def set_google_service_auths
     google_service.parse_access_codes(request)
     set_app_user_session(google_service.session)
-    get_or_create_user_auth(session[:email],"google_api",session[:uid])
+    get_or_create_user_auth(session[:email],session[:uid])
   end
 
 #window
@@ -76,9 +76,9 @@ private
   end
 
 #common
-  def get_or_create_user_auth(email,provider,auth_id=nil)
-    @user = User.find_or_create_by(uid: session[:uid], email: email,provider: provider)
-    set_user_session({:user_id=>@user.id,:provider=>@user.provider})
+  def get_or_create_user_auth(email,auth_id)
+    @user = User.find_or_create_by(uid: auth_id, email: email)
+    set_user_session({:user_id=>@user.id,:provider=>@user.uid})
     @user
   end
 

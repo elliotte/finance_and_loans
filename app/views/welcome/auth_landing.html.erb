@@ -23,7 +23,7 @@
 <nav class="js-menu sliding-panel-content">
   <ul>
       <% if current_user %>
-        <% if session[:provider] == "Office 365" %>
+        <% if session[:provider].include? "Office 365" %>
           <li>
           	<a href="https://onedrive.live.com/" target="_blank">OneDrive</a>
           </li>
