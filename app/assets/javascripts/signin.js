@@ -14,10 +14,12 @@ function onSignInCallback(authResult) {
                 helper.disconnectUser();
             }// end of legacy token check and revoke
         }
-  }// END OF authError CATCH  
-  else {
+  }// END OF authError CATCH
+  else if(authResult.status.method=="PROMPT") {
     helper.loadServerSideAuth(authResult);
   }
+  else
+    {return}
 }
 
 var signIn = (function() {
