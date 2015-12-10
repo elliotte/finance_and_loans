@@ -11,7 +11,7 @@ describe ReportsController do
       @current_user = FactoryGirl.create(:user)
       @report = FactoryGirl.create(:report)
       controller.session[:token] = '265378652378682786237846'
-      controller.session[:gplus_id] = @current_user.uid
+      controller.session[:uid] = @current_user.uid
       controller.stub(:current_user){ @current_user }
       @current_user.reports << @report
     end

@@ -103,11 +103,11 @@ class LedgersController < ApplicationController
     end
 
     def ledger_owner?
-      User.find(@ledger.user_id).uid == session[:gplus_id]
+      User.find(@ledger.user_id).uid == session[:uid]
     end
 
     def authorized_user
-      @ledger.viewers.find_by(uid: session[:gplus_id])
+      @ledger.viewers.find_by(uid: session[:uid])
     end
     
 

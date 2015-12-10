@@ -20,7 +20,8 @@
         	encoded_json_body += (['='] * (encoded_json_body.length % 4)).join('')
         	json_body = Base64.decode64(encoded_json_body)
         	body = JSON.parse(json_body)
-        	return {body: body, response: responseData}
+        	
+        	set_session({body: body, response: responseData})        	
 		end
 
 		def set_session google_response
@@ -29,7 +30,7 @@
     		email = google_response[:body]['email']
     		@session[:token] = google_response[:response].split(',')[2]
     		set_auth(@session[:token])
-    		@session[:gplus_id] = gplus_id
+    		@session[:uid] = gplus_id
     		@session[:email] = email
 		end
 

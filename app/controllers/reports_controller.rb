@@ -198,11 +198,11 @@ class ReportsController < ApplicationController
   private
     # BEING USED
     def report_owner?
-      User.find(@report.user_id).uid == session[:gplus_id]
+      User.find(@report.user_id).uid == session[:uid]
     end
 
     def authorized_user
-      @report.readers.find_by(uid: session[:gplus_id])
+      @report.readers.find_by(uid: session[:uid])
     end
 
     def set_report
