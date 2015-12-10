@@ -12,31 +12,26 @@ class WelcomeController < ApplicationController
   end
 
   def connect
+    @result = "New connection made"
     unless session[:token]
-     if (session[:state] == params[:state])
-      set_google_service_auths unless params.include? :code
-      email = ((params.include? :code)? get_email_for_office_365 : session[:email])
-      get_or_create_user_auth(email,session[:gplus_id])
-      redirect_to root_url and return if @user.nil?
-      render json: "New connection made".to_json
-     elsif params.include? :code 
-       email = get_email_for_office_365
-       get_or_create_user_auth(email)
-       redirect_to auth_landing_welcome_index_path
-     else
-      render json: 'The client state does not match the server state.'.to_json
-     end
-    else
-      result = google_service.check_user_session(session[:token])
-      if result.status == 200
-        result = result.data
-        render json: result.to_json
+      if session[:state]==params[:state]
+         set_google_service_auths            
+         url = root_url # Need to confirm
+      elsif params.include? :code 
+        get_or_create_user_auth(get_email_for_office_365,"Office 365")
+        url = auth_landing_welcome_index_url
       else
-        reset_session
-        result = "Invalid Credentials, app session cleared".to_json
-        render json: result
-     end
+        @result = "The client state does not match the server state."
+        url = root_url
+      end
+    else
+      check_for_expired_token
+      url = root_url
     end
+    respond_to do |format|
+      format.html { redirect_to url, notice:  @result }
+      format.json {render json: @result.to_json}
+    end    
   end
 
   def auth_office_365
@@ -66,22 +61,36 @@ class WelcomeController < ApplicationController
 
 private
 
+#google
   def set_google_service_auths
-    access_codes = google_service.parse_access_codes(request)
-    google_service.set_session(access_codes)
+    google_service.parse_access_codes(request)
     set_app_user_session(google_service.session)
+    get_or_create_user_auth(session[:email],"google_api",session[:uid])
   end
 
+#window
   def get_email_for_office_365
     token = get_token_from_code params[:code]
-    session[:token] = token.token
-    email = get_email_from_id_token token.params['id_token']
+    set_user_session({:token=> token.token})
+    get_email_from_id_token token.params['id_token']
   end
 
-  def get_or_create_user_auth(email,auth_id=nil)
-    @user = User.find_or_create_by(uid: session[:gplus_id], email: email)
-    session[:user_id] = @user.id
-    session[:provider] = "Office 365" if @user.uid.blank?
+#common
+  def get_or_create_user_auth(email,provider,auth_id=nil)
+    @user = User.find_or_create_by(uid: session[:uid], email: email,provider: provider)
+    set_user_session({:user_id=>@user.id,:provider=>@user.provider})
+    @user
+  end
+
+# unless token expired
+  def check_for_expired_token
+      @result = google_service.check_user_session(session[:token])
+      if @result.status == 200
+        @result = @result.data                
+      else
+        reset_session
+        @result = "Invalid Credentials, app session cleared"
+      end
   end
   
   def set_app_user_session _GoogleAuthInfo
@@ -89,5 +98,4 @@ private
           session[key] = value
      end
   end
-
 end

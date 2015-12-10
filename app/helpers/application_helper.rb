@@ -7,23 +7,13 @@ module ApplicationHelper
   SCOPES = [ 'openid', 'https://outlook.office.com/mail.read' ]
  
   def get_login_url
-    client = OAuth2::Client.new(ENV['WINDOWS_CLIENT_ID'],
-                                ENV['WINDOWS_CLIENT_SECRET'],
-                                :site => 'https://login.microsoftonline.com',
-                                :authorize_url => '/common/oauth2/v2.0/authorize',
-                                :token_url => '/common/oauth2/v2.0/token')
-
+    client = initialize_window_client
     login_url = client.auth_code.authorize_url(:redirect_uri => ENV['WINDOWS_REDIRECT_URI'], :scope => SCOPES.join(' '))
   end
 
   def get_token_from_code(auth_code)
-  client = OAuth2::Client.new(ENV['WINDOWS_CLIENT_ID'],
-                              ENV['WINDOWS_CLIENT_SECRET'],
-                              :site => 'https://login.microsoftonline.com',
-                              :authorize_url => '/common/oauth2/v2.0/authorize',
-                              :token_url => '/common/oauth2/v2.0/token')
-
-  token = client.auth_code.get_token(auth_code,
+    client = initialize_window_client
+    token = client.auth_code.get_token(auth_code,
                                      :redirect_uri => authorize_url,
                                        :scope => SCOPES.join(' '))
   end
@@ -40,6 +30,14 @@ module ApplicationHelper
     decoded_token = Base64.urlsafe_decode64(encoded_token)
     jwt = JSON.parse(decoded_token)
     email = jwt['preferred_username']
+  end
+
+  def initialize_window_client
+    OAuth2::Client.new(ENV['WINDOWS_CLIENT_ID'],
+                                ENV['WINDOWS_CLIENT_SECRET'],
+                                :site => 'https://login.microsoftonline.com',
+                                :authorize_url => '/common/oauth2/v2.0/authorize',
+                                :token_url => '/common/oauth2/v2.0/token')
   end
   
 end
