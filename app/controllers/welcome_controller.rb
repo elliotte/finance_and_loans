@@ -13,13 +13,12 @@ class WelcomeController < ApplicationController
 
   def connect
     @result = "New connection made"
+    url = auth_landing_welcome_index_url
     unless session[:token]
       if session[:state]==params[:state]
          set_google_service_auths            
-         url = root_url # Need to confirm
       elsif params.include? :code 
-        get_or_create_user_auth(get_email_for_office_365,"Office 365")
-        url = auth_landing_welcome_index_url
+         get_or_create_user_auth(get_email_for_office_365,"Office 365")       
       else
         @result = "The client state does not match the server state."
         url = root_url

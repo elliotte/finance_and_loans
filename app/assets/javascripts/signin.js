@@ -73,6 +73,7 @@ var helper = (function() {
       //console.log(this.authResult.code);
           $.ajax({
             type: 'POST',
+            dataType: 'json',
             url: '/welcome/connect?state=' + $("#state").text(),
             contentType: 'application/octet-stream; charset=utf-8',
             success: function(result) {
