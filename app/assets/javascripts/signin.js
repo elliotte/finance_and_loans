@@ -15,29 +15,25 @@ function onSignInCallback(authResult) {
             }// end of legacy token check and revoke
         }
   }// END OF authError CATCH
-  else if(authResult.status.method=="PROMPT") {
-    helper.loadServerSideAuth(authResult);
-  }
+  // else if(authResult.status.method=="PROMPT") {
+  //   helper.loadServerSideAuth(authResult);
+  // }
   else
-    {return}
+    helper.loadServerSideAuth(authResult);
 }
 
 var signIn = (function() {
 
   return {
-
-    authOffice365: function() {
-      $.ajax({
-        type: 'GET',
-        url: '/welcome/auth_office_365',
-        contentType: 'application/octet-stream; charset=utf-8',
-        success: function(result) {
-          //console.log('welcomeLedgers route hit');
-        },
-        processData: false
-      });
+    authWindows: function() {
+      $('#action-auth-sign-in').slideUp();
+      $('#windows-signin-button').toggle( "slide" );
     },
-
+    authGoogle: function() {
+      $('#action-auth-sign-in').slideUp();
+      $('#google-signin-button').toggle( "slide" );
+      // TO ADD CHECK IS DISPLAYED IN BROWSER TO CATCH AUTH HAS RENDERED AND POSSIBLE FOR USER
+    },
   }
 
 })();
@@ -94,6 +90,7 @@ var helper = (function() {
                 } else {
                   // to add connection validated and cache trans
                   //helper.loadLandingAssets();
+                  window.location.href = reRoute
                   console.log('success AND using already established server side connection, message being:');
               };
             },

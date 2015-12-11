@@ -11,7 +11,6 @@ Draftapp::Application.routes.draw do
       post :disconnect
       get :sign_out_user
       get :auth_landing
-      get :auth_office_365
     end
   end
 

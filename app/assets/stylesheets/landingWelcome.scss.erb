@@ -15,6 +15,17 @@ $gradient-angle: 10deg;
   padding-bottom: 4em;
 }
 
+.container-auth-buttons {
+  $spacing:1em;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom:$spacing*4;
+  img {
+    margin-bottom: $spacing;
+  }
+}
+
 .landing-welcome {
   $hero-image: '<%= asset_path("buz-landing.gif") %> ';
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);

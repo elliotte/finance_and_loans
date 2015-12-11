@@ -33,13 +33,6 @@ class WelcomeController < ApplicationController
     end    
   end
 
-  def auth_office_365
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: "Error" }
-      format.js
-    end
-  end
-
   def sign_out_user
     reset_session
     respond_to do |format|

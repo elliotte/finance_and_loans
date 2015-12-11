@@ -4,22 +4,21 @@
 " alt="Logo Image"></a>
     <div class="hero-copy">
       <h1>ProfitBees</h1>
-      <%= render 'landing' %>
       <p>Simple microBooks and lovely BoardPacks.</p>  
     </div>
   </div>
 </div>
 
 <section class="user-welcome-landing">
-    <article class="type-system-slab">
+    <article id="action-auth-sign-in" class="type-system-slab">
       <h3>Choose your sign-in engine;</h1>
       <div class="flex-boxes">
-          <a href="javascript:void(0)" class="flex-box" onclick="signIn.authOffice365();">
+          <a id="" href="javascript:void(0)" class="flex-box" onclick="signIn.authGoogle();">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
             <h1 class="flex-title">Google Apps</h1>
             <p>Authenticate and Sign-in using your Google cloud profile</p>
           </a>
-          <a href="javascript:void(0)" class="flex-box">
+          <a href="javascript:void(0)" class="flex-box" onclick="signIn.authWindows();">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
             <h1 class="flex-title">Office 365</h1>
             <p>Authenticate and Sign-in using your Office 365 cloud profile.</p>
@@ -28,10 +27,12 @@
     </article>
 </section>
 
-<section class="user-welcome-landing">
-    <article class="type-system-slab">
+<section id="google-signin-button" class="user-welcome-landing" style="display:none;">
+          <%= render 'googleButton' %>
+</section>
 
-    </article>
+<section id="windows-signin-button" class="user-welcome-landing" style="display:none;">
+          <%= render 'office365Button' %>
 </section>
 
 
