@@ -30,7 +30,7 @@
         <% else %>
           <li>
           	<a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a>
-			</li>
+		  </li>
         <% end %>
         <li>
         	<%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %>
@@ -48,7 +48,7 @@
 			<div class="hb-container">
 				<aside>
 					<%= image_tag('settings-button.png') %>
-					<p>Cash Hives</p>
+					<p>BoardPacks</p>
 				</aside>
 				<aside class="box-hover">
 					<p><span><%= truncate("ProfitBees Cash Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
@@ -61,7 +61,7 @@
 					<p class="author">OwnerName</p>
 				</aside>
 				<aside class="last-box">
-					  <%= link_to "View All", ledgers_path, class: "lovely-link-button" %>
+					  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
 				</aside>
 			</div>
 		</div>

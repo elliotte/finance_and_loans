@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require landingWelcome
 //= require signin
 //= require filterTool
 //= require googleCharts

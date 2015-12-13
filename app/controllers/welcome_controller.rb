@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   $O365_provider_ID = "Office365"
 
   def index
+    # CHECK IF WINDOWS USER SIGNED IN
     if session[:provider] && session[:provider] == $O365_provider_ID
       redirect_to auth_landing_welcome_index_url
     else
@@ -19,24 +20,31 @@ class WelcomeController < ApplicationController
   def connect
     @result = "New connection made"
     url = auth_landing_welcome_index_url
+    #check for GoogleUser already signed in ( office365 user check done @welcomeINDEX )
     unless session[:token]
+      #new userSignIn
       if session[:state]==params[:state]
+         # FOR GOOGLE USER
          google_service.parse_access_codes(request)
          set_auth_token_session google_service.session[:token]
          set_user_and_session(google_service.session[:email],google_service.session[:uid])            
       elsif params.include? :code 
+        # FOR WINDOWS USER
         token = get_token_from_code params[:code]
         set_auth_token_session(token.token)
         email = get_email_from_id_token token.params['id_token']
         set_user_and_session(email,$O365_provider_ID)       
       else
+        # SOMETHING WENT WRONG
         @result = "The client state does not match the server state."
         url = root_url
       end
     else
+      # CHECK TOKEN NOT EXPIRED
       check_for_expired_token
       url = root_url
     end
+    # USED BY ALL SCENARIOS
     respond_to do |format|
       format.html { redirect_to url, notice:  @result }
       format.json {render json: @result.to_json}
@@ -64,7 +72,7 @@ private
 
   def set_user_and_session(email,auth_id)
     return_user(email, auth_id)
-    set_user_session({:user_id=>@user.id,:provider=>@user.uid})
+    set_user_session({:user_id=>@user.id,:provider=>@user.uid, email: email})
   end
 
   def return_user email, providerID

@@ -1,8 +1,8 @@
 
-<article class="type-system-rounded">
+<article class="type-system-slab">
 
-      <h1>new Report</h1>
-      <p> (add or import report values after create boss) </p>
+      <h1>new BoardPack</h1>
+      <p> (add or import values after creating BoardPack) </p>
 
       <%= form_for @report do |f| %>
 
@@ -21,10 +21,19 @@
                     <td> <%= f.date_select(:comparative_end, order: [:year, :month], selected: Date.today-1.year) %></td>
                   </tr>
                   <%= f.hidden_field(:report_type, :value => "Statutory", name: 'report[report_type]') %>
-                  <tr>
-                      <td style="color:#f3655e;"><%= f.label :format %></td>
-                      <td><%= f.select :format, options_for_select( ['IFRS', 'UKGAAP'] ) %></td>
-                  </tr>
+                  <% if params[:format] %>
+                      <%= f.hidden_field(:format, :value => params[:format], name: 'report[format]') %>
+                      <tr>
+                        <td style="color:#f3655e;"><%= f.label :format %></td>
+                        <td class="input-style"><%= params[:format] %></td>
+                      </tr>
+                  <% else %>
+                      <tr>
+                        <td style="color:#f3655e;"><%= f.label :format %></td>
+                        <td><%= f.select :format, options_for_select( ['IFRS', 'UKGAAP'] ) %>
+                        </td>
+                      </tr>
+                  <% end %>
                   <tr>
                     <td class="button-style"><%= f.submit %></td>
                     <td></td>

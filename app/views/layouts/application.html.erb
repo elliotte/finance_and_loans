@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MoneaFinance</title>
+    <title>ProfitBees</title>
 
     <meta charset="utf-8">
-    <meta name="description" content="Monea::Finance, user friendly business first web-software specialising in ledger management and business reporting.">
+    <meta name="description" content="ProfitBees, user friendly business first web-software specialising in business reporting and micro Business ledger management.">
     <meta name="keywords" content="business, accounting, reporting, intelligence, engineering, MVP, finance, bookkeeping, tax">
     
     <%= favicon_link_tag 'monea_pink.ico' %>
     <link rel="apple-touch-icon" href="<%= asset_path('monea_pink.ico') %>">
-    <link rel="canonical" href="http://www.monea.build" />
+    <link rel="canonical" href="http://www.profitbees.com" />
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
@@ -23,6 +23,13 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
+      <div id="bg-screen-for-modal">
+          <section>
+            <p>EmptyModal</p>
+          </section>
+          <img id="modal-close-icon" src="https://www.erasmusgathering.com/budapest/images/Icon-pink-home.png">
+      </div>
+
       <%= yield %>
 
       <%#= render 'shared/footer' %>
@@ -33,6 +40,12 @@
       </script>
        <!--  for google.load visualisation see developers.google.com/loader/ -->
       <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['bar', 'corechart']}]}"></script>
+
+      <script>
+          $('#modal-close-icon').on('click', function() {
+              $('#bg-screen-for-modal').removeClass('open')
+          })
+      </script>
       <!-- google charts -->
 
   </body>
