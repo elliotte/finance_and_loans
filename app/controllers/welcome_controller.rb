@@ -1,15 +1,19 @@
 class WelcomeController < ApplicationController
 
   skip_before_filter :verify_token, except: [:disconnect, :sign_out_user, :auth_landing]
-  $O365ID = "Office365"
+  $O365_provider_ID = "Office365"
 
   def index
-    @login_url = get_login_url
-    if !session[:state]
-      state = (0...13).map{('a'..'z').to_a[rand(26)]}.join
-      session[:state] = state
+    if session[:provider] && session[:provider] == $O365_provider_ID
+      redirect_to auth_landing_welcome_index_url
+    else
+      @login_url = get_login_url
+      if !session[:state]
+        state = (0...13).map{('a'..'z').to_a[rand(26)]}.join
+        session[:state] = state
+      end
+      @state = session[:state]
     end
-    @state = session[:state]
   end
 
   def connect
@@ -24,7 +28,7 @@ class WelcomeController < ApplicationController
         token = get_token_from_code params[:code]
         set_auth_token_session(token.token)
         email = get_email_from_id_token token.params['id_token']
-        set_user_and_session(email,$O365ID)       
+        set_user_and_session(email,$O365_provider_ID)       
       else
         @result = "The client state does not match the server state."
         url = root_url
