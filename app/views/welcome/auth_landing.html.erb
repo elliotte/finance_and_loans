@@ -32,8 +32,6 @@
           	<a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a>
 			</li>
         <% end %>
-      <% end %>
-	  <% if current_user %>
         <li>
         	<%= link_to('SignOut', sign_out_user_welcome_index_path, id: 'disconnect') %>
         </li>
@@ -107,15 +105,10 @@
 	  });
 
 	  $(window).scroll(function() {
-	  	
-
 	  	fadeElements = $(".fade-in-element")
-
 	  	$.each( fadeElements, function( index, el ){
 		    setFadeInScrollTriggers(el)
 		});
-
-	    
 	  });
 
 	  function setFadeInScrollTriggers(element) {

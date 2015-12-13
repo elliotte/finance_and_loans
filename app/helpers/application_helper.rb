@@ -6,6 +6,7 @@ module ApplicationHelper
 
   SCOPES = [ 'openid', 'https://outlook.office.com/mail.read' ]
  
+  #WINDOWS AUTH HELPERS USED IN WELCOME CONTROLLER
   def get_login_url
     client = initialize_window_client
     login_url = client.auth_code.authorize_url(:redirect_uri => ENV['WINDOWS_REDIRECT_URI'], :scope => SCOPES.join(' '))

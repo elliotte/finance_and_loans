@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 
-  skip_before_filter :verify_token, except: [:disconnect, :sign_out_user]
+  skip_before_filter :verify_token, except: [:disconnect, :sign_out_user, :auth_landing]
+  $O365ID = "Office365"
 
   def index
     @login_url = get_login_url
@@ -16,9 +17,14 @@ class WelcomeController < ApplicationController
     url = auth_landing_welcome_index_url
     unless session[:token]
       if session[:state]==params[:state]
-         set_google_service_auths            
+         google_service.parse_access_codes(request)
+         set_auth_token_session google_service.session[:token]
+         set_user_and_session(google_service.session[:email],google_service.session[:uid])            
       elsif params.include? :code 
-         get_or_create_user_auth(get_email_for_office_365,"Office 365")       
+        token = get_token_from_code params[:code]
+        set_auth_token_session(token.token)
+        email = get_email_from_id_token token.params['id_token']
+        set_user_and_session(email,$O365ID)       
       else
         @result = "The client state does not match the server state."
         url = root_url
@@ -33,6 +39,8 @@ class WelcomeController < ApplicationController
     end    
   end
 
+  def auth_landing;  end
+
   def sign_out_user
     reset_session
     respond_to do |format|
@@ -40,40 +48,35 @@ class WelcomeController < ApplicationController
       format.js
     end
   end
-
+  #for revoking GoogleApp
   def disconnect
-    #for revoking GoogleApp
     token = session[:token]
     reset_session
     google_service.disconnect_user(token)
     render json: 'User disconnected.'.to_json
   end
 
-  def auth_landing; end
-
 private
 
-#google
-  def set_google_service_auths
-    google_service.parse_access_codes(request)
-    set_app_user_session(google_service.session)
-    get_or_create_user_auth(session[:email],session[:uid])
-  end
-
-#window
-  def get_email_for_office_365
-    token = get_token_from_code params[:code]
-    set_user_session({:token=> token.token})
-    get_email_from_id_token token.params['id_token']
-  end
-
-#common
-  def get_or_create_user_auth(email,auth_id)
-    @user = User.find_or_create_by(uid: auth_id, email: email)
+  def set_user_and_session(email,auth_id)
+    return_user(email, auth_id)
     set_user_session({:user_id=>@user.id,:provider=>@user.uid})
-    @user
   end
 
+  def return_user email, providerID
+    # ProviderID = "Office365" for nonGoogle
+    @user = User.find_or_create_by(uid: providerID, email: email)
+  end
+
+  def set_auth_token_session token
+    session[:token] = token
+  end
+
+  def set_user_session(hash)
+    hash.each do |key,value|
+      session[key] = value
+    end  
+  end
 # unless token expired
   def check_for_expired_token
       @result = google_service.check_user_session(session[:token])
@@ -84,10 +87,5 @@ private
         @result = "Invalid Credentials, app session cleared"
       end
   end
-  
-  def set_app_user_session _GoogleAuthInfo
-    _GoogleAuthInfo.each_pair do |key, value|
-          session[key] = value
-     end
-  end
+
 end

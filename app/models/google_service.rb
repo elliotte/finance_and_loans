@@ -58,14 +58,6 @@
     	   @files = JSON.parse(response.data.to_json)
 		end
 
-		# def check_profile token
-		#    @plus = @client.discovered_api('plus', 'v1')
-		#    response = @plus.execute(
-  #         		 plus.people.get,
-  #         		{'userId' => 'me'})
-		#    response
-		# end
-
 		def disconnect_user token
 			revokePath = 'https://accounts.google.com/o/oauth2/revoke?token=' + token
     		# Sending the revocation request and returning the result.

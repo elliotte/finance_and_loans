@@ -6,7 +6,7 @@ $hero-background-bottom: #20392B;
 $hero-color: white;
 $gradient-angle: 10deg;
 /* Rails 4 production settings code*/
-//= depend_on_asset "buz-landing.gif"
+//= depend_on_asset "simple.gif"
 //= depend_on_asset "giphy.gif"
 
 .user-welcome-landing {
@@ -27,8 +27,9 @@ $gradient-angle: 10deg;
 }
 
 .landing-welcome {
-  $hero-image: '<%= asset_path("buz-landing.gif") %> ';
+  $hero-image: '<%= asset_path("simple.gif") %> ';
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+ background-position: right 20px bottom 10px;
 } 
 .reports-hero-index {
   $hero-image: '<%= asset_path("giphy.gif") %> ';

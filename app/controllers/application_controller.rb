@@ -23,16 +23,15 @@ class ApplicationController < ActionController::Base
         format.json { 'User is not connected.'.to_json }
       end
     else
-      google_service.set_auth(session[:token]) #unless expired_token?
+      google_service.set_auth(session[:token]) unless session[:provider].include?("Office365")
     end
   end
   
   def current_user
     @user ||= User.find(session[:user_id]) unless session[:user_id].blank?
-    # @user ||= User.find_by_uid(session[:gplus_id]) unless session[:gplus_id].blank?
   end
-  helper_method :current_user
   # useful when the functionality is something that's used between both the controller and the view
+  helper_method :current_user
   
   def google_service
     @google_service ||= GoogleService.new($client, $authorization)
@@ -43,10 +42,5 @@ class ApplicationController < ActionController::Base
     date_parts[0..2].join('-') + ' ' + date_parts[3..-1].join(':')
   end
 
-  def set_user_session(hash)
-    hash.each do |key,value|
-      session[key] = value
-    end  
-  end
   
 end
