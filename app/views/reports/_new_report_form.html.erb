@@ -1,5 +1,5 @@
 
-<article class="type-system-slab">
+<article class="type-system-slab modal-form">
 
       <h1>new BoardPack</h1>
       <p> (add or import values after creating BoardPack) </p>
@@ -9,22 +9,22 @@
           <table id="new-report-form" class="table-minimal">
               <tbody>
                   <tr>
-                    <td style="color:#f3655e;"><%= f.label :title %></td>
+                    <td class="text-pink"><%= f.label :title %></td>
                     <td class="input-style"> <%= f.text_field :title, placeholder: "Enter title" %></td>
                   </tr>
                   <tr>
-                    <td style="color:#f3655e;"><%= f.label :current_end %></td>
+                    <td class="text-pink"><%= f.label :current_end %></td>
                     <td class="input-style"> <%= f.date_select(:current_end, order: [:year, :month], selected: Date.today) %></td>
                   </tr>
                   <tr>
-                    <td style="color:#f3655e;"><%= f.label :comparative_end %></td>
+                    <td class="text-pink"><%= f.label :comparative_end %></td>
                     <td> <%= f.date_select(:comparative_end, order: [:year, :month], selected: Date.today-1.year) %></td>
                   </tr>
                   <%= f.hidden_field(:report_type, :value => "Statutory", name: 'report[report_type]') %>
                   <% if params[:format] %>
                       <%= f.hidden_field(:format, :value => params[:format], name: 'report[format]') %>
                       <tr>
-                        <td style="color:#f3655e;"><%= f.label :format %></td>
+                        <td class="text-pink"><%= f.label :format %></td>
                         <td class="input-style"><%= params[:format] %></td>
                       </tr>
                   <% else %>

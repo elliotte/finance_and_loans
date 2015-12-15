@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 
   skip_before_filter :verify_token, except: [:disconnect, :sign_out_user, :auth_landing]
+  # THIS IS MASTER TEXT FOR DB ENTRY AND SESSION LOOKUP NOT CAPITALISED O"
   $O365_provider_ID = "Office365"
 
   def index
@@ -27,7 +28,8 @@ class WelcomeController < ApplicationController
          # FOR GOOGLE USER
          google_service.parse_access_codes(request)
          set_auth_token_session google_service.session[:token]
-         set_user_and_session(google_service.session[:email],google_service.session[:uid])            
+         set_user_and_session(google_service.session[:email],google_service.session[:uid])   
+         # need to change googles_session[uid] to provider         
       elsif params.include? :code 
         # FOR WINDOWS USER
         token = get_token_from_code params[:code]

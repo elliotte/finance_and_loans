@@ -1,13 +1,13 @@
-#bg-screen-for-modal {
+$modal-padding: 3em;
 
-    $modal-padding: 3em;
+#bg-screen-for-modal {
+    
     height: 100%;
     width: 100%;
     @include position(fixed, 0);
     background-color: rgba(#000, 0.85);
     z-index: 99999999999;
     visibility: hidden;
-
     &.open {
       visibility: visible;
     }
@@ -18,10 +18,58 @@
       height: 60%;
       background-color: white;
     }
-    img {
-      @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
-      @include size(1.5em);
-      cursor: pointer;
-    }
-
 }
+
+/*CLOSE IMG ICON */
+img#modal-close-icon {
+  @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
+  @include size(1.5em);
+  cursor: pointer;
+}
+
+article.modal-form {
+  
+  $base-font-color: grey !default;
+  $base-background-color: white !default;
+
+  $dropdown-color: $base-font-color;
+  $dropdown-inner-border: 1px solid #d61579;
+  $dropdown-padding: 1em;
+  $base-border-radius: 3px !default;
+  
+  $dropdown-background: $base-background-color;
+  $dropdown-background-hover: darken($dropdown-background, 3%);
+
+  text-align: center;
+
+  select {
+    border-bottom: $dropdown-inner-border;
+    color: $dropdown-color; 
+    padding: $dropdown-padding / 2;
+  }
+
+  option {
+    background: $dropdown-background-hover;
+  }
+  option:first-child {
+    border-top-left-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+  }
+  option:last-child {
+    border: none;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+  }
+
+
+} 
+
+
+
+
+
+
+
+
+
+

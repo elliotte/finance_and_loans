@@ -198,11 +198,15 @@ class ReportsController < ApplicationController
   private
     # BEING USED
     def report_owner?
-      User.find(@report.user_id).uid == session[:uid]
+      User.find(@report.user_id).email == session[:email]
     end
 
     def authorized_user
-      @report.readers.find_by(uid: session[:uid])
+      #too add column to reader for email
+      unless session[:provider].include? ('Office365')
+      else
+        @report.readers.find_by(uid: session[:uid])
+      end
     end
 
     def set_report

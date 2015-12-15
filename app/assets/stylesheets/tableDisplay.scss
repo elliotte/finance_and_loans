@@ -51,30 +51,11 @@
 
   tbody {
     background-color: $table-background;
-
     td {
       border-bottom: 0px;
       border-top: 1px solid $table-border-color;
       line-height: $base-line-height;
       padding: $table-padding;
-
-      button {
-        @include button(flat, $action-color);
-        display: inline-block;
-        font-size: .7em;
-        color: white;
-        line-height: $base-line-height;
-        margin-bottom: .3em;
-        margin-right: 0.5em;
-        outline: none;
-        padding: .3em 1em;
-        width: 100%;
-
-        @include media($medium-screen) {
-          margin-bottom: 0;
-          width: auto;
-        }
-      }
     }
   }
 }
