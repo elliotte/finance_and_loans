@@ -41,6 +41,12 @@ module ApplicationHelper
                                 :token_url => '/common/oauth2/v2.0/token')
   end
   
+  def set_sky_drive_login
+    redirect_url = ENV['CALLBACK_URL']
+    scope = "wl.skydrive_update,wl.offline_access"
+    $sky_drive_client = Skydrive::Oauth::Client.new(ENV['SKY_DRIVE_CLIENT_ID'],ENV['SKY_DRIVE_SECRET'], redirect_url, scope)      
+    $sky_drive_client.authorize_url
+  end
 end
 
  

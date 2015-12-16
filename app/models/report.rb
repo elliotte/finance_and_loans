@@ -24,10 +24,12 @@ class Report < ActiveRecord::Base
 	scope :last_four, -> {order('updated_at desc').first(4)}
 
 	def build_back_end
-      @google_service ||= GoogleService.new($client, $authorization)
-      folder_url = @google_service.create_user_report_folder(self.title)
-      self.drive_folder = folder_url
-      self.save
+		if session[:sky_drive_token].blank?
+      		@google_service ||= GoogleService.new($client, $authorization)
+      		folder_url = @google_service.create_user_report_folder(self.title)
+      		self.drive_folder = folder_url
+      		self.save
+      	end
     end
 
 	def get_values_for(month, type = nil)

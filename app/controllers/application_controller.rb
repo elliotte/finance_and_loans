@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
   before_filter :verify_token
-  
+  before_filter :_set_current_session
   include ApplicationHelper
   
   $authorization = Signet::OAuth2::Client.new(
@@ -40,6 +40,19 @@ class ApplicationController < ActionController::Base
   def date_from_params(params, key)
     date_parts = params.select { |k,v| k.to_s =~ /\A#{key}\([1-6]{1}i\)/ }.values
     date_parts[0..2].join('-') + ' ' + date_parts[3..-1].join(':')
+  end
+
+  protected
+  def _set_current_session
+    # Define an accessor. The session is always in the current controller
+    # instance in @_request.session. So we need a way to access this in
+    # our model
+    accessor = instance_variable_get(:@_request)
+
+    # This defines a method session in ActiveRecord::Base. If your model
+    # inherits from another Base Class (when using MongoMapper or similar),
+    # insert the class here.
+    ActiveRecord::Base.send(:define_method, "session", proc {accessor.session})
   end
 
   

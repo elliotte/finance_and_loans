@@ -1,11 +1,13 @@
 class ReportsController < ApplicationController
-
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :show_dashboard, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
 
     def index
+      session[:sky_drive_token] = set_sky_drive_token(params[:code]) if((params.include? "code") && (session[:sky_drive_token].blank?))
+      redirect_to set_sky_drive_login and return if((session[:provider]=="Office365") && (session[:sky_drive_token].blank?))
       @reports = current_user.reports
     end
+
     #CRUD routes
     def new
       @report = current_user.reports.new
@@ -14,6 +16,7 @@ class ReportsController < ApplicationController
     def create
       @report = current_user.reports.build(report_params)
       if @report.save
+        create_sky_drive_folder if(session[:provider]=="Office365")
         flash[:notice] = "Successfully created Report"
         redirect_to report_path(@report)
       else
@@ -238,6 +241,18 @@ class ReportsController < ApplicationController
       params.require(:value).permit(:mitag, :amount, :repdate, :ifrstag, :description)
     end
 
+    def set_sky_drive_token(code)
+      $sky_drive_client.get_access_token(code).token
+    end
+
+    def create_sky_drive_folder
+      url = 'https://apis.live.net/v5.0/me/skydrive'
+     header={ 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{session[:sky_drive_token]}" } 
+     encoded = JSON.generate({name: params["report"]["title"]}  )
+     response = RestClient.post(url, encoded, header)
+     data = JSON.parse(response)
+     # Need to save folder into DB
+    end
 end
 
 
