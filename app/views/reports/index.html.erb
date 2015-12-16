@@ -1,4 +1,6 @@
+<script type="text/javascript" src="https://js.live.net/v5.0/OneDrive.js" id="onedrive-js" client-id="<%= ENV['SKY_DRIVE_CLIENT_ID']%>"></script>
 <%= javascript_include_tag 'indexesJS' %>
+
 <div class="hero reports-hero-index">
   <article class="type-system-slab">
     <div class="hero-inner">
@@ -19,8 +21,8 @@
             <p class="dropdown-button">BoardPack</p>
             <ul class="dropdown-menu dropdown-select">
               <li>Management</li>
-                <li><%= link_to 'UK-GAAP', new_report_path(format: 'UKGAAP'), remote: true, class: 'fill-parent' %></li>
-                <li><%= link_to 'IFRS', new_report_path(format: 'IFRS'), remote: true, class: 'fill-parent' %></li>
+              <li><%= link_to 'UK-GAAP', new_report_path(format: 'UKGAAP'), remote: true, class: 'fill-parent' %></li>
+              <li><%= link_to 'IFRS', new_report_path(format: 'IFRS'), remote: true, class: 'fill-parent' %></li>
             </ul>
           </div>
         </div>
@@ -33,7 +35,6 @@
         <% @reports.each do | boardPack | %>
            <% $randPic = rand(1..142) %>
            <a href="<%= report_path(boardPack) %>" class="card">
-           <div class="card">
               <div class="card-image">
                 <img src="<%= asset_path("#{$randPic}" + '.jpg') %>" alt="">
               </div>
@@ -44,13 +45,13 @@
                 <p><%= boardPack.format %></p>
                 <p><%= truncate(boardPack.summary, length: 80) %></p>
               </div>
-            </a>
-           </div>
+           </a>
         <% end %>
     </div>
     <!-- END OF CARDS DIV -->
   </article>
 </section>
+
 <section class="index-display-container">
   <!-- SPACING SECTION -->
 </section>
@@ -83,6 +84,7 @@
   <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
   
 </footer>
+
 <script>
 
   $(document).ready(function() {
@@ -96,7 +98,7 @@
         $button.html($(this).html());
       });
     });
+  });  
+ </script>
 
-  });
 
-</script>
