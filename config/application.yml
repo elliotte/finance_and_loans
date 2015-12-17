@@ -14,3 +14,4 @@ WINDOWS_REDIRECT_URI: http://localhost:3000/authorize
 
 JAVASCRIPT_ORIGINS: http://localhost:3000
 PLUS_LOGIN_SCOPE: https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/plus.circles.read
+
