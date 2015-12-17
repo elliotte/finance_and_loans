@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
     before_action :set_report, only: [:view_etb, :show_dashboard, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
 
     def index
-      session[:sky_drive_token] = set_sky_drive_token(params[:code]) if((params.include? "code") && (session[:sky_drive_token].blank?))
+      set_sky_drive_token(params[:code]) if((params.include? "code") && (session[:sky_drive_token].blank?))
       redirect_to set_sky_drive_login and return if((session[:provider]=="Office365") && (session[:sky_drive_token].blank?))
       @reports = current_user.reports
     end
@@ -243,6 +243,7 @@ class ReportsController < ApplicationController
     end
 
     def set_sky_drive_token(code)
+      session[:sky_drive_token] = code
       $sky_drive_client.get_access_token(code).token
     end
 
