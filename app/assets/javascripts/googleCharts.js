@@ -73,9 +73,10 @@ var graphHelper = (function() {
               sliceVisibilityThreshold: .001,
               colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
              };
-
+             
+             cpDataView = convertChartColumntoString(cpData)
              var chart = new google.visualization.PieChart(document.getElementById('cp-pie-chart'));
-             chart.draw(cpData, options);
+             chart.draw(cpDataView, options);
 
              var ppData = google.visualization.arrayToDataTable(data["pp"]);
              var options = {
@@ -91,11 +92,10 @@ var graphHelper = (function() {
               sliceVisibilityThreshold: .001,
               colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
              };
-
+             ppDataView = convertChartColumntoString(cpData)
              var chart = new google.visualization.PieChart(document.getElementById('pp-pie-chart'));
-             chart.draw(ppData, options);
-
-          },
+             chart.draw(ppDataView, options);	
+         	},         	
           // PNL CHART FOR REPORT DASH
           drawPNLDashCharts: function(CY, PY, container) {
 
@@ -168,11 +168,15 @@ var graphHelper = (function() {
                         colors: ['#94CFD5', '#FF8C86'],
                   };
                   return options
-          },
-
+          },        
       };
-      // END OF RETURN
-})();
+      // END OF RETURN      
+})();      
 
-
-       
+var convertChartColumntoString = function(data_table){
+  // CONVERT FIRST COLUMN VALUE INTO STRING
+ var dataView = new google.visualization.DataView(data_table);
+ //Set the first column of the dataview to format as a string, and return the other column 1
+ dataView.setColumns([{calc: function(data, row) { return data.getFormattedValue(row, 0); }, type:'string'}, 1]);
+ return dataView
+}
