@@ -247,7 +247,7 @@ class ReportsController < ApplicationController
     end
 
     def create_sky_drive_folder
-     flash[:notice]="Your sky drive token has been expired.Please try again now."
+     flash[:notice]="Your sky drive token has been expired.  Please try again now."
      response = post_http_request_report(params)
      session[:sky_drive_token]="" if response.blank?      
      data = JSON.parse(response) unless response.blank?

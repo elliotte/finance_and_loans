@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127130317) do
+ActiveRecord::Schema.define(version: 20151217075034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20151127130317) do
     t.date     "current_end"
     t.date     "comparative_end"
     t.string   "drive_folder"
+    t.string   "skydrive_folder"
   end
 
   add_index "reports", ["user_id"], name: "index_reports_on_user_id", using: :btree
@@ -124,7 +125,6 @@ ActiveRecord::Schema.define(version: 20151127130317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
-    t.string   "provider"
     t.string   "uid"
     t.string   "refresh_token"
   end
