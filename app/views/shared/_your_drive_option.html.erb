@@ -1,0 +1,7 @@
+<% if session[:provider].include? "Office365" %>
+	 <li>
+	  <a href="https://onedrive.live.com/" target="_blank">yourDrive</a>
+	 </li>
+<%else%>
+  	<li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+<%end%>
