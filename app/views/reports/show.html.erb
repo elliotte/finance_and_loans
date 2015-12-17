@@ -8,7 +8,8 @@
 <h1><%= @report.title %> .build page </h1>
 
 <p style="color:white;">Summary: <%= @report.summary %></p>
-<a style="color:#fff; text-decoration:none;" href="<%= @report.drive_folder %>" target="_blank">View { Backup Folder }</a>
+<% link = (session[:provider].include?("Office365")? @report.skydrive_folder : @report.drive_folder)%>
+<a style="color:#fff; text-decoration:none;" href="<%= link %>" target="_blank">View { Backup Folder }</a>
 
 <a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a>
 
@@ -106,6 +107,6 @@
 
 <!-- USED FOR COMMENTS AND NOTES [ USES JS HANDLEBARS ] -->
 <%= render 'report_data_modals' %>
-
+<%= render 'layouts/modal_report_show'%>
 
 

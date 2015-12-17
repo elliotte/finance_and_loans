@@ -1,0 +1,116 @@
+<div class="modal">
+  <input class="modal-state" id="modal-report-show-empty" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <div class="modal-close" for="modal-report-empty"></div>
+        <div id="empty-report-modal-body">
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $(".modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+
+  $(".modal-inner").on("click", function(e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+<!-- Modal css to be removed-->
+<style type="text/css">
+.modal .modal-state:checked+.modal-fade-screen {
+    opacity: 1;
+    visibility: visible;
+}
+.modal .modal-fade-screen {
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.85);
+    opacity: 0;
+    padding-top: 0.6em;
+    text-align: left;
+    visibility: hidden;
+    z-index: 99999999999;
+}
+.modal .modal-inner {
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;
+    background: white;
+    border-radius: 3px;
+    margin-top: 0;
+    margin: auto;
+    max-height: 95%;
+    overflow: auto;
+    padding: 1.5em;
+    position: relative;
+    width: 95%;
+}
+.modal .modal-close {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    background: white;
+    cursor: pointer;
+}
+.modal .modal-close:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.modal .modal-close:after, .modal .modal-close:before {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    left: 50%;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 0.15em;
+    height: 1.5em;
+    background: #dddddd;
+    content: '';
+    display: block;
+    margin: -3px 0 0 -1px;
+}
+.modal .modal-close:after, .modal .modal-close:before {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    left: 50%;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 0.15em;
+    height: 1.5em;
+    background: #dddddd;
+    content: '';
+    display: block;
+    margin: -3px 0 0 -1px;
+}
+.modal .modal-fade-screen {
+    padding-top: 10em;
+}
+.modal .modal-inner {
+    width: 50%;
+}
+</style>

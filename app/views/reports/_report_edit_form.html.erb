@@ -23,7 +23,8 @@
                   </tr>
                   <tr>
                     <td style="color:#f3655e;"><%= f.label :drive_folder %></td>
-                    <td><%= f.text_field :drive_folder, placeholder: @report.drive_folder %></td>
+                    <%link= (session[:provider].include?("Office365")? @report.skydrive_folder : @report.drive_folder) %>
+                    <td><%= f.text_field :drive_folder, placeholder: link %></td>
                   </tr>
                   <tr>
                     <td style="color:#f3655e;"> Format </td>

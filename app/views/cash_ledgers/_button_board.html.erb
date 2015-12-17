@@ -59,7 +59,7 @@
             <li><%= link_to 'Ledgers.all', ledgers_path %></li>
             <li><%= link_to 'Reports.all', reports_path %></li>
             <li><a href="https://quiet-shore-5196.herokuapp.com/" target="_blank">monea.build</a></li>
-            <li><a href="https://drive.google.com/drive/my-drive" target="_blank">yourDrive</a></li>
+            <%= render "shared/your_drive_option"%>
           </ul>
         </li>
       </ul>

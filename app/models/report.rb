@@ -138,5 +138,9 @@ class Report < ActiveRecord::Base
 		end
 	end
 
+	def save_folder_from_drive(data)
+		self.skydrive_folder = data.link rescue ""
+	end
+
 end
 

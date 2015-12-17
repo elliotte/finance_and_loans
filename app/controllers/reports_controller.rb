@@ -15,8 +15,9 @@ class ReportsController < ApplicationController
 
     def create
       @report = current_user.reports.build(report_params)
+      response = create_sky_drive_folder if(session[:provider]=="Office365")  
+      redirect_to reports_path and return if response.blank?   
       if @report.save
-        create_sky_drive_folder if(session[:provider]=="Office365")
         flash[:notice] = "Successfully created Report"
         redirect_to report_path(@report)
       else
@@ -246,12 +247,12 @@ class ReportsController < ApplicationController
     end
 
     def create_sky_drive_folder
-      url = 'https://apis.live.net/v5.0/me/skydrive'
-     header={ 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{session[:sky_drive_token]}" } 
-     encoded = JSON.generate({name: params["report"]["title"]}  )
-     response = RestClient.post(url, encoded, header)
-     data = JSON.parse(response)
-     # Need to save folder into DB
+     flash[:notice]="Your sky drive token has been expired.Please try again now."
+     response = post_http_request_report(params)
+     session[:sky_drive_token]="" if response.blank?      
+     data = JSON.parse(response) unless response.blank?
+     @report.save_folder_from_drive(data)
+     response      
     end
 end
 

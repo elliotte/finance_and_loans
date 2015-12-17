@@ -47,6 +47,13 @@ module ApplicationHelper
     $sky_drive_client = Skydrive::Oauth::Client.new(ENV['SKY_DRIVE_CLIENT_ID'],ENV['SKY_DRIVE_SECRET'], redirect_url, scope)      
     $sky_drive_client.authorize_url
   end
+
+  def post_http_request_report(params)
+    url = 'https://apis.live.net/v5.0/me/skydrive'
+    header={ 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{session[:sky_drive_token]}" } 
+    encoded = JSON.generate({name: params["report"]["title"]}  )
+    response = RestClient.post(url, encoded, header) rescue ""
+  end
 end
 
  

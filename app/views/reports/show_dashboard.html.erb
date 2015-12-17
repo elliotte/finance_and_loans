@@ -17,7 +17,8 @@
       <article class="type-system-rounded">
         <h1><%= @report.title %> .dash Page </h1>
         <p style="color:white;">Summary: <%= @report.summary %></p>
-        <h3><a style="color:#fff; text-decoration:none;" href="<%= @report.drive_folder %>" target="_blank">View { Backup Folder }</a></h3>
+        <% link = (session[:provider].include?("Office365")? @report.skydrive_folder : @report.drive_folder)%>
+        <h3><a style="color:#fff; text-decoration:none;" href="<%= link %>" target="_blank">View { Backup Folder }</a></h3>
         <p style="color:white;"><a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a></p> 
       </article>
     </div>
