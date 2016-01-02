@@ -18,13 +18,15 @@ class Report < ActiveRecord::Base
 	accepts_nested_attributes_for :etb_values, :reject_if => lambda { |value| value[:amount].blank? }, allow_destroy: true
 
   	before_create { |report| report.format = 'Monthly' if report.format.blank? }
+  	
   	after_create :build_back_end
 	after_create :load_base_disclosure_blocks
 	
 	scope :last_four, -> {order('updated_at desc').first(4)}
 
 	def build_back_end
-		if session[:sky_drive_token].blank?
+		#TO strip out after_create
+		unless session[:provider].include? "Office365"
       		@google_service ||= GoogleService.new($client, $authorization)
       		folder_url = @google_service.create_user_report_folder(self.title)
       		self.drive_folder = folder_url
@@ -138,9 +140,11 @@ class Report < ActiveRecord::Base
 		end
 	end
 
-	def save_folder_from_drive(data)
-		self.skydrive_folder = data.link rescue ""
-	end
+	# OLD SKYDRIVE INTEGRATION
+
+	# def save_folder_from_drive(data)
+	# 	self.skydrive_folder = data.link rescue ""
+	# end
 
 end
 

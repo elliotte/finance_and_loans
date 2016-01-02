@@ -3,11 +3,10 @@ class ReportsController < ApplicationController
     before_action :set_report, only: [:view_etb, :show_dashboard, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
 
     def index
-      set_sky_drive_token(params[:code]) if((params.include? "code") && (session[:sky_drive_token].blank?))
-      redirect_to set_sky_drive_login and return if((session[:provider]=="Office365") && (session[:sky_drive_token].blank?))
+      #set_sky_drive_token(params[:code]) if((params.include? "code") && (session[:sky_drive_token].blank?))
+      #redirect_to set_sky_drive_login and return if((session[:provider]=="Office365") && (session[:sky_drive_token].blank?))
       @reports = current_user.reports
     end
-
     #CRUD routes
     def new
       @report = current_user.reports.new
@@ -15,8 +14,16 @@ class ReportsController < ApplicationController
 
     def create
       @report = current_user.reports.build(report_params)
-      response = create_sky_drive_folder if(session[:provider]=="Office365")  
-      redirect_to reports_path and return if response.blank?   
+        # ....to change to ( and remove after_create build_back_end )
+        
+        # cloud_url = @google_service.create_user_report_folder(self.title)
+        # unless cloud_url.include("error")
+        #   @report.folder_url = cloud_url
+        # else
+        #   cloud_url = "None Set"
+        #   @report.folder_url = cloud_url
+        # end
+
       if @report.save
         flash[:notice] = "Successfully created Report"
         redirect_to report_path(@report)
@@ -24,6 +31,8 @@ class ReportsController < ApplicationController
         flash[:notice] = "Something went wrong"
         render 'new'
       end
+      #response = create_sky_drive_folder if(session[:provider]=="Office365")  
+      #redirect_to reports_path and return if response.blank?   
     end
 
     def edit
@@ -242,19 +251,23 @@ class ReportsController < ApplicationController
       params.require(:value).permit(:mitag, :amount, :repdate, :ifrstag, :description)
     end
 
-    def set_sky_drive_token(code)
-      session[:sky_drive_token] = code
-      $sky_drive_client.get_access_token(code).token
-    end
+    # OLD SKY DRIVE CODE
 
-    def create_sky_drive_folder
-     flash[:notice]="Your sky drive token has been expired.  Please try again now."
-     response = post_http_request_report(params)
-     session[:sky_drive_token]="" if response.blank?      
-     data = JSON.parse(response) unless response.blank?
-     @report.save_folder_from_drive(data)
-     response      
-    end
+    # def set_sky_drive_token(code)
+    #   session[:sky_drive_token] = code
+    #   $sky_drive_client.get_access_token(code).token
+    # end
+
+    # def create_sky_drive_folder
+    #  flash[:notice]="Your sky drive token has been expired.  Please try again now."
+    #  response = post_http_request_report(params)
+    #  session[:sky_drive_token]="" if response.blank?      
+    #  data = JSON.parse(response) unless response.blank?
+    #  @report.save_folder_from_drive(data)
+    #  response      
+    # end
+
+
 end
 
 

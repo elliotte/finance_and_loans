@@ -2,10 +2,12 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
   before_filter :verify_token
+
+  #To strip out.. HeavyCode for Memory
   before_filter :_set_current_session
   
   include ApplicationHelper
-  
+
   $authorization = Signet::OAuth2::Client.new(
       :authorization_uri => ENV['AUTH_URI'],
       :token_credential_uri => ENV['TOKEN_URI'],
@@ -13,7 +15,7 @@ class ApplicationController < ActionController::Base
       :client_secret => ENV['CLIENT_SECRET'],
       :redirect_uri => ENV['REDIRECT_URIS'],
       :scope => ENV['PLUS_LOGIN_SCOPE'])
-  $client = Google::APIClient.new(:application_name => 'monea.build',
+  $client = Google::APIClient.new(:application_name => 'ProfitBees',
                               :application_version => '1.0.0')
 
   def verify_token
@@ -44,6 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
   def _set_current_session
     # Define an accessor. The session is always in the current controller
     # instance in @_request.session. So we need a way to access this in

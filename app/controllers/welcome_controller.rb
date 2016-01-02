@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
   # THIS IS MASTER TEXT FOR DB ENTRY AND SESSION LOOKUP NOT CAPITALISED O"
   $O365_provider_ID = "Office365"
 
+  include WelcomeHelper
+
   def index
     # CHECK IF WINDOWS USER SIGNED IN
     if session[:provider] && session[:provider] == $O365_provider_ID

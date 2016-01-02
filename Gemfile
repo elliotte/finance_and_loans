@@ -75,8 +75,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'oauth2'
-gem 'skydrive'
-gem 'rest-client'
+# OLD OneDrive GEMS
+# gem 'skydrive'
+# gem 'rest-client'
 
 
 
