@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base
   $client = Google::APIClient.new(:application_name => 'ProfitBees',
                               :application_version => '1.0.0')
 
+  # THIS IS MASTER TEXT FOR DB ENTRY AND SESSION LOOKUP NOT CAPITALISED O"
+  $O365_provider_ID = "Office365"
+
   def verify_token
     # Check for stored credentials in the current user's session.
     if !session[:token]

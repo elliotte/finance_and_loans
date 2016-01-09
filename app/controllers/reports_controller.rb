@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
       @report = current_user.reports.build(report_params)
         # ....to change to ( and remove after_create build_back_end )
         
+        # unless session[:provider].include? "Office365"
         # cloud_url = @google_service.create_user_report_folder(self.title)
         # unless cloud_url.include("error")
         #   @report.folder_url = cloud_url

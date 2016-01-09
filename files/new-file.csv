@@ -1,2 +1,11 @@
-ledger_id,id,type,amount,monea_tag,mi_tag,created_at,updated_at,description,currency,acc_date,vat,invoice_file_link,paid
-65,2898,Transaction,10.01,,,2015-10-30 11:51:34 UTC,2015-10-30 11:51:34 UTC,,,2015-10-29,0.0,,false
+Values,Exported from monea.build
+374,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+375,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+376,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+377,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+378,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+379,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+380,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+381,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+382,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+383,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,

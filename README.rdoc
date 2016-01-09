@@ -17,6 +17,33 @@ googleCharts [ material charts ] threw error and bug on display of more than one
 
 ==
 
+Gourav to insert developer overview of landing page, welcome controller and signin process..
+
+e.g.  written by Mark..
+
+A user landing on the root url welcome#index is filtered by
+
+ - new user
+ - Windows user
+ - previously logged in ( state )
+ - previously logged in ( provider )
+
+welcome#index controller redirects if already signed in 0365 user..
+
+welcome#index view Javascript redirects following G+ API connect..
+
+A O365 API sign-in url is passed to the unauth landing page
+@state is passed to the view for GoogleAPI integration using JS
+
+Signing in Google..
+ - if user not signed in.. clicks button to fire API endpoint auth and signing in using xx callback.. 
+
+Signing in O365..
+
+==
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

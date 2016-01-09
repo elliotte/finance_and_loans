@@ -4,8 +4,8 @@ describe ReportsController do
 
   describe "main routes" do
 
-
     before do
+      ApplicationController.any_instance.stub(:verify_token)
       Report.any_instance.stub(:build_back_end)
       #User.any_instance.stub(:load_welcome_packs)
       @current_user = FactoryGirl.create(:user)

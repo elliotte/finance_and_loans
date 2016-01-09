@@ -1,8 +1,6 @@
 class WelcomeController < ApplicationController
 
   skip_before_filter :verify_token, except: [:disconnect, :sign_out_user, :auth_landing]
-  # THIS IS MASTER TEXT FOR DB ENTRY AND SESSION LOOKUP NOT CAPITALISED O"
-  $O365_provider_ID = "Office365"
 
   include WelcomeHelper
 
