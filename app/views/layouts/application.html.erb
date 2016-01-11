@@ -7,13 +7,13 @@
     <meta name="description" content="ProfitBees, user friendly business first web-software specialising in business reporting and micro Business ledger management.">
     <meta name="keywords" content="business, accounting, reporting, intelligence, engineering, MVP, finance, bookkeeping, tax">
     
-    <%= favicon_link_tag 'monea_pink.ico' %>
-    <link rel="apple-touch-icon" href="<%= asset_path('monea_pink.ico') %>">
+    <%= favicon_link_tag 'pb-img.ico' %>
+    
+    <link rel="apple-touch-icon" href="<%= asset_path('pb-img.ico') %>">
     <link rel="canonical" href="http://www.profitbees.com" />
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
-
 
     <%= csrf_meta_tags %>
   </head>
@@ -28,7 +28,7 @@
             <p>EmptyModal</p>
           </section>
           <!-- CLOSE ICON FOR MODAL -->
-          <img id="modal-close-icon" src="https://www.erasmusgathering.com/budapest/images/Icon-pink-home.png">
+          <img id="modal-close-icon" src="<%= asset_path('close-icon.png') %>">
       </div>
 
       <%= yield %>

@@ -1,0 +1,68 @@
+		
+		<% if @reports.count == 0 %>
+
+			<div class="hives-box fade-in-element nice-display">
+				<div class="hb-container">
+					<aside>
+						<%= image_tag('pb-logo.png') %>
+						<p>BoardPacks</p>
+					</aside>
+					<aside class="box-hover">
+						<p class="author">No Board Packs</p>
+					</aside>
+					<aside class="box-hover">
+						<p class="date">Start Working</p>
+					</aside>
+					<aside class="last-box">
+						  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
+					</aside>
+				</div>
+			</div>
+
+		<% elsif  @reports.count == 1 %>
+
+			<div class="hives-box fade-in-element nice-display">
+				<div class="hb-container">
+					<aside>
+						<%= image_tag('pb-logo.png') %>
+						<p>BoardPacks</p>
+					</aside>
+					<aside class="box-hover">
+						<% @report = @reports.first %>
+						<%= render "shared/board_pack_display_card" %>
+					</aside>
+					<aside class="box-hover">
+						<p class="date">Create more</p>
+					</aside>
+					<aside class="last-box">
+						  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
+					</aside>
+				</div>
+			</div>
+
+		<% else %>
+
+			<div class="hives-box fade-in-element nice-display">
+				<div class="hb-container">
+					<aside>
+						<%= image_tag('pb-logo.png') %>
+						<p>BoardPacks</p>
+					</aside>
+					<aside class="box-hover">
+						
+						<% @report = @reports.last %>
+						<%= render "shared/board_pack_display_card" %>
+
+					</aside>
+					<aside class="box-hover">
+						<% @report = @reports.first %>
+						<%= render "shared/board_pack_display_card" %>
+
+					</aside>
+					<aside class="last-box">
+						  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
+					</aside>
+				</div>
+			</div>
+
+		<% end %>

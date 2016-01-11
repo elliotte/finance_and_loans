@@ -53,7 +53,9 @@ class WelcomeController < ApplicationController
     end    
   end
 
-  def auth_landing;  end
+  def auth_landing
+    @reports = current_user.reports.last(2)
+  end
 
   def sign_out_user
     reset_session

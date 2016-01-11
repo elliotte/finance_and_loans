@@ -1,0 +1,13 @@
+<a href="<%= report_path(@report) %>">
+
+	 <!--  <p class="type"><%#= @report.format %></p> -->
+
+	  <p><span><%= truncate(@report.title, length: 40) %></span></p>
+
+	  <p class="date">Last updated: 
+	  	<%= time_ago_in_words(@report.updated_at) %> ago
+	  </p>
+
+	  <p class="author"><%= User.find(@report.user_id).email %> </p>
+
+</a>

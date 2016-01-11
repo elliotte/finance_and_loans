@@ -4,14 +4,13 @@
 <%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
 <%= render partial: 'button_board', locals: {report: @report} %>
 
-
 <h1><%= @report.title %> .build page </h1>
 
 <p style="color:white;">Summary: <%= @report.summary %></p>
 <% link = (session[:provider].include?("Office365")? @report.skydrive_folder : @report.drive_folder)%>
 <a style="color:#fff; text-decoration:none;" href="<%= link %>" target="_blank">View { Backup Folder }</a>
 
-<a style="color:#fff; text-decoration:none;" href="<%= %>" target="_blank"> View { Helper Instructions }</a>
+<a style="color:#fff; text-decoration:none;" href="javascript:void(0)" target="_blank"> View { Helper Instructions }</a>
 
 <h1><%= @report.format %></h1>
 

@@ -16,7 +16,12 @@
 
 </header>
 
+<div class="with-container-padding">
+	<img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
+</div>
+
  <% path = request.fullpath %>
+ 
  <% if request.fullpath == "/" %>
  <% end%>
 
@@ -44,11 +49,15 @@
 <section class="layout-container">
 	<article class="type-system-slab">
 	<!-- FONT ARTICLE WRAPPER -->
-		<div class="hives-box fade-in-element nice-display">
+
+		<%= render 'boardPacks' %>
+
+		<!-- CashFlows, Projections DISPLAY -->
+		<div class="hives-box fade-in-element">
 			<div class="hb-container">
 				<aside>
-					<%= image_tag('settings-button.png') %>
-					<p>BoardPacks</p>
+					<%= image_tag('pb-logo.png') %>
+					<p>Cashflows, Projections</p>
 				</aside>
 				<aside class="box-hover">
 					<p><span><%= truncate("ProfitBees Cash Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
@@ -65,11 +74,27 @@
 				</aside>
 			</div>
 		</div>
+		<!-- microBooks DISPLAY -->
 		<div class="hives-box fade-in-element">
-			<p>Hello</p>
-		</div>
-		<div class="hives-box fade-in-element">
-			<p>Hello</p>
+			<div class="hb-container">
+				<aside>
+					<%= image_tag('pb-logo.png') %>
+					<p>MicroBooks</p>
+				</aside>
+				<aside class="box-hover">
+					<p><span><%= truncate("ProfitBees Cash Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
+					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
+					<p class="author">OwnerName</p>
+				</aside>
+				<aside class="box-hover">
+					<p><span><%= truncate("ProfitBees Data Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
+					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
+					<p class="author">OwnerName</p>
+				</aside>
+				<aside class="last-box">
+					  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
+				</aside>
+			</div>
 		</div>
 	</article>
 </section>

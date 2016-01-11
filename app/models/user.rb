@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
 
   	def load_welcome_packs
       begin
-        load_welcome_ledgers
+        #load_welcome_ledgers
   		  load_welcome_reports
-        load_welcome_sales
+        #load_welcome_sales
       rescue
         # so no error and continues logic.. hacky
         true
