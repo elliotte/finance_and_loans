@@ -1,0 +1,111 @@
+<%= javascript_include_tag 'reports' %>
+<%= javascript_include_tag 'reportsShow' %>
+
+<%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
+<%#= render partial: 'button_board', locals: {report: @report} %>
+
+<h1><%= @report.title %> .build page </h1>
+
+<p style="color:white;">Summary: <%= @report.summary %></p>
+<% link = (session[:provider].include?("Office365")? @report.skydrive_folder : @report.drive_folder)%>
+<a style="color:#fff; text-decoration:none;" href="<%= link %>" target="_blank">View { Backup Folder }</a>
+
+<a style="color:#fff; text-decoration:none;" href="javascript:void(0)" target="_blank"> View { Helper Instructions }</a>
+
+<h1><%= @report.format %></h1>
+
+<% cp_date = @report.current_end.strftime("%B %Y") %>
+<h1><%= cp_date %></h1>
+ 
+<% pp_date = @report.comparative_end.strftime("%B %Y") %>
+<h1><%= pp_date %></h1>
+
+<!-- START OF TRANSACTIONS CHARTS -->
+      <div class="transaction-summary-cash-show">
+        <div>
+          <div id="cp-pie-chart" style="width:100%;"></div>
+        </div>
+         <div>
+          <div id="pp-pie-chart" style="width:100%;"></div>
+        </div>
+      </div>
+
+<%= render partial: 'show_values_pivot_summary' %>
+
+<a href="javascript:void(0)" class="grid-item" onclick="$('#report-notes-modal').trigger('click');">
+  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+  <h1>Notes.all</h1>
+  <p style="color:#f3655e;"  >View</p>
+</a>
+<a href="javascript:void(0)" class="grid-item" onclick="$('#report-comments-modal').trigger('click');">
+  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+  <h1>Comments.all</h1>
+  <p style="color:#f3655e;">View</p>
+</a>
+<a href="<%= manager_report_disclosures_path(@report) %>" class="grid-item">
+  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+
+  <h1>Disclosures.all</h1>
+  <p style="color:#f3655e;">GoTo</p>
+</a>
+
+
+<article class="type-system-rounded disclosures-section">
+      <% @report.disclosures.each do |disclosure| %>
+          <%= render partial: 'report_disclosures', locals: { disclosure: disclosure } %>
+      <% end %>
+</article>
+
+<% @data[:c_period_values].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="tb_<%= v.mitag.gsub(" ", "-") %> value-lookup"
+        data-period="current"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:p_period_values].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="tb_<%= v.mitag.gsub(" ", "-") %> value-lookup"
+        data-period="comparative"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:c_period_values_etb].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="etb_<%= v.mitag.gsub(/[^A-Z0-9]+/i, '') %>"
+        data-period="current"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:p_period_values_etb].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="etb_<%= v.mitag.gsub(/[^A-Z0-9]+/i, '') %>"
+        data-period="comparative"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<!-- USED FOR COMMENTS AND NOTES [ USES JS HANDLEBARS ] -->
+<%= render 'report_data_modals' %>
+<%= render 'layouts/modal_report_show'%>
+
+

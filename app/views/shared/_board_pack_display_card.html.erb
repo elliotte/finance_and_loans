@@ -8,6 +8,6 @@
 	  	<%= time_ago_in_words(@report.updated_at) %> ago
 	  </p>
 
-	  <p class="author"><%= User.find(@report.user_id).email %> </p>
+	  <p class="author">Current: <%= @report.current_end.end_of_month.strftime('%d - %b') %> </p>
 
 </a>
