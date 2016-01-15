@@ -12,10 +12,24 @@ body {
   background-color: lighten($body-bg-color, 5);
 }
 
-img#new-work-icon {
-  @include position(fixed, null ($modal-padding / 2 ) ($modal-padding /2) null);
-  @include size(2.5em);
-  cursor: pointer;
+.slider-action-bar {
+    @include position(fixed, null ($modal-padding / 2 ) ($modal-padding /2) null);
+    /*background-color: yellow;*/
+    display: inline-block;
+    img {
+      @include size(2.5em);
+      cursor: pointer;
+      margin-right: 0.5em;
+    }
+    z-index: 99999;
+   
+}
+/*FOR BUTTONS TO APPEND*/
+#hidden-buttons-for-bar {
+    img {
+      display: none;
+      @include size(2.5em);
+    }
 }
 
 .top-nav {

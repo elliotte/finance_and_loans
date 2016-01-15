@@ -1,4 +1,5 @@
 <%= javascript_include_tag 'boardPacks' %>
+<%= javascript_include_tag 'reports' %>
 
 <article class="type-system-slab">
 
@@ -30,71 +31,219 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-
         <div class="scroll-on-page">
-          <aside id="scroll-on-page-top">
-            <a class="scroll-on-page-link" href="#scroll-link-1">First Scroll Link</a>
-            <a class="scroll-on-page-link" href="#scroll-link-2">Second Link</a>
-            <a class="scroll-on-page-link" href="#scroll-link-3">Last Link</a>
-          </aside>
+              <aside id="scroll-on-page-top">
+                <a class="scroll-on-page-link" href="#insights">Insights</a>
+                <a class="scroll-on-page-link" href="#notes">Notes</a>
+                <a class="scroll-on-page-link" href="#comments">Comments</a>
+              </aside>
+              <article>
+                  <section>
+                    <h4 id="insights">Insights</h4>
+                    <br>
+                    <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                          <div class="comment">
+                                <div class="comment-image">
+                                  <img src="<%= asset_path('ico4b.png') %>">
+                                </div>
+                                <div class="comment-content">
+                                  <h1>First Comment Title or Author</h1>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                  <p class="comment-detail">Date or details about this post</p>
+                                </div>
+                          </div>
+                  </section>
+                  <section>
+                    <h4 id="notes">Notes</h4>
+                    <br>
+                     <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                          <div class="comment">
+                                <div class="comment-image">
+                                  <img src="<%= asset_path('pb-logo.png') %>">
+                                </div>
+                                <div class="comment-content">
+                                  <h1>First Comment Title or Author</h1>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                  <p class="comment-detail">Date or details about this post</p>
+                                </div>
+                          </div>
 
-          <article>
-            <section>
-              <h4 id="scroll-link-1">First Target</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?</p>
-            </section>
-            <section>
-              <h4 id="scroll-link-2">Second Target</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?</p>
-            </section>
-            <section>
-              <h4 id="scroll-link-3">Last Target</h4>
-              <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?</p>
-              <a class="scroll-on-page-link" href="#scroll-on-page-top">Back to top</a>
-            </section>
-          </article>
-        </div>
-
+                  </section>
+                  <section>
+                          <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                          <h4 id="comments">Comments</h4>
+                          <br>
+                          <div class="comment">
+                                <div class="comment-image">
+                                  <img src="<%= asset_path('pb-logo.png') %>">
+                                </div>
+                                <div class="comment-content">
+                                  <h1>First Comment Title or Author</h1>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                  <p class="comment-detail">Date or details about this post</p>
+                                </div>
+                          </div>
+                    </section>
+                </article>
+                <!-- WRAPPER ARTICLE -->
+          </div>
+          <!-- END OF SCROLL -->
     </article>
 </section>
+
 
 <section class="layout-container">
   <article class="type-system-slab">
       <div class="graph-container">
-
+          <aside>
+            <a href="javascript:void(0);">
+              <img src="<%= asset_path('bar-chart-button.png') %>">
+            </a>
+          </aside>
+          <div id="cp-pie-chart"></div>
+          <div id="pp-pie-chart"></div>
 
       </div>
-      <ul class="accordion-tabs-minimal">
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link is-active">Tab Item</a>
-          <div class="tab-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat. Fusce adipiscing, mauris quis congue tincidunt, sapien purus suscipit odio, quis dictum odio tortor in sem. Ut sit amet libero nec orci mattis fringilla. Praesent eu ipsum in sapien tincidunt molestie sed ut magna. Nam accumsan dui at orci rhoncus pharetra tincidunt elit ullamcorper. Sed ac mauris ipsum. Nullam imperdiet sapien id purus pretium id aliquam mi ullamcorper.</p>
-          </div>
-        </li>
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link">Another Tab</a>
-          <div class="tab-content">
-            <p>Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum lacus quis metus condimentum ac accumsan orci vulputate. Aenean fringilla massa vitae metus facilisis congue. Morbi placerat eros ac sapien semper pulvinar. Vestibulum facilisis, ligula a molestie venenatis, metus justo ullamcorper ipsum, congue aliquet dolor tortor eu neque. Sed imperdiet, nibh ut vestibulum tempor, nibh dui volutpat lacus, vel gravida magna justo sit amet quam. Quisque tincidunt ligula at nisl imperdiet sagittis. Morbi rutrum tempor arcu, non ultrices sem semper a. Aliquam quis sem mi.</p>
-          </div>
-        </li>
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link">Third</a>
-          <div class="tab-content">
-            <p>Donec mattis mauris gravida metus laoreet non rutrum sem viverra. Aenean nibh libero, viverra vel vestibulum in, porttitor ut sapien. Phasellus tempor lorem id justo ornare tincidunt. Nulla faucibus, purus eu placerat fermentum, velit mi iaculis nunc, bibendum tincidunt ipsum justo eu mauris. Nulla facilisi. Vestibulum vel lectus ac purus tempus suscipit nec sit amet eros. Nullam fringilla, enim eu lobortis dapibus, quam magna tincidunt nibh, sit amet imperdiet dolor justo congue turpis.</p>    
-          </div>
-        </li>
-        <li class="tab-header-and-content">
-          <a href="#" class="tab-link">Last Item</a>
-          <div class="tab-content">
-            <p>Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dui urna.</p>
-          </div>
-        </li>
-      </ul>
-
-   </article>
+    </article>
 </section>
 
+
+<section class="layout-container">
+  <article class="type-system-slab">
+        
+        <ul class="accordion">
+           <li>
+            <a href="javascript:void(0)" class="js-accordion-trigger">Data by description</a>
+            <ul class="submenu">
+              <li>
+                <a href="javascript:void(0)">Current Year</a>
+                   <table id="" class="table-minimal">
+                    <thead>
+                      <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>£</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                          <% data = @data[:description][:cp] %>
+                                <% data.each_pair do | key, amount | %>
+                                    <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                                    <% if !key %>
+                                      <tr>
+                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                          <td>Oops - check values</td>
+                                          <td>Oops</td>
+                                      </tr>
+                                    <% else %>
+                                        <tr>
+                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                          <td><%= key %></td>
+                                          <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
+                                        </tr>
+                                    <% end %>
+                          <% end %>
+
+                      </tbody>
+                  </table>
+              </li>
+              <li>
+                <a href="javascript:void(0)">Prior Year</a>
+
+                   <table id="" class="table-minimal">
+                    <thead>
+                      <tr style="color:#94CFD5;">
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>£</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                          <% data = @data[:description][:pp] %>
+                          <% data.each_pair do | key, amount | %>
+                                    <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                                    <% if !key %>
+                                      <tr>
+                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                          <td>Oops - check values</td>
+                                          <td>Oops</td>
+                                      </tr>
+                                    <% else %>
+                                        <tr>
+                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                          <td><%= key %></td>
+                                          <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
+                                        </tr>
+                                    <% end %>
+                          <% end %>
+
+                      </tbody>
+                  </table>
+
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="js-accordion-trigger">Graph Data</a>
+            <ul class="submenu">
+              <li>
+                <a href="javascript:void(0)">Current Year</a>
+                      <table class="table-minimal">
+                              <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>your Tag</th>
+                                  <th>Amount</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <!-- FOR PIE CHARTs DATA ANALYSIS -->
+                                  <% data = @data[:mitag_summary][:cp] %>
+                                  <% data.each_pair do | key, amount | %>
+                                        <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                                        <tr class="cy-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
+                                          <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                                          <td><%= key %></td>
+                                          <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                        </tr>
+                                  <% end %>
+                              </tbody>
+                      </table>
+              </li>
+              <li>
+                <a href="javascript:void(0)">Prior year</a>
+
+                      <table class="table-minimal">
+                              <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>your Tag</th>
+                                  <th>Amount</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                    <!-- FOR PIE CHARTs DATA ANALYSIS -->
+                                    <% data = @data[:mitag_summary][:pp] %>
+                                    <% data.each_pair do | key, amount | %>
+                                          <tr class="pp-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
+                                            <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                                            <td><%= key %></td>
+                                            <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                          </tr>
+                                    <% end %>
+                              </tbody>
+                      </table>
+              </li>
+            </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
+          <!-- END OF GRAPH DATA -->
+        </ul>
+        <!-- END OF ACCORDIAN CONTAINRE -->
+    </article>
+</section>
 
 
 <section class="layout-container">
@@ -103,42 +252,72 @@
         <div class="grid-items">
           <a href="javascript:void(0)" class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-            <h1>Grid Item</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          </a>
-          <a href="javascript:void(0)" class="grid-item grid-item-big grid-item-image">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-            <h1>Grid Item With an Image</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
-          </a>
-          <a href="javascript:void(0)" class="grid-item grid-item-big">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-            <h1>Another Wide Item</h1>
-            <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
-          </a>
-          <a href="javascript:void(0)" class="grid-item">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-            <h1>Last Grid Item</h1>
+            <h1>User Share</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           </a>
           <a href="javascript:void(0)" class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-            <h1>Last Grid Item</h1>
+            <h1>Export New</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          </a>
+          <a href="javascript:void(0)" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Values Manager</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          </a>
+          <a href="javascript:void(0)" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Notes Manager</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           </a>
           <a href="javascript:void(0)" class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-            <h1>A Grid Item</h1>
+            <h1>Disclosure Manager</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           </a>
           <a href="javascript:void(0)" class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-            <h1>Item</h1>
+            <h1>Comments Manager</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           </a>
         </div>
 
     </article>
+</section>
+
+
+<section class="layout-container">
+  <article class="type-system-slab">
+      <ul class="accordion-tabs-minimal">
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link is-active">Global</a>
+          <div class="tab-content">
+                  <% @report.disclosures.each do |disclosure| %>
+                      <%= render partial: 'report_disclosures', locals: { disclosure: disclosure } %>
+                  <% end %>
+          </div>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Directors</a>
+          <div class="tab-content">
+            <p>Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum lacus quis metus condimentum ac accumsan orci vulputate. Aenean fringilla massa vitae metus facilisis congue. Morbi placerat eros ac sapien semper pulvinar. Vestibulum facilisis, ligula a molestie venenatis, metus justo ullamcorper ipsum, congue aliquet dolor tortor eu neque. Sed imperdiet, nibh ut vestibulum tempor, nibh dui volutpat lacus, vel gravida magna justo sit amet quam. Quisque tincidunt ligula at nisl imperdiet sagittis. Morbi rutrum tempor arcu, non ultrices sem semper a. Aliquam quis sem mi.</p>
+          </div>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Profit and Loss</a>
+          <div class="tab-content">
+            <p>Donec mattis mauris gravida metus laoreet non rutrum sem viverra. Aenean nibh libero, viverra vel vestibulum in, porttitor ut sapien. Phasellus tempor lorem id justo ornare tincidunt. Nulla faucibus, purus eu placerat fermentum, velit mi iaculis nunc, bibendum tincidunt ipsum justo eu mauris. Nulla facilisi. Vestibulum vel lectus ac purus tempus suscipit nec sit amet eros. Nullam fringilla, enim eu lobortis dapibus, quam magna tincidunt nibh, sit amet imperdiet dolor justo congue turpis.</p>    
+          </div>
+        </li>
+        <li class="tab-header-and-content">
+          <a href="#" class="tab-link">Balance Sheet</a>
+          <div class="tab-content">
+            <p>Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dui urna.</p>
+          </div>
+        </li>
+      </ul>
+
+   </article>
 </section>
 
 

@@ -26,7 +26,8 @@ class Report < ActiveRecord::Base
 
 	def build_back_end
 		#TO strip out after_create
-		unless session[:provider].include? "Office365"
+		user = User.find(self.user_id)
+		unless user.uid.include? "Office365"
       		@google_service ||= GoogleService.new($client, $authorization)
       		folder_url = @google_service.create_user_report_folder(self.title)
       		self.drive_folder = folder_url

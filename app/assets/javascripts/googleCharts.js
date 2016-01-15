@@ -61,7 +61,7 @@ var graphHelper = (function() {
              
              var cpData = google.visualization.arrayToDataTable(data["cp"]);
              var options = {
-              title: 'Current values by your tag',
+              title: 'Current Period',
               is3D: true,
               legend: {position: "none" },
               slices: {  4: {offset: 0.2},
@@ -80,7 +80,7 @@ var graphHelper = (function() {
 
              var ppData = google.visualization.arrayToDataTable(data["pp"]);
              var options = {
-              title: 'Prior values by your tag',
+              title: 'Prior Period',
               is3D: true,
               legend: {position: "none" },
               slices: {  4: {offset: 0.2},

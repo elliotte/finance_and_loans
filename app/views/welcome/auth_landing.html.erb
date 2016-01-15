@@ -16,7 +16,11 @@
 
 </header>
 
-<img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
+<div class="slider-action-bar">
+	<img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
+
+	
+</div>
 
  <% path = request.fullpath %>
  
@@ -112,19 +116,54 @@
 </article>
 
 
+
+
+
+
+<aside id="hidden-buttons-for-bar"> 
+	<img src="<%= asset_path('rss-footer.png') %>">
+	<img src="<%= asset_path('bar-chart-button.png') %>">
+</aside>
+
+
+
 <script>
 
 	  $(document).ready(function(){
-		  $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
-		    $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
-		    e.preventDefault();
-		  });
-		  $('#disconnect').on('click', function(e) {
-	          e.preventDefault();
-	          helper.disconnectUser()
-	          helper.disconnectServer();
-	          window.location.href = "/"
-	       });
+		  
+			  $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
+			    $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+			    e.preventDefault();
+			  });
+
+			  $('#disconnect').on('click', function(e) {
+		          e.preventDefault();
+		          helper.disconnectUser()
+		          helper.disconnectServer();
+		          window.location.href = "/"
+		      });
+
+			  $('#new-work-icon').click(function(){
+					slideBar = 	$( ".slider-action-bar" )
+					if (slideBar.width() > 70 ) {
+						// HIDE BAR
+					   slideBar.animate({ width: "40" }, 1000 )
+					   slideBar.children('img').slice(1).fadeOut();
+					   slideBar.children('img').slice(1).remove();
+
+					} else {
+					   // OPEN BAR
+					    slideBar.animate({ width: "20%" }, {
+					    	duration: 1000,
+					    	complete: function() {
+					    	  actionButtons = $('#hidden-buttons-for-bar').children('img').clone();
+					          slideBar.append(actionButtons);
+					    	}
+					    });
+					}
+					// END OF IF
+			   });
+
 	  });
 
 	  $(window).scroll(function() {
