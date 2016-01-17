@@ -45,7 +45,7 @@ $(document).on('page:load ready', function() {
                    anchor = $(this).data('anchor')
                    var top = $('#' + anchor).offset().top - 50
                    $('html, body').animate({ scrollTop: top }, 1500)
-                 });
+         });
 
          $('.values_breakdown').on('click', function(){
              range = $(this).attr('data-period')

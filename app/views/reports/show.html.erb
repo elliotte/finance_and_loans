@@ -1,30 +1,20 @@
 <%= javascript_include_tag 'boardPacks' %>
 <%= javascript_include_tag 'reports' %>
 
+<%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
+
 <article class="type-system-slab">
-
     <header class="show-nav" role="banner">
-       
        <div>  
-
-          <p>Back</p>
-
+          <p><%= link_to 'Back', url_for(:back) %></p>
        </div> 
-
        <div>  
-
           <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
-
        </div>  
-
        <div>  
-
-          <p>Financials</p>
-
+          <p><%= link_to 'Financials', show_dashboard_report_path(@report, params) %></p>
        </div> 
-
     </header>
-
 </article>
 
 <img id="add-info-bp" src="<%= asset_path('new-work-icon.png') %>">
@@ -320,8 +310,3 @@
    </article>
 </section>
 
-
-<%#= javascript_include_tag 'reports' %>
-<%#= javascript_include_tag 'reportsShow' %>
-
-<%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
