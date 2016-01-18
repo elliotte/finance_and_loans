@@ -1,0 +1,114 @@
+// SCROLL AND ACCORD JS         
+(function (jQuery) {
+  jQuery.mark = {
+    jump: function (options) {
+      var defaults = {
+        selector: 'a.scroll-on-page-link'
+      };
+      if (typeof options == 'string') {
+        defaults.selector = options;
+      }
+      options = jQuery.extend(defaults, options);
+      return jQuery(options.selector).click(function (e) {
+        var jumpobj = jQuery(this);
+        var target = jumpobj.attr('href');
+        var thespeed = 1000;
+        var offset = jQuery(target).offset().top;
+        jQuery('html,body').animate({
+          scrollTop: offset
+        }, thespeed, 'swing');
+        e.preventDefault();
+      });
+    }
+  };
+})(jQuery);
+
+var ready;
+
+ready = function() {
+
+         // Cache Graph data FROM DOM
+         var dashData = ifrsDashShow.loadData();
+         // LOAD MARGIN STATISTICS
+         ifrsDashShow.loadStats();
+         format = $('#dash-report-format').data('value')
+         subtitleText = 'Using '+ format +' classifications';
+         // DRAW GOOGLE CHARTS DASH SHOW
+         //PNL
+         try {
+            var CY = dashData.cy
+            var PY = dashData.py
+            graphHelper.drawPNLDashCharts(CY,PY, document.getElementById("income-statement-graph"));
+         } catch (e) {
+            console.log(e); // pass exception object to error handler
+         }
+         //Assets
+         try {
+           var CY = dashData.cy.assets
+           var PY = dashData.py.assets
+           graphHelper.drawBSAssetChart(CY,PY, "Company assets", document.getElementById("assets-graph") );
+         } catch (e) {
+           console.log(e); // pass exception object to error handler
+         }
+         //LIABSs
+         try {
+           var CY = dashData.cy.liabs
+           var PY = dashData.py.liabs
+           graphHelper.drawBSLiabChart(CY,PY, "Company liabilities", document.getElementById("liabs-graph") );
+         } catch (e) {
+           console.log(e); // pass exception object to error handler
+         }
+        // UI LISTENERS
+        // SCROLL UI
+        jQuery(function(){  
+          jQuery.mark.jump();
+        });
+        // ACCORD DROPDOWN UI
+        $('.accordion-tabs-minimal').each(function(index) {
+          $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+        });
+        $('.accordion-tabs-minimal').on('click', 'li > a.tab-link', function(event) {
+          if (!$(this).hasClass('is-active')) {
+            event.preventDefault();
+            var accordionTabs = $(this).closest('.accordion-tabs-minimal');
+            accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+            $(this).next().toggleClass('is-open').toggle();
+            accordionTabs.find('.is-active').removeClass('is-active');
+            $(this).addClass('is-active');
+          } else {
+            event.preventDefault();
+          }
+        });
+        $('.js-accordion-trigger').bind('click', function(e){
+          jQuery(this).parent().find('.submenu').slideToggle('fast');  // apply the toggle to the ul
+          jQuery(this).parent().toggleClass('is-expanded');
+          e.preventDefault();
+         });
+         // DATA LISTENERS
+         // FETCH DATA LISTENERS 
+         $('.values_breakdown').on('click', function(){
+             range = $(this).attr('data-period')
+             lineTag = $(this).attr('data-ifrstag')
+             summary = $(this).data('summary-line')
+             if (summary) {
+                summaryTag = $(this).data('summary-tag')
+                _data = {"ifrstag" : lineTag, "period" : range, "summary" : summaryTag }
+              } else {
+                _data = {"ifrstag" : lineTag, "period" : range }
+             }
+             $.ajax({
+                url: '/reports/' + $('#report-id').val() + '/get_breakdown_values',
+                dataType: 'SCRIPT',
+                type: 'GET',
+                data: _data
+             })
+         })
+         // END OF DATA LISTENERS
+};
+// END OF READY
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+  
+
