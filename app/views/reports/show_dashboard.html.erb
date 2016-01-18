@@ -2,8 +2,8 @@
 <% $report_format = @report.format %>
 
 <% @retained_earnings = {} %>
-<% cp = @report.current_end.strftime("%B %Y") %>
-<% pp = @report.comparative_end.strftime("%B %Y") %>
+<% $cp = @report.current_end.strftime("%B %Y") %>
+<% $pp = @report.comparative_end.strftime("%B %Y") %>
 
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
@@ -21,24 +21,7 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-        <h2 style="color:#FB7D98;">Business Performance Analysis</h2> 
-        <br>
-        <div class="dropdown">
-            <div class="dropdown-container">
-              <p class="dropdown-description">View PnL</p>
-              <p class="dropdown-button">Choose</p>
-              <ul class="dropdown-menu dropdown-select">
-                <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
-                <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
-                 <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
-              </ul>
-            </div>
-        </div>
-  </article>
-</section>
-
-<section class="layout-container">
-  <article class="type-system-slab">
+        <h2 style="color:#FB7D98;">Business Performance</h2> 
         <ul class="accordion">
           <li>
             <a href="javascript:void(0)" class="js-accordion-trigger">Graphic Analysis</a>
@@ -50,19 +33,11 @@
             </ul>
           </li>
           <li>
-            <a href="javascript:void(0)" class="js-accordion-trigger">Statements View</a>
-            <ul class="submenu">
-              <li>
-                <a href="javascript:void(0)">Current Year</a>
-                <%= render partial: 'reports/ifrs/p_n_l' %>
-              </li>
-            </ul>
-          </li>
-          <li>
             <a href="javascript:void(0)" class="js-accordion-trigger">Collaboration and Control</a>
             <ul class="submenu">
               <li>
                 <a href="javascript:void(0)">Feed</a>
+                
                 <div class="scroll-on-page">
                     <aside id="scroll-on-page-top">
                       <a class="scroll-on-page-link" href="#insights">Insights</a>
@@ -73,7 +48,6 @@
                         <section>
                           <h4 id="insights">Insights</h4>
                           <br>
-
                         </section>
                         <section>
                           <h4 id="notes">Notes</h4>
@@ -118,6 +92,15 @@
         <!-- END OF ACCORDIAN CONTAINER -->
     </article>
 </section>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+        
+        <%= render partial: 'reports/ifrs/p_n_l' %>
+
+  </article>
+</section>
+
 
 <script>
     
