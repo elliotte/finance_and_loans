@@ -2,6 +2,7 @@
 <% $report_format = @report.format %>
 
 <% @retained_earnings = {} %>
+
 <% $cp = @report.current_end.strftime("%B %Y") %>
 <% $pp = @report.comparative_end.strftime("%B %Y") %>
 
@@ -93,14 +94,38 @@
     </article>
 </section>
 
-<section class="layout-container">
-  <article class="type-system-slab">
-        
-        <%= render partial: 'reports/ifrs/p_n_l' %>
+<% if $report_format == 'IFRS' %>
+      
+      <!-- IFRS MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
+      <% @tags = Tag.ifrs_fin_stat_tags %>
+      <!-- USED IN FSDRAWCHARTS -->
+      <span id="dash-report-format" data-value="IFRS"></span>
+      
+      <section class="layout-container">
+        <article class="type-system-slab">
+              <%= render partial: 'reports/ifrs/p_n_l' %>
+        </article>
+      </section>
 
-  </article>
-</section>
+      <section class="layout-container">
+        <article class="type-system-slab">
+              <%= render partial: 'reports/ifrs/assets' %>
+        </article>
+      </section>
 
+      <section class="layout-container">
+        <article class="type-system-slab">
+              <%= render partial: 'reports/ifrs/liabilities' %>
+        </article>
+      </section>
+
+      <section class="layout-container">
+        <article class="type-system-slab">
+              <%= render partial: 'reports/ifrs/equity' %>
+        </article>
+      </section>
+
+<% end %>
 
 <script>
     

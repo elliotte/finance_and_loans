@@ -1,14 +1,32 @@
-<% cp = @report.current_end.strftime("%B %Y") %>
-<% pp = @report.comparative_end.strftime("%B %Y") %>
+<% cp = $cp %>
+<% pp = $pp %>
 
 <!-- PLACE HOLDER FOR CALCS -->
 <% eq_amounts = { cy: [], py: [] } %>
 
-<article class="type-system-rounded fin-statement">
+<div class="scroll-on-page" style="width:100%;">
+    <aside id="scroll-on-page-top">
+      <a class="scroll-on-page-link" href="#equity">Equity</a>
+      <br>
+      <div class="dropdown">
+          <div class="dropdown-container">
+            <p class="dropdown-description">New</p>
+            <p class="dropdown-button">Balance Sheet</p>
+            <ul class="dropdown-menu dropdown-select">
+              <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
+              <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
+               <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+            </ul>
+          </div>
+      </div>
+    </aside>
+    <article>
+        <section>
+            <h4 id="insights">Statement of Financial Position continued...</h4>
+            <br>
+            <table id="" class="table-minimal">
 
-           <div style="width:100%;">
-              <table id="" class="table-minimal">
-                  <tbody>
+                <tbody>
                       <tr>
                         <td>Equity</td>
                         <td style="color:#f3655e;">£</td>
@@ -92,8 +110,16 @@
                         <td style="color:#f3655e;"><%= number_with_delimiter($check_py) %></td>
                         <td><%= mvmt %></td>
                       </tr>
-                  </tbody>
-               </table>
-               <!-- END OF EQUITY TABLE -->
-          </div>
-</article>
+                </tbody>
+
+            </table>
+            <!-- END OF BS TABLE -->
+         </section>
+      </article>
+      <!-- WRAPPER ARTICLE -->
+</div>
+<!-- END OF SCROLLONPAGE -->
+
+
+
+

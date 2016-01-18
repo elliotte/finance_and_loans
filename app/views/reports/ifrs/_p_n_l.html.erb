@@ -13,7 +13,6 @@
 <% cy_pat = [0] %>
 <% py_pat = [0] %>
 
-<% @tags = Tag.ifrs_fin_stat_tags %>
 
 <div class="scroll-on-page" style="width:100%;">
     <aside id="scroll-on-page-top">
@@ -23,8 +22,8 @@
       <br>
       <div class="dropdown">
           <div class="dropdown-container">
-            <p class="dropdown-description">View PnL</p>
-            <p class="dropdown-button">Choose</p>
+            <p class="dropdown-description">New</p>
+            <p class="dropdown-button">Performance</p>
             <ul class="dropdown-menu dropdown-select">
               <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
               <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
