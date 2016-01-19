@@ -416,15 +416,12 @@ function successDashExport() {
 };
 
 function showReportShareModal(){
+  $('#bg-screen-for-modal').addClass('open')
 
-  $('#empty-modal-table').empty();
-  $('#table-title').empty();
-
-  $('#modal-table-empty').trigger('click')
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
+  $('#bg-screen-for-modal').find('section').empty().append('<p style="color:#F3655E;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
 
   friends = JSON.parse(localStorage.getItem("friends")).items
-  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
-  $('#empty-modal-table').append('<p style="color:#F3655E;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
   $.each(friends, function(index, person) {
     imgSrc = person.image.url
     html = '<tr id="' + person.id + '">' +
@@ -432,7 +429,7 @@ function showReportShareModal(){
         '<td>' + person.displayName + '</td>' +
         '<td>' + link + '</td>' +
     '</tr>'
-    $('#empty-modal-table').append(html);
+    $('#bg-screen-for-modal').append(html);
 
   });
 }
