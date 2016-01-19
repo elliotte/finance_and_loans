@@ -55,6 +55,9 @@
                                   <h1>First Comment Title or Author</h1>
                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
                                   <p class="comment-detail">Date or details about this post</p>
+                                  <p class="comment-detail">
+                                  <a href="#" onclick="getNotes();">View All</a>
+                                </p>
                                 </div>
                           </div>
 
@@ -71,7 +74,11 @@
                                   <h1>First Comment Title or Author</h1>
                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
                                   <p class="comment-detail">Date or details about this post</p>
+                                  <p class="comment-detail">
+                                  <a href="#" onclick="getComments();">View All</a>
+                                </p>
                                 </div>
+                                
                           </div>
                     </section>
                 </article>
@@ -310,3 +317,15 @@
    </article>
 </section>
 
+<script type="text/javascript">
+  var getComments= function(){
+    $('#bg-screen-for-modal').addClass('open')
+    $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports_comments') %>") 
+
+  }
+  var getNotes= function(){
+    $('#bg-screen-for-modal').addClass('open')
+    $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports_notes') %>") 
+
+  }
+</script>

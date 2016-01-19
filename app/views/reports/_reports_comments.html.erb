@@ -1,0 +1,20 @@
+<%= javascript_include_tag 'reports' %>
+<article class="type-system-rounded">
+    <div class='comments_data'></div>
+    <script id="comment-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <div id={{id}} class="comment">
+          <div class="comment-image">
+            <img src="<%= asset_path('twitter-footer.png') %>">
+          </div>
+          <div class="comment-content">
+            <h1><span style="color:#f3655e;">{{subject}} </span> || {{commenter}} </h1>
+            <p> {{body}} </p>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+</article>
+<script>
+cacheComments('<%= @report.id %>');
+</script>

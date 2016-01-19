@@ -1,0 +1,24 @@
+<article class="type-system-rounded">
+	  <h1>Report.notes</h1>
+	  <h3 style="color:#f3655e;"><%= link_to "Notes.manager", manager_report_notes_path(@report) %></h3>
+	  <br>
+  <div class='notes_data'></div>
+  <script id="note-template" type="text/x-handlebars-template">
+    {{#each this}}
+      <div id={{id}} class="comment">
+        <div class="comment-image">
+          <img src="<%= asset_path('rss-footer.png') %>">
+        </div>
+        <div class="comment-content">
+          <h1><span style="color:#f3655e;">{{subject}} </span> || {{commenter}} </h1>
+          <p> {{body}} </p>
+          <p><a href={{filelink}} target="_blank">Link to backup</a></p>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+</article>
+
+<script>
+  cacheNotes('<%= @report.id %>');
+</script>
