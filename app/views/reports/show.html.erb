@@ -169,7 +169,7 @@
                                       </tr>
                                     <% else %>
                                         <tr>
-                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                          <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                                           <td><%= key %></td>
                                           <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
                                         </tr>
@@ -201,7 +201,7 @@
                                   <% data.each_pair do | key, amount | %>
                                         <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
                                         <tr class="cy-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
-                                          <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
                                           <td><%= key %></td>
                                           <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                                         </tr>
@@ -237,6 +237,26 @@
             <!-- END OF GRAPH DATA -->
           </li>
           <!-- END OF GRAPH DATA -->
+        </ul>
+        <!-- END OF ACCORDIAN CONTAINRE -->
+    </article>
+</section>
+
+
+<section class="layout-container">
+  <article class="type-system-slab">
+        
+        <ul class="accordion">
+           <li>
+            <a href="javascript:void(0)" class="js-accordion-trigger">Journals</a>
+            <ul class="submenu">
+              <li>
+                <a href="javascript:void(0)">Current Year</a>
+                
+              </li>
+            </ul>
+          </li>
+          
         </ul>
         <!-- END OF ACCORDIAN CONTAINRE -->
     </article>
@@ -318,15 +338,14 @@
 </section>
 
 <script type="text/javascript">
+
   var getComments= function(){
     $('#bg-screen-for-modal').addClass('open')
-    $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports_comments') %>") 
-
+    $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_comments') %>") 
   }
   var getNotes= function(){
     $('#bg-screen-for-modal').addClass('open')
-    $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports_notes') %>") 
-
+    $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_notes') %>") 
   }
   
 </script>
@@ -337,3 +356,5 @@
     top: -1px !important;
   }
 </style>
+
+

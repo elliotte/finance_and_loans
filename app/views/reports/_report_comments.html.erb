@@ -1,11 +1,12 @@
-<%= javascript_include_tag 'reports' %>
-<article class="type-system-rounded">
+<article class="type-system-slab">
+    <h2>Financial Control</h2>
+    
     <div class='comments_data'></div>
     <script id="comment-template" type="text/x-handlebars-template">
       {{#each this}}
         <div id={{id}} class="comment">
           <div class="comment-image">
-            <img src="<%= asset_path('twitter-footer.png') %>">
+            <img src="<%= asset_path('pb-logo.png') %>">
           </div>
           <div class="comment-content">
             <h1><span style="color:#f3655e;">{{subject}} </span> || {{commenter}} </h1>
@@ -14,7 +15,10 @@
         </div>
       {{/each}}
     </script>
+    <br>
+    <h4><%= link_to "Comments Manager", manager_report_comments_path(@report) %></h4>
 </article>
+
 <script>
-cacheComments('<%= @report.id %>');
+  cacheComments('<%= @report.id %>');
 </script>

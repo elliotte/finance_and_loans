@@ -1,5 +1,6 @@
 
 var reportHelper = (function() {
+      
       var showPageData = {
           'cp' : "",
           'pp' : "",
@@ -470,6 +471,7 @@ function shareReport(obj){
   // END OF SHARE SUCCESS
 }
 
+// USED REPORT SHOW INSIDE NOTES PARTIAL
 function cacheNotes(reportId){
   $.ajax({
     url: '/reports/' + reportId + '/get_notes',
@@ -481,7 +483,7 @@ function cacheNotes(reportId){
     }
   })
 }
-
+// USED REPORT SHOW INSIDE COMMENTS PARTIAL
 function cacheComments(reportId){
   $.ajax({
     url: '/reports/' + reportId + '/get_comments',
