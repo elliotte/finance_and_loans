@@ -121,8 +121,12 @@
 
 
 <aside id="hidden-buttons-for-bar"> 
-	<img src="<%= asset_path('rss-footer.png') %>">
-	<img src="<%= asset_path('bar-chart-button.png') %>">
+	<%= link_to reports_path do %>
+		<img src="<%= asset_path('rss-footer.png') %>">
+	<%end%>
+	<%= link_to root_path do%>
+		<img src="<%= asset_path('bar-chart-button.png') %>">
+	<%end%>		
 </aside>
 
 
@@ -148,15 +152,15 @@
 					if (slideBar.width() > 70 ) {
 						// HIDE BAR
 					   slideBar.animate({ width: "40" }, 1000 )
-					   slideBar.children('img').slice(1).fadeOut();
-					   slideBar.children('img').slice(1).remove();
+					   slideBar.children('a').fadeOut();
+					   slideBar.children('a').remove();
 
 					} else {
 					   // OPEN BAR
 					    slideBar.animate({ width: "20%" }, {
 					    	duration: 1000,
 					    	complete: function() {
-					    	  actionButtons = $('#hidden-buttons-for-bar').children('img').clone();
+					    	  actionButtons = $('#hidden-buttons-for-bar').children('a').clone();
 					          slideBar.append(actionButtons);
 					    	}
 					    });
@@ -191,11 +195,7 @@
 	    }
 	    // END OF IF
 	  }
-
-
-
 </script>
-
 
 
 
