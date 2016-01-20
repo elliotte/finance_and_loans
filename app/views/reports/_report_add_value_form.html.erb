@@ -44,7 +44,7 @@
                                 moneaTag
                               </td>
                               <td>
-                                <%= f.select :ifrstag, options_for_select($form_select_tags) %>
+                                <%= f.select :ifrstag, options_for_select($form_select_tags)  rescue ''%>
                               </td>
                         </tr>
                         <% if params[:tb_value] == 'true' %>

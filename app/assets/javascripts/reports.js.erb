@@ -94,22 +94,19 @@ var reportHelper = (function() {
         },
 
         appendModalShowPageValues: function(values) {
-
-            body = $('#empty-modal-table')
+            $('#bg-screen-for-modal').addClass('open')
+            body = $('#bg-screen-for-modal').find('section')          
+            body.empty().append('<div style="color:#f3655e;" id="table-title"></div>');
             title = $('#table-title')
-            body.empty();
             title.empty();
-
-            $('#modal-table-empty').trigger('click')
-
-            header = '<tr style="color:#f3655e;">' +
+            
+            header = '<table id="empty-modal-table" class="table-minimal"><tr style="color:#f3655e;">' +
                             '<td>' + 'Type' +'</td>' +
                             '<td>' + 'Date' + '</td>' +
                             '<td>' + 'miTag' + '</td>' +
                             '<td>' + '£' + '</td>' +
                             '<td>' + 'moneaTag' + '</td>' +
                       '</tr>'
-
             body.append(header)
 
             $.each(values, function(i, tag){
@@ -132,7 +129,7 @@ var reportHelper = (function() {
                             '<td>' +
                               $(tag).data('ifrstag') +
                             '</td>' +
-                      '</tr>'
+                      '</tr></table>'
                body.append(html)
 
             });
