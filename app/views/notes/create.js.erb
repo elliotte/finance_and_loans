@@ -1,3 +1,4 @@
+$('#bg-screen-for-modal').addClass('open')
 <% if @result %>
 
       text = '<article class="type-system-rounded">' +
@@ -14,8 +15,6 @@
              '</p>' +
            '</article>';
 
-      $('#modal-comment-note-body').html(text);
-
 <% else %>
       
       text = '<article class="type-system-rounded">' +
@@ -28,6 +27,5 @@
              '</p>' +
            '</article>';
 
-      $('#modal-comment-note-body').html(text);
-
 <% end %>
+$('#bg-screen-for-modal').find('section').empty().append(text) 

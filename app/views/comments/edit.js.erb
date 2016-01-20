@@ -1,2 +1,2 @@
-$('#modal-comment-note-form').trigger('click')
-$('#modal-comment-note-body').html("<%= j(render partial: 'report_add_comment_form') %>")
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_add_comment_form') %>")

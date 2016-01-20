@@ -1,6 +1,2 @@
-$('#empty-report-modal-body').empty();
-
-$('#modal-report-show-empty').trigger('click')
-
-$('#empty-report-modal-body').append("<%= j(render partial: 'edit_disclosure_form') %>") 
-
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'edit_disclosure_form') %>") 
