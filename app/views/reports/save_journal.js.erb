@@ -2,5 +2,5 @@
   $('p.error').html('<%= j @error %>');
  <% else %>
   var text = '<article class="type-system-rounded">' + '<p>' + 'Journal saved successfully.  Please reload the page if you require to see the value included in your view.' + '</p>' + '</article>'
-  $('#empty-report-modal-body').html(text)
+  $('#bg-screen-for-modal').find('section').empty().append(text)
  <% end %>
