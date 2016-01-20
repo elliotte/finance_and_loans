@@ -58,44 +58,103 @@ var graphHelper = (function() {
           },
 
           drawReportShowCharts: function(data) {
-             
-             var cpData = google.visualization.arrayToDataTable(data["cp"]);
-             var options = {
-              title: 'Current Period',
-              is3D: true,
-              legend: {position: "none" },
-              slices: {  4: {offset: 0.2},
-                    12: {offset: 0.3},
-                    14: {offset: 0.4},
-                    19: {offset: 0.5},
-                    24: {offset: 0.6},
-              },
-              sliceVisibilityThreshold: .001,
-              colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
-             };
-             
-             cpDataView = convertChartColumntoString(cpData)
-             var chart = new google.visualization.PieChart(document.getElementById('cp-pie-chart'));
-             chart.draw(cpDataView, options);
+            try{ 
+               var cpData = google.visualization.arrayToDataTable(data["cp"]);
+               var options = {
+                title: 'Current Period',
+                is3D: true,
+                legend: {position: "none" },
+                slices: {  4: {offset: 0.2},
+                      12: {offset: 0.3},
+                      14: {offset: 0.4},
+                      19: {offset: 0.5},
+                      24: {offset: 0.6},
+                },
+                sliceVisibilityThreshold: .001,
+                colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
+               };
+               
+               cpDataView = convertChartColumntoString(cpData)
+               var chart = new google.visualization.PieChart(document.getElementById('cp-pie-chart'));
+               chart.draw(cpDataView, options);
+            }
+            catch(e){
+              document.getElementById('cp-pie-chart').html("No CP data found")
+            }
+            try{
+               var ppData = google.visualization.arrayToDataTable(data["pp"]);
+               var options = {
+                title: 'Prior Period',
+                is3D: true,
+                legend: {position: "none" },
+                slices: {  4: {offset: 0.2},
+                      12: {offset: 0.3},
+                      14: {offset: 0.4},
+                      19: {offset: 0.5},
+                      24: {offset: 0.6},
+                },
+                sliceVisibilityThreshold: .001,
+                colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
+               };
+               ppDataView = convertChartColumntoString(cpData)
+               var chart = new google.visualization.PieChart(document.getElementById('pp-pie-chart'));
+               chart.draw(ppDataView, options);
+             }
+             catch(e){
+                document.getElementById('pp-pie-chart').html("No PP data found")
+             }	
+         	},
+          // PLOT BAR GRAPH
+          drawBarGraph: function(data1) {
+            try{
+              var data = google.visualization.arrayToDataTable(data1['cp']);
 
-             var ppData = google.visualization.arrayToDataTable(data["pp"]);
-             var options = {
-              title: 'Prior Period',
-              is3D: true,
-              legend: {position: "none" },
-              slices: {  4: {offset: 0.2},
-                    12: {offset: 0.3},
-                    14: {offset: 0.4},
-                    19: {offset: 0.5},
-                    24: {offset: 0.6},
-              },
-              sliceVisibilityThreshold: .001,
-              colors: ['#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC', '#FFB5B1', '#FF8C86', '#F3655E',],
-             };
-             ppDataView = convertChartColumntoString(cpData)
-             var chart = new google.visualization.PieChart(document.getElementById('pp-pie-chart'));
-             chart.draw(ppDataView, options);	
-         	},         	
+              var view = new google.visualization.DataView(data);
+              view.setColumns([0, 1,
+                               { calc: "stringify",
+                                 sourceColumn: 1,
+                                 type: "string",
+                                 role: "annotation" }
+                               ]);
+
+              var options = {
+                title: 'Current Period', width: 900,
+                height: 400,
+                bar: {groupWidth: "97%"},
+                legend: { position: "none" },
+              };
+              var chart = new google.visualization.ColumnChart(document.getElementById("cp-bar-chart"));
+              chart.draw(view, options);
+            }
+            catch(e){
+              document.getElementById("cp-bar-chart").html("No CP data found")
+            }
+
+            try{
+              var data = google.visualization.arrayToDataTable(data1['pp']);
+
+              var view = new google.visualization.DataView(data);
+              view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" }
+                         ]);
+
+              var options = {
+                title: 'Prior Period', width: 900,
+                height: 400,
+                bar: {groupWidth: "97%"},
+                legend: { position: "none" },
+              };
+              var chart = new google.visualization.ColumnChart(document.getElementById("pp-bar-chart"));
+              chart.draw(view, options);
+            }
+            catch(e)
+            {
+              document.getElementById("pp-bar-chart").html("No PP data found")
+            }
+          },         	
           // PNL CHART FOR REPORT DASH
           drawPNLDashCharts: function(CY, PY, container) {
 
