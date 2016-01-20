@@ -17,8 +17,11 @@
     </header>
 </article>
 
-<img id="add-info-bp" src="<%= asset_path('new-work-icon.png') %>">
+<div class="slider-action-bar">
+  <img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
 
+  
+</div>
 <section class="layout-container">
   <article class="type-system-slab">
         <div class="scroll-on-page">
@@ -336,8 +339,22 @@
 
    </article>
 </section>
+<aside id="hidden-buttons-for-bar"> 
+  <%= link_to  new_journal_report_path(@report), remote: true do%>
+  <!-- Need to change image -->
+    <img src="<%= asset_path('rss-footer.png') %>">
+  <%end%>
+  <%= link_to import_csv_report_path(@report, {bank: false}), remote: true  do%>
+  <!-- Need to change image -->
+    <img src="<%= asset_path('bar-chart-button.png') %>">
+  <%end%> 
 
-<script type="text/javascript">
+  <%= link_to new_value_reports_path(report_id: @report.id, tb_value: true), remote: true, id: 'new_value_link' do%>
+  <!-- Need to change image -->
+    <img src="<%= asset_path('values.jpeg') %>">
+  <%end%>  
+</aside>
+ <script type="text/javascript">
 
   var getComments= function(){
     $('#bg-screen-for-modal').addClass('open')
@@ -347,8 +364,33 @@
     $('#bg-screen-for-modal').addClass('open')
     $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_notes') %>") 
   }
+
+$(document).ready(function(){
+
+        $('#new-work-icon').click(function(){
+          slideBar =  $( ".slider-action-bar" )
+          if (slideBar.width() > 70 ) {
+            // HIDE BAR
+             slideBar.animate({ width: "40" }, 1000 )
+             slideBar.children('a').fadeOut();
+             slideBar.children('a').remove();
+
+          } else {
+             // OPEN BAR
+              slideBar.animate({ width: "20%" }, {
+                duration: 2000,
+                complete: function() {
+                  actionButtons = $('#hidden-buttons-for-bar').children('a').clone();
+                    slideBar.append(actionButtons);
+                }
+              });
+          }
+          // END OF IF
+         });
+
+    });    
   
-</script>
+ </script>
 
 <!-- overriding css -->
 <style type="text/css">

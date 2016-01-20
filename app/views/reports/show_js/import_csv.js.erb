@@ -1,4 +1,4 @@
 
-$("#modal-report-show-empty").trigger("click")
-$('#empty-report-modal-body').html("<%= j(render partial: 'reports/report_csv_upload') %>") 
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports/report_csv_upload') %>") 
 
