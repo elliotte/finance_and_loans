@@ -121,10 +121,10 @@
 
 
 <aside id="hidden-buttons-for-bar"> 
-	<%= link_to reports_path do %>
+	<%= link_to new_report_path(format: 'UKGAAP'), remote: true do%>
 		<img src="<%= asset_path('rss-footer.png') %>">
 	<%end%>
-	<%= link_to root_path do%>
+	<%= link_to new_report_path(format: 'IFRS'), remote: true do%>
 		<img src="<%= asset_path('bar-chart-button.png') %>">
 	<%end%>		
 </aside>

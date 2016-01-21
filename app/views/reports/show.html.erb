@@ -60,8 +60,9 @@
                                   <img src="<%= asset_path('pb-logo.png') %>">
                                 </div>
                                 <div class="comment-content">
-                                  <h1>First Comment Title or Author</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                  <h1><%= ((@report.notes.blank?)? "No Notes" : @report.notes.first.commenter)%>
+                                  </h1>
+                                  <p><%= ((@report.comments.blank?)? "No Notes" : @report.notes.first.body)%></p>
                                   <p class="comment-detail">Date or details about this post</p>
                                   <p class="comment-detail">
                                   <a href="#" onclick="getNotes();">View All</a>
@@ -79,8 +80,8 @@
                                   <img src="<%= asset_path('pb-logo.png') %>">
                                 </div>
                                 <div class="comment-content">
-                                  <h1>First Comment Title or Author</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                  <h1><%= ((@report.comments.blank?)? "No Comments" : @report.comments.first.commenter)%></h1>
+                                  <p><%= ((@report.comments.blank?)? "No Comments" : @report.comments.first.body)%></p>
                                   <p class="comment-detail">Date or details about this post</p>
                                   <p class="comment-detail">
                                   <a href="#" onclick="getComments();">View All</a>
@@ -109,11 +110,11 @@
 <section class="layout-container">
   <article class="type-system-slab">
       <div>          
-          <div id="assets-graph"></div>
+          <div id="income-statement-graph"></div>
       </div>
     </article>
 </section>
-
+<%= render :template=>"reports/show_dashboard" %>
 <section class="layout-container">
   <article class="type-system-slab">
       <div class="graph-container">
@@ -129,8 +130,8 @@
         
         <ul class="accordion">
            <li>
-            <a href="#" class="js-accordion-trigger" onclick='$(".submenu1").toggle();'>Data by description</a>
-            <ul class="submenu1">
+            <a href="javascript:void(0)" class="js-accordion-trigger">Data by description</a>
+            <ul class="submenu">
               <li>
                 <a href="javascript:void(0)">Current Year</a>
                    <table id="" class="table-minimal">

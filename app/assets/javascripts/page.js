@@ -10,11 +10,11 @@ function Page (CY, PY) {
           
           var dataForGoogleArrayTable = [ 
               firstRow,
-              ['Gross profit revenue', sumAmts(CY.gp_rev), sumAmts(PY.gp_rev) ],
-              ['Gross profit COS', sumAmts(CY.gp_cos), sumAmts(PY.gp_cos) ],
-              ['Operating profit revenue', sumAmts(CY.op_rev), sumAmts(PY.op_rev) ],
-              ['Operating profit COS', sumAmts(CY.op_cos), sumAmts(PY.op_cos) ],
-              ['Sum of tax paid', sumAmts(CY.tax), sumAmts(PY.tax) ]
+              ['Gross profit revenue', (sumAmts(CY.gp_rev)), (sumAmts(PY.gp_rev)) ],
+              ['Gross profit COS', (sumAmts(CY.gp_cos)), (sumAmts(PY.gp_cos)) ],
+              ['Operating profit revenue', (sumAmts(CY.op_rev)), (sumAmts(PY.op_rev)) ],
+              ['Operating profit COS', (sumAmts(CY.op_cos)), (sumAmts(PY.op_cos)) ],
+              ['Sum of tax paid', (sumAmts(CY.tax)), (sumAmts(PY.tax)) ]
           ]
 
       } else {
@@ -41,7 +41,8 @@ function Page (CY, PY) {
           })
 
       }
-
+        if(dataForGoogleArrayTable.length==1)
+        {dataForGoogleArrayTable.push([0,0,0])} 
       return dataForGoogleArrayTable
                   //helper functionMETHOD for buildLIST
                   function totalLines(_collection, tag) {
@@ -51,7 +52,7 @@ function Page (CY, PY) {
                                result = _collection[i][1]
                             }
                           }
-                          return result
+                          return parseInt(result)
                   }
                   // END OF HELPER
                   //HELPER FOR TOTALLING PNL LINES
@@ -61,7 +62,7 @@ function Page (CY, PY) {
                               amt = parseInt(collection[i][1])
                               sumOf += amt;  
                           }
-                          return sumOf
+                          return parseFloat(sumOf)
                   }
                   // END OF HELPER
 

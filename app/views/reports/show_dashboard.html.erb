@@ -1,7 +1,7 @@
-<%= javascript_include_tag 'reports' %>
-<%= javascript_include_tag 'reportFinancials' %>
+<%#= javascript_include_tag 'reports' %>
+<%#= javascript_include_tag 'reportFinancials' %>
 
-<%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
+<%#= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
 
 <% $report_format = @report.format %>
 
@@ -10,21 +10,21 @@
 <% $cp = @report.current_end.strftime("%B %Y") %>
 <% $pp = @report.comparative_end.strftime("%B %Y") %>
 
-<article class="type-system-slab">
+<!-- <article class="type-system-slab">
     <header class="show-nav" role="banner">
          <div>  
-            <p><%= link_to 'Back', report_path(@report) %></p>
+            <p><%#= link_to 'Back', report_path(@report) %></p>
          </div> 
          <div>  
-            <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+            <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%#= asset_path('pb-logo.png') %>"></a>
          </div>  
          <div>  
             <p><a href="javascript:void(0)" onclick="ifrsDashShow.exportDashGoogle();"> Export </a></p>
          </div> 
     </header>
 </article>
-<!-- INCOME STATEMENT GRAPHS AND STATS -->
-<section class="layout-container">
+<!INCOME STATEMENT GRAPHS AND STATS -->
+<!-- <section class="layout-container">
   <article class="type-system-slab">
     <h2 style="color:#FB7D98;">Business Performance</h2> 
     <div id="income-statement-graph">
@@ -55,10 +55,10 @@
                         <section>
                           <h4 id="notes">Notes</h4>
                           <br>
-                           <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
-                                <div class="comment">
+                           <!ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                                <!-- <div class="comment">
                                       <div class="comment-image">
-                                        <img src="<%= asset_path('pb-logo.png') %>">
+                                        <img src="<%#= asset_path('pb-logo.png') %>">
                                       </div>
                                       <div class="comment-content">
                                         <h1>First Comment Title or Author</h1>
@@ -68,13 +68,13 @@
                                 </div>
 
                         </section>
-                        <section>
+                        <section> -->
                                 <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
-                                <h4 id="comments">Comments</h4>
+                                <!-- <h4 id="comments">Comments</h4>
                                 <br>
                                 <div class="comment">
                                       <div class="comment-image">
-                                        <img src="<%= asset_path('pb-logo.png') %>">
+                                        <img src="<%#= asset_path('pb-logo.png') %>">
                                       </div>
                                       <div class="comment-content">
                                         <h1>First Comment Title or Author</h1>
@@ -83,48 +83,48 @@
                                       </div>
                                 </div>
                           </section>
-                      </article>
+                      </article> -->
                       <!-- WRAPPER ARTICLE -->
-                </div>
+<!--                 </div> -->
                 <!-- END OF SCROLLONPAGE -->
-              </li>
+<!--               </li> -->
               <!-- END OF SUBMENU -->
-            </ul>
+<!--             </ul>
           </li>
-        </ul>
+        </ul> -->
         <!-- END OF ACCORDIAN CONTAINER -->
-    </article>
-</section>
+<!--     </article>
+</section>  -->
 
 <% if $report_format == 'IFRS' %>
       <!-- IFRS MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
       <% @tags = Tag.ifrs_fin_stat_tags %>
       <!-- USED IN FSDRAWCHARTS -->
-      <span id="dash-report-format" data-value="IFRS"></span>
-      
+      <span id="dash-report-format" type="hidden" data-value="IFRS"></span>
+<!--       
       <section class="layout-container">
-        <article class="type-system-slab">
+        <article class="type-system-slab"> -->
               <%= render partial: 'reports/ifrs/p_n_l' %>
-        </article>
-      </section>
+        <!-- </article>
+      </section> -->
 
-      <section class="layout-container">
-        <article class="type-system-slab">
+      <!-- <section class="layout-container">
+        <article class="type-system-slab"> -->
               <%= render partial: 'reports/ifrs/assets' %>
-        </article>
+        <!-- </article>
       </section>
 
       <section class="layout-container">
-        <article class="type-system-slab">
+        <article class="type-system-slab"> -->
               <%= render partial: 'reports/ifrs/liabilities' %>
-        </article>
+        <!-- </article>
       </section>
 
       <section class="layout-container">
-        <article class="type-system-slab">
+        <article class="type-system-slab"> -->
               <%= render partial: 'reports/ifrs/equity' %>
-        </article>
-      </section>
+        <!-- </article>
+      </section> -->
 
 <% end %>
 
