@@ -104,76 +104,27 @@ var graphHelper = (function() {
                 document.getElementById('pp-pie-chart').html("No PP data found")
              }	
          	},
-          // PLOT BAR GRAPH
-          drawBarGraph: function(data1) {
-            try{
-              var data = google.visualization.arrayToDataTable(data1['cp']);
-
-              var view = new google.visualization.DataView(data);
-              view.setColumns([0, 1,
-                               { calc: "stringify",
-                                 sourceColumn: 1,
-                                 type: "string",
-                                 role: "annotation" }
-                               ]);
-
-              var options = {
-                title: 'Current Period', width: 900,
-                height: 400,
-                bar: {groupWidth: "97%"},
-                legend: { position: "none" },
-              };
-              var chart = new google.visualization.ColumnChart(document.getElementById("cp-bar-chart"));
-              chart.draw(view, options);
-            }
-            catch(e){
-              document.getElementById("cp-bar-chart").html("No CP data found")
-            }
-
-            try{
-              var data = google.visualization.arrayToDataTable(data1['pp']);
-
-              var view = new google.visualization.DataView(data);
-              view.setColumns([0, 1,
-                         { calc: "stringify",
-                           sourceColumn: 1,
-                           type: "string",
-                           role: "annotation" }
-                         ]);
-
-              var options = {
-                title: 'Prior Period', width: 900,
-                height: 400,
-                bar: {groupWidth: "97%"},
-                legend: { position: "none" },
-              };
-              var chart = new google.visualization.ColumnChart(document.getElementById("pp-bar-chart"));
-              chart.draw(view, options);
-            }
-            catch(e)
-            {
-              document.getElementById("pp-bar-chart").html("No PP data found")
-            }
-          },         	
-          // PNL CHART FOR REPORT DASH
+           // PNL CHART FOR REPORT DASH
           drawPNLDashCharts: function(CY, PY, container) {
 
               var page = new Page(CY, PY)
               var parsedData = page.buildArrayTable(['Income Statement Categories', 'Current', 'Comparative'], true)
               var incomeData = new google.visualization.arrayToDataTable(parsedData)
-
+              //var incomeData =  convertChartColumntoString(incomeData1)
               var PNLoptions = {
                 height: 400,
                 chart: {
                   title: 'Current vs Comparative analysis of Profit and Loss',
                   subtitle: subtitleText,
                 },
-                bars: 'horizontal', // Required for Material Bar Charts.
+                bars: 'vertical', // Required for Material Bar Charts.
                 hAxis: {format: 'decimal'},
                 colors: ['#94CFD5', '#FF8C86']
               };
 
               var chartPNL = new google.charts.Bar(container);
+              
+              //google.visualization.events.addListener(chartPNL, 'error', errorHandler);
               chartPNL.draw(incomeData, google.charts.Bar.convertOptions(PNLoptions));
               console.log(chartPNL.error)
           },
@@ -183,7 +134,7 @@ var graphHelper = (function() {
                 firstRow = [title, 'Current', 'Comparative']
                   
                 var assetData = new google.visualization.arrayToDataTable(page.buildArrayTable(firstRow));
-                
+               
                 options = this.reportDashChartOptionsBS(title, subtitleText)
 
                 chartForAssets = new google.visualization.ColumnChart(container);

@@ -107,13 +107,12 @@ var reportHelper = (function() {
                             '<td>' + '£' + '</td>' +
                             '<td>' + 'moneaTag' + '</td>' +
                       '</tr>'
-            body.append(header)
-
+              html=''
             $.each(values, function(i, tag){
 
                amt = addCommas($(tag).data('amount'))
 
-               html = '<tr>' +
+               html = html +'<tr>' +
                             '<td>' +
                               $(tag).data('type') +
                             '</td>' +
@@ -129,12 +128,11 @@ var reportHelper = (function() {
                             '<td>' +
                               $(tag).data('ifrstag') +
                             '</td>' +
-                      '</tr></table>'
-               body.append(html)
+                      '</tr>'
 
             });
+            body.append(header+html+'</table>')
             title.append('<p style="color:#f3655e;">' + ' Summary: ' + lineDescription + '</p>')
-            
             function addCommas(nStr) {
                 nStr += '';
                 var x = nStr.split('.');
@@ -539,4 +537,12 @@ function showDashComments(type){
   $("#report-comments-modal").trigger("click")
 }
 
+var appendPieGraph= function() {
+  data = reportHelper.loadShowPageData()
+  graphHelper.drawReportShowCharts(data);
+}
 
+var appendBarGraph= function() {
+  data = reportHelper.loadShowPageData()
+  graphHelper.drawBarGraph(data)
+} 

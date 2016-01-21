@@ -6,36 +6,7 @@
 <% ca_amounts = { cy: [0], py: [0] } %>
 
 <!-- ASSETS GRAPHS AND STATS -->
-<article class="type-system-rounded fin-statement">
-    <div id="assets-graph">
-    </div>
-</article>
 
-<br>
-<br>
-
-<article class="type-system-rounded fin-statement">
-
-          <h1 style="color:#f3655e;">Balance Sheet</h1>
-          <div style="width:100%;">
-              <table id="" class="table-minimal">
-
-                  <tbody>
-                      <tr>
-                          <td></td>
-                          <td><%= cp %></td>
-                          <td><%= pp %></td>
-                          <td></td>
-                      </tr>
-                      <tr>
-                          <td>Fixed assets</td>
-                          <td style="color:#f3655e;">£</td>
-                          <td style="color:#f3655e;">£</td>
-                          <td style="color:#f3655e;"> &#916 mvmt </td>
-                      </tr>
-                      <!-- NON CURRENT ASSET TAGS -->
-                      <!-- !!!!!!!! SUMMARY ITERATION !!!!!!!!! -->
-                      <!-- SUM TANGIBLE ASSET TAGS -->
                       <% $cy_fa_tang = 0 %>
                       <% $py_fa_tang = 0 %>
                       <% @tags[:fa_tang].each do | master_tag | %>
@@ -52,15 +23,6 @@
                           <!-- END OF UNLESS -->
                       <% end %>
                       <!-- DISPLAY SUMMARIES FA TANG -->
-                      <tr>
-                          <td style="color:#f3655e;">Tangible assets</td>
-                          <% nca_amounts[:cy] << $cy_fa_tang %>
-                          <% nca_amounts[:py] << $py_fa_tang %>
-                          <% mvmt = $cy_fa_tang - $py_fa_tang %>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="fa_tang" data-ifrstag="Tangible fixed assets" data-period="current"><%= number_with_delimiter($cy_fa_tang) %></td>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="fa_tang" data-ifrstag="Tangible fixed assets" data-period="comparative"><%= number_with_delimiter($py_fa_tang) %></td>
-                          <td><%= display_ifrs(mvmt) %></td>
-                      </tr>
 
                       <!-- NON CURRENT ASSET TAGS -->
                       <!-- !!!!!!!! SUMMARY ITERATION !!!!!!!!! -->
@@ -81,15 +43,11 @@
                           <!-- END OF UNLESS -->
                       <% end %>
                       <!-- DISPLAY SUMMARIES FA TANG -->
-                      <tr>
-                          <td style="color:#f3655e;">Intangible assets</td>
+                      
                           <% nca_amounts[:cy] << $cy_fa_intang %>
                           <% nca_amounts[:py] << $py_fa_intang %>
                           <% mvmt = $cy_fa_intang - $py_fa_intang %>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="fa_intang" data-ifrstag="Intangible fixed assets" data-period="current"><%= number_with_delimiter($cy_fa_intang) %></td>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="fa_intang" data-ifrstag="Intangible fixed assets" data-period="comparative"><%= number_with_delimiter($py_fa_intang) %></td>
-                          <td><%= display_ifrs(mvmt) %></td>
-                      </tr>
+                          
                       <!-- NON CURRENT ASSET TAGS -->
                       <!-- !!!!!!!! SUMMARY ITERATION !!!!!!!!! -->
                       <!-- SUM INTANGIBLE ASSET TAGS -->
@@ -109,46 +67,16 @@
                           <!-- END OF UNLESS -->
                       <% end %>
                       <!-- DISPLAY SUMMARIES FA TANG -->
-                      <tr>
-                          <td style="color:#f3655e;">Investment fixed assets</td>
+                      
                           <% nca_amounts[:cy] << $cy_fa_intang %>
                           <% nca_amounts[:py] << $py_fa_intang %>
                           <% mvmt = $cy_fa_intang - $py_fa_intang %>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="fa_invest" data-ifrstag="Investment fixed assets" data-period="current"><%= number_with_delimiter($cy_fa_intang) %></td>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="fa_invest" data-ifrstag="Investment fixed assets" data-period="comparative"><%= number_with_delimiter($py_fa_intang) %></td>
-                          <td><%= display_ifrs(mvmt) %></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
+                          
                       <!-- DISPLAY TOTAL NCA ASSETS ROW -->
                       <% cy_nca = nca_amounts[:cy].inject(:+) %>
                       <% py_nca = nca_amounts[:py].inject(:+) %>
                       <% mvmt = cy_nca - py_nca %>
-                      <tr>
-                        <td></td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_nca) %></td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(py_nca) %></td>
-                        <td><%= mvmt %></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-
-                      <!-- END OF NON CURRENT ASSETS --> 
-                      <!-- START OF CURRENT ASSETS --> 
-                      <tr>
-                          <td>Current assets</td>
-                          <td style="color:#f3655e;">£</td>
-                          <td style="color:#f3655e;">£</td>
-                          <td style="color:#f3655e;"> &#916 mvmt </td>
-                      </tr>
+                      
                       <!-- GROSS PROFIT REVENUE TAGS -->
                       <% @tags[:curr_assets].each do | master_tag | %>
                         <% cy = find_data(master_tag, :cy)  %>
@@ -156,15 +84,11 @@
                         <% cy_amt = yield_amount { cy }.to_i %>
                         <% py_amt = yield_amount { py }.to_i %>
                         <% unless (cy_amt + py_amt == 0.00) %>
-                        <tr>
-                          <td style="color:#f3655e;"><%= master_tag %></td>
+                        
                           <% ca_amounts[:cy] << cy_amt %>
                           <% ca_amounts[:py] << py_amt %>
                           <% mvmt = cy_amt - py_amt %>
-                          <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
-                          <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
-                          <td><%= display_ifrs(mvmt) %></td>
-                        </tr>
+                          
                         <!-- HIDDEN JS LINE GP_COS for FSEXPORT -->
                         <span class="js-fs-line" data-tag="curr_assets" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                         <% end %>
@@ -176,18 +100,7 @@
                       <% cy_ca = ca_amounts[:cy].inject(:+) %>
                       <% py_ca = ca_amounts[:py].inject(:+) %>
                       <% mvmt = cy_ca - py_ca %>
-                      <tr>
-                        <td></td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_ca) %></td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(py_ca) %></td>
-                        <td><%= mvmt %></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
+                      
                       <!--CREDITORS CURRENT ATAGS -->
                       <!-- !!!!!!!! SUMMARY ITERATION !!!!!!!!! -->
                       <!-- SUM ASSET TAGS -->
@@ -206,99 +119,3 @@
                           <% end %>
                           <!-- END OF UNLESS -->
                       <% end %>
-                      <!-- DISPLAY SUMMARIES FA TANG -->
-                      <tr>
-                          <td style="color:#f3655e;">Creditors: falling due within 1 year</td>
-                          <% mvmt = $cy_cred_curr - $py_cred_curr %>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="cred_current" data-ifrstag="Creditors: due within 1 year" data-period="current"><%= number_with_delimiter($cy_cred_curr) %></td>
-                          <td class="values_breakdown" data-summary-line="true" data-summary-tag="cred_current" data-ifrstag="Creditors: due within 1 year" data-period="comparative"><%= number_with_delimiter($py_cred_curr) %></td>
-                          <td><%= display_ifrs(mvmt) %></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-
-                      <!-- DISPLAY NET CURRENT ASSETS ROW -->
-                      <% net_curr_assets_cy = ca_amounts[:cy].inject(:+) - $cy_cred_curr %>
-                      <% net_curr_assets_py = ca_amounts[:py].inject(:+) - $py_cred_curr %>
-                      <% mvmt = net_curr_assets_cy - net_curr_assets_py %>
-                      <tr>
-                        <td>Net current assets</td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(net_curr_assets_cy) %></td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter(net_curr_assets_py) %></td>
-                        <td><%= mvmt %></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-
-                      <!-- DISPLAY TOTAL ASSETS LESS CURRENT CREDITORS -->
-                      <% $net_assets_cy = nca_amounts[:cy].inject(:+) + net_curr_assets_cy %>
-                      <% $net_assets_py = nca_amounts[:py].inject(:+) + net_curr_assets_py %>
-                      <% mvmt = $net_assets_cy - $net_assets_py %>
-                      <tr>
-                        <td>Total assets less current liabilities</td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter($net_assets_cy) %></td>
-                        <td style="color:#f3655e;"><%= number_with_delimiter($net_assets_py) %></td>
-                        <td><%= mvmt %></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                  </tbody>
-               </table>
-            </div>
-</article>
-
-<article class="type-system-rounded fin-statement" style="margin-top:0;">
-
-  <div class="grid-items-lines">
-    <a href="<%= new_report_note_path(@report, subject: 'BalanceSheet') %>" class="grid-item" data-remote='true'>
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-      <h1>Note.new</h1>
-      <p style="color:#f3655e;">Add a Balance Sheet note</p>
-    </a>
-    <a href="<%= new_report_comment_path(@report, subject: 'BalanceSheet') %>" class="grid-item" data-remote='true'>
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-      <h1>Comment.new</h1>
-      <p style="color:#f3655e;">Add a Balance Sheet comment</p>
-    </a>
-    <a href="javascript:void(0)" class="grid-item">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-
-      <h1>Reconcile.new</h1>
-      <p style="color:#f3655e;">Add Financial Control</p>
-    </a>
-    <div class="right-cover"></div>
-    <div class="bottom-cover"></div>
-  </div>
-
-</article>
-
-
-<div id="dash-view-collaboration-action">
-  <article class="type-system-rounded">
-    <div class="dropdown">
-        <div class="dropdown-container">
-          <p class="dropdown-description">View B/S</p>
-          <p class="dropdown-button">Choose</p>
-          <ul class="dropdown-menu dropdown-select">
-            <li onclick='showDashNotes("BalanceSheet")'><%= link_to 'Notes', "", remote: true, class: 'button'%></li>
-            <li onclick='showDashComments("BalanceSheet")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
-            <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
-           <!--  <li><%#= link_to 'Substantiation', "", remote: true, class: 'button'%></li>
-            -->
-          </ul>
-        </div>
-    </div>
-  </article>
-</div>

@@ -1,0 +1,23 @@
+<% @data[:c_period_values].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="tb_<%= v.mitag.gsub(" ", "-") %> value-lookup"
+        data-period="current"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:p_period_values].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="tb_<%= v.mitag.gsub(" ", "-") %> value-lookup"
+        data-period="comparative"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>

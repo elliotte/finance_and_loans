@@ -4,12 +4,12 @@ module ReportHelper
 		if yield.nil?
 			0.00
 		else
-			yield[:amount].to_i
+			yield[:amount].to_i rescue 0
 		end
 	end
 
 	def find_data tag, yr
-		@data[yr].find { |val| val[:lv_1] == tag }
+		@data[yr].find { |val| val[:lv_1] == tag } rescue 0
 	end
 
 	def margin_percentage numerator, denominator

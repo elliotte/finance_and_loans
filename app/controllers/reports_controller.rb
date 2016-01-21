@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
 
       if @report.save
         flash[:notice] = "Successfully created Report"
-        redirect_to report_path(@report)
+        redirect_to auth_landing_welcome_index_path(@report)
       else
         flash[:notice] = "Something went wrong"
         render 'new'
@@ -187,11 +187,11 @@ class ReportsController < ApplicationController
     end
     # HANDLE BAR FETCH ROUTES FOR DISPLAY MODALS
     def get_notes
-      render json: @report.notes
+      render json: @report.notes[1..-1]
     end
 
     def get_comments
-      render json: @report.comments
+      render json: @report.comments[1..-1]
     end
 
     def get_breakdown_values
