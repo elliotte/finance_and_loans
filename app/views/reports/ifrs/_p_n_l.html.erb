@@ -1,0 +1,242 @@
+<% cp = $cp %>
+<% pp = $pp %>
+
+<!-- CALC PLACEHOLDERS -->
+<% cy_gp_rev = [0] %>
+<% py_gp_rev = [0] %>
+<% cy_gp_cos = [0] %>
+<% py_gp_cos = [0] %>
+<% cy_op_rev = [0]  %>
+<% py_op_rev = [0]  %>
+<% cy_op_cos = [0]  %>
+<% py_op_cos = [0]  %>
+<% cy_pat = [0] %>
+<% py_pat = [0] %>
+
+
+<div class="scroll-on-page" style="width:100%;">
+    <aside id="scroll-on-page-top">
+      <a class="scroll-on-page-link" href="#gp-profit">Gross Profit</a>
+      <a class="scroll-on-page-link" href="#op-profit">Operating Profit</a>
+      <a class="scroll-on-page-link" href="#comments">Margins</a>
+      <br>
+      <div class="dropdown">
+          <div class="dropdown-container">
+            <p class="dropdown-description">New</p>
+            <p class="dropdown-button">Performance</p>
+            <ul class="dropdown-menu dropdown-select">
+              <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
+              <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
+               <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+            </ul>
+          </div>
+      </div>
+    </aside>
+    <article>
+        <section>
+          <h4 id="insights">Statement of profit and loss and other comprehensive income</h4>
+          <br>
+          <table id="" class="table-minimal">
+                  <tbody>
+                    <tr>
+                        <td></td>
+                        <td><%= cp %></td>
+                        <td><%= pp %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Continuing Operations</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td style="color:#f3655e;"> &#916 mvmt </td>
+                    </tr>
+                    <!-- GROSS PROFIT REVENUE TAGS -->
+                    <% @tags[:gp_rev].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy } %>
+                      <% py_amt = yield_amount { py } %>
+                      <tr>
+                        <td style="color:#f3655e;"><%= master_tag %></td>
+                        <% cy_gp_rev << cy_amt %>
+                        <% py_gp_rev << py_amt %>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- HIDDEN JS INFO LINE GP_REV -->
+                      <span class="js-fs-line" data-tag="gp-rev" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                    <% end %>
+                    <!-- GROSS PROFIT COS TAGS -->
+                    <% @tags[:gp_cos].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy } %>
+                      <% py_amt = yield_amount { py } %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                      <tr id="gp-profit">
+                        <td style="color:#f3655e;"><%= master_tag %></td>
+                        <% cy_gp_cos << cy_amt %>
+                        <% py_gp_cos << py_amt %>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= number_with_delimiter(cy_amt) %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= number_with_delimiter(py_amt) %>)</td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- HIDDEN JS LINE GP_COS -->
+                      <span class="js-fs-line" data-tag="gp-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                      <!-- END OF UNLESS -->
+                    <% end %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!-- GROSS PROFIT ROW -->
+                    <% cy_rev = cy_gp_rev.inject(:+)  %>
+                    <% py_rev = py_gp_rev.inject(:+)  %>
+                    <% cy_cos = cy_gp_cos.inject(:+) %>
+                    <% py_cos = py_gp_cos.inject(:+) %>
+                    <% gp_cy = cy_rev - cy_cos %>
+                    <% gp_py = py_rev - py_cos %>
+                    <tr>
+                      <td>Gross Profit</td>
+                      <td><%= display_ifrs(gp_cy) %></td>
+                      <td><%= display_ifrs(gp_py) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- GROSS MARGIN ROW -->
+                    <tr>
+                      <td></td>
+                      <td style="color:#f3655e;"><%= gp_margin_cy = margin_percentage(gp_cy, cy_rev) %></td>
+                      <td style="color:#f3655e;"><%= gp_margin_py = margin_percentage(gp_py, py_rev) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- HIDDEN JS STATS INFO LINE -->
+                    <span id="js-gp-margin-data" data-cy="<%= gp_margin_cy %>" data-py="<%= gp_margin_py %>" ></span>
+                    <!-- OP MARGIN REV ROWS -->
+                    <% @tags[:op_rev].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy } %>
+                      <% py_amt = yield_amount { py } %>
+                      <tr>
+                        <td style="color:#f3655e;"><%= master_tag %></td>
+                        <% cy_op_rev << cy_amt %>
+                        <% py_op_rev << py_amt %>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- JS LINE OP_REV -->
+                     <span class="js-fs-line" data-tag="op-rev" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                    <% end %>
+                    <!-- OP MARGIN COS ROWS -->
+                    <% @tags[:op_cos].each do | master_tag | %>
+
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy } %>
+                      <% py_amt = yield_amount { py } %>
+                      <% unless (cy_amt + py_amt == 0.00) %>
+                      <tr>
+                        <td style="color:#f3655e;"><%= master_tag %></td>
+                        <% cy_op_cos << cy_amt %>
+                        <% py_op_cos << py_amt %>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current">(<%= number_with_delimiter(cy_amt) %>)</td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative">(<%= number_with_delimiter(py_amt) %>)</td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- JS LINE OP_COS -->
+                     <span class="js-fs-line" data-tag="op-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                      <% end %>
+                    <% end %>
+                    <!-- OP PROFIT DISPLAY ROW -->
+                    <% cy_rev_op = cy_op_rev.inject(:+) %>
+                    <% py_rev_op = py_op_rev.inject(:+) %>
+                    <% cy_cos = cy_op_cos.inject(:+) %>
+                    <% py_cos = py_op_cos.inject(:+) %>
+                    <% op_cy = gp_cy + cy_rev_op - cy_cos %>
+                    <% op_py = gp_py + py_rev_op - py_cos %>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="op-profit">
+                      <td>Profit before Tax</td>
+                      <td><%= display_ifrs(op_cy) %></td>
+                      <td><%= display_ifrs(op_py) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- OP MARGIN DISPLAY ROW -->
+                    <tr>
+                      <td></td>
+                      <td style="color:#f3655e;"><%= op_margin_cy = margin_percentage(op_cy, cy_rev) %></td>
+                      <td style="color:#f3655e;"><%= op_margin_py = margin_percentage(op_py, py_rev) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- HIDDEN JS STATS INFO LINE -->
+                    <span id="js-op-margin-data" data-cy="<%= op_margin_cy %>" data-py="<%= op_margin_py %>" ></span>
+                    <!-- TAX Charge -->
+                    <% @tags[:pbt_cos].each do | master_tag | %>
+                      <% cy = find_data(master_tag, :cy)  %>
+                      <% py = find_data(master_tag, :py)  %>
+                      <% cy_amt = yield_amount { cy } %>
+                      <% py_amt = yield_amount { py } %>
+                      <% cy_pat << cy_amt %>
+                      <% py_pat << py_amt %>
+                      <tr>
+                        <td style="color:#f3655e;"><%= master_tag %></td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= display_ifrs(cy_amt) %></td>
+                        <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= display_ifrs(py_amt) %></td>
+                        <% mvmt = cy_amt - py_amt %>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <!-- JS LINE tax -->
+                      <span class="js-fs-line" data-tag="pbt-cos" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
+                    <% end %>
+                       <!-- PROFIT AFTER TAX DISPLAY ROW -->
+                      <% cy_tax = cy_pat.inject(:+) %>
+                      <% py_tax = py_pat.inject(:+) %>
+                      <% cy_amt = op_cy - cy_tax %>
+                      <% py_amt = op_py - py_tax %>
+                      <% @retained_earnings[:cy] =  cy_amt %>
+                      <% @retained_earnings[:py] =  py_amt %>
+                    <tr>
+                      <td>Profit for the year after tax</td>
+                      <td><%= display_ifrs(cy_amt) %></td>
+                      <td><%= display_ifrs(py_amt)  %></td>
+                      <td></td>
+                    </tr>
+                    <!-- PAT MARGIN DISPLAY ROW -->
+                    <tr>
+                      <td></td>
+                      <td style="color:#f3655e;"><%= cy_margin = margin_percentage(cy_amt, cy_rev) %></td>
+                      <td style="color:#f3655e;"><%= py_margin = margin_percentage(py_amt, py_rev) %></td>
+                      <td></td>
+                    </tr>
+                    <!-- HIDDEN JS STATS INFO LINE -->
+                    <span id="js-margin-data" data-cy="<%= cy_margin %>" data-py="<%= py_margin %>" ></span>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                  </tbody>
+              </table>
+              <!-- END OF PNL TABLE -->
+        </section>
+      </article>
+      <!-- WRAPPER ARTICLE -->
+</div>
+<!-- END OF SCROLLONPAGE -->
+
+

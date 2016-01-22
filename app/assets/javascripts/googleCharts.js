@@ -117,7 +117,7 @@ var graphHelper = (function() {
                   title: 'Current vs Comparative analysis of Profit and Loss',
                   subtitle: subtitleText,
                 },
-                bars: 'vertical', // Required for Material Bar Charts.
+                bars: 'horizontal', // Required for Material Bar Charts.
                 hAxis: {format: 'decimal'},
                 colors: ['#94CFD5', '#FF8C86']
               };

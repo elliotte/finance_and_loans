@@ -5,19 +5,30 @@
 <% ncl_amounts = { cy: [0], py: [0] } %>
 <% cl_amounts = { cy: [0], py: [0] } %>
 
-<!-- LIABILITIES GRAPHS AND STATS -->
-<article class="type-system-rounded fin-statement">
-    <div id="liabs-graph">
-    </div>
-</article>
-
-<article class="type-system-rounded fin-statement">
-
-           <div style="width:100%;">
-
-              <table id="" class="table-minimal">
-
-                  <tbody>
+<div class="scroll-on-page" style="width:100%;">
+    <aside id="scroll-on-page-top">
+      <a class="scroll-on-page-link" href="#non-current-liabs">Non-current liabilities</a>
+      <a class="scroll-on-page-link" href="#current-liabs">Current liabilities</a>
+      <br>
+      <div class="dropdown">
+          <div class="dropdown-container">
+            <p class="dropdown-description">New</p>
+            <p class="dropdown-button">Balance Sheet</p>
+            <ul class="dropdown-menu dropdown-select">
+              <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
+              <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
+               <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+            </ul>
+          </div>
+      </div>
+    </aside>
+    <article>
+        <section>
+            <h4>Statement of Financial Position continued..</h4>
+            <br>
+            <table id="" class="table-minimal">
+            
+                <tbody>
                       <tr>
                         <td>Liabilities</td>
                         <td></td>
@@ -30,7 +41,7 @@
                         <td></td>
                         <td></td>
                       </tr>
-                      <tr>
+                      <tr id="non-current-liabs">
                         <td>Non-current liabilities</td>
                         <td style="color:#f3655e;">£</td>
                         <td style="color:#f3655e;">£</td>
@@ -74,7 +85,7 @@
                         <td></td>
                         <td></td>
                       </tr>
-                      <tr>
+                      <tr id="current-liabs">
                         <td>Current liabilities</td>
                         <td style="color:#f3655e;">£</td>
                         <td style="color:#f3655e;">£</td>
@@ -136,49 +147,17 @@
                         <td></td>
                       </tr>
                   </tbody>
-               </table>
-            </div>
-</article>
 
-<div id="dash-view-collaboration-action">
-  <article class="type-system-rounded">
-    <div class="dropdown">
-        <div class="dropdown-container">
-          <p class="dropdown-description">View B/S</p>
-          <p class="dropdown-button">Choose</p>
-          <ul class="dropdown-menu dropdown-select">
-            <li onclick='showDashNotes("BalanceSheet")'><%= link_to 'Notes', "", remote: true, class: 'button'%></li>
-            <li onclick='showDashComments("BalanceSheet")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
-            <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
-           <!--  <li><%#= link_to 'Substantiation', "", remote: true, class: 'button'%></li>
-            -->
-          </ul>
-        </div>
-    </div>
-  </article>
+
+            </table>
+            <!-- END OF BS TABLE -->
+         </section>
+      </article>
+      <!-- WRAPPER ARTICLE -->
 </div>
+<!-- END OF SCROLLONPAGE -->
 
-<article class="type-system-rounded fin-statement" style="margin-top:0;">
 
-  <div class="grid-items-lines">
-    <a href="<%= new_report_note_path(@report, subject: 'BalanceSheet') %>" class="grid-item" data-remote='true'>
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-      <h1>Note.new</h1>
-      <p style="color:#f3655e;">Add a Balance Sheet note</p>
-    </a>
-    <a href="<%= new_report_comment_path(@report, subject: 'BalanceSheet') %>" class="grid-item" data-remote='true'>
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-      <h1>Comment.new</h1>
-      <p style="color:#f3655e;">Add a Balance Sheet comment</p>
-    </a>
-    <a href="javascript:void(0)" class="grid-item">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
 
-      <h1>Reconcile.new</h1>
-      <p style="color:#f3655e;">Add Financial Control</p>
-    </a>
-    <div class="right-cover"></div>
-    <div class="bottom-cover"></div>
-  </div>
 
-</article>
+
