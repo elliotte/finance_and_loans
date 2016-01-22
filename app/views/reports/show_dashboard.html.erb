@@ -1,34 +1,39 @@
-<%#= javascript_include_tag 'reports' %>
-<%#= javascript_include_tag 'reportFinancials' %>
-
-<%#= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
 
 <% $report_format = @report.format %>
 
 <% @retained_earnings = {} %>
+<% cp = @report.current_end.strftime("%B %Y") %>
+<% pp = @report.comparative_end.strftime("%B %Y") %>
 
-<% $cp = @report.current_end.strftime("%B %Y") %>
-<% $pp = @report.comparative_end.strftime("%B %Y") %>
-
-<!-- <article class="type-system-slab">
+<article class="type-system-slab">
     <header class="show-nav" role="banner">
          <div>  
-            <p><%#= link_to 'Back', report_path(@report) %></p>
+            <p><%= link_to 'Back', report_path(@report) %></p>
          </div> 
          <div>  
-            <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%#= asset_path('pb-logo.png') %>"></a>
+            <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
          </div>  
          <div>  
             <p><a href="javascript:void(0)" onclick="ifrsDashShow.exportDashGoogle();"> Export </a></p>
          </div> 
     </header>
 </article>
-<!INCOME STATEMENT GRAPHS AND STATS -->
-<!-- <section class="layout-container">
+
+<section class="layout-container">
   <article class="type-system-slab">
-    <h2 style="color:#FB7D98;">Business Performance</h2> 
-    <div id="income-statement-graph">
-    </div>
+        <h2 style="color:#FB7D98;">Business Performance Analysis</h2> 
+        <br>
+        <div class="dropdown">
+            <div class="dropdown-container">
+              <p class="dropdown-description">View PnL</p>
+              <p class="dropdown-button">Choose</p>
+              <ul class="dropdown-menu dropdown-select">
+                <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
+                <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
+                 <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+              </ul>
+            </div>
+        </div>
   </article>
 </section>
 
@@ -36,11 +41,28 @@
   <article class="type-system-slab">
         <ul class="accordion">
           <li>
+            <a href="javascript:void(0)" class="js-accordion-trigger">Graphic Analysis</a>
+            <ul class="submenu">
+              <li>
+                <a href="javascript:void(0)">Performance Analysis [ Current vs Prior Period ]</a>
+                <div class="graph-container">
+                </div>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="js-accordion-trigger">Statements View</a>
+            <ul class="submenu">
+              <li>
+                <a href="javascript:void(0)">Current Year</a>
+                <%= render partial: 'reports/ifrs/p_n_l' %>
+              </li>
+            </ul>
+          </li>
+          <li>
             <a href="javascript:void(0)" class="js-accordion-trigger">Collaboration and Control</a>
             <ul class="submenu">
               <li>
                 <a href="javascript:void(0)">Feed</a>
-                
                 <div class="scroll-on-page">
                     <aside id="scroll-on-page-top">
                       <a class="scroll-on-page-link" href="#insights">Insights</a>
@@ -51,14 +73,15 @@
                         <section>
                           <h4 id="insights">Insights</h4>
                           <br>
+
                         </section>
                         <section>
                           <h4 id="notes">Notes</h4>
                           <br>
-                           <!ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
-                                <!-- <div class="comment">
+                           <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                                <div class="comment">
                                       <div class="comment-image">
-                                        <img src="<%#= asset_path('pb-logo.png') %>">
+                                        <img src="<%= asset_path('pb-logo.png') %>">
                                       </div>
                                       <div class="comment-content">
                                         <h1>First Comment Title or Author</h1>
@@ -68,13 +91,13 @@
                                 </div>
 
                         </section>
-                        <section> -->
+                        <section>
                                 <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
-                                <!-- <h4 id="comments">Comments</h4>
+                                <h4 id="comments">Comments</h4>
                                 <br>
                                 <div class="comment">
                                       <div class="comment-image">
-                                        <img src="<%#= asset_path('pb-logo.png') %>">
+                                        <img src="<%= asset_path('pb-logo.png') %>">
                                       </div>
                                       <div class="comment-content">
                                         <h1>First Comment Title or Author</h1>
@@ -83,71 +106,79 @@
                                       </div>
                                 </div>
                           </section>
-                      </article> -->
+                      </article>
                       <!-- WRAPPER ARTICLE -->
-<!--                 </div> -->
+                </div>
                 <!-- END OF SCROLLONPAGE -->
-<!--               </li> -->
+              </li>
               <!-- END OF SUBMENU -->
-<!--             </ul>
+            </ul>
           </li>
-        </ul> -->
+        </ul>
         <!-- END OF ACCORDIAN CONTAINER -->
-<!--     </article>
-</section>  -->
-
-<% if $report_format == 'IFRS' %>
-      <!-- IFRS MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
-      <% @tags = Tag.ifrs_fin_stat_tags %>
-      <!-- USED IN FSDRAWCHARTS -->
-      <span id="dash-report-format" type="hidden" data-value="IFRS"></span>
-<!--       
-      <section class="layout-container">
-        <article class="type-system-slab"> -->
-              <%= render partial: 'reports/ifrs/p_n_l' %>
-        <!-- </article>
-      </section> -->
-
-      <!-- <section class="layout-container">
-        <article class="type-system-slab"> -->
-              <%= render partial: 'reports/ifrs/assets' %>
-        <!-- </article>
-      </section>
-
-      <section class="layout-container">
-        <article class="type-system-slab"> -->
-              <%= render partial: 'reports/ifrs/liabilities' %>
-        <!-- </article>
-      </section>
-
-      <section class="layout-container">
-        <article class="type-system-slab"> -->
-              <%= render partial: 'reports/ifrs/equity' %>
-        <!-- </article>
-      </section> -->
-
-<% end %>
-
-
-<% if $report_format == 'UKGAAP' %>
-  <!-- UKGAAP MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
-  <% @tags = Tag.gaap_fin_stat_tags %>
-  <!-- USED IN FSDRAWCHARTS -->
-  <span id="dash-report-format" data-value="UKGAAP"></span>
-
-  <section class="layout-container">
-    <article class="type-system-slab">
-        <%= render :partial => 'reports/ukgaap/p_n_l' %>
     </article>
-  </section>
+</section>
+
+<script>
+    
+(function (jQuery) {
+  jQuery.mark = {
+    jump: function (options) {
+      var defaults = {
+        selector: 'a.scroll-on-page-link'
+      };
+      if (typeof options == 'string') {
+        defaults.selector = options;
+      }
+
+      options = jQuery.extend(defaults, options);
+      return jQuery(options.selector).click(function (e) {
+        var jumpobj = jQuery(this);
+        var target = jumpobj.attr('href');
+        var thespeed = 1000;
+        var offset = jQuery(target).offset().top;
+        jQuery('html,body').animate({
+          scrollTop: offset
+        }, thespeed, 'swing');
+        e.preventDefault();
+      });
+    }
+  };
+})(jQuery);
+
+$(document).on('page:load ready', function(){
   
-  <%#= render :partial => 'reports/ukgaap/balance_sheet' %>
-  <%#= render :partial => 'reports/ukgaap/balance_sheet_cont' %>
-<% end %>
+    jQuery(function(){  
+      jQuery.mark.jump();
+    });
+
+    $('.accordion-tabs-minimal').each(function(index) {
+      $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+    });
+    $('.accordion-tabs-minimal').on('click', 'li > a.tab-link', function(event) {
+      if (!$(this).hasClass('is-active')) {
+        event.preventDefault();
+        var accordionTabs = $(this).closest('.accordion-tabs-minimal');
+        accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+        $(this).next().toggleClass('is-open').toggle();
+        accordionTabs.find('.is-active').removeClass('is-active');
+        $(this).addClass('is-active');
+      } else {
+        event.preventDefault();
+      }
+    });
+
+    $('.js-accordion-trigger').bind('click', function(e){
+      jQuery(this).parent().find('.submenu').slideToggle('fast');  // apply the toggle to the ul
+      jQuery(this).parent().toggleClass('is-expanded');
+      e.preventDefault();
+    });
 
 
+})
 
 
-
+</script>
 
 

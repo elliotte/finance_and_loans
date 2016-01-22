@@ -5,7 +5,37 @@
 <% ncl_amounts = { cy: [0], py: [0] } %>
 <% cl_amounts = { cy: [0], py: [0] } %>
 
-          
+<!-- LIABILITIES GRAPHS AND STATS -->
+<article class="type-system-rounded fin-statement">
+    <div id="liabs-graph">
+    </div>
+</article>
+
+<article class="type-system-rounded fin-statement">
+
+           <div style="width:100%;">
+
+              <table id="" class="table-minimal">
+
+                  <tbody>
+                      <tr>
+                        <td>Liabilities</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Non-current liabilities</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td> &#916 mvmt</td>
+                      </tr>
                       <!-- NON CURRENT LIABILITIES TAGS -->
 
                       <% @tags[:ncl].each do | master_tag | %>
@@ -15,12 +45,41 @@
                           <% py_amt = yield_amount { py }.to_i %>
 
                           <% unless (cy_amt + py_amt == 0.00) %>
-                            
+                            <tr>
+                              <td style="color:#f3655e;"><%= master_tag %></td>
+                              <% ncl_amounts[:cy] << cy_amt %>
+                              <% ncl_amounts[:py] << py_amt %>
+                              <% mvmt = cy_amt - py_amt %>
+                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
+                              <td><%= display_ifrs(mvmt) %></td>
+                            </tr>
                             <!-- HIDDEN JS LINE ASSETS -->
                             <span class="js-fs-line" data-tag="ncl" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           <% end %>
                       <% end %>
-                     
+
+                      <% cy_ncl = ncl_amounts[:cy].inject(:+) %>
+                      <% py_ncl = ncl_amounts[:py].inject(:+) %>
+                      <% mvmt = cy_ncl - py_ncl %>
+                      <tr>
+                        <td> Total non-current liabilities</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_ncl) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_ncl) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Current liabilities</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td style="color:#f3655e;">£</td>
+                        <td></td>
+                      </tr>
                       <!-- CURRENT LIABS TAGS -->
 
                       <% @tags[:cl].each do | master_tag | %>
@@ -29,12 +88,97 @@
                           <% cy_amt = yield_amount { cy }.to_i %>
                           <% py_amt = yield_amount { py }.to_i %>
                           <% unless (cy_amt + py_amt == 0.00) %>
-                          
+                          <tr>
+                            <td style="color:#f3655e;"><%= master_tag %></td>
                             <% cl_amounts[:cy] << cy_amt %>
                             <% cl_amounts[:py] << py_amt %>
                             <% mvmt = cy_amt - py_amt %>
+                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                            <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
+                            <td><%= display_ifrs(mvmt) %></td>
+                          </tr>
                           <!-- HIDDEN JS LINE ASSETS -->
                           <span class="js-fs-line" data-tag="cl" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           <% end %>
                       <% end %>
-            <!-- END OF BS TABLE -->
+
+                      <% cy_cl = cl_amounts[:cy].inject(:+) %>
+                      <% py_cl = cl_amounts[:py].inject(:+) %>
+
+
+                      <% mvmt = cy_cl - py_cl %>
+                      <tr>
+                        <td> Total current liabilities</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_cl)  %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_cl) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <!-- FOR FC CHECKS -->
+                      <% $cy_tot_liab = cy_cl + cy_ncl %>
+                      <% $py_tot_liab = py_cl + cy_ncl %>
+                      
+                      <tr>
+                        <td>Total liabilities</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter($cy_tot_liab) %></td>
+                        <td style="color:#f3655e;"><%=  number_with_delimiter($py_tot_liab) %></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+               </table>
+            </div>
+</article>
+
+<div id="dash-view-collaboration-action">
+  <article class="type-system-rounded">
+    <div class="dropdown">
+        <div class="dropdown-container">
+          <p class="dropdown-description">View B/S</p>
+          <p class="dropdown-button">Choose</p>
+          <ul class="dropdown-menu dropdown-select">
+            <li onclick='showDashNotes("BalanceSheet")'><%= link_to 'Notes', "", remote: true, class: 'button'%></li>
+            <li onclick='showDashComments("BalanceSheet")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
+            <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+           <!--  <li><%#= link_to 'Substantiation', "", remote: true, class: 'button'%></li>
+            -->
+          </ul>
+        </div>
+    </div>
+  </article>
+</div>
+
+<article class="type-system-rounded fin-statement" style="margin-top:0;">
+
+  <div class="grid-items-lines">
+    <a href="<%= new_report_note_path(@report, subject: 'BalanceSheet') %>" class="grid-item" data-remote='true'>
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+      <h1>Note.new</h1>
+      <p style="color:#f3655e;">Add a Balance Sheet note</p>
+    </a>
+    <a href="<%= new_report_comment_path(@report, subject: 'BalanceSheet') %>" class="grid-item" data-remote='true'>
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+      <h1>Comment.new</h1>
+      <p style="color:#f3655e;">Add a Balance Sheet comment</p>
+    </a>
+    <a href="javascript:void(0)" class="grid-item">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+
+      <h1>Reconcile.new</h1>
+      <p style="color:#f3655e;">Add Financial Control</p>
+    </a>
+    <div class="right-cover"></div>
+    <div class="bottom-cover"></div>
+  </div>
+
+</article>

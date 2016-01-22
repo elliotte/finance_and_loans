@@ -134,20 +134,3 @@ ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
-$(document).on('page:load ready', function(){
-  
-    jQuery(function(){  
-      jQuery.mark.jump();
-    });
-    var route = document.location.href
-    var endOfRoute = route.slice(-4);
-        
-    if (route.indexOf('show_dashboard') > -1) {
-
-    } else {
-
-        data = reportHelper.loadShowPageData()
-        graphHelper.drawReportShowCharts(data);
-    }
-  });
-

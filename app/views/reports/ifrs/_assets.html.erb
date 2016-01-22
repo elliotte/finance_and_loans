@@ -5,46 +5,130 @@
 <% nca_amounts = { cy: [0], py: [0] } %>
 <% ca_amounts = { cy: [0], py: [0] } %>
 
-                          <!-- NON CURRENT ASSET TAGS -->
-                          <% @tags[:nca].each do | master_tag | %>
-                              <% cy = find_data(master_tag, :cy)  %>
-                              <% py = find_data(master_tag, :py)  %>
-                              <% cy_amt = yield_amount { cy }.to_i %>
-                              <% py_amt = yield_amount { py }.to_i %>
-                              <% unless (cy_amt + py_amt == 0.00) %>
-                                
-                                    <% nca_amounts[:cy] << cy_amt %>
-                                    <% nca_amounts[:py] << py_amt %>
-                                    <% mvmt = cy_amt - py_amt %>
-                                  
-                                  <!-- HIDDEN JS LINE ASSETS -->
-                                  <span class="js-fs-line" data-tag="nca" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
-                              <% end %>
+<!-- ASSETS GRAPHS AND STATS -->
+<article class="type-system-rounded fin-statement">
+    <div id="assets-graph">
+    </div>
+</article>
+
+<br>
+<br>
+
+<article class="type-system-rounded fin-statement">
+
+          <h1 style="color:#f3655e;">Statement of financial position</h1>
+          <div style="width:100%;">
+              <table id="" class="table-minimal">
+
+                  <tbody>
+                      <tr>
+                          <td></td>
+                          <td><%= cp %></td>
+                          <td><%= pp %></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>Assets</td>
+                          <td style="color:#f3655e;">£</td>
+                          <td style="color:#f3655e;">£</td>
+                          <td style="color:#f3655e;"> &#916 mvmt </td>
+                      </tr>
+                      <!-- NON CURRENT ASSET TAGS -->
+                      <% @tags[:nca].each do | master_tag | %>
+                          <% cy = find_data(master_tag, :cy)  %>
+                          <% py = find_data(master_tag, :py)  %>
+                          <% cy_amt = yield_amount { cy }.to_i %>
+                          <% py_amt = yield_amount { py }.to_i %>
+                          <% unless (cy_amt + py_amt == 0.00) %>
+                              <tr>
+                                <td style="color:#f3655e;"><%= master_tag %></td>
+                                <% nca_amounts[:cy] << cy_amt %>
+                                <% nca_amounts[:py] << py_amt %>
+                                <% mvmt = cy_amt - py_amt %>
+                                <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                                <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
+                                <td><%= display_ifrs(mvmt) %></td>
+                              </tr>
+                              <!-- HIDDEN JS LINE ASSETS -->
+                              <span class="js-fs-line" data-tag="nca" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           <% end %>
+                      <% end %>
 
-                          <% cy_nca = nca_amounts[:cy].inject(:+) %>
-                          <% py_nca = nca_amounts[:py].inject(:+) %>
-                          <% mvmt = cy_nca - py_nca %>
-                          
-                          <!-- CURRENT ASSET TAGS -->
-                          <% @tags[:ca].each do | master_tag | %>
-                              <% cy = find_data(master_tag, :cy)  %>
-                              <% py = find_data(master_tag, :py)  %>
-                              <% cy_amt = yield_amount { cy }.to_i %>
-                              <% py_amt = yield_amount { py }.to_i %>
-                              <% unless (cy_amt + py_amt == 0.00) %>
-                                
-                                <!-- HIDDEN JS LINE ASSETS -->
-                                <span class="js-fs-line" data-tag="ca" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
-                              <% end %>
+                      <% cy_nca = nca_amounts[:cy].inject(:+) %>
+                      <% py_nca = nca_amounts[:py].inject(:+) %>
+                      <% mvmt = cy_nca - py_nca %>
+                      <tr>
+                        <td> Total non-current assets</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_nca) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_nca) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Current assets</td>
+                        <td>£</td>
+                        <td>£</td>
+                        <td><%= mvmt %></td>
+                      </tr>
+                      <!-- CURRENT ASSET TAGS -->
+                      <% @tags[:ca].each do | master_tag | %>
+                          <% cy = find_data(master_tag, :cy)  %>
+                          <% py = find_data(master_tag, :py)  %>
+                          <% cy_amt = yield_amount { cy }.to_i %>
+                          <% py_amt = yield_amount { py }.to_i %>
+                          <% unless (cy_amt + py_amt == 0.00) %>
+                            <tr>
+                              <td style="color:#f3655e;"><%= master_tag %></td>
+                              <% ca_amounts[:cy] << cy_amt %>
+                              <% ca_amounts[:py] << py_amt %>
+                              <% mvmt = cy_amt - py_amt %>
+                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="current"><%= number_with_delimiter(cy_amt) %></td>
+                              <td class="values_breakdown" data-ifrstag="<%= master_tag %>" data-period="comparative"><%= number_with_delimiter(py_amt) %></td>
+                              <td><%= display_ifrs(mvmt) %></td>
+                            </tr>
+                            <!-- HIDDEN JS LINE ASSETS -->
+                            <span class="js-fs-line" data-tag="ca" data-reporting-line="<%= master_tag %>" data-cy="<%= cy_amt %>" data-py="<%= py_amt %>"></span>
                           <% end %>
+                      <% end %>
 
-                          <% cy_ca = ca_amounts[:cy].inject(:+) %>
-                          <% py_ca = ca_amounts[:py].inject(:+) %>
-                          <!-- FOR FINANCIAL CONTROL TOTS CHECK -->
-                          <% $cy_tot_a = cy_ca %>
-                          <% $py_tot_a = py_ca %>
+                      <% cy_ca = ca_amounts[:cy].inject(:+) %>
+                      <% py_ca = ca_amounts[:py].inject(:+) %>
+                      <!-- FOR FINANCIAL CONTROL TOTS CHECK -->
+                      <% $cy_tot_a = cy_ca %>
+                      <% $py_tot_a = py_ca %>
 
-                          <% mvmt = cy_ca - py_ca %>
-                          
-            <!-- END OF BS TABLE -->
+                      <% mvmt = cy_ca - py_ca %>
+                      <tr>
+                        <td> Total current assets</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_ca) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_nca) %></td>
+                        <td><%= display_ifrs(mvmt) %></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Total assets</td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(cy_nca + cy_ca) %></td>
+                        <td style="color:#f3655e;"><%= number_with_delimiter(py_nca + py_ca) %></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+
+                  </tbody>
+               </table>
+            </div>
+</article>
