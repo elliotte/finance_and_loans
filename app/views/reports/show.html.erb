@@ -6,7 +6,7 @@
 <% $pp = @report.comparative_end.strftime("%B %Y") %>
 <%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
 
-<%#= render partial:  "accordian_balance_values" %>
+<%= render partial:  "accordian_balance_values" %>
 
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
