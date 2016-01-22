@@ -6,7 +6,7 @@
 <% $pp = @report.comparative_end.strftime("%B %Y") %>
 <%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
 
-<%= render :partial=>"accordian_balance_values" %>
+<%#= render partial:  "accordian_balance_values" %>
 
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
@@ -24,9 +24,8 @@
 
 <div class="slider-action-bar">
   <img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
-
-  
 </div>
+
 <section class="layout-container">
   <article class="type-system-slab">
         <div class="scroll-on-page">
@@ -96,28 +95,35 @@
           <!-- END OF SCROLL -->
     </article>
 </section>
-<aside class="layout-container">
+<!-- <aside class="layout-container">
   <a href="javascript:void(0);" onclick="appendPieGraph();">
-     <%= image_tag(asset_path('pieimage.png'),size: "60x60")%>      </a>
+     <%#= image_tag(asset_path('pieimage.png'),size: "60x60")%>      </a>
 </aside><br/>
 
 <aside class="layout-container">
   <a href="javascript:void(0);" onclick="appendBarGraph();">
-    <%= image_tag(asset_path('bar-chart-button.png'),size: "60x60")%>     
+    <%#= image_tag(asset_path('bar-chart-button.png'),size: "60x60")%>     
   </a>
           
 </aside>
-<section class="layout-container">
+ -->
+<!-- <section class="layout-container">
   <article class="type-system-slab">
       <div>          
           <div id="assets-graph"></div>
       </div>
     </article>
-</section>
-<%= render :template=>"reports/show_dashboard" %>
+</section> -->
+<%#= render :template=>"reports/show_dashboard" %>
+
 <section class="layout-container">
   <article class="type-system-slab">
       <div class="graph-container">
+          <aside>
+            <a href="javascript:void(0);">
+              <img src="<%= asset_path('bar-chart-button.png') %>">
+            </a>
+          </aside>
           <div id="cp-pie-chart"></div>
           <div id="pp-pie-chart"></div>
       </div>
