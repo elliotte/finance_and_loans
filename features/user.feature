@@ -8,4 +8,3 @@ I want to be able to login and have a profile
 Scenario: GoogleSignIn
 Given I am on the homepage
 Given I follow the login steps
-

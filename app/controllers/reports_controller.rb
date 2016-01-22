@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
 
       if @report.save
         flash[:notice] = "Successfully created Report"
-        redirect_to auth_landing_welcome_index_path(@report)
+        redirect_to report_path(@report)
       else
         flash[:notice] = "Something went wrong"
         render 'new'
