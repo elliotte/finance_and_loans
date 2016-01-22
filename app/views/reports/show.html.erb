@@ -138,54 +138,52 @@
            <li>
             <a href="javascript:void(0)" class="js-accordion-trigger">Data by description</a>
             <ul class="submenu">
-              <li>
-                <a href="javascript:void(0)">Current Year</a>
-                   <table id="" class="table-minimal">
-                    <thead>
-                      <tr style="color:#94CFD5;">
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>£</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-
-                          <% data = @data[:description][:cp] %>
-                                <% data.each_pair do | key, amount | %>
-                                    <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
-                                    <% if !key %>
-                                      <tr>
-                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
-                                          <td>Oops - check values</td>
-                                          <td>Oops</td>
-                                      </tr>
-                                    <% else %>
+              <li class="data-display">
+                <section>
+                    <a href="javascript:void(0)">Current Year</a>
+                    <table id="" class="table-minimal">
+                         <thead>
+                            <tr style="color:#94CFD5;">
+                                <th>Date</th>
+                                <th>your Tag</th>
+                                <th>Amount</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <% data = @data[:description][:cp] %>
+                                  <% data.each_pair do | key, amount | %>
+                                      <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                                      <% if !key %>
                                         <tr>
-                                          <td><%= @report.current_end.strftime("%B %Y") %></td>
-                                          <td><%= key %></td>
-                                          <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
+                                            <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                            <td>Oops - check values</td>
+                                            <td>Oops</td>
                                         </tr>
-                                    <% end %>
-                          <% end %>
-
-                      </tbody>
-                  </table>
-              </li>
-              <li>
-                <a href="javascript:void(0)">Prior Year</a>
-
-                   <table id="" class="table-minimal">
-                    <thead>
-                      <tr style="color:#94CFD5;">
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>£</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-
+                                      <% else %>
+                                          <tr>
+                                            <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                            <td><%= key %></td>
+                                            <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
+                                          </tr>
+                                      <% end %>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    <!-- END OF BS TABLE -->
+                </section>
+                <section>
+                    <a href="javascript:void(0)">Prior Year</a>
+                    <table id="" class="table-minimal">
+                         <thead>
+                            <tr style="color:#94CFD5;">
+                                <th>Date</th>
+                                <th>your Tag</th>
+                                <th>Amount</th>
+                            </tr>
+                         </thead>
+                         <tbody>
                           <% data = @data[:description][:pp] %>
-                          <% data.each_pair do | key, amount | %>
+                               <% data.each_pair do | key, amount | %>
                                     <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
                                     <% if !key %>
                                       <tr>
@@ -201,27 +199,28 @@
                                         </tr>
                                     <% end %>
                           <% end %>
-
-                      </tbody>
-                  </table>
-
+                        </tbody>
+                    </table>
+                    <!-- END OF BS TABLE -->
+                </section>
               </li>
             </ul>
           </li>
           <li>
             <a href="javascript:void(0)" class="js-accordion-trigger">Graph Data</a>
             <ul class="submenu">
-              <li>
-                <a href="javascript:void(0)">Current Year</a>
-                      <table class="table-minimal">
-                              <thead>
-                                <tr>
-                                  <th>Date</th>
-                                  <th>your Tag</th>
-                                  <th>Amount</th>
-                                </tr>
-                              </thead>
-                              <tbody>
+              <li class="data-display">
+                <section>
+                    <a href="javascript:void(0)">Prior Year</a>
+                    <table id="" class="table-minimal">
+                         <thead>
+                            <tr style="color:#94CFD5;">
+                                <th>Date</th>
+                                <th>your Tag</th>
+                                <th>Amount</th>
+                            </tr>
+                         </thead>
+                         <tbody>
                                   <!-- FOR PIE CHARTs DATA ANALYSIS -->
                                   <% data = @data[:mitag_summary][:cp] %>
                                   <% data.each_pair do | key, amount | %>
@@ -232,21 +231,21 @@
                                           <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                                         </tr>
                                   <% end %>
-                              </tbody>
-                      </table>
-              </li>
-              <li>
-                <a href="javascript:void(0)">Prior year</a>
-
-                      <table class="table-minimal">
-                              <thead>
-                                <tr>
-                                  <th>Date</th>
-                                  <th>your Tag</th>
-                                  <th>Amount</th>
-                                </tr>
-                              </thead>
-                              <tbody>
+                        </tbody>
+                    </table>
+                    <!-- END OF BS TABLE -->
+                </section>
+                <section>
+                    <a href="javascript:void(0)">Prior Year</a>
+                    <table id="" class="table-minimal">
+                         <thead>
+                            <tr style="color:#94CFD5;">
+                                <th>Date</th>
+                                <th>your Tag</th>
+                                <th>Amount</th>
+                            </tr>
+                         </thead>
+                         <tbody>
                                     <!-- FOR PIE CHARTs DATA ANALYSIS -->
                                     <% data = @data[:mitag_summary][:pp] %>
                                     <% data.each_pair do | key, amount | %>
@@ -256,8 +255,10 @@
                                             <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                                           </tr>
                                     <% end %>
-                              </tbody>
-                      </table>
+                        </tbody>
+                    </table>
+                    <!-- END OF BS TABLE -->
+                </section>
               </li>
             </ul>
             <!-- END OF GRAPH DATA -->
@@ -276,9 +277,56 @@
            <li>
             <a href="javascript:void(0)" class="js-accordion-trigger">Journals</a>
             <ul class="submenu">
-              <li>
-                <a href="javascript:void(0)">Current Year</a>
-                
+              <li class="data-display">
+                  <section>
+                    <a href="javascript:void(0)">Current Year</a>
+                    <table id="" class="table-minimal">
+                         <thead>
+                            <tr style="color:#94CFD5;">
+                                <th>Date</th>
+                                <th>your Tag</th>
+                                <th>Amount</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                             <% data = @data[:description][:cp_etb] %>
+                             <% data.each_pair do | key, amount | %>
+                                    <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                                    <tr>
+                                      <td><%= @report.current_end.strftime("%B %Y") %></td>
+                                      <td><%= key %></td>
+                                      <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'current')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                    </tr>
+                              <% end %>
+                        </tbody>
+                    </table>
+                    <!-- END OF BS TABLE -->
+                  </section>
+                  <section>
+                    <a href="javascript:void(0)">Prior Year</a>
+                    <table id="" class="table-minimal">
+                         <thead>
+                            <tr style="color:#94CFD5;">
+                                <th>Date</th>
+                                <th>your Tag</th>
+                                <th>Amount</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                             <% data = @data[:description][:pp_etb] %>
+                             <% data.each_pair do | key, amount | %>
+                                    <!-- PIE CHART DOESNT ACCEPT NEGATIVES -->
+                                    <tr>
+                                      <td><%= @report.comparative_end.strftime("%B %Y") %></td>
+                                      <td><%= key %></td>
+                                      <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'comparative')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                    </tr>
+                              <% end %>
+                        </tbody>
+                    </table>
+                    <!-- END OF BS TABLE -->
+                  </section>
+
               </li>
             </ul>
           </li>
@@ -412,6 +460,8 @@ $(document).ready(function(){
          });
 
     }); 
+
+    
 
  </script>
 
