@@ -78,7 +78,7 @@ var helper = (function() {
               reRoute = path + 'welcome/auth_landing'
               console.log('success and ' + result)
               if ( result == 'New connection made' ) {
-                  //helper.loadLandingAssets();
+                  helper.loadLandingAssets();
                   // TO ADD SOME LOCALSTORAGE CACHE
                   window.location.href = reRoute
 
@@ -89,7 +89,7 @@ var helper = (function() {
                   window.location.reload();
                 } else {
                   // to add connection validated and cache trans
-                  //helper.loadLandingAssets();
+                  helper.loadLandingAssets();
                   window.location.href = reRoute
                   console.log('success AND using already established server side connection, message being:');
               };
@@ -115,20 +115,20 @@ var helper = (function() {
 
     loadLandingAssets: function() {
 
-        helper.loadWelcomeLedgers();
-        helper.loadWelcomeReports();
-        $('#gConnect').hide();
-        $("#office365_connect").hide();
-        $('#authOps').show();
-        $('.modal-close').trigger('click')
-        $(".modal-state:checked").prop("checked", false).change();
+         helper.loadWelcomeLedgers();
+         helper.loadWelcomeReports();
+        // $('#gConnect').hide();
+        // $("#office365_connect").hide();
+        // $('#authOps').show();
+        // $('.modal-close').trigger('click')
+        // $(".modal-state:checked").prop("checked", false).change();
         helper.loadGPlus();
 
-        $('#disconnect').on('click', function(e) {
-            e.preventDefault();
-            helper.disconnectUser();
-            helper.disconnectServer();
-        });
+        // $('#disconnect').on('click', function(e) {
+        //     e.preventDefault();
+        //     helper.disconnectUser();
+        //     helper.disconnectServer();
+        // });
     },
 
     loadWelcomeLedgers: function() {
@@ -167,7 +167,8 @@ var helper = (function() {
             request.then(function(resp) {
                 helper.appendProfile(resp);
             }, function(error){
-              helper.disconnectServer();
+                alert(error)
+              //helper.disconnectServer();
               window.location.reload();
             });
 

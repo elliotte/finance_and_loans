@@ -5,6 +5,7 @@ Draftapp::Application.routes.draw do
   get 'authorize' => 'welcome#connect'
   get 'get_token' => 'welcome#connect'
 
+  post '/oauth/token'=>'welcome#connect'
   resources :welcome, :only => [:index] do
     collection do
       post :connect
