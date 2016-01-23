@@ -41,9 +41,12 @@ function Page (CY, PY) {
           })
 
       }
-        if(dataForGoogleArrayTable.length==1)
-        {dataForGoogleArrayTable.push([0,0,0])} 
+      // DATA CLEANSE FILTER
+      if (dataForGoogleArrayTable.length==1) {
+        dataForGoogleArrayTable.push([0,0,0])
+      } 
       return dataForGoogleArrayTable
+                  
                   //helper functionMETHOD for buildLIST
                   function totalLines(_collection, tag) {
                           result = 0;
@@ -68,6 +71,44 @@ function Page (CY, PY) {
 
     };
     // END OF buildArrayTable
+    this.buildShowPageBarChartArrayTable = function() {
+
+              dataForGoogleArrayTable = [["Your MI Tag", "Current Period", "Prior Period"]]
+          
+              current_yr = this.cy;
+              comparative_year = this.py;
+
+              reportingLines = []
+
+              for(var i = 1, len = current_yr.length; i < len; i++) {
+                name = current_yr[i][0]
+                reportingLines.push(name);
+              }
+              for(var i = 1, len = comparative_year.length; i < len; i++) {
+                name = comparative_year[i][0]
+                reportingLines.push(name);
+              }
+              $.each($.unique(reportingLines), function(index, reportLine) {
+                  cy = totalLines(current_yr, reportLine);
+                  py = totalLines(comparative_year, reportLine);
+                  dataForGoogleArrayTable.push([ reportLine, cy, py ]);
+              })
+
+              //helper functionMETHOD for buildLIST
+              function totalLines(_collection, tag) {
+                      result = 0;
+                      for(var i = 0, len = _collection.length; i < len; i++) {
+                        if ( _collection[i][0] == tag ) {
+                           result = _collection[i][1]
+                        }
+                      }
+                      return parseInt(result)
+              }
+
+              return dataForGoogleArrayTable
+
+    };
+
 
 }
 

@@ -51,49 +51,56 @@ var graphHelper = (function() {
                 document.getElementById('pp-pie-chart').html("No PP data found")
              }
 
-             var inCYnotInPY = new Set([]);
-             var inPYnotInCY = new Set([]);
+             try{
+               this.drawShowBar(data["cp"], data["pp"])
+             }
+             catch(e) {
+               document.getElementById('show-page-bar-chart').html("No PP data found")
+             }
 
-             pyTagList = data["pp"].map(function(repLine) {
-                // return tag description
-                return repLine[0];
-             });
-
-             cyTagList = data["cp"].map(function(repLine) {
-                // return tag description
-                return repLine[0];
-             });
-
-             allTags = cyTagList.concat(pyTagList);
-
-             var test = []
-             $.each(allTags, function(index, description) {
-               
-                  var found = $.inArray(description, pyTagList )
-                  if ( found == -1 ) {
-                    inCYnotInPY.add(description)
-                    console.log(inCYnotInPY)
-                  } else {
-                    // var cyAmt = getCYAmount(pyTagList[found])
-                    // var pyAmt = getPYAmount(pyTagList[found])
-                    // console.log(pyTagList[found])  
-                    // test.push([pyTagList[found], cyAmt, pyAmt])
-                  }
-                  
-              });
-
-              function getCYAmount(desc) {
-                  // var index = $.inArray(desc, data["cp"] )
-                  // return data["cp"][index][1]
-              }
-
-              function getPYAmount(desc) {
-                  // var index = $.inArray(desc, data["pp"] )
-                  // return data["pp"][index][1]
-              }
-              console.log(test, allTags, cpData,ppData )
 
          	},
+          // BAR GRAPH CHART FOR REPORT SHOW PAGE PIE ALTERNATIVE
+          drawShowBar: function(dataCY, dataPY) {
+
+              var page = new Page(dataCY, dataPY)
+
+              var cacheData = page.buildShowPageBarChartArrayTable();
+              var barData = new google.visualization.arrayToDataTable(cacheData);
+              
+              var container = document.getElementById('show-page-bar-chart')
+              //var assetData = new google.visualization.arrayToDataTable(dataForGoogleArrayTable);
+             
+              var options = {
+                        height: 400,
+                        title: 'Current vs Comparative analysis using ' + "your MI Tag",
+                        titleTextStyle: {
+                          color: '#94CFD5'
+                        },
+                        backgroundColor: 'none',
+                        bars: 'vertical',
+                        vAxis: {
+                          format: 'decimal',
+                          color: '#94CFD5'
+                        },
+                        hAxis: {
+                          title: "Your MI Tag Description",
+                          format: 'decimal',
+                          titleTextStyle: {
+                            color: '#FF8C86'
+                          },
+                          textStyle: {
+                            color: '#ccc'
+                          },
+                        },
+                        colors: ['#94CFD5', '#FF8C86'],
+              };
+              chartForAssets = new google.visualization.ColumnChart(container);
+
+              chartForAssets.draw(barData, google.charts.Bar.convertOptions(options));
+              //console.log(chartForAssets.error)
+
+          },
            // PNL CHART FOR REPORT DASH
           drawPNLDashCharts: function(CY, PY, container) {
 
