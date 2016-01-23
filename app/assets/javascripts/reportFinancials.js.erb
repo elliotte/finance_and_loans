@@ -1,30 +1,5 @@
-// SCROLL AND ACCORD JS         
-(function (jQuery) {
-  jQuery.mark = {
-    jump: function (options) {
-      var defaults = {
-        selector: 'a.scroll-on-page-link'
-      };
-      if (typeof options == 'string') {
-        defaults.selector = options;
-      }
-      options = jQuery.extend(defaults, options);
-      return jQuery(options.selector).click(function (e) {
-        var jumpobj = jQuery(this);
-        var target = jumpobj.attr('href');
-        var thespeed = 1000;
-        var offset = jQuery(target).offset().top;
-        jQuery('html,body').animate({
-          scrollTop: offset
-        }, thespeed, 'swing');
-        e.preventDefault();
-      });
-    }
-  };
-})(jQuery);
 
 var ready;
-
 ready = function() {
          // Cache Graph data FROM DOM
          var dashData = ifrsDashShow.loadData();
@@ -57,33 +32,8 @@ ready = function() {
          } catch (e) {
            console.log(e); // pass exception object to error handler
          }
-        // UI LISTENERS
-        // SCROLL UI
-        jQuery(function(){  
-          jQuery.mark.jump();
-        });
-        // ACCORD DROPDOWN UI
-        $('.accordion-tabs-minimal').each(function(index) {
-          $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
-        });
-        $('.accordion-tabs-minimal').on('click', 'li > a.tab-link', function(event) {
-          if (!$(this).hasClass('is-active')) {
-            event.preventDefault();
-            var accordionTabs = $(this).closest('.accordion-tabs-minimal');
-            accordionTabs.find('.is-open').removeClass('is-open').hide();
-
-            $(this).next().toggleClass('is-open').toggle();
-            accordionTabs.find('.is-active').removeClass('is-active');
-            $(this).addClass('is-active');
-          } else {
-            event.preventDefault();
-          }
-        });
-        $('.js-accordion-trigger').bind('click', function(e){
-          jQuery(this).parent().find('.submenu').slideToggle('fast');  // apply the toggle to the ul
-          jQuery(this).parent().toggleClass('is-expanded');
-          e.preventDefault();
-         });
+         
+         reportsSharedHelper.setAccordianHandlers(); 
          // DATA LISTENERS
          // FETCH DATA LISTENERS 
          $('.values_breakdown').on('click', function(){
@@ -107,31 +57,205 @@ ready = function() {
 };
 // END OF READY
 
-// WHY THIS HERE?  ABOVE?  
-// (function (jQuery) {
-//   jQuery.mark = {
-//     jump: function (options) {
-//       var defaults = {
-//         selector: 'a.scroll-on-page-link'
-//       };
-//       if (typeof options == 'string') {
-//         defaults.selector = options;
-//       }
-
-//       options = jQuery.extend(defaults, options);
-//       return jQuery(options.selector).click(function (e) {
-//         var jumpobj = jQuery(this);
-//         var target = jumpobj.attr('href');
-//         var thespeed = 1000;
-//         var offset = jQuery(target).offset().top;
-//         jQuery('html,body').animate({
-//           scrollTop: offset
-//         }, thespeed, 'swing');
-//         e.preventDefault();
-//       });
-//     }
-//   };
-// })(jQuery);
-
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+var ifrsDashShow = (function() {
+
+      return {
+
+          cacheData: function() {
+            var data = {
+              cy: {
+                gp_rev: [],
+                gp_cos: [],
+                op_rev: [],
+                op_cos: [],
+                tax: [],
+                assets: [],
+                liabs: []
+              },
+              py: {
+                gp_rev: [],
+                gp_cos: [],
+                op_rev: [],
+                op_cos: [],
+                tax: [],
+                assets: [],
+                liabs: []
+              },
+            }
+            // END OF DATA
+            var fsReportingLines = $('.js-fs-line')
+            $.each(fsReportingLines, function(index, repLine) {
+
+              tag = $(repLine).data('tag')
+              lineDescription = $(repLine).data('reporting-line')
+              cy_amt = $(repLine).data('cy')
+              py_amt = $(repLine).data('py')
+              cy_info = [ lineDescription , cy_amt ]
+              py_info = [ lineDescription, py_amt ]
+
+              switch (tag) {
+                // PNL GAAP AND IFRS
+                  case "gp-rev":
+                      data.cy.gp_rev.push(cy_info)
+                      data.py.gp_rev.push(py_info)
+                      break;
+                  case "gp-cos":
+                      data.cy.gp_cos.push(cy_info)
+                      data.py.gp_cos.push(py_info)
+                      break;
+                  case "op-rev":
+                      data.cy.op_rev.push(cy_info)
+                      data.py.op_rev.push(py_info)
+                      break;
+                  case "op-cos":
+                      data.cy.op_cos.push(cy_info)
+                      data.py.op_cos.push(py_info)
+                      break;
+                  case "pbt-cos":
+                      data.cy.tax.push(cy_info)
+                      data.py.tax.push(py_info)
+                      break;
+                  case "tax":
+                      data.cy.tax.push(cy_info)
+                      data.py.tax.push(py_info)
+                      break;
+                // ASSETS GAAP
+                  case "fa_tang":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                  case "fa_intang":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                  case "curr_assets":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                // ASSETS IFRS
+                  case "ca":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                   case "nca":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                  case "assets":
+                      data.cy.assets.push(cy_info)
+                      data.py.assets.push(py_info)
+                      break;
+                // CREDITORS n EQUITY GAAP
+                  case "cred_current":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "cred_greater":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "capital":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                //CREDITORS n EQUTY IFRS
+                  case "ncl":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "cl":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+                  case "liabs":
+                      data.cy.liabs.push(cy_info)
+                      data.py.liabs.push(py_info)
+                      break;
+              }
+              // END OF SWITCH
+            });
+            // END OF EACH
+            return data
+          },
+
+          loadStats: function() {
+
+              gpData = [$('#js-gp-margin-data'), $('#js-op-margin-data'), $('#js-margin-data') ]
+
+              cy_statsViewList = $('#cy-p-n-l-stats')
+              py_statsViewList = $('#py-p-n-l-stats')
+
+              $.each(gpData, function(index, stat) {
+
+                  statText = $(stat).attr('id')
+                  displayText = "";
+
+                  switch (statText) {
+                    case "js-gp-margin-data":
+                        displayText = "GP Margin";
+                        break;
+                    case "js-op-margin-data":
+                        displayText = "OP Margin";
+                        break;
+                    case "js-margin-data":
+                        displayText = "Profit Margin";
+                        break;
+                  }
+
+                  cy_html = '<li>' +
+                              $(stat).data('cy') +
+                              '<span>' + displayText + '</span>' +
+                            '</li>'
+                  py_html = '<li>' +
+                              $(stat).data('py') +
+                              '<span>' + displayText + '</span>' +
+                            '</li>'
+                  $(cy_statsViewList).append(cy_html)
+                  $(py_statsViewList).append(py_html)
+
+              });
+
+          },
+          // END OF LOAD STATS
+          loadData: function() {
+             var dashPageData = this.cacheData();
+             return dashPageData
+          },
+
+          exportDashGoogle: function() {
+
+            var fsReportingLines = $('.js-fs-line')
+            var data = []
+            $.each(fsReportingLines, function(index, repLine) {
+
+              tag = $(repLine).data('tag')
+              lineDescription = $(repLine).data('reporting-line')
+              cy_amt = $(repLine).data('cy')
+              py_amt = $(repLine).data('py')
+              row = [ lineDescription , cy_amt, py_amt, tag ]
+              data.push(row)
+
+            });
+
+            var token = $("meta[name='csrf-token']").attr("content");
+            var request = new XMLHttpRequest();
+              request.onload = successDashExport;
+//              request.onerror = errorDisplay;
+              request.open("post", '/reports/' + $('#report-id').val() + '/export_dash', true );
+              request.setRequestHeader("Content-Type", "application/json");
+              request.setRequestHeader("X-CSRF-Token", token);
+              request.send(JSON.stringify(data));
+
+          },
+
+      };
+      // END OF RETURN
+
+})();
+
+
+
+

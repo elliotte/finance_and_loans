@@ -6,6 +6,80 @@
 <% ca_amounts = { cy: [0], py: [0] } %>
 
 
+<!-- ASSETS GRAPHS AND STATS -->
+<section class="layout-container">
+  <article class="type-system-slab">
+    <h2 style="color:#FB7D98;">Balance Sheet</h2> 
+    <div id="assets-graph">
+    </div>
+  </article>
+</section>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+        <ul class="accordion">
+          <li>
+            <a href="javascript:void(0)" class="js-accordion-trigger">Collaboration and Control</a>
+            <ul class="submenu">
+              <li>
+                <a href="javascript:void(0)">Feed</a>
+                
+                <div class="scroll-on-page">
+                    <aside id="scroll-on-page-top">
+                      <a class="scroll-on-page-link" href="#insights">Insights</a>
+                      <a class="scroll-on-page-link" href="#notes">Notes</a>
+                      <a class="scroll-on-page-link" href="#comments">Comments</a>
+                    </aside>
+                    <article>
+                        <section>
+                          <h4 id="insights">Insights</h4>
+                          <br>
+                        </section>
+                        <section>
+                          <h4 id="notes">Notes</h4>
+                          <br>
+                           <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                                <div class="comment">
+                                      <div class="comment-image">
+                                        <img src="<%= asset_path('pb-logo.png') %>">
+                                      </div>
+                                      <div class="comment-content">
+                                        <h1>First Comment Title or Author</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                        <p class="comment-detail">Date or details about this post</p>
+                                      </div>
+                                </div>
+
+                        </section>
+                        <section>
+                                <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                                <h4 id="comments">Comments</h4>
+                                <br>
+                                <div class="comment">
+                                      <div class="comment-image">
+                                        <img src="<%= asset_path('pb-logo.png') %>">
+                                      </div>
+                                      <div class="comment-content">
+                                        <h1>First Comment Title or Author</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                        <p class="comment-detail">Date or details about this post</p>
+                                      </div>
+                                </div>
+                          </section>
+                      </article>
+                      <!-- WRAPPER ARTICLE -->
+                </div>
+                <!-- END OF SCROLLONPAGE -->
+              </li>
+              <!-- END OF SUBMENU -->
+            </ul>
+          </li>
+        </ul>
+        <!-- END OF ACCORDIAN CONTAINER -->
+    </article>
+</section>
+
+
 <div class="scroll-on-page" style="width:100%;">
     <aside id="scroll-on-page-top">
       <a class="scroll-on-page-link" href="#non-current-assets">Non-current assets</a>

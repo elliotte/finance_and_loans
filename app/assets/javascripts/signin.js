@@ -78,7 +78,8 @@ var helper = (function() {
               reRoute = path + 'welcome/auth_landing'
               console.log('success and ' + result)
               if ( result == 'New connection made' ) {
-                  helper.loadLandingAssets();
+                  //helper.loadLandingAssets();
+                  helper.loadGPlus();
                   // TO ADD SOME LOCALSTORAGE CACHE
                   window.location.href = reRoute
 
@@ -89,7 +90,8 @@ var helper = (function() {
                   window.location.reload();
                 } else {
                   // to add connection validated and cache trans
-                  helper.loadLandingAssets();
+                  //helper.loadLandingAssets();
+                  helper.loadGPlus();
                   window.location.href = reRoute
                   console.log('success AND using already established server side connection, message being:');
               };
@@ -114,16 +116,14 @@ var helper = (function() {
     },
 
     loadLandingAssets: function() {
-
-         helper.loadWelcomeLedgers();
-         helper.loadWelcomeReports();
+        //helper.loadWelcomeLedgers();
+        //helper.loadWelcomeReports();
         // $('#gConnect').hide();
         // $("#office365_connect").hide();
         // $('#authOps').show();
         // $('.modal-close').trigger('click')
         // $(".modal-state:checked").prop("checked", false).change();
-        helper.loadGPlus();
-
+        //helper.loadGPlus();
         // $('#disconnect').on('click', function(e) {
         //     e.preventDefault();
         //     helper.disconnectUser();
@@ -132,31 +132,31 @@ var helper = (function() {
     },
 
     loadWelcomeLedgers: function() {
-      $.ajax({
-        type: 'GET',
-        url: '/ledgers/last_user_ledgers',
-        contentType: 'application/octet-stream; charset=utf-8',
-        success: function(result) {
-          console.log('welcomeLedgers route hit');
-          //console.log(result);
-          //helper.appendDrive(result);
-        },
-        processData: false
-      });
+      // $.ajax({
+      //   type: 'GET',
+      //   url: '/ledgers/last_user_ledgers',
+      //   contentType: 'application/octet-stream; charset=utf-8',
+      //   success: function(result) {
+      //     console.log('welcomeLedgers route hit');
+      //     //console.log(result);
+      //     //helper.appendDrive(result);
+      //   },
+      //   processData: false
+      // });
     },
 
     loadWelcomeReports: function() {
-      $.ajax({
-        type: 'GET',
-        url: '/reports/last_user_reports',
-        contentType: 'application/octet-stream; charset=utf-8',
-        success: function(result) {
-          console.log('welcomeReports route hit');
-          //console.log(result);
-          //helper.appendDrive(result);
-        },
-        processData: false
-      });
+      // $.ajax({
+      //   type: 'GET',
+      //   url: '/reports/last_user_reports',
+      //   contentType: 'application/octet-stream; charset=utf-8',
+      //   success: function(result) {
+      //     console.log('welcomeReports route hit');
+      //     //console.log(result);
+      //     //helper.appendDrive(result);
+      //   },
+      //   processData: false
+      // });
     },
 
     loadGPlus: function() {
@@ -188,8 +188,10 @@ var helper = (function() {
         image.src = resp.result.image.url;
         
         html = 'Welcome ' + '<span style="color: #eee;">' + resp.result.displayName + '</span>'
-        $('#welcome-name-append').empty().append(html)
-        $('#welcome-profile-append').empty().append(image)
+        $('#bg-screen-for-modal').addClass('open')
+        $('#bg-screen-for-modal').find('section').empty().append(html)
+        $('#bg-screen-for-modal').find('section').append(image)
+
 
     },
 
@@ -223,10 +225,12 @@ var helper = (function() {
         url: '/welcome/disconnect',
         async: false,
         success: function(result) {
+          localStorage.clear();
           console.log('revoke response: ' + result);
           helper.displaySignedOutModal();
         },
         error: function(e) {
+          localStorage.clear();
           helper.displayErrorModal();
         }
       });

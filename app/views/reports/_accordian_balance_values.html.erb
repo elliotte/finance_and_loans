@@ -21,3 +21,27 @@
         data-ifrstag="<%= v.ifrstag %>"
         data-amount="<%= amt %>"></span>
 <% end %>
+
+<% @data[:c_period_values_etb].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="etb_<%= v.mitag.gsub(/[^A-Z0-9]+/i, '') %>"
+        data-period="current"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>
+
+<% @data[:p_period_values_etb].each do |v| %>
+  <% amt = v.amount.to_f.round(2) %>
+  <span class="etb_<%= v.mitag.gsub(/[^A-Z0-9]+/i, '') %>"
+        data-period="comparative"
+        data-mitag="<%= v.mitag %>"
+        data-type="<%= v.type %>"
+        data-desc="<%= v.description %>"
+        data-date="<%= v.repdate.strftime('%b-%y') %>"
+        data-ifrstag="<%= v.ifrstag %>"
+        data-amount="<%= amt %>"></span>
+<% end %>

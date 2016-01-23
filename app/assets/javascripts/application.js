@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require signin
-//= require filterTool
 //= require googleCharts
 //= require page
 //= require handlebars

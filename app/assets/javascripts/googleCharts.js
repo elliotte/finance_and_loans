@@ -3,61 +3,8 @@ var graphHelper = (function() {
   
       return {
 
-          drawCharts: function(data) {
-
-              if ( $('#sales-chart-timeline').length ) {
-              // IS THEREFORE SALESLEDGER SHOWPAGE DRAW
-                  var _data = google.visualization.arrayToDataTable(data);
-                  var options = {
-                    title: 'Invoices Raised',
-                    hAxis: {title: 'Description', titleTextStyle: {color: '#FFB5B1'}},
-                    legend: {position: "none" },
-                    colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
-                  }
-
-                  var chartT = new google.visualization.ColumnChart(document.getElementById('sales-chart-timeline'));
-                  chartT.draw(_data, options);
-
-              } else {
-              // IS THEREFORE CASHLEDGER SHOWPAGE DRAW
-                var pData = google.visualization.arrayToDataTable(data["Payments"]);
-                var options = {
-                  title: '% of total',
-                  is3D: true,
-                  legend: {position: "none" },
-                  colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
-                };
-                var chart = new google.visualization.PieChart(document.getElementById('payment-pie-chart'));
-                chart.draw(pData, options);
-
-                var dataLodgements = google.visualization.arrayToDataTable(data["Lodgements"]);
-                var optionsL = {
-                  title: '% of total',
-                  is3D: true,
-                  legend: {position: "none" },
-                  colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
-                };
-                var chartL = new google.visualization.PieChart(document.getElementById('lodgement-pie-chart'));
-                chartL.draw(dataLodgements, optionsL);
-                // var dataT = google.visualization.arrayToDataTable(last3monthsTransactions);
-                var dataT = google.visualization.arrayToDataTable(data["Timeline"]);
-
-                var optionsT = {
-                    title: 'Timeline',
-                    hAxis: {title: 'Description', titleTextStyle: {color: '#FFB5B1'}},
-                    legend: {position: "none" },
-                    colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
-                }
-
-                var chartT = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
-                chartT.draw(dataT, optionsT);
-              
-
-              }
-
-          },
-
           drawReportShowCharts: function(data) {
+
             try{ 
                var cpData = google.visualization.arrayToDataTable(data["cp"]);
                var options = {
@@ -102,7 +49,50 @@ var graphHelper = (function() {
              }
              catch(e){
                 document.getElementById('pp-pie-chart').html("No PP data found")
-             }	
+             }
+
+             var inCYnotInPY = new Set([]);
+             var inPYnotInCY = new Set([]);
+
+             pyTagList = data["pp"].map(function(repLine) {
+                // return tag description
+                return repLine[0];
+             });
+
+             cyTagList = data["cp"].map(function(repLine) {
+                // return tag description
+                return repLine[0];
+             });
+
+             allTags = cyTagList.concat(pyTagList);
+
+             var test = []
+             $.each(allTags, function(index, description) {
+               
+                  var found = $.inArray(description, pyTagList )
+                  if ( found == -1 ) {
+                    inCYnotInPY.add(description)
+                    console.log(inCYnotInPY)
+                  } else {
+                    // var cyAmt = getCYAmount(pyTagList[found])
+                    // var pyAmt = getPYAmount(pyTagList[found])
+                    // console.log(pyTagList[found])  
+                    // test.push([pyTagList[found], cyAmt, pyAmt])
+                  }
+                  
+              });
+
+              function getCYAmount(desc) {
+                  // var index = $.inArray(desc, data["cp"] )
+                  // return data["cp"][index][1]
+              }
+
+              function getPYAmount(desc) {
+                  // var index = $.inArray(desc, data["pp"] )
+                  // return data["pp"][index][1]
+              }
+              console.log(test, allTags, cpData,ppData )
+
          	},
            // PNL CHART FOR REPORT DASH
           drawPNLDashCharts: function(CY, PY, container) {
@@ -164,11 +154,16 @@ var graphHelper = (function() {
                         titleTextStyle: {
                           color: '#94CFD5'
                         },
+                        backgroundColor: 'none',
+                        bars: 'vertical',
+                        vAxis: {
+                          format: 'decimal',
+                        },
                         hAxis: {
                           title: subtitleText,
                           format: 'decimal',
                           titleTextStyle: {
-                            color: '#94CFD5'
+                            color: '#FF8C86'
                           },
                           textStyle: {
                             color: '#ccc'
@@ -190,3 +185,61 @@ var convertChartColumntoString = function(data_table){
  dataView.setColumns([{calc: function(data, row) { return data.getFormattedValue(row, 0); }, type:'string'}, 1]);
  return dataView
 }
+
+
+
+          // OLD CODE
+          // RELATES TO LEDGERS
+          // drawCharts: function(data) {
+
+          //     if ( $('#sales-chart-timeline').length ) {
+          //     // IS THEREFORE SALESLEDGER SHOWPAGE DRAW
+          //         var _data = google.visualization.arrayToDataTable(data);
+          //         var options = {
+          //           title: 'Invoices Raised',
+          //           hAxis: {title: 'Description', titleTextStyle: {color: '#FFB5B1'}},
+          //           legend: {position: "none" },
+          //           colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
+          //         }
+
+          //         var chartT = new google.visualization.ColumnChart(document.getElementById('sales-chart-timeline'));
+          //         chartT.draw(_data, options);
+
+          //     } else {
+          //     // IS THEREFORE CASHLEDGER SHOWPAGE DRAW
+          //       var pData = google.visualization.arrayToDataTable(data["Payments"]);
+          //       var options = {
+          //         title: '% of total',
+          //         is3D: true,
+          //         legend: {position: "none" },
+          //         colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
+          //       };
+          //       var chart = new google.visualization.PieChart(document.getElementById('payment-pie-chart'));
+          //       chart.draw(pData, options);
+
+          //       var dataLodgements = google.visualization.arrayToDataTable(data["Lodgements"]);
+          //       var optionsL = {
+          //         title: '% of total',
+          //         is3D: true,
+          //         legend: {position: "none" },
+          //         colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
+          //       };
+          //       var chartL = new google.visualization.PieChart(document.getElementById('lodgement-pie-chart'));
+          //       chartL.draw(dataLodgements, optionsL);
+          //       // var dataT = google.visualization.arrayToDataTable(last3monthsTransactions);
+          //       var dataT = google.visualization.arrayToDataTable(data["Timeline"]);
+
+          //       var optionsT = {
+          //           title: 'Timeline',
+          //           hAxis: {title: 'Description', titleTextStyle: {color: '#FFB5B1'}},
+          //           legend: {position: "none" },
+          //           colors: ['#FFB5B1', '#FF8C86', '#F3655E', '#95D0D5', '#5FABB2', '#C8F17F', '#DCF7AC'],
+          //       }
+
+          //       var chartT = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
+          //       chartT.draw(dataT, optionsT);
+              
+
+          //     }
+
+          // },

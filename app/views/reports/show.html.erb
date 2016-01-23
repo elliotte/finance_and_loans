@@ -1,5 +1,9 @@
+<!-- COMMON JS FILE FIR SHOW AND DASH -->
 <%= javascript_include_tag 'boardPacks' %>
-<%= javascript_include_tag 'reports' %>
+<!-- SHOW PAGE ONLY JS -->
+<%= javascript_include_tag 'bpShow' %>
+
+<%#= javascript_include_tag 'reports' %>
 <%#= javascript_include_tag 'reportFinancials' %>
 
 <% $cp = @report.current_end.strftime("%B %Y") %>
@@ -130,6 +134,19 @@
     </article>
 </section>
 
+<section class="layout-container">
+  <article class="type-system-slab">
+      <div class="graph-container">
+          <aside>
+            <a href="javascript:void(0);">
+              <img src="<%= asset_path('bar-chart-button.png') %>">
+            </a>
+          </aside>
+          <div id="show-page-bar-chart"></div>
+      </div>
+    </article>
+</section>
+
 
 <section class="layout-container">
   <article class="type-system-slab">
@@ -163,7 +180,7 @@
                                           <tr>
                                             <td><%= @report.current_end.strftime("%B %Y") %></td>
                                             <td><%= key %></td>
-                                            <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
+                                            <td class="display-action" data-description="<%= key %>" onclick="reportShowHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
                                           </tr>
                                       <% end %>
                             <% end %>
@@ -195,7 +212,7 @@
                                         <tr>
                                           <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                                           <td><%= key %></td>
-                                          <td class="display-action" data-description="<%= key %>" onclick="reportHelper.loadValuesByDescription(this, 'current')"><%= number_with_delimiter(amount.to_i) %></td>
+                                          <td class="display-action" data-description="<%= key %>" onclick="reportShowHelper.loadValuesByDescription(this, 'comparative')"><%= number_with_delimiter(amount.to_i) %></td>
                                         </tr>
                                     <% end %>
                           <% end %>
@@ -228,7 +245,7 @@
                                         <tr class="cy-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
                                           <td><%= @report.current_end.strftime("%B %Y") %></td>
                                           <td><%= key %></td>
-                                          <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                          <td class="display-action" onclick="reportShowHelper.loadValuesByMiTag(this, 'tb', 'current')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                                         </tr>
                                   <% end %>
                         </tbody>
@@ -252,7 +269,7 @@
                                           <tr class="pp-graph-rep-lines" data-key="<%= key.gsub("&"){'and'} %>" data-amount="<%= amount.to_i.abs %>">
                                             <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                                             <td><%= key %></td>
-                                            <td class="display-action" onclick="reportHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                            <td class="display-action" onclick="reportShowHelper.loadValuesByMiTag(this, 'tb', 'comparative')" data-mitag="<%= key.gsub(" ", "-") %>"><%= number_with_delimiter(amount.to_i) %></td>
                                           </tr>
                                     <% end %>
                         </tbody>
@@ -295,7 +312,7 @@
                                     <tr>
                                       <td><%= @report.current_end.strftime("%B %Y") %></td>
                                       <td><%= key %></td>
-                                      <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'current')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                      <td class="display-action" onclick="reportShowHelper.loadJournalValues(this, 'current')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
                                     </tr>
                               <% end %>
                         </tbody>
@@ -319,7 +336,7 @@
                                     <tr>
                                       <td><%= @report.comparative_end.strftime("%B %Y") %></td>
                                       <td><%= key %></td>
-                                      <td class="display-action" onclick="reportHelper.loadJournalValues(this, 'comparative')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
+                                      <td class="display-action" onclick="reportShowHelper.loadJournalValues(this, 'comparative')" data-description="<%= key %>"><%= number_with_delimiter(amount.to_i) %></td>
                                     </tr>
                               <% end %>
                         </tbody>
@@ -436,32 +453,6 @@
     $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_notes') %>") 
   }
 
-$(document).ready(function(){
-
-        $('#new-work-icon').click(function(){
-          slideBar =  $( ".slider-action-bar" )
-          if (slideBar.width() > 70 ) {
-            // HIDE BAR
-             slideBar.animate({ width: "40" }, 1000 )
-             slideBar.children('a').fadeOut();
-             slideBar.children('a').remove();
-
-          } else {
-             // OPEN BAR
-              slideBar.animate({ width: "20%" }, {
-                duration: 2000,
-                complete: function() {
-                  actionButtons = $('#hidden-buttons-for-bar').children('a').clone();
-                    slideBar.append(actionButtons);
-                }
-              });
-          }
-          // END OF IF
-         });
-
-    }); 
-
-    
 
  </script>
 

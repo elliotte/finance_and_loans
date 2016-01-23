@@ -1,4 +1,6 @@
-<%= javascript_include_tag 'reports' %>
+<!-- COMMON JS FILE FIR SHOW AND DASH -->
+<%= javascript_include_tag 'boardPacks' %>
+<!-- DASH PAGE ONLY JS -->
 <%= javascript_include_tag 'reportFinancials' %>
 
 <%= hidden_field_tag :report_id, @report.id, id: 'report-id' %>
@@ -31,6 +33,7 @@
     </div>
   </article>
 </section>
+
 
 <section class="layout-container">
   <article class="type-system-slab">
