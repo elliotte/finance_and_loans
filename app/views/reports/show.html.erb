@@ -30,6 +30,35 @@
   <img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
 </div>
 
+
+<section class="layout-container">
+  <article class="type-system-slab">
+
+      <ul class="accordion">
+          <li>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Report details: <span style="color:#94CFD5;"> <%= @report.title %></span></a>
+                <ul class="submenu">
+                  <li class="data-display">
+                      <section>
+                        <p><span style="color:#94CFD5;">Format:  <br></span><%= @report.format %></p>
+                        <p><span style="color:#94CFD5;">Summary:  <br></span><%= @report.summary == nil ? "No summary given" : @report.summary %></p>
+                      </section>
+                      <section>
+                        <p><span style="color:#94CFD5;">Current Period:  <br></span><%= @report.current_end.strftime("%B %Y") %></p>
+                        <p><span style="color:#94CFD5;">Comparative Period:  <br></span><%= @report.comparative_end.strftime("%B %Y") %></p>
+                        <p><span style="color:#94CFD5;">Report Owner:  <br></span><%= User.find(@report.user_id).email %></p>
+                        <p><%= link_to "Edit Settings", edit_report_path(@report), remote: true %></p>
+                      </section>
+                  </li>
+                </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
+          <!-- END OF GRAPH DATA -->
+      </ul>
+        <!-- END OF ACCORDIAN CONTAINRE -->
+  </article>
+</section>
+
 <section class="layout-container">
   <article class="type-system-slab">
         <div class="scroll-on-page">

@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
     if session[:provider] && session[:provider] == $O365_provider_ID
       redirect_to auth_landing_welcome_index_url
     else
+      # not signed in user G or O365
       @login_url = get_login_url
       if !session[:state]
         state = (0...13).map{('a'..'z').to_a[rand(26)]}.join
