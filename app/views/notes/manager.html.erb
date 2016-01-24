@@ -1,88 +1,114 @@
-<%= render partial: 'reports/button_board', locals: {report: @report} %>
+<!-- COMMON JS FILE FOR common SHOW AND DASH -->
+<%= javascript_include_tag 'boardPacks' %>
+<!-- SHOW PAGE ONLY JS -->
 
-<div class="hero" style="background:#94CFD5;">
-  <div class="hero-inner">
-    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
-" alt="Logo Image"></a>
-    <div class="hero-copy">
-      <article class="type-system-rounded">
-        <h1> Notes Manager </h1>
-        <p style="color:white;">For report: <%= @report.title %></p>
-      </article>
-    </div>
-  </div>
-</div>
-
-<article class="type-system-rounded">
-  <div class="grid-items-lines">
-    <a href="<%= new_report_note_path(@report, subject: 'General') %>" class="grid-item" data-remote="true">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-      <h1>Notes.new</h1>
-      <p style="color:#94CFD5;">Add</p>
-    </a>
-    <a href="<%= export_current_report_notes_path(@report) %>" class="grid-item">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-      <h1>Export.current</h1>
-      <p style="color:#94CFD5;">to spreadsheet</p>
-
-    </a>
-    <a href="<%= export_all_report_notes_path(@report) %>" class="grid-item">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-      <h1>Export.all</h1>
-      <p style="color:#94CFD5;">to spreadsheet</p>
-    </a>
-    <div class="right-cover"></div>
-    <div class="bottom-cover"></div>
-  </div>
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><%= link_to 'ShowPage', report_path(@report) %></p>
+       </div> 
+    </header>
 </article>
 
-<article class="type-system-rounded">
-  <!-- FOR PADDING -->
-  <div class="pie-charts-cash-show">
-    <h1>Report.notes</h1>
-  </div>
-</article>
-
-<article class="type-system-rounded report-manager">
-      <h3><a href="javscript:void(0)"> Edit or delete notes</a></h3>
-      <br>
-      <% @notes.each do |note| %>
-        <div id="note_<%= note.id %>" class="comment">
-           <div class="comment-image">
-           <%= link_to image_tag("ico4b.png", width: 50), edit_report_note_path(@report, note), remote: true %>
-            <%= link_to image_tag("ico5b.png", width: 40), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
-          </div>
-          <div class="comment-content">
-            <h1 style="color:#f3655e;"><%= note.subject %> <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
-            <p><%= note.body %></p>
-            <p class="comment-detail"><%= note.commenter %></p>
-            <p><a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
-          </div>
+<section class="layout-container">
+  <article class="type-system-slab">
+        <div class="grid-items">
+          <a href="<%= new_report_note_path(@report, subject: 'General') %>" href="javascript:void(0)" class="grid-item" data-remote="true">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+            <h1>New Note</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          </a>
+          <a href="<%= export_current_report_notes_path(@report) %>" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Export current</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          </a>
+          <a href="<%= export_all_report_notes_path(@report) %>" class="grid-item">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Export all</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          </a>
         </div>
-      <% end %>
-</article>
+    </article>
+</section>
 
+<section class="layout-container">
+  <article class="type-system-slab">
+        <div class="scroll-on-page">
+              <aside id="scroll-on-page-top">
+                <a class="scroll-on-page-link" href="#general">General</a>
+                <a class="scroll-on-page-link" href="#PnL">Profit and Loss</a>
+                <a class="scroll-on-page-link" href="#BS">Balance Sheet</a>
+              </aside>
+              <article>
+                  <section>
+                        <h4 id="general">General</h4>
+                        <br>
+                        <% @notes.select { |n| n.subject == 'General' }.each do |note| %>
+                              <div id="note_<%= note.id %>" class="comment">
+                                    <div class="comment-image">
+                                      <img src="<%= asset_path('pb-logo.png') %>">
+                                    </div>
+                                    <div class="comment-content">
+                                      <h1><%= note.subject %>   <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
+                                      <p><%= note.body %></p>
+                                      <p class="comment-detail"><%= note.commenter %> <a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
+                                      <p> <%= link_to image_tag("ico4b.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("ico5b.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
+                                    </div>
+                              </div>
+                        <% end %>
+                  </section>
+                  <section>
+                    <h4 id="PnL">Profit and Loss</h4>
+                    <br>
+                     <% @notes.select { |n| n.subject == 'ProfitLoss' }.each do |note| %>
+                              <div id="note_<%= note.id %>" class="comment">
+                                    <div class="comment-image">
+                                      <img src="<%= asset_path('pb-logo.png') %>">
+                                    </div>
+                                    <div class="comment-content">
+                                      <h1><%= note.subject %>   <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
+                                      <p><%= note.body %></p>
+                                      <p class="comment-detail"><%= note.commenter %> <a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
+                                      <p> <%= link_to image_tag("ico4b.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("ico5b.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
+                                    </div>
+                              </div>
+                     <% end %>
 
-<div class="modal">
-  <input class="modal-state" id="modal-comment-note-form" type="checkbox" />
-  <div class="modal-fade-screen">
-    <div class="modal-inner">
-      <div class="modal-close" for="modal-report-empty"></div>
-        <div id="modal-comment-note-body">
-        </div>
-    </div>
-  </div>
-</div>
-
+                  </section>
+                  <section>
+                          <!-- ONLY ONE SHOWING... ONLY CLICK INTO MODAL -->
+                          <h4 id="BS">Balance Sheet</h4>
+                          <br>
+                          <% @notes.select { |n| n.subject == 'BalanceSheet' }.each do |note| %>
+                              <div id="note_<%= note.id %>" class="comment">
+                                    <div class="comment-image">
+                                      <img src="<%= asset_path('pb-logo.png') %>">
+                                    </div>
+                                    <div class="comment-content">
+                                      <h1><%= note.subject %>   <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
+                                      <p><%= note.body %></p>
+                                      <p class="comment-detail"><%= note.commenter %> <a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
+                                      <p> <%= link_to image_tag("ico4b.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("ico5b.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
+                                    </div>
+                              </div>
+                        <% end %>
+                    </section>
+                </article>
+                <!-- WRAPPER ARTICLE -->
+          </div>
+          <!-- END OF SCROLL -->
+    </article>
+</section>
 
 <script>
-
-  $(".modal-close").on("click", function() {
-    $(".modal-state:checked").prop("checked", false).change();
+  jQuery(function(){  
+    jQuery.mark.jump();
   });
-
-  $(".modal-inner").on("click", function(e) {
-    e.stopPropagation();
-  });
-
 </script>

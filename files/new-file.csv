@@ -1,11 +1,6 @@
-Values,Exported from monea.build
-374,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-375,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-376,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-377,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-378,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-379,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-380,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-381,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-382,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
-383,15,2016-02-09,testmiTag,2016-01-09 13:34:30 UTC,2016-01-09 13:34:30 UTC,TbValue,100.01,No description,No-Mapping,
+Notes,Exported from monea.build
+375,admin@monea.build,Report guidance notes,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,General,2014-12-31,https://www.google.co.uk
+376,admin@monea.build,Extended trial balance reconciliation,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,General,2014-12-31,https://www.google.co.uk
+377,admin@monea.build,Analytical review,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,ProfitLoss,2014-12-31,https://www.google.co.uk
+378,admin@monea.build,Revenue MI analysis,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,ProfitLoss,2014-12-31,https://www.google.co.uk
+379,admin@monea.build,Cash reconciliation schedule,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,BalanceSheet,2014-12-31,https://www.google.co.uk
