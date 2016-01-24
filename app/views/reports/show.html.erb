@@ -131,9 +131,9 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-      <div class="graph-container">
+      <div id="pie-chart-ux" class="graph-container">
           <aside>
-            <a href="javascript:void(0);">
+            <a onclick="reportShowHelper.pivotGraphs('toBar')" href="javascript:void(0);">
               <img src="<%= asset_path('bar-chart-button.png') %>">
             </a>
           </aside>
@@ -145,12 +145,7 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-      <div class="graph-container">
-          <aside>
-            <a href="javascript:void(0);">
-              <img src="<%= asset_path('pieimage.png') %>">
-            </a>
-          </aside>
+      <div id="bar-chart-ux" class="graph-container">
           <div id="show-page-bar-chart"></div>
       </div>
     </article>

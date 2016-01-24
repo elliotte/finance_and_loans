@@ -27,6 +27,8 @@ $(document).on('page:load ready', function(){
         // END OF IF
     });
 
+
+
 });
 
 var reportShowHelper = (function() {
@@ -91,6 +93,22 @@ var reportShowHelper = (function() {
               return period == keep;
             });
             reportShowHelper.appendModalShowPageValues(allValues)
+        },
+
+        pivotGraphs: function(container) {
+            console.log(container)
+            if ( container == 'toPie') {
+                $('#bar-chart-ux').slideUp();
+                $('#pie-chart-ux').slideDown();
+            }
+            if ( container == 'toBar') {
+                // $('#cp-pie-chart').remove()
+                // $('#pp-pie-chart').remove()
+                // $('#pie-chart-ux').append( $('#show-page-bar-chart').clone() )
+                 //$('#pie-chart-ux').slideUp();
+                 $('#bar-chart-ux').slideDown();
+            } 
+           
         },
 
         loadValuesByDescription: function(line, period) {
