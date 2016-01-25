@@ -1,2 +1,3 @@
-$('#dash-breakdown-modal-body').html('<%= j render "dash_breakdown_values" %>');
-$('#dash-breakdown-modal').trigger('click');
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append('<%= j render "dash_breakdown_values" %>');
+
