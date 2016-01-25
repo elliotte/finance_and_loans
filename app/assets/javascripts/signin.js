@@ -51,6 +51,7 @@ var helper = (function() {
         this.authResult = authResult;
         // After loading the Google+ API, set the profile data from Google+ to load after serverSide connection.
         this.googleApi = gapi;
+        helper.loadLandingAssets();
         helper.connectServer();
         // Put the object into storage
         localStorage.setItem('accessToken', authResult.access_token);
@@ -79,7 +80,7 @@ var helper = (function() {
               console.log('success and ' + result)
               if ( result == 'New connection made' ) {
                   //helper.loadLandingAssets();
-                  helper.loadGPlus();
+                  //helper.loadGPlus();
                   // TO ADD SOME LOCALSTORAGE CACHE
                   window.location.href = reRoute
 
@@ -91,7 +92,7 @@ var helper = (function() {
                 } else {
                   // to add connection validated and cache trans
                   //helper.loadLandingAssets();
-                  helper.loadGPlus();
+                  //helper.loadGPlus();
                   window.location.href = reRoute
                   console.log('success AND using already established server side connection, message being:');
               };
@@ -113,14 +114,14 @@ var helper = (function() {
     },
 
     loadLandingAssets: function() {
-        //helper.loadWelcomeLedgers();
-        //helper.loadWelcomeReports();
+        helper.loadWelcomeLedgers();
+        helper.loadWelcomeReports();
         // $('#gConnect').hide();
         // $("#office365_connect").hide();
         // $('#authOps').show();
         // $('.modal-close').trigger('click')
         // $(".modal-state:checked").prop("checked", false).change();
-        //helper.loadGPlus();
+        helper.loadGPlus();
         // $('#disconnect').on('click', function(e) {
         //     e.preventDefault();
         //     helper.disconnectUser();
@@ -129,31 +130,31 @@ var helper = (function() {
     },
 
     loadWelcomeLedgers: function() {
-      // $.ajax({
-      //   type: 'GET',
-      //   url: '/ledgers/last_user_ledgers',
-      //   contentType: 'application/octet-stream; charset=utf-8',
-      //   success: function(result) {
-      //     console.log('welcomeLedgers route hit');
-      //     //console.log(result);
-      //     //helper.appendDrive(result);
-      //   },
-      //   processData: false
-      // });
+      $.ajax({
+        type: 'GET',
+        url: '/ledgers/last_user_ledgers',
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          console.log('welcomeLedgers route hit');
+          //console.log(result);
+          //helper.appendDrive(result);
+        },
+        processData: false
+      });
     },
 
     loadWelcomeReports: function() {
-      // $.ajax({
-      //   type: 'GET',
-      //   url: '/reports/last_user_reports',
-      //   contentType: 'application/octet-stream; charset=utf-8',
-      //   success: function(result) {
-      //     console.log('welcomeReports route hit');
-      //     //console.log(result);
-      //     //helper.appendDrive(result);
-      //   },
-      //   processData: false
-      // });
+      $.ajax({
+        type: 'GET',
+        url: '/reports/last_user_reports',
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          console.log('welcomeReports route hit');
+          //console.log(result);
+          //helper.appendDrive(result);
+        },
+        processData: false
+      });
     },
 
     loadGPlus: function() {
