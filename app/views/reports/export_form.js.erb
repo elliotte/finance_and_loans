@@ -1,9 +1,5 @@
-
-$("#modal-export-form").trigger("click")
-
-$('#modal-export-table-body').empty()
-
-$('#modal-export-table-body').append("<%= j(render partial: 'report_google_export_form') %>") 
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_google_export_form') %>") 
 
 
 

@@ -1,8 +1,6 @@
-
-$('#modal-export-table-body').empty()
 src = '<%= @result.data.alternateLink %>'
 link = '<a href="'+src+'" target="_blank">' + 'VIEW' + '</a>'
 html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
 
-$('#modal-export-table-body').append(html) 
+$('#bg-screen-for-modal').find('section').empty().append(html) 
 
