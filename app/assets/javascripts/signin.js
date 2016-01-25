@@ -99,11 +99,8 @@ var helper = (function() {
             error: function(err) {
               if ( err.responseText.indexOf('Faraday::SSLError') > -1) {
                 html = '<p>' + 'BROWSER TOKEN EXPIRED:  You need to FULLY CLOSE your browser and re-authenticate your SIGN-IN' + '</p>' 
-                $('.modal-close').trigger('click')
-                $(".modal-state:checked").prop("checked", false).change();
-                $('#empty-modal-body-append').empty();
-                $('#empty-modal-body-append').append(html)
-                $('#modal-empty').trigger('click')
+                $('#bg-screen-for-modal').addClass('open')
+                $('#bg-screen-for-modal').find('section').empty().append(html)
               } else {
                 helper.displayErrorModal();
                 helper.disconnectServer();
@@ -237,23 +234,18 @@ var helper = (function() {
     },
 
     displayErrorModal: function() {
-
-      $('.modal-close').trigger('click')
-      $(".modal-state:checked").prop("checked", false).change();
-
-      $('#empty-modal-body-append').empty();
-      $('#modal-empty').trigger('click')
-        html = '<p>' + 'Error, please refresh the page ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>' + '<p>' + 'We check a lot of authenication steps on signing in, please be patient.' + '</p>'
-      $('#empty-modal-body-append').append(html)
+      $('#bg-screen-for-modal').addClass('open')
+      html = '<p>' + 'Error, please refresh the page ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>' + '<p>' + 'We check a lot of authenication steps on signing in, please be patient.' + '</p>'
+      $('#bg-screen-for-modal').find('section').empty().append(html)
 
     },
 
     displaySignedOutModal: function() {
 
-      $('#empty-modal-body-append').empty();
-      $('#modal-empty').trigger('click')
-        html = '<p>' + 'Signed Out, you need to refresh the page to sign back in ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>'
-      $('#empty-modal-body-append').append(html)
+      $('#bg-screen-for-modal').addClass('open')
+       
+      html = '<p>' + 'Signed Out, you need to refresh the page to sign back in ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>'
+      $('#bg-screen-for-modal').find('section').empty().append(html)
 
     },
 
