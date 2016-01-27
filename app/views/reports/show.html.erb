@@ -362,7 +362,11 @@
   <article class="type-system-slab">
 
         <div class="grid-items">
-          <a href="javascript:void(0)" class="grid-item" onclick="showReportShareModal();">
+          <% if current_user.uid.include? "Office365"%>
+            <a href="javascript:void(0)" class="grid-item" onclick=" getUserCirclesO365()">
+          <%else%>
+            <a href="javascript:void(0)" class="grid-item" onclick="showReportShareModal()">
+          <%end%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
             <h1>User Share</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>

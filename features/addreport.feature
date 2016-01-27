@@ -1,3 +1,4 @@
+@g_plus_stub
 Feature: SettingUpReportWithValues
 
 In order to collect information for a report
@@ -9,14 +10,14 @@ Background:
 
 @javascript
 Scenario:  addEditDeleteReport
-	Given I am on auth_landing_welcome_index
-	And I follow "addReport"
-	And I follow "Add a TB Value"
+	Given I am on auth_landing_welcome_index_url
+	And I follow addReport
+	And I follow Add a TB Value
 
-
+@javascript @g_plus_stub
 Scenario: Create a report after login
-	Given I am on auth_landing_welcome_index
-	And I have 	new work icon
+	Given I am redirecting to landing page
+	And I have new work icon
 	When I click on new work icon
 	Then I can see report options
 	When I click on IFRS report icon
