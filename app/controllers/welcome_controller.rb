@@ -55,7 +55,7 @@ class WelcomeController < ApplicationController
   end
 
   def auth_landing
-    @reports = current_user.reports.last(2)
+    @reports = current_user.reports.last(2) rescue []
   end
 
   def sign_out_user

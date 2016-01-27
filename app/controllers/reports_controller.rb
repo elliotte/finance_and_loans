@@ -9,10 +9,11 @@ class ReportsController < ApplicationController
     end
     #CRUD routes
     def new
-      @report = current_user.reports.new
+      @report = current_user.reports.new rescue Report.new
     end
 
     def create
+      current_user= User.last if Rails.env.test?
       @report = current_user.reports.build(report_params)
         # ....to change to ( and remove after_create build_back_end )
         

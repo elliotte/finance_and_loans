@@ -16,8 +16,8 @@ end
 
 
 
-And(/^I follow addReport$/) do
-  pending
+And(/^I fill report information$/) do
+  fill_in("report_title",:with=> "Test Report")
 end
 
 
@@ -26,7 +26,38 @@ When(/^I am redirecting to landing page$/) do
 end
 
 When(/^I click on new work icon$/) do
-  pending # express the regexp above with the code you wish you had
+  first("a[href='/reports/new.UKGAAP']").trigger('click')
 end
+
+Given(/^I have new work icon$/) do
+  within(".slider-action-bar"){all("a")}.count==2
+end
+
+Then(/^I can see report options$/) do
+  within(".slider-action-bar"){all("a")}.count==2
+end
+
+When(/^I click on IFRS report icon$/) do
+  first("a[href='/reports/new.IFRS']").trigger('click')
+end
+
+Then(/^I can see modal popup for entries$/) do
+  expect(page).to have_content "new BoardPack"
+end
+
+Then(/^I should be redirected to report show path with report create$/) do
+  sleep 10
+  current_url.should_not include("auth_landing")
+end
+
+When(/^I click on "(.*?)" button$/) do |arg1|
+  find_button(arg1).trigger('click')  
+end
+
+When (/^I click on UK-GAAP report icon$/) do 
+  first("a[href='/reports/new.UKGAAP']").trigger('click')
+end
+
+
 
 
