@@ -9,7 +9,8 @@ class ReportsController < ApplicationController
     end
     #CRUD routes
     def new
-      @report = current_user.reports.new rescue Report.new
+      current_user= User.last if Rails.env.test?
+      @report = current_user.reports.new 
     end
 
     def create

@@ -13,9 +13,5 @@ Before('@g_plus_stub') do
   $client.authorization.access_token='265378652378682786237846'
   	@current_user = FactoryGirl.create(:user)
   	@cash_book = FactoryGirl.create(:cash_ledger)  
-  	@report = FactoryGirl.create(:report,user_id: @current_user.id)
-  	
-    #stub doesnot work for features
-    # ApplicationController.any_instance.stub(:verify_token)
-   #  ApplicationController.any_instance.stub(:current_user){ @current_user }
+  	@report = FactoryGirl.create(:report,user_id: @current_user.id)  	
 end

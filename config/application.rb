@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
+
 # Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
