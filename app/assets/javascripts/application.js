@@ -16,5 +16,6 @@
 //= require googleCharts
 //= require page
 //= require handlebars
-
+//= require jquery-ui
+//= require autocomplete-rails
 

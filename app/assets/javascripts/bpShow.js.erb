@@ -27,8 +27,6 @@ $(document).on('page:load ready', function(){
         // END OF IF
     });
 
-
-
 });
 
 var reportShowHelper = (function() {
@@ -344,4 +342,37 @@ function shareReport(obj){
       $('#bg-screen-for-modal').find('section').empty().append(html) 
   }
   // END OF SHARE SUCCESS
+}
+
+function getFriendsList(resp){
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
+          $("#friends").empty();
+          $.each(resp, function(index, person) {
+              imgSrc = "/assets/pb-logo.png"
+              html = '<tr id="' + person.id + '">' +
+              '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
+              '<td>' + person.name + '</td>' +
+              '<td>' + link + '</td>' +
+              '</tr>'
+              $('#bg-screen-for-modal').find('section').find("table").append(html);
+           });
+          $('#bg-screen-for-modal').find('section').find("table").append("</table>")
+}
+
+function intializeList(){
+  commonAutocomplete(" ")
+}
+
+function commonAutocomplete (request) {
+  $.ajax({
+    url: $('#friends_list').data('autocompleteurl'),
+    type: "GET",
+    //dataType: 'json',
+    data: {
+      q: request.term
+    },
+    success: function(resp){
+      getFriendsList(resp)
+    }          
+  })
 }

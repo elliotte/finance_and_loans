@@ -22,6 +22,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'rspec-activemodel-mocks'
   gem 'launchy'
+  gem 'rack_session_access'
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.1'
@@ -75,6 +76,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'oauth2'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
+
 # OLD OneDrive GEMS
 # gem 'skydrive'
 # gem 'rest-client'

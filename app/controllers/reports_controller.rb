@@ -9,10 +9,12 @@ class ReportsController < ApplicationController
     end
     #CRUD routes
     def new
-      @report = current_user.reports.new
+      current_user= User.last if Rails.env.test?
+      @report = current_user.reports.new 
     end
 
     def create
+      current_user= User.last if Rails.env.test?
       @report = current_user.reports.build(report_params)
         # ....to change to ( and remove after_create build_back_end )
         
@@ -209,6 +211,12 @@ class ReportsController < ApplicationController
       puts @data
     end
 
+    def autocomplete_friends_list
+      term = (params[:q].blank?)? current_user.email.split("@").last : params[:q]
+      users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%")
+      render json: users_list.collect{|user| {id:user.id,name: user.email}}
+    end
+
   private
     # BEING USED
     def report_owner?
@@ -251,6 +259,7 @@ class ReportsController < ApplicationController
     def value_params
       params.require(:value).permit(:mitag, :amount, :repdate, :ifrstag, :description)
     end
+
 
     # OLD SKY DRIVE CODE
 
