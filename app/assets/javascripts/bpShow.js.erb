@@ -27,8 +27,6 @@ $(document).on('page:load ready', function(){
         // END OF IF
     });
 
-
-
 });
 
 var reportShowHelper = (function() {
@@ -346,22 +344,35 @@ function shareReport(obj){
   // END OF SHARE SUCCESS
 }
 
-function getUserCirclesO365() {
-
-  $('#bg-screen-for-modal').addClass('open')
-  
+function getFriendsList(resp){
   link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
-  $('#bg-screen-for-modal').find('section').empty().append('<p style="color:#F3655E;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
+          $("#friends").empty();
+          $.each(resp, function(index, person) {
+              imgSrc = "/assets/pb-logo.png"
+              html = '<tr id="' + person.id + '">' +
+              '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
+              '<td>' + person.name + '</td>' +
+              '<td>' + link + '</td>' +
+              '</tr>'
+              $('#bg-screen-for-modal').find('section').find("table").append(html);
+           });
+          $('#bg-screen-for-modal').find('section').find("table").append("</table>")
+}
 
-  friends = JSON.parse(localStorage.getItem("friends")).items
-  $.each(friends, function(index, person) {
-    imgSrc = person.image.url
-    html = '<tr id="' + person.id + '">' +
-        '<td>' + '<img src="' + imgSrc + '" >' + '</td>' +
-        '<td>' + person.displayName + '</td>' +
-        '<td>' + link + '</td>' +
-    '</tr>'
-    $('#bg-screen-for-modal').find('section').empty().append(html);
+function intializeList(){
+  commonAutocomplete(" ")
+}
 
-  });
+function commonAutocomplete (request) {
+  $.ajax({
+    url: $('#friends_list').data('autocompleteurl'),
+    type: "GET",
+    //dataType: 'json',
+    data: {
+      q: request.term
+    },
+    success: function(resp){
+      getFriendsList(resp)
+    }          
+  })
 }

@@ -76,6 +76,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'oauth2'
+gem 'jquery-ui-rails'
+gem 'rails3-jquery-autocomplete'
+
 # OLD OneDrive GEMS
 # gem 'skydrive'
 # gem 'rest-client'
