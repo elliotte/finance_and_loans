@@ -11,7 +11,11 @@
 
 <% $cp = @report.current_end.strftime("%B %Y") %>
 <% $pp = @report.comparative_end.strftime("%B %Y") %>
-
+<style type="text/css">
+   #bg-screen-for-modal{
+      top: -1px !important;
+  }
+</style>
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
          <div>  
@@ -148,7 +152,20 @@
   <%#= render :partial => 'reports/ukgaap/balance_sheet_cont' %>
 <% end %>
 
-
+<script>
+  $(document).ready(function() {
+    $(".dropdown-button").click(function() {
+      var $button, $menu;
+      $button = $(this);
+      $menu = $button.siblings(".dropdown-menu");
+      $menu.toggleClass("show-menu");
+      $menu.children("li").click(function() {
+        $menu.removeClass("show-menu");
+        $button.html($(this).html());
+      });
+    });
+  });  
+ </script>
 
 
 
