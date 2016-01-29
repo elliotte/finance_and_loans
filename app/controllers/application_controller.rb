@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def verify_token
     # Check for stored credentials in the current user's session.
-    session[:token]= '265378652378682786237846' if Rails.env.test?
+    (session[:token]= '265378652378682786237846') if Rails.env.test?
     
     if !session[:token]
       respond_to do |format|
