@@ -80,7 +80,11 @@ class ReportsController < ApplicationController
     end
     # SHARE WITH MONEA USER
     def share
-      found_user = User.find_by_uid(params[:userID])
+       if current_user.uid.include? "Office365"
+        found_user = User.find(params[:userID])
+       else
+        found_user = User.find_by_uid(params[:userID])
+       end
       render js: "USER NOT FOUND" and return if found_user.nil?
         new_reader = @report.readers.create(uid: found_user.uid)
         error = true if new_reader.nil?
