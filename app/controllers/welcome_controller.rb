@@ -65,12 +65,18 @@ class WelcomeController < ApplicationController
       format.js
     end
   end
+
   #for revoking GoogleApp
   def disconnect
     token = session[:token]
-    reset_session
-    google_service.disconnect_user(token)
-    render json: 'User disconnected.'.to_json
+    response = google_service.disconnect_user(token)
+
+    if(response == "400")
+      reset_session
+      render json: 'User disconnected.'.to_json
+    else
+      render json: 'An error occured. PLease try again later'.to_json
+    end
   end
 
 private

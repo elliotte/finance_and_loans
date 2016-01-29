@@ -9,12 +9,10 @@ class ReportsController < ApplicationController
     end
     #CRUD routes
     def new
-      current_user= User.last if Rails.env.test?
       @report = current_user.reports.new 
     end
 
     def create
-      current_user= User.last if Rails.env.test?
       @report = current_user.reports.build(report_params)
         # ....to change to ( and remove after_create build_back_end )
         
@@ -82,7 +80,11 @@ class ReportsController < ApplicationController
     end
     # SHARE WITH MONEA USER
     def share
-      found_user = User.find_by_uid(params[:userID])
+       if current_user.uid.include? "Office365"
+        found_user = User.find(params[:userID])
+       else
+        found_user = User.find_by_uid(params[:userID])
+       end
       render js: "USER NOT FOUND" and return if found_user.nil?
         new_reader = @report.readers.create(uid: found_user.uid)
         error = true if new_reader.nil?
@@ -232,7 +234,7 @@ class ReportsController < ApplicationController
     end
 
     def set_report
-      #to change for shared?
+      #to change for shared
       @report = current_user.reports.where(id: params[:id]).last
       if @report.format == "UKGAAP"
         $form_select_tags = Tag.gaap_user_options
