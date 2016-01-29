@@ -40,21 +40,23 @@ RSpec.describe WelcomeController, :type => :controller do
 
   # specs for private methods failing
 
-  # describe "#set_auth_token_session" do 
-  #   it "verify to set sesion" do
-  #     expect_any_instance_of(WelcomeController).to receive(:set_auth_token_session).with('1234')   
-  #   end
-  # end
+  describe "#set_auth_token_session" do 
+    it "verify to set sesion" do
+      controller.send(:set_auth_token_session,'1234789')
+      assert_equal "1234789", controller.session[:token]
+    end
+  end
 
-  # describe "#set_user_session" do
-  #   it "set values in user session" do 
-  #     expect_any_instance_of(WelcomeController).to receive(:set_user_session).with({:key1=>"1",:key2=>"2"})
-  #   end 
-  # end
+  describe "#set_user_session" do
+    it "set values in user session" do 
+      controller.send(:set_user_session,{:key1=>"1"})
+      assert_equal "1", controller.session[:key1]  
+    end 
+  end
 
-  # describe "#check_for_expired_token" do 
-  #   it "check for google session expired" do 
-  #     expect_any_instance_of(WelcomeController).to receive(:check_for_expired_token)
-  #   end
-  # end
+  describe "#check_for_expired_token" do 
+    it "check for google session expired" do 
+      assert_equal "Invalid Credentials, app session cleared", controller.send(:check_for_expired_token)
+    end
+  end
 end

@@ -129,7 +129,8 @@
 	    		'mimeType' => 'application/vnd.google-apps.folder'
   			})
 		    response = @client.execute(:api_method => @drive.files.insert, :body_object => file)
-			response.data.alternateLink
+
+			response.data.alternateLink rescue ''
 			if response.data['error']
 				response.data['error']['message']
 			else

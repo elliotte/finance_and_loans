@@ -6,8 +6,9 @@
 
 require 'cucumber/rails'
 require 'capybara/poltergeist'
+require "rack_session_access/capybara"
 Capybara.javascript_driver = :poltergeist
-
+# => Capybara.app_host = "localhost"
 Capybara.register_driver :poltergeist do |app|
     options = {
         :js_errors => false,

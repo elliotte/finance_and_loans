@@ -27,8 +27,6 @@ $(document).on('page:load ready', function(){
         // END OF IF
     });
 
-
-
 });
 
 var reportShowHelper = (function() {
@@ -292,3 +290,89 @@ function showNotes(){
   $('.notes_data').html(notes_html);
 }
 
+function showReportShareModal(){
+  $('#bg-screen-for-modal').addClass('open')
+  
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
+  $('#bg-screen-for-modal').find('section').empty().append('<p style="color:#F3655E;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
+
+  friends = JSON.parse(localStorage.getItem("friends")).items
+  $.each(friends, function(index, person) {
+    imgSrc = person.image.url
+    html = '<tr id="' + person.id + '">' +
+        '<td>' + '<img src="' + imgSrc + '" >' + '</td>' +
+        '<td>' + person.displayName + '</td>' +
+        '<td>' + link + '</td>' +
+    '</tr>'
+    $('#bg-screen-for-modal').find('section').append(html);
+
+  });
+}
+
+function shareReport(obj){
+  shareUserID = obj.parentNode.parentNode.getAttribute('id');
+
+  var token = $("meta[name='csrf-token']").attr("content");
+  reportId = $('#report-id').val();
+
+  var request = new XMLHttpRequest();
+  request.onload = shareSuccess;
+  //request.onerror = errorDisplay;
+  data = {
+    userID: shareUserID,
+  }
+  route = '/reports/' + reportId + '/share'
+  console.log(route)
+  request.open("put", route, true );
+  request.setRequestHeader("Content-Type", "application/json");
+  request.setRequestHeader("X-CSRF-Token", token);
+  request.send(JSON.stringify(data));
+  
+  function shareSuccess() {
+    
+      $('#bg-screen-for-modal').addClass('open')
+
+      response = this.responseText
+      if (response.indexOf("ERROR") > -1) {
+        html = '<p>' + 'ERROR' + '</p>' +
+             '<a href="/" data-no-turbolinks=true>' + 'RECONNECT' + '</a>'
+      } else {
+        html = '<td>' + 'Successfully shared Ledger with: ' + response + '</td>'
+      }
+      $('#bg-screen-for-modal').find('section').empty().append(html) 
+  }
+  // END OF SHARE SUCCESS
+}
+
+function getFriendsList(resp){
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
+          $("#friends").empty();
+          $.each(resp, function(index, person) {
+              imgSrc = "/assets/pb-logo.png"
+              html = '<tr id="' + person.id + '">' +
+              '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
+              '<td>' + person.name + '</td>' +
+              '<td>' + link + '</td>' +
+              '</tr>'
+              $('#bg-screen-for-modal').find('section').find("table").append(html);
+           });
+          $('#bg-screen-for-modal').find('section').find("table").append("</table>")
+}
+
+function intializeList(){
+  commonAutocomplete(" ")
+}
+
+function commonAutocomplete (request) {
+  $.ajax({
+    url: $('#friends_list').data('autocompleteurl'),
+    type: "GET",
+    //dataType: 'json',
+    data: {
+      q: request.term
+    },
+    success: function(resp){
+      getFriendsList(resp)
+    }          
+  })
+}
