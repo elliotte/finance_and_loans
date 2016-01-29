@@ -9,12 +9,10 @@ class ReportsController < ApplicationController
     end
     #CRUD routes
     def new
-      current_user= User.last if Rails.env.test?
       @report = current_user.reports.new 
     end
 
     def create
-      current_user= User.last if Rails.env.test?
       @report = current_user.reports.build(report_params)
         # ....to change to ( and remove after_create build_back_end )
         
@@ -232,8 +230,7 @@ class ReportsController < ApplicationController
     end
 
     def set_report
-      #to change for shared?
-      current_user=User.last if Rails.env== "test"
+      #to change for shared
       @report = current_user.reports.where(id: params[:id]).last
       if @report.format == "UKGAAP"
         $form_select_tags = Tag.gaap_user_options

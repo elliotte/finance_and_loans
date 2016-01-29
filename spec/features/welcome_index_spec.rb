@@ -6,9 +6,9 @@ describe 'user reports index page', :type => :feature do
       Auth.user_auth
       page.set_rack_session(token: '265378652378682786237846')
       page.set_rack_session(provider: 'googleoauth2')
-
       @current_user = FactoryGirl.create(:user)
       page.set_rack_session(email: @current_user.email)
+      page.set_rack_session(user_id: @current_user.id)
       @report = FactoryGirl.create(:report,user_id: @current_user.id)
       @current_user.reports << @report
       ApplicationController.any_instance.stub(:verify_token)
