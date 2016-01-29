@@ -20,8 +20,8 @@ development:
   database: draftapp_development
   pool: 5
   host: localhost
-  username: postgres
-  password: postgres
+  username: 
+  password: 
 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -51,16 +51,16 @@ test: &test
   database: draftapp_test
   pool: 5
   host: localhost
-  username: postgres
-  password: postgres
+  username: 
+  password: 
 
 production:
   adapter: postgresql
   encoding: unicode
   database: draftapp_production
   pool: 5
-  username: postgres
-  password: postgres
+  username: 
+  password: 
 
 cucumber:
   <<: *test
