@@ -233,6 +233,7 @@ class ReportsController < ApplicationController
 
     def set_report
       #to change for shared?
+      current_user=User.last if Rails.env== "test"
       @report = current_user.reports.where(id: params[:id]).last
       if @report.format == "UKGAAP"
         $form_select_tags = Tag.gaap_user_options
