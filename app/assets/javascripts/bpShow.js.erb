@@ -348,10 +348,10 @@ function getFriendsList(resp){
   link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
           $("#friends").empty();
           $.each(resp, function(index, person) {
-              imgSrc = "/assets/pb-logo.png"
+              imgSrc = person.image
               html = '<tr id="' + person.id + '">' +
               '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
-              '<td>' + person.name + '</td>' +
+              '<td>' + person.displayName + '</td>' +
               '<td>' + link + '</td>' +
               '</tr>'
               $('#bg-screen-for-modal').find('section').find("table").append(html);

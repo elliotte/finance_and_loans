@@ -362,11 +362,8 @@
   <article class="type-system-slab">
 
         <div class="grid-items">
-          <% if current_user.uid.include? "Office365"%>
-            <a href="javascript:void(0)" class="grid-item" onclick="getUserCirclesO365(); friendsListAutocomplete();intializeList();">
-          <%else%>
-            <a href="javascript:void(0)" class="grid-item" onclick="showReportShareModal()">
-          <%end%>
+            <a href="javascript:void(0)" class="grid-item" onclick="getUserCircles(); friendsListAutocomplete();intializeList();">
+        
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
             <h1>User Share</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
@@ -470,9 +467,10 @@
   });
 }
 
-  var getUserCirclesO365= function(){
+  var getUserCircles= function(){
+    <% placeholder= (current_user.uid.include? "Office365")? "Enter email" : "Enter name"%>
     $('#bg-screen-for-modal').addClass('open')
-    var input ='<%= text_field_tag "friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_friends_list_reports_path,:placeholder=>"Enter email"%><br/> <table id="friends">'
+    var input ='<%= text_field_tag "friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_friends_list_reports_path,:placeholder=>"#{placeholder}"%><br/> <table id="friends">'
     $('#bg-screen-for-modal').find('section').empty().append(input)
   }
   

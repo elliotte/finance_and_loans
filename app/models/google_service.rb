@@ -8,7 +8,7 @@
 			@files = nil
 			@session = nil
 			@drive = discovered_api
-			@plus = nil
+			@plus = discovered_gplus_api
 		end
 		#to add rspec test with fixture
 		def parse_access_codes(request)
@@ -20,7 +20,6 @@
         	encoded_json_body += (['='] * (encoded_json_body.length % 4)).join('')
         	json_body = Base64.decode64(encoded_json_body)
         	body = JSON.parse(json_body)
-        	
         	set_session({body: body, response: responseData})        	
 		end
 
@@ -32,6 +31,7 @@
     		set_auth(@session[:token])
     		@session[:uid] = gplus_id
     		@session[:email] = email
+    		execute_friend_list #Cache friend list
 		end
 
 		def set_auth token
@@ -196,5 +196,16 @@
 		          'convert' => 'true',
 		          'uploadType' => 'multipart',
 		          'alt' => 'json'})
+		end
+
+		def discovered_gplus_api
+			@client.discovered_api('plus', 'v1')
+		end
+
+		def execute_friend_list
+			friend_list = @client.execute(@plus.people.list,
+    	                                :collection => 'visible',
+     	                                :userId => 'me')
+			Rails.cache.write("FRIENDS_LIST", friend_list.data.items)
 		end
 end
