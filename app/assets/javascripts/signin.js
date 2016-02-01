@@ -115,21 +115,21 @@ var helper = (function() {
       // END OF POST
     },
 
-    loadLandingAssets: function() {
-        helper.loadWelcomeLedgers();
-        helper.loadWelcomeReports();
-        // $('#gConnect').hide();
-        // $("#office365_connect").hide();
-        // $('#authOps').show();
-        // $('.modal-close').trigger('click')
-        // $(".modal-state:checked").prop("checked", false).change();
-        helper.loadGPlus();
-        // $('#disconnect').on('click', function(e) {
-        //     e.preventDefault();
-        //     helper.disconnectUser();
-        //     helper.disconnectServer();
-        // });
-    },
+    // loadLandingAssets: function() {
+    //     //helper.loadWelcomeLedgers();
+    //     //helper.loadWelcomeReports();
+    //     // $('#gConnect').hide();
+    //     // $("#office365_connect").hide();
+    //     // $('#authOps').show();
+    //     // $('.modal-close').trigger('click')
+    //     // $(".modal-state:checked").prop("checked", false).change();
+    //     //helper.loadGPlus();
+    //     // $('#disconnect').on('click', function(e) {
+    //     //     e.preventDefault();
+    //     //     helper.disconnectUser();
+    //     //     helper.disconnectServer();
+    //     // });
+    // },
 
     loadWelcomeLedgers: function() {
       $.ajax({
@@ -237,6 +237,7 @@ var helper = (function() {
     },
 
     displayErrorModal: function() {
+      
       $('#bg-screen-for-modal').addClass('open')
       html = '<p>' + 'Error, please refresh the page ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>' + '<p>' + 'We check a lot of authenication steps on signing in, please be patient.' + '</p>'
       $('#bg-screen-for-modal').find('section').empty().append(html)

@@ -39,24 +39,23 @@
 		end
 
 		def check_user_session token
-			plus = @client.discovered_api('plus', 'v1')
 			set_auth(token)
 			result = @client.execute(
-	          :api_method => plus.people.get,
+	          :api_method => @plus.people.get,
 	          :parameters => {'userId' => 'me'}
 	        )
 			result
 		end
 
-		def set_files files
-			@files = files
-		end
+		# def set_files files
+		# 	@files = files
+		# end
 
-		def get_user_files token
-		   set_auth(token)
-		   response = @client.execute(:api_method => @drive.files.list )
-    	   @files = JSON.parse(response.data.to_json)
-		end
+		# def get_user_files token
+		#    set_auth(token)
+		#    response = @client.execute(:api_method => @drive.files.list )
+  #   	   @files = JSON.parse(response.data.to_json)
+		# end
 
 		def disconnect_user token
 			revokePath = 'https://accounts.google.com/o/oauth2/revoke?token=' + token

@@ -19,8 +19,7 @@ class ReportsController < ApplicationController
         flash[:notice] = "Something went wrong"
         render 'new'
       end
-      #response = create_sky_drive_folder if(session[:provider]=="Office365")  
-      #redirect_to reports_path and return if response.blank?   
+        
     end
 
     def edit
@@ -255,7 +254,7 @@ class ReportsController < ApplicationController
     end
 
     def fetch_friends_list
-      list =Rails.cache.fetch("FRIENDS_LIST"){google_service.execute_friend_list}
+      list = Rails.cache.fetch("FRIENDS_LIST"){google_service.execute_friend_list}
       list
     end
 
