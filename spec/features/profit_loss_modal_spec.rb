@@ -1,68 +1,67 @@
 require 'rails_helper'
-APP =YAML.load_file('config/application.yml')
+
+APP =YAML.load_file('config/application.yml')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
 feature 'user reports index page' do
-     before do
-      $authorization = Signet::OAuth2::Client.new(
-          :authorization_uri => APP['AUTH_URI'],
-          :token_credential_uri => APP['TOKEN_URI'],
-          :client_id => APP['CLIENT_ID'],
-          :client_secret => APP['CLIENT_SECRET'],
-          :redirect_uri => APP['REDIRECT_URIS'],
-          :scope => APP['PLUS_LOGIN_SCOPE'])
-
-      $client = Google::APIClient.new(:application_name => 'ProfitBees',
-                                  :application_version => '1.0.0')
-      $client.authorization.refresh_token= '26537865237868278623787'
-      $client.authorization.grant_type= "refresh_token"
-       $client.authorization.access_token='265378652378682786237846'
-      @current_user = FactoryGirl.create(:user)
-      @report = FactoryGirl.create(:report,user_id: @current_user.id)
+    before do
+      Auth.user_auth
       page.set_rack_session(token: '265378652378682786237846')
       page.set_rack_session(provider: 'googleoauth2')
-      #controller.session[:token] = '265378652378682786237846'
+      @current_user = FactoryGirl.create(:user)
+      page.set_rack_session(email: @current_user.email)
+      page.set_rack_session(user_id: @current_user.id)
+      @report = FactoryGirl.create(:report,user_id: @current_user.id)
       @current_user.reports << @report
       ApplicationController.any_instance.stub(:verify_token)
       ApplicationController.any_instance.stub(:current_user){ @current_user }
-      visit reports_path
+      visit auth_landing_welcome_index_path    
     end
-    describe "Reports/dashboard" do
-      it "should go to show dashboard page", js: true do
-        page.first(".card-image").click
-        # click_link("Financials")
-      end
-    end
+
     describe "Notes/new" do
-      it "should be able to open a popup", js: true do
-        click_link('Notes')
-        page.should have_content("Report.note.new")
+
+      it "returns user to report show page", js: true do           
+          visit report_path(@report.id)
+
+          ["Insights","Notes","Comments"].each do |text|
+            page.should have_content text 
+          end
       end
-      it 'should be able to add note for report', js: true do
-        fill_in 'note[body]', with: 'Report is Awesome'
-        fill_in 'note[filelink]', with: 'google.com'
-        click_button('Save Note')
-        page.should have_css("input-style")
+
+      it "returns show dashboard page", js: true do 
+        visit report_path(@report.id)
+        expect(page).to have_content "Insights"
+        click_link("Financials")
+        expect(page).to have_content "Business Performance"
       end
-      it 'should transit to another modal for refresh page', js: true do
-        page.should have_content("Successfully added comment:")
-        click_link("REFRESH")
-        visit reports_path
+
+      it "Add Notes from performance dropdown", js: true do
+        visit report_path(@report.id)
+        expect(page).to have_content "Insights"
+        click_link("Financials")
+        expect(page).to have_content "Business Performance"
+        first(".dropdown-button").click()
+        within(all(".dropdown-menu.dropdown-select").first){page.should have_link "Notes"}
+        within(all(".dropdown-menu.dropdown-select").first){click_link("Notes")}
+        sleep 2
+        within(".modal-inner"){page.should have_content "Report.note.new"}
+        fill_in("note_body",:with=> "First Note")
+        click_button("Save Note")
+        page.should have_content "To display note in page click:"
       end
-    end
-    describe "Comments/new" do
-      it "should be able to open a popup" do
-        click_link('Comments')
-        page.should have_content("Report.comment.new")
-      end
-      it 'should be able to add comment for report', js: true do
-        fill_in 'comment[body]', with: 'Good report'
-        click_button('Save Comment')
-        page.should have_css("input-style")
-      end
-      it 'should transit to another modal for refresh page', js: true do
-        page.should have_content("Successfully added comment:")
-        click_link("REFRESH")
-        visit reports_path
+
+      it "Add Comments from performance dropdown", js: true do
+        visit report_path(@report.id)
+        expect(page).to have_content "Insights"
+        click_link("Financials")
+        expect(page).to have_content "Business Performance"
+        first(".dropdown-button").click()
+        within(all(".dropdown-menu.dropdown-select").first){page.should have_link "Comments"}
+        within(all(".dropdown-menu.dropdown-select").first){click_link("Comments")}
+        sleep 2
+        within(".modal-inner"){page.should have_content "Report.comment.new"}
+        fill_in("comment_body",:with=> "First Comment")
+        click_button("Save Comment")
+        page.should have_content "To see the changes click:"
       end
     end
 end
