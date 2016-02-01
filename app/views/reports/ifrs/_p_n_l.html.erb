@@ -25,10 +25,9 @@
             <p class="dropdown-description">New</p>
             <p class="dropdown-button">Performance</p>
             <ul class="dropdown-menu dropdown-select">
-              <li>Performance</li>
-              <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', new_report_note_path(@report, subject: 'ProfitLoss'), remote: true, class: 'button', onclick: '' %></li>
-              <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', new_report_comment_path(@report, subject: 'ProfitLoss'), remote: true, class: 'button'%></li>
-               <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+              <li><%= link_to 'Notes', new_report_note_path(@report, subject: 'ProfitLoss'), remote: true, class: 'button', onclick: '' %></li>
+              <li><%= link_to 'Comments', new_report_comment_path(@report, subject: 'ProfitLoss'), remote: true, class: 'button'%></li>
+              <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
             </ul>
           </div>
       </div>

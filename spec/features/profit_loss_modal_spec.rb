@@ -18,7 +18,6 @@ feature 'user reports index page' do
     end
 
     describe "Notes/new" do
-
       it "returns user to report show page", js: true do           
           visit report_path(@report.id)
 
@@ -26,14 +25,12 @@ feature 'user reports index page' do
             page.should have_content text 
           end
       end
-
       it "returns show dashboard page", js: true do 
         visit report_path(@report.id)
         expect(page).to have_content "Insights"
         click_link("Financials")
         expect(page).to have_content "Business Performance"
       end
-
       it "Add Notes from performance dropdown", js: true do
         visit report_path(@report.id)
         expect(page).to have_content "Insights"
@@ -48,7 +45,6 @@ feature 'user reports index page' do
         click_button("Save Note")
         page.should have_content "To display note in page click:"
       end
-
       it "Add Comments from performance dropdown", js: true do
         visit report_path(@report.id)
         expect(page).to have_content "Insights"

@@ -5,6 +5,20 @@
 <% ncl_amounts = { cy: [0], py: [0] } %>
 <% cl_amounts = { cy: [0], py: [0] } %>
 
+<!-- ASSETS GRAPHS AND STATS -->
+<section class="layout-container">
+  <article class="type-system-slab">
+    <h2 style="color:#FB7D98;">Balance Sheet Liabilities and Equity</h2> 
+    <div id="liabs-graph">
+    </div>
+  </article>
+</section>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+  </article>
+</section>
+
 <div class="scroll-on-page" style="width:100%;">
     <aside id="scroll-on-page-top">
       <a class="scroll-on-page-link" href="#non-current-liabs">Non-current liabilities</a>
@@ -15,9 +29,10 @@
             <p class="dropdown-description">New</p>
             <p class="dropdown-button">Balance Sheet</p>
             <ul class="dropdown-menu dropdown-select">
-              <li onclick='showDashNotes("ProfitLoss")'><%= link_to 'Notes', "", remote: true, class: 'button', onclick: '' %></li>
-              <li onclick='showDashComments("ProfitLoss")'><%= link_to 'Comments', "", remote: true, class: 'button'%></li>
-               <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+              <li>Balance Sheet</li>
+              <li><%= link_to 'Notes', new_report_note_path(@report, subject: 'BalanceSheet'), remote: true, class: 'button' %></li>
+              <li><%= link_to 'Comments', new_report_comment_path(@report, subject: 'BalanceSheet'), remote: true, class: 'button'%></li>
+              <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
             </ul>
           </div>
       </div>
