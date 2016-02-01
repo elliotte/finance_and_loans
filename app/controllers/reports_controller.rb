@@ -201,9 +201,14 @@ class ReportsController < ApplicationController
     end
 
     def autocomplete_friends_list
-      term = (params[:q].blank?)? current_user.email.split("@").last : params[:q]
-      users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%")
-      render json: users_list.collect{|user| {id:user.id,name: user.email}}
+      if current_user.uid=='Office365'
+        term = (params[:q].blank?)? current_user.email.split("@").last : params[:q]
+        users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%")
+        render json: users_list.collect{|user| {id:user.id,displayName: user.email,image: "/assets/pb-logo.png"}}
+      else
+        friends = (params[:q].blank?)? fetch_friends_list : search_friends_list
+        render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
+      end
     end
 
   private
@@ -249,6 +254,15 @@ class ReportsController < ApplicationController
       params.require(:value).permit(:mitag, :amount, :repdate, :ifrstag, :description)
     end
 
+    def fetch_friends_list
+      list =Rails.cache.fetch("FRIENDS_LIST"){google_service.execute_friend_list}
+      list
+    end
+
+    def search_friends_list
+      Rails.cache.read("FRIENDS_LIST").select{|friends| friends["displayName"].downcase.match("#{params[:q]}".downcase)}
+    end
+   
 end
 
 

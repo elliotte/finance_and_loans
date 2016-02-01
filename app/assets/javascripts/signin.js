@@ -51,9 +51,10 @@ var helper = (function() {
         this.authResult = authResult;
         // After loading the Google+ API, set the profile data from Google+ to load after serverSide connection.
         this.googleApi = gapi;
-
+        //helper.loadLandingAssets();
+        
         helper.connectServer();
-        helper.loadLandingAssets();
+        
         // Put the object into storage
         localStorage.setItem('accessToken', authResult.access_token);
         // Retrieve the object from storage
