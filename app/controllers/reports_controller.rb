@@ -68,11 +68,13 @@ class ReportsController < ApplicationController
     def share
        if current_user.uid.include? "Office365"
         found_user = User.find(params[:userID])
+        new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
        else
         found_user = User.find_by_uid(params[:userID])
+        new_reader = @report.readers.create(uid: found_user.uid) unless found_user.nil?
        end
       render js: "USER NOT FOUND" and return if found_user.nil?
-        new_reader = @report.readers.create(uid: found_user.uid)
+        
         error = true if new_reader.nil?
         #add (if error) test
         render js: found_user.email
@@ -220,7 +222,7 @@ class ReportsController < ApplicationController
       #too add column to reader for email
       unless session[:provider].include? ('Office365')
       else
-        @report.readers.find_by(uid: session[:uid])
+        @report.readers.find_by(uid: current_user.id)
       end
     end
 
