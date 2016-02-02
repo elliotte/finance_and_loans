@@ -43,10 +43,12 @@
                                       <div class="comment-image">
                                         <img src="<%= asset_path('pb-logo.png') %>">
                                       </div>
+                                      <%notes= get_notes(@report,"BalanceSheet")%>
                                       <div class="comment-content">
-                                        <h1>First Comment Title or Author</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                        <h1><%= ((notes.blank?)? "No Notes" : notes.commenter)%></h1>
+                                        <p><%= ((notes.blank?)? "No Notes" : notes.body)%></p>
                                         <p class="comment-detail">Date or details about this post</p>
+                                        <%= link_to "View all",get_notes_report_notes_path(@report.id,:subject=>"BalanceSheet"),:remote=>true%>
                                       </div>
                                 </div>
 
@@ -59,10 +61,13 @@
                                       <div class="comment-image">
                                         <img src="<%= asset_path('pb-logo.png') %>">
                                       </div>
+                                      <%comments= get_comments(@report,"BalanceSheet")%>
                                       <div class="comment-content">
-                                        <h1>First Comment Title or Author</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                        <h1><%= ((comments.blank?)? "No Comments" : comments.commenter)%></h1>
+                                        <p><%= ((comments.blank?)? "No Comments" : comments.body)%></p>
                                         <p class="comment-detail">Date or details about this post</p>
+                                        <%= link_to "View all",get_comments_report_comments_path(@report.id,:subject=>"BalanceSheet"),:remote=>true%>
+                                        
                                       </div>
                                 </div>
                           </section>

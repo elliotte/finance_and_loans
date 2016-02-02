@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @report.comments.create(comment_params)
+    Cache.write("Comments"){@report.comments}
     render js: "ERROR" and return if @comment.nil?
     respond_to do |f|
       f.js
@@ -46,6 +47,11 @@ class CommentsController < ApplicationController
     @result = google_service.upload_new_file_csv(@report.title, session[:token])
     link = @result.data.alternateLink
     redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+  end
+
+  def get_comments
+    comments=  Rails.cache.fetch("Comments"){@report.comments}
+    @comments= comments.where("subject=?",params[:subject])[1..-1]
   end
 
 private

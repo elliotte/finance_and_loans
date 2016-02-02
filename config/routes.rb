@@ -69,11 +69,13 @@ Draftapp::Application.routes.draw do
       get :manager, on: :collection
       get :export_current, on: :collection
       get :export_all, on: :collection
+      get :get_notes,on: :collection
     end
     resources :comments do
       get :manager, on: :collection
       get :export_current, on: :collection
       get :export_all, on: :collection
+      get :get_comments,on: :collection
     end
     get :report_manager, on: :member
     get :import_csv, on: :member

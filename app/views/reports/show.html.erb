@@ -453,10 +453,12 @@
   var getComments= function(){
     $('#bg-screen-for-modal').addClass('open')
     $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_comments') %>") 
+    cacheComments('<%= @report.id %>');
   }
   var getNotes= function(){
     $('#bg-screen-for-modal').addClass('open')
     $('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'report_notes') %>") 
+    cacheNotes('<%= @report.id %>');
   }
 
   var friendsListAutocomplete = function(){

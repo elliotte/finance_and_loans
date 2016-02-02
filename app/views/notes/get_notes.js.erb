@@ -1,0 +1,8 @@
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports/report_notes') %>")
+  source = $('#note-template').html();
+  templ = Handlebars.compile(source)
+  notes = JSON.parse("<%= @notes.to_json%>".replace(/&quot;/g,'"').replace(/&gt;/g,''))
+  
+  var notes_html = templ(notes)
+  $('.notes_data').html(notes_html);

@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
 
-  before_action :find_report, only: [:new, :create, :manager, :destroy, :edit, :update, :export_all, :export_current]
+  before_action :find_report, only: [:new, :create, :manager, :destroy, :edit, :update, :export_all, :export_current,:get_notes]
 
   def new
     @note =  @report.notes.build(subject: params[:subject])
@@ -14,6 +14,7 @@ class NotesController < ApplicationController
         @google_service ||= GoogleService.new($client, $authorization)
         @result = @note.copy_file_if_google_link(@google_service)
     end
+    Cache.write("Notes"){@report.notes}
   end
 
   def edit
@@ -46,6 +47,11 @@ class NotesController < ApplicationController
     @result = google_service.upload_new_file_csv(@report.title, session[:token])
     link = @result.data.alternateLink
     redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+  end
+
+  def get_notes
+    notes = Rails.cache.fetch("Notes"){@report.notes}
+    @notes = notes.where("subject=?",params[:subject])[1..-1]
   end
 
 private

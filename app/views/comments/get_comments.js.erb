@@ -1,0 +1,7 @@
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'reports/report_comments') %>")
+source = $('#comment-template').html();
+  templ = Handlebars.compile(source)
+  comments = JSON.parse("<%= @comments.to_json%>".replace(/&quot;/g,'"').replace(/&gt;/g,''))
+  var comment_html = templ(comments)
+  $('.comments_data').html(comment_html);
