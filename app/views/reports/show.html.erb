@@ -362,8 +362,11 @@
   <article class="type-system-slab">
 
         <div class="grid-items">
-            <a href="javascript:void(0)" class="grid-item" onclick="getUserCircles(); friendsListAutocomplete();intializeList();">
-        
+          <%if (current_user.uid.include? "Office365")%>
+            <a href="javascript:void(0)" class="grid-item" onclick="getUserCircles();">
+          <%else%>
+            <a href="javascript:void(0)" class="grid-item" onclick="UserOptions();">
+          <%end%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
             <h1>User Share</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
@@ -461,20 +464,38 @@
     cacheNotes('<%= @report.id %>');
   }
 
-  var friendsListAutocomplete = function(){
-  $('#friends_list').autocomplete({
+  var friendsListAutocomplete = function(friends_id){
+  $(friends_id).autocomplete({
     minLength: 0,
     source: function(request, response) {
-      commonAutocomplete(request)
+      commonAutocomplete(request,friends_id)
     }
   });
 }
 
+  var UserOptions = function(){
+    $('#bg-screen-for-modal').addClass('open')
+    var input ='<%= button_tag "Share with Google", class: "btn btn-alert", :onclick=>"googleUserCircles()"%> <br/> OR <br/><%= button_tag "Share with Profit Bees", class: "btn btn-info", :onclick=>"getUserCircles()"%>'
+    $('#bg-screen-for-modal').find('section').empty().append(input)
+  }
+  // DB look up
   var getUserCircles= function(){
     <% placeholder= (current_user.uid.include? "Office365")? "Enter email" : "Enter name"%>
     $('#bg-screen-for-modal').addClass('open')
     var input ='<%= text_field_tag "friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_friends_list_reports_path,:placeholder=>"#{placeholder}"%><br/> <table id="friends">'
-    $('#bg-screen-for-modal').find('section').empty().append(input)
+    $('#bg-screen-for-modal').find('section').empty().append(input) 
+    friendsListAutocomplete('#friends_list');
+    intializeList('#friends_list');   
+  }
+
+// Google list
+  var googleUserCircles= function(){
+    
+    $('#bg-screen-for-modal').addClass('open')
+    var input ='<%= text_field_tag "google_friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_google_list_reports_path,:placeholder=>"Enter name"%><br/> <table id="friends">'
+    $('#bg-screen-for-modal').find('section').empty().append(input) 
+    friendsListAutocomplete('#google_friends_list');
+    intializeList("#google_friends_list");   
   }
   
 </script>

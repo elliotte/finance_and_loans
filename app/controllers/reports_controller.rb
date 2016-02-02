@@ -202,14 +202,14 @@ class ReportsController < ApplicationController
     end
 
     def autocomplete_friends_list
-      if current_user.uid=='Office365'
         term = (params[:q].blank?)? current_user.email.split("@").last : params[:q]
         users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%")
         render json: users_list.collect{|user| {id:user.id,displayName: user.email,image: "/assets/pb-logo.png"}}
-      else
-        friends = (params[:q].blank?)? fetch_friends_list : search_friends_list
-        render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
-      end
+    end
+
+    def autocomplete_google_list
+      friends = (params[:q].blank?)? fetch_friends_list : search_friends_list
+      render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
     end
 
   private
