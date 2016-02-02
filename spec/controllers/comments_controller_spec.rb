@@ -1,16 +1,18 @@
 require 'rails_helper'
 
-describe CommentsController do
-
-    describe "testing" do
+RSpec.describe WelcomeController, :type => :controller do
 
         before do
+          ApplicationController.any_instance.stub(:verify_token)
+          Report.any_instance.stub(:build_back_end)
+          #User.any_instance.stub(:load_welcome_packs)
           @current_user = FactoryGirl.create(:user)
           @report = FactoryGirl.create(:report)
-          @comment = FactoryGirl.create(:comment, report_id: @report.id)
           controller.session[:token] = '265378652378682786237846'
+          controller.session[:uid] = @current_user.uid
           controller.stub(:current_user){ @current_user }
           @current_user.reports << @report
+          @comment = FactoryGirl.create(:comment, report_id: @report.id)
           @report.comments << @comment
         end
 
@@ -138,5 +140,4 @@ describe CommentsController do
 
         end
         # END OF MAIN ROUTES CONTEXT
-    end
 end

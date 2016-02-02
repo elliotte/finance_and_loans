@@ -66,10 +66,17 @@ class ReportsController < ApplicationController
     end
     # SHARE WITH MONEA USER
     def share
+      # if we are passing params[userID] why are we searching with uid?
+      # friends list passes uid right?  So do we not need a filter to catch this? 
+      # e.g. what if friends list not in DB?  Hence error in js template.
+      # it is only ( for both G and O365 ) when using G+ friends list do we serach by uid
+      #clean up error messaging in modal rendered after e.g. user not in DB / error / etc 
        if current_user.uid.include? "Office365"
         found_user = User.find(params[:userID])
         new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
        else
+        # wrong method?
+        # is this not only a uid when using friends list?  if profitbees DB then id?
         found_user = User.find_by_uid(params[:userID])
         new_reader = @report.readers.create(uid: found_user.uid) unless found_user.nil?
        end
