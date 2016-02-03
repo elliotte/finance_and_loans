@@ -71,11 +71,7 @@ class ReportsController < ApplicationController
        found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
 
        render js: "USER NOT FOUND" and return if found_user.nil?
-       if found_user.uid.include? "Office365"
-        new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
-       else
-        new_reader = @report.readers.create(uid: found_user.uid) unless found_user.nil?
-       end
+       new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
         
         error = true if new_reader.nil?
         #add (if error) test
@@ -223,13 +219,7 @@ class ReportsController < ApplicationController
     end
 
     def authorized_user
-      #too add column to reader for email
-      unless session[:provider].include? ('Office365')
-        # Need to review this condition from Mark: whether we have to add any condition for google user or by default every report is accessible. 
-        @report.readers.find_by(uid: current_user.uid)
-      else
         @report.readers.find_by(uid: current_user.id)
-      end
     end
 
     def set_report
