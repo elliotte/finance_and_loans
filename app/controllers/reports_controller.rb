@@ -66,8 +66,9 @@ class ReportsController < ApplicationController
     end
     # SHARE WITH MONEA USER
     def share
+      if @report.blank?
 
-      found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
+       found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
 
        render js: "USER NOT FOUND" and return if found_user.nil?
        if found_user.uid.include? "Office365"
@@ -79,6 +80,8 @@ class ReportsController < ApplicationController
         error = true if new_reader.nil?
         #add (if error) test
         render js: found_user.email
+      end
+      render js: "ERROR"
     end
     #END OF FEATURE REOUTS
     #EXPORT to GOOGLE routes
@@ -230,12 +233,14 @@ class ReportsController < ApplicationController
     end
 
     def set_report
-      #to change for shared
-      @report = current_user.reports.where(id: params[:id]).last
-      if @report.format == "UKGAAP"
-        $form_select_tags = Tag.gaap_user_options
-      else
-        $form_select_tags = Tag.ifrs_user_select_options
+      #to change for shared      
+      @report = current_user.reports.where(id: params[:id]).last rescue ''
+      unless @report.blank?
+        if @report.format == "UKGAAP"
+          $form_select_tags = Tag.gaap_user_options
+        else
+          $form_select_tags = Tag.ifrs_user_select_options
+        end
       end
     end
 
