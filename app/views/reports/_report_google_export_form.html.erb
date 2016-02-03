@@ -1,17 +1,18 @@
 
-<article class="type-system-rounded">
+<article class="type-system-slab modal-form">
 
-      <h1 style="color:#f3655e;">Export Report</h1>
-      <p> (components to Google spreadsheet ..) </p>
+      <h1>Export Report</h1>
+      <p> ( components to Google spreadsheet ..) </p>
       <%= form_tag to_google_export_report_path(@report), method: :post, remote: true do |f| %>
+
                 <table class="table-minimal">
                   <tbody>
                       <tr>
-                        <td>Current range</td>
+                        <td class="text-pink">Current range</td>
                         <td><%= date_select("report", "current_end", order: [:month, :year]) %></td>
                       </tr>
                       <tr>
-                        <td>Comparative range</td>
+                        <td class="text-pink">Comparative range</td>
                         <td><%= date_select("report", "comparative_end", order: [:month, :year]) %></td>
                       </tr>
                     </tbody>

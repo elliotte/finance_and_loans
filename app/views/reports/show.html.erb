@@ -76,8 +76,8 @@
                                   <img src="<%= asset_path('ico4b.png') %>">
                                 </div>
                                 <div class="comment-content">
-                                  <h1>First Comment Title or Author</h1>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+                                  <h1>Coming Soon</h1>
+                                  <p>We are writing Javascript algorthims that will automatically generate thoughts for users to consider, by running variance analysis on the current end and comparative end period.  This helps financial control.</p>
                                   <p class="comment-detail">Date or details about this post</p>
                                 </div>
                           </div>
@@ -94,7 +94,7 @@
                                   <h1><%= ((@report.notes.blank?)? "No Notes" : @report.notes.first.commenter)%>
                                   </h1>
                                   <p><%= ((@report.comments.blank?)? "No Notes" : @report.notes.first.body)%></p>
-                                  <p class="comment-detail">Date or details about this post</p>
+                                  <p class="comment-detail"><%= time_ago_in_words(@report.notes.first.updated_at) %> ago</p>
                                   <p class="comment-detail">
                                   <a href="#" onclick="getNotes();">View All</a>
                                 </p>
@@ -113,7 +113,7 @@
                                 <div class="comment-content">
                                   <h1><%= ((@report.comments.blank?)? "No Comments" : @report.comments.first.commenter)%></h1>
                                   <p><%= ((@report.comments.blank?)? "No Comments" : @report.comments.first.body)%></p>
-                                  <p class="comment-detail">Date or details about this post</p>
+                                  <p class="comment-detail"><%= time_ago_in_words(@report.comments.first.updated_at) %> ago</p>
                                   <p class="comment-detail">
                                   <a href="#" onclick="getComments();">View All</a>
                                 </p>
