@@ -1,8 +1,9 @@
 class ReportsController < ApplicationController
     
     respond_to :html, :js
-    before_action :set_report, only: [:view_etb, :show_dashboard, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-
+    before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
+    before_action :initialize_report, only: [:show,:show_dashboard]
+    
     def index
       @reports = current_user.reports
     end
@@ -37,7 +38,6 @@ class ReportsController < ApplicationController
     end
 
     def show
-      @report = Report.find(params[:id])
       set_app_reporting_tags
       unless report_owner?
         redirect_to root_path and return if authorized_user.nil?
@@ -58,6 +58,7 @@ class ReportsController < ApplicationController
     end
 
     def show_dashboard
+
       set_app_reporting_tags
       @data = ReportsDashService.new(@report).load_data
     end
@@ -229,10 +230,6 @@ class ReportsController < ApplicationController
     def set_report
       #to change for shared      
       @report = current_user.reports.where(id: params[:id]).last rescue ''
-      unless @report.blank?
-        # we need to take out below code.. only relevant for financials page?
-        
-      end
     end
     # sets VIEW tags to iterate over 
     def set_app_reporting_tags
@@ -273,6 +270,10 @@ class ReportsController < ApplicationController
    
     def set_user(user)
       (user.uid.include? "Office365")? user.id : user.uid
+    end
+
+    def initialize_report
+      @report = Report.find(params[:id]) 
     end
 end
 
