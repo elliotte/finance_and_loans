@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+    
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :show_dashboard, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
 
@@ -66,6 +67,7 @@ class ReportsController < ApplicationController
     end
     # SHARE WITH MONEA USER
     def share
+      #checks set_report finds owner, otherwise not owner and cant share
       if @report.blank?
 
        found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
@@ -77,7 +79,7 @@ class ReportsController < ApplicationController
         #add (if error) test
         render js: found_user.email
       end
-      render js: "ERROR"
+      render js: "ERROR only the report owner can share"
     end
     #END OF FEATURE REOUTS
     #EXPORT to GOOGLE routes
@@ -198,6 +200,7 @@ class ReportsController < ApplicationController
       else
         @data = @report.get_values_for(@report.send("#{period}_end".to_sym)).where(ifrstag: params[:ifrstag])
       end
+      #why puts here?
       puts @data
     end
 
@@ -226,6 +229,7 @@ class ReportsController < ApplicationController
       #to change for shared      
       @report = current_user.reports.where(id: params[:id]).last rescue ''
       unless @report.blank?
+        # we need to take out below code.. only relevant for financials page?
         if @report.format == "UKGAAP"
           $form_select_tags = Tag.gaap_user_options
         else

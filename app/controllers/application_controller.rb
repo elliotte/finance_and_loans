@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
   def verify_token
     # Check for stored credentials in the current user's session.
-    
     if !session[:token]
       respond_to do |format|
         format.html { redirect_to root_path, notice: 'You are not authorized to access this page.' }
