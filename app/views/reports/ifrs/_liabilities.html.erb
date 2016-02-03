@@ -29,7 +29,6 @@
             <p class="dropdown-description">New</p>
             <p class="dropdown-button">Balance Sheet</p>
             <ul class="dropdown-menu dropdown-select">
-              <li>Balance Sheet</li>
               <li><%= link_to 'Notes', new_report_note_path(@report, subject: 'BalanceSheet'), remote: true, class: 'button' %></li>
               <li><%= link_to 'Comments', new_report_comment_path(@report, subject: 'BalanceSheet'), remote: true, class: 'button'%></li>
               <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>

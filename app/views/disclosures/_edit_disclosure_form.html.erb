@@ -1,15 +1,15 @@
 <article class="type-system-rounded">
-	<h1 style="color:#f3655e;"> Edit report Disclosure </h1>
+	<h1 class="lovely-pink"> Edit report Disclosure </h1>
 	<br>
 	<%= form_for([@report, @disclosure], :url => {controller: 'disclosures', action: 'update'}, remote: true) do |f| %>
 		  <table class="table-minimal">
 		      <tbody>
 		          <tr>
-		            <td style="color:#f3655e;"><%= f.label :title %></td>
+		            <td class="lovely-pink"><%= f.label :title %></td>
 		            <td> <%= f.text_field :title %></td>
 		          </tr>
 		          <tr>
-		            <td style="color:#f3655e;"><%= f.label :body %></td>
+		            <td class="lovely-pink"><%= f.label :body %></td>
 		            <td><%= f.text_area :body %></td>
 		          </tr>
 		          <tr>

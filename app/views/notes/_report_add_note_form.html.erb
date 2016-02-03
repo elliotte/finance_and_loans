@@ -2,12 +2,12 @@
 <article class="type-system-slab modal-form">
       <h1>
         <% if @note.new_record? %>
-          Report.note.new
+          New Note
         <% else %>
-          Report.note.edit
+          Edit Note
         <% end %>
       </h1>
-      <p style="color:#f3655e;"><a href="javascript:void(0)">enter comment text below</a></p>
+      <p class="lovely-pink"><a href="javascript:void(0)">enter comment text below</a></p>
 
       <%= form_for([@report, @note], remote: true) do |f| %>
 

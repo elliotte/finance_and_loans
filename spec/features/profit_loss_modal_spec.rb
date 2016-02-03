@@ -45,7 +45,7 @@ feature 'user reports index page' do
         within(all(".dropdown-menu.dropdown-select").first){page.should have_link "Notes"}
         within(all(".dropdown-menu.dropdown-select").first){click_link("Notes")}
         sleep 2
-        within(".modal-inner"){page.should have_content "Report.note.new"}
+        within(".modal-inner"){page.should have_content "New Note"}
         fill_in("note_body",:with=> "First Note")
         click_button("Save Note")
         page.should have_content "To display note in page click:"

@@ -58,8 +58,6 @@ class ReportsController < ApplicationController
     end
 
     def show_dashboard
-
-      set_app_reporting_tags
       @data = ReportsDashService.new(@report).load_data
     end
     # SHARE WITH MONEA USER
@@ -227,6 +225,9 @@ class ReportsController < ApplicationController
       @report = current_user.reports.where(id: params[:id]).last rescue ''
     end
     # sets VIEW tags to iterate over 
+    # not true actually... not used in financials
+    # show page forms for input data
+    #managers must be same too
     def set_app_reporting_tags
         if @report.format == "UKGAAP"
           $form_select_tags = Tag.gaap_user_options

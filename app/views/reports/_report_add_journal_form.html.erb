@@ -11,17 +11,17 @@
     </div>
     <table class="table-minimal etb_values">
           <tr>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                  <%= select_tag 'report[etb_values][1][repdate(2i)]', options_for_select(month_list, report_current_end.strftime("%m")) %>
                  <%= select_tag 'report[etb_values][1][repdate(1i)]', options_for_select(2010..2020, selected: report_current_end.strftime("%Y")) %>
                  <%= hidden_field_tag 'report[etb_values][1][repdate(3i)]', '1' %>
               </td>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                  <%= text_field_tag 'report[etb_values][1][mitag]', nil, {placeholder: 'Add your tag..'} %>
               </td>
           </tr>
           <tr>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                  <%= text_field_tag 'report[etb_values][1][amount]', nil, {placeholder: 'e.g. 16.90'} %>
               </td>
               <td>
@@ -31,16 +31,16 @@
     </table>
     <table class="table-minimal">
           <tr>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                 <%= link_to 'value.add', 'javascript:void(0)', onclick: 'reportShowHelper.addValueToJournalForm();' %>
               </td>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
               </td>
               <td>
               </td>
           </tr>
           <tr>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
               </td>
               <td class="button-style">
                   <%= f.submit 'Book Journal', style: 'float: left; clear:both; padding-left:10px' %>
@@ -56,17 +56,17 @@
 <div style='display:none;'>
   <table class='value_template'>
         <tr>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                  <%= select_tag 'report[etb_values][index][repdate(2i)]', options_for_select(month_list, report_current_end.strftime("%m")) %>
                  <%= select_tag 'report[etb_values][index][repdate(1i)]', options_for_select(2010..2020, selected: report_current_end.strftime("%Y")) %>
                  <%= hidden_field_tag 'report[etb_values][index][repdate(3i)]', '1' %>
               </td>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                  <%= text_field_tag 'report[etb_values][index][mitag]', nil, {placeholder: 'Add your tag..'} %>
               </td>
           </tr>
           <tr>
-              <td style="color:#f3655e;">
+              <td class="lovely-pink">
                  <%= text_field_tag 'report[etb_values][index][amount]', nil, {placeholder: 'e.g. 16.90'} %>
               </td>
               <td>

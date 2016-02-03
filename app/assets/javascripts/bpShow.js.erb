@@ -142,11 +142,11 @@ var reportShowHelper = (function() {
         appendModalShowPageValues: function(values) {
             $('#bg-screen-for-modal').addClass('open')
             body = $('#bg-screen-for-modal').find('section')          
-            body.empty().append('<div style="color:#f3655e;" id="table-title"></div>');
+            body.empty().append('<div style="color:#477DCA;" id="table-title"></div>');
             title = $('#table-title')
             title.empty();
             
-            header = '<table id="empty-modal-table" class="table-minimal"><tr style="color:#f3655e;">' +
+            header = '<table class="table-minimal"><tr style="color:#94CFD5;">' +
                             '<td>' + 'Type' +'</td>' +
                             '<td>' + 'Date' + '</td>' +
                             '<td>' + 'miTag' + '</td>' +
@@ -178,7 +178,7 @@ var reportShowHelper = (function() {
 
             });
             body.append(header+html+'</table>')
-            title.append('<p style="color:#f3655e;">' + ' Summary: ' + lineDescription + '</p>')
+            title.append('<p style="color:#FB7D98;">' + 'Summary:  ' + lineDescription + '</p>' + '<br>')
             function addCommas(nStr) {
                 nStr += '';
                 var x = nStr.split('.');
@@ -293,8 +293,8 @@ function showNotes(){
 function showReportShareModal(){
   $('#bg-screen-for-modal').addClass('open')
   
-  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
-  $('#bg-screen-for-modal').find('section').empty().append('<p style="color:#F3655E;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + ' Share' + '</a>'
+  $('#bg-screen-for-modal').find('section').empty().append('<p style="color:#94CFD5;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
 
   friends = JSON.parse(localStorage.getItem("friends")).items
   $.each(friends, function(index, person) {
