@@ -39,6 +39,7 @@ class ReportsController < ApplicationController
 
     def show
       @report = Report.find(params[:id])
+      set_app_reporting_tags
       unless report_owner?
         redirect_to root_path and return if authorized_user.nil?
       end
@@ -58,6 +59,7 @@ class ReportsController < ApplicationController
     end
 
     def show_dashboard
+      set_app_reporting_tags
       @data = ReportsDashService.new(@report).load_data
     end
 
@@ -230,12 +232,16 @@ class ReportsController < ApplicationController
       @report = current_user.reports.where(id: params[:id]).last rescue ''
       unless @report.blank?
         # we need to take out below code.. only relevant for financials page?
+        
+      end
+    end
+
+    def set_app_reporting_tags
         if @report.format == "UKGAAP"
           $form_select_tags = Tag.gaap_user_options
         else
           $form_select_tags = Tag.ifrs_user_select_options
         end
-      end
     end
 
     def report_params
