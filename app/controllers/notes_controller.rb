@@ -14,7 +14,7 @@ class NotesController < ApplicationController
         @google_service ||= GoogleService.new($client, $authorization)
         @result = @note.copy_file_if_google_link(@google_service)
     end
-    Rails.cache.write("Notes"){@report.notes}
+    Rails.cache.write("Notes",@report.notes)
   end
 
   def edit

@@ -1,9 +1,10 @@
 require 'rails_helper'
-
+include ActionController::Caching::Fragments
 APP =YAML.load_file('config/application.yml')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
 feature 'user reports index page' do
     before do
+      Rails.cache.clear
       Auth.user_auth
       page.set_rack_session(token: '265378652378682786237846')
       page.set_rack_session(provider: 'googleoauth2')
@@ -12,6 +13,10 @@ feature 'user reports index page' do
       page.set_rack_session(user_id: @current_user.id)
       @report = FactoryGirl.create(:report,user_id: @current_user.id)
       @current_user.reports << @report
+      @note =FactoryGirl.create(:note, report_id: @report.id)
+      @report.notes << @note
+      @comment =FactoryGirl.create(:comment,report_id: @report.id) 
+      @report.comments << @comment
       ApplicationController.any_instance.stub(:verify_token)
       ApplicationController.any_instance.stub(:current_user){ @current_user }
       visit auth_landing_welcome_index_path    
