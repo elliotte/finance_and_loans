@@ -20,7 +20,6 @@ class ReportsController < ApplicationController
         flash[:notice] = "Something went wrong"
         render 'new'
       end
-        
     end
 
     def edit
@@ -235,7 +234,7 @@ class ReportsController < ApplicationController
         
       end
     end
-
+    # sets VIEW tags to iterate over 
     def set_app_reporting_tags
         if @report.format == "UKGAAP"
           $form_select_tags = Tag.gaap_user_options
