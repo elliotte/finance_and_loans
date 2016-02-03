@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @report.comments.create(comment_params)
-    Cache.write("Comments"){@report.comments}
+    Rails.cache.write("Comments"){@report.comments}
     render js: "ERROR" and return if @comment.nil?
     respond_to do |f|
       f.js
