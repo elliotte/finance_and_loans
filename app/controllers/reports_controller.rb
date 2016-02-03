@@ -66,21 +66,15 @@ class ReportsController < ApplicationController
     end
     # SHARE WITH MONEA USER
     def share
-      # if we are passing params[userID] why are we searching with uid?
-      # friends list passes uid right?  So do we not need a filter to catch this? 
-      # e.g. what if friends list not in DB?  Hence error in js template.
-      # it is only ( for both G and O365 ) when using G+ friends list do we serach by uid
-      #clean up error messaging in modal rendered after e.g. user not in DB / error / etc 
-       if current_user.uid.include? "Office365"
-        found_user = User.find(params[:userID])
+
+      found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
+
+       render js: "USER NOT FOUND" and return if found_user.nil?
+       if found_user.uid.include? "Office365"
         new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
        else
-        # wrong method?
-        # is this not only a uid when using friends list?  if profitbees DB then id?
-        found_user = User.find_by_uid(params[:userID])
         new_reader = @report.readers.create(uid: found_user.uid) unless found_user.nil?
        end
-      render js: "USER NOT FOUND" and return if found_user.nil?
         
         error = true if new_reader.nil?
         #add (if error) test
@@ -210,8 +204,8 @@ class ReportsController < ApplicationController
 
     def autocomplete_friends_list
         term = (params[:q].blank?)? current_user.email.split("@").last : params[:q]
-        users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%")
-        render json: users_list.collect{|user| {id:user.id,displayName: user.email,image: "/assets/pb-logo.png"}}
+        users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%").uniq    
+        render json: users_list.collect{|user| {id:set_user(user),displayName: user.email,image: "/assets/pb-logo.png"}}
     end
 
     def autocomplete_google_list
@@ -228,6 +222,8 @@ class ReportsController < ApplicationController
     def authorized_user
       #too add column to reader for email
       unless session[:provider].include? ('Office365')
+        # Need to review this condition from Mark: whether we have to add any condition for google user or by default every report is accessible. 
+        @report.readers.find_by(uid: current_user.uid)
       else
         @report.readers.find_by(uid: current_user.id)
       end
@@ -271,6 +267,9 @@ class ReportsController < ApplicationController
       Rails.cache.read("FRIENDS_LIST").select{|friends| friends["displayName"].downcase.match("#{params[:q]}".downcase)}
     end
    
+    def set_user(user)
+      (user.uid.include? "Office365")? user.id : user.uid
+    end
 end
 
 
