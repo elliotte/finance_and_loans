@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
     
     respond_to :html, :js
-    before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
+    before_action :set_report, only: [:new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
     before_action :initialize_report, only: [:show,:show_dashboard]
     
     def index
@@ -62,18 +62,13 @@ class ReportsController < ApplicationController
       set_app_reporting_tags
       @data = ReportsDashService.new(@report).load_data
     end
-
-    def view_etb
-      flash[:notice] = "Business trial balance financial modelling with journals coming soon..."
-      redirect_to report_path(@report)
-    end
     # SHARE WITH MONEA USER
     def share
       #checks set_report finds owner, otherwise not owner and cant share
       if @report.blank?
 
        found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
-
+       
        render js: "USER NOT FOUND" and return if found_user.nil?
        new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
         

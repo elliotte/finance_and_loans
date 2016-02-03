@@ -91,7 +91,6 @@ Draftapp::Application.routes.draw do
     post :save_journal, on: :member
 
     get :show_dashboard, on: :member
-    get :view_etb, on: :member
     post :export_dash, on: :member
     get :export_form, on: :member
     post :to_google_export, on: :member
@@ -99,6 +98,7 @@ Draftapp::Application.routes.draw do
     get :get_comments, on: :member
     get :get_notes, on: :member
     get :get_breakdown_values, on: :member
+    
   end
 
   resources :files, only:[:index] do
