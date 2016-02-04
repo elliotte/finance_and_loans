@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
     
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export]
     
     def index
       @reports = current_user.reports
@@ -96,26 +96,26 @@ class ReportsController < ApplicationController
     end
     #FORM GET
     def export_form
-      @report = current_user.reports.find(params[:id])
     end
     #API endpoint route
     def to_google_export
-      #not tested yet
-      @report = current_user.reports.find(params[:id])
+      #not tested yet      
       export_request = params[:report][:export]
       current_range = Date.new(params[:report]['current_end(1i)'].to_i, params[:report]['current_end(2i)'].to_i)
       comparative_range = Date.new(params[:report]['comparative_end(1i)'].to_i, params[:report]['comparative_end(2i)'].to_i)
       @report.spreadsheet_export(export_request, current_range, comparative_range)
-      @result = google_service.upload_new_file_csv(@report.title, session[:token])
-      if @result.status == 200
-          respond_to do |f|
+      unless current_user.uid.include? "Office365"
+          @result = google_service.upload_new_file_csv(@report.title, session[:token])
+          if @result.status == 200
+            respond_to do |f|
               f.js
               f.any { redirect_to report_path(@report), notice: "Something went wrong" }
-          end
-      else
-          respond_to do |f|
+            end
+          else
+            respond_to do |f|
               f.js
               f.any { redirect_to report_path(@report), notice: "Something went wrong" }
+            end
           end
       end
     end

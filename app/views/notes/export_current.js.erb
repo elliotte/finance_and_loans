@@ -1,9 +1,5 @@
-$('#bg-screen-for-modal').addClass('open')
-
 <%unless current_user.uid.include? "Office365"%>
-	$('#bg-screen-for-modal').find('section').empty().append("<%= @link_text%>") 
+	commonDownloadPopup("<%= @link_text%>")
 <%else%>
-	link = "<%= j link_to 'Download CSV', download_reports_url %>"
-	html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
-	$('#bg-screen-for-modal').find('section').empty().append(html) 
+	commonDownloadPopup("<%= j link_to 'Download CSV', download_data_as_csv_file_reports_url %>"); 
 <%end%>

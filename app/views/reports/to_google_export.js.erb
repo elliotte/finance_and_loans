@@ -1,6 +1,9 @@
-src = '<%= @result.data.alternateLink %>'
-link = '<a href="'+src+'" target="_blank">' + 'VIEW' + '</a>'
-html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
 
-$('#bg-screen-for-modal').find('section').empty().append(html) 
-
+<%unless current_user.uid.include? "Office365"%>
+	src = '<%= @result.data.alternateLink %>'
+	link = '<a href="'+src+'" target="_blank">' + 'VIEW' + '</a>'
+	
+	commonDownloadPopup(link)
+<%else%>
+	commonDownloadPopup("<%= j link_to 'Download CSV', download_data_as_csv_file_reports_url %>"); 
+<%end%>

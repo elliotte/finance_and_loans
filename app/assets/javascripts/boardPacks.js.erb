@@ -59,4 +59,8 @@ var reportsSharedHelper = (function() {
       // END OF RETURN
 })();
 
-
+function commonDownloadPopup(link){
+  $('#bg-screen-for-modal').addClass('open')
+  html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
+  $('#bg-screen-for-modal').find('section').empty().append(html)
+}
