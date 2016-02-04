@@ -1,10 +1,6 @@
-Disclosures,Exported from monea.build
-1761,Example Company Name Ltd,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Company name
-1762,December 2014,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Year end
-1763,Director Name 1,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Directors
-1764,Director Name 2,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Directors
-1765,Director Name 3,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Directors
-1766,Example Name,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Secretary
-1767,1 Office Address,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Registered Office
-1768,Accountants LLP,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Auditor
-1769,England,Disclosure,197,,2016-01-29 15:54:29 UTC,2016-01-29 15:54:29 UTC,true,Registered in
+Notes,Exported from monea.build
+375,admin@monea.build,Report guidance notes,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,General,2014-12-31,https://www.google.co.uk
+376,admin@monea.build,Extended trial balance reconciliation,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,General,2014-12-31,https://www.google.co.uk
+377,admin@monea.build,Analytical review,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,ProfitLoss,2014-12-31,https://www.google.co.uk
+378,admin@monea.build,Revenue MI analysis,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,ProfitLoss,2014-12-31,https://www.google.co.uk
+379,admin@monea.build,Cash reconciliation schedule,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,BalanceSheet,2014-12-31,https://www.google.co.uk
