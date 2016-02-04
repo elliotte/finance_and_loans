@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
     
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_O365_dash]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365]
     
     def index
       @reports = current_user.reports
@@ -120,6 +120,18 @@ class ReportsController < ApplicationController
           end
       end
     end
+    #windows 0365 export routes
+    def export_dash_o365
+      @report.export_dash_to_csv(JSON.parse(params["csv"]))
+      respond_to do |f|
+        f.js
+        #f.any { redirect_to report_path(@report), notice: "Something went wrong" }
+      end
+    end
+    # download as csv file
+    def download_data_as_csv_file
+      send_file "#{Rails.root}/files/new-file.csv", :type=>"application/csv", :x_sendfile=>true
+    end
     #END OF EXPORT ROUTES
     #ADDING nested model routes
     def add_value
@@ -211,17 +223,7 @@ class ReportsController < ApplicationController
       render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
     end
 
-    def export_O365_dash
-      @report.export_dash_to_csv(JSON.parse(params["csv"]))
-      respond_to do |f|
-        f.js
-        #f.any { redirect_to report_path(@report), notice: "Something went wrong" }
-      end
-    end
 
-    def download
-      send_file "#{Rails.root}/files/new-file.csv", :type=>"application/csv", :x_sendfile=>true
-    end
 
   private
     # BEING USED

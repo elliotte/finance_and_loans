@@ -1,0 +1,7 @@
+$('#bg-screen-for-modal').addClass('open')
+link = "<%= j link_to 'Download CSV', download_data_as_csv_file_reports_url %>"
+html = '<article class="type-system-slab">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
+
+helpText = '<article class="type-system-slab">' + '<p>' + 'We are sorry we cannot export directly to Excel, but you can open the csv file using Excel and it will work just fine :) ' + '</p>' + '</article>'
+
+$('#bg-screen-for-modal').find('section').empty().append(html + helpText) 

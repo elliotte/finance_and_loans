@@ -1,6 +1,30 @@
-Notes,Exported from monea.build
-375,admin@monea.build,Report guidance notes,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,General,2014-12-31,https://www.google.co.uk
-376,admin@monea.build,Extended trial balance reconciliation,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,General,2014-12-31,https://www.google.co.uk
-377,admin@monea.build,Analytical review,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,ProfitLoss,2014-12-31,https://www.google.co.uk
-378,admin@monea.build,Revenue MI analysis,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,ProfitLoss,2014-12-31,https://www.google.co.uk
-379,admin@monea.build,Cash reconciliation schedule,193,,2016-01-15 10:42:51 UTC,2016-01-15 10:42:51 UTC,BalanceSheet,2014-12-31,https://www.google.co.uk
+Reporting Line,December 2014,December 2013,FS Mapping
+Revenue,540078,284167,gp-rev
+Other trading income,0.0,0.0,gp-rev
+Other direct costs,52514,124722,gp-cos
+Other operating income,0.0,0.0,op-rev
+Finance income,0.0,0.0,op-rev
+Share of post-tax profits of equity associates,0.0,0.0,op-rev
+Share of post-tax profits of equity joint ventures,0.0,0.0,op-rev
+Administrative expenses,150183,17528,op-cos
+Distribution expenses,30667,87963,op-cos
+Other expenses,79444,94544,op-cos
+Tax expense,15442,13422,pbt-cos
+Property plant and equipment,97076,77283,nca
+Other assets,16981,12253,nca
+Trade and other receivables,6526,34862,ca
+Available-for-sale investments,27412,124722,ca
+Derivative financial assets,52514,260346,ca
+Other assets,16981,12253,ca
+Cash and cash equivalents,7793584,5608690,ca
+Assets in disposal groups classified as held for sale,65156,21634,ca
+Loans and borrowings more than 1 year,272542,1579942,ncl
+Other liabilities,95258,160253,ncl
+Trade and other payables,4128,7187,cl
+Loans and borrowings,2100000,1350000,cl
+Income Tax Payable,39116,40421,cl
+Employee benefit liabilities,1212411,1512411,cl
+Provisions,86264,86264,cl
+Foreign exchange reserve,54749,63288,eq
+Retained earnings,24719,34173,eq
+Share capital,19924,24854,eq

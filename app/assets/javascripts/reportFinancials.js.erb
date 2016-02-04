@@ -249,11 +249,11 @@ function successDashExport() {
   
     response = this.responseText
     if (response.indexOf("ERROR") > -1) {
-      html = '<article class="type-system-rounded">' + '<p>' + 'ERROR' + '</p>' +
+      html = '<article class="type-system-slab">' + '<p>' + 'ERROR' + '</p>' +
              '<a href="/" data-no-turbolinks=true>' + 'RECONNECT' + '</a>' + '</article>'
     } else {
       link = '<a href="'+response+'" target="_blank">' + 'VIEW' + '</a>'
-      html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
+      html = '<article class="type-system-slab">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
     }
     $('#bg-screen-for-modal').find('section').empty().html(html) 
 };
@@ -278,7 +278,7 @@ function exportDashOffice(){
   var data =fetchData();
 
   $.ajax({
-    url: '/reports/' + $('#report-id').val() + '/export_O365_dash',
+    url: '/reports/' + $('#report-id').val() + '/export_dash_o365',
     type: "POST",
     //dataType: 'json',
     data:{ 
