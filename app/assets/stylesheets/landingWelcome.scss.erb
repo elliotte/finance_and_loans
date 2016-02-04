@@ -6,7 +6,7 @@ $hero-background-bottom: #20392B;
 $hero-color: white;
 $gradient-angle: 10deg;
 /* Rails 4 production settings code*/
-//= depend_on_asset "simple.gif"
+//= depend_on_asset "whitebg_graphic.png"
 //= depend_on_asset "giphy.gif"
 //= depend_on_asset "whitebg_graphic.png"
 
@@ -28,7 +28,7 @@ $gradient-angle: 10deg;
 }
 
 .landing-welcome {
-  $hero-image: '<%= asset_path("simple.gif") %> ';
+  $hero-image: '<%= asset_path("whitebg_graphic.png") %> ';
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
  background-position: right 20px bottom 10px;
 } 
@@ -103,7 +103,7 @@ $gradient-angle: 10deg;
   $flex-box-width: 18em;
   $flex-box-color: transparentize($base-font-color, 0.3);
   $flex-box-top-colors: 
-    tomato, 
+    #FDA9BB, 
     #72BFBF, 
     #92B1E3, 
     #E3D743,
@@ -168,7 +168,7 @@ $gradient-angle: 10deg;
   $action-color: #d61579 !default;
   $medium-screen: em(640) !default;
   $large-screen: em(860) !default;
-  $footer-background: #d61579;
+  $footer-background: #FFEBE0;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);

@@ -108,6 +108,22 @@
     </article>
 </section>
 
+<section class="layout-container">
+  <article class="type-system-slab">
+        <!-- INCOME STATEMENT GRAPHS AND STATS -->
+        <span class="stats">
+          <p style="color:#FB7D98;">Current</p>
+          <ul id="cy-p-n-l-stats">
+          </ul>
+        </span>
+        <span class="stats">
+          <p style="color:#FB7D98;">Comparative</p>
+          <ul id="py-p-n-l-stats">
+          </ul>
+        </span>
+  </article>
+</section>
+      
 <% if $report_format == 'IFRS' %>
       <!-- IFRS MAPPING FINANICAL AND REPORTING MASTERLIST/CONTROL -->
       <% @tags = Tag.ifrs_fin_stat_tags %>

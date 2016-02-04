@@ -1,4 +1,5 @@
-.stats {
+span.stats {
+  @include span-columns(6);
   $base-spacing: 1.5em !default;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
