@@ -37,16 +37,20 @@ class NotesController < ApplicationController
 
   def export_current
     @report.spreadsheet_export('Notes', '', '', :current )
-    @result = google_service.upload_new_file_csv(@report.title, session[:token])
-    link = @result.data.alternateLink
-    @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    unless current_user.uid.include? "Office365"
+      @result = google_service.upload_new_file_csv(@report.title, session[:token])
+      link = @result.data.alternateLink
+      @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe    
+    end
   end
 
   def export_all
     @report.spreadsheet_export('Notes', '', '', :all)
-    @result = google_service.upload_new_file_csv(@report.title, session[:token])
-    link = @result.data.alternateLink
-    @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    unless current_user.uid.include? "Office365"
+      @result = google_service.upload_new_file_csv(@report.title, session[:token])
+      link = @result.data.alternateLink
+      @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    end
   end
 
   def get_notes
