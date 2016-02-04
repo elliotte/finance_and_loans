@@ -79,14 +79,13 @@ class ReportsController < ApplicationController
     end
     #END OF FEATURE REOUTS
     #EXPORT to GOOGLE routes
-    def export_dash      
+    def export_dash     
       @report.export_dash_to_csv(params["_json"])
         
         @result = google_service.upload_new_file_csv(@report.title, session[:token])
         if @result.status == 200
           respond_to do |f|
-              f.js { render js: @result.data.alternateLink }
-              f.any { redirect_to report_path(@report), notice: "Something went wrong" }
+              f.any { render js: @result.data.alternateLink }
           end
         else
           respond_to do |f|

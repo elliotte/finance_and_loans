@@ -39,14 +39,14 @@ class NotesController < ApplicationController
     @report.spreadsheet_export('Notes', '', '', :current )
     @result = google_service.upload_new_file_csv(@report.title, session[:token])
     link = @result.data.alternateLink
-    redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
   end
 
   def export_all
     @report.spreadsheet_export('Notes', '', '', :all)
     @result = google_service.upload_new_file_csv(@report.title, session[:token])
     link = @result.data.alternateLink
-    redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
   end
 
   def get_notes

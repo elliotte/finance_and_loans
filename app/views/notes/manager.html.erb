@@ -24,16 +24,16 @@
             <h1>New Note</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           </a>
-          <a href="<%= export_current_report_notes_path(@report) %>" class="grid-item">
+          <%= link_to export_current_report_notes_path(@report),:remote=> true,:class=>"grid-item" do%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Export current</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          </a>
-          <a href="<%= export_all_report_notes_path(@report) %>" class="grid-item">
+          <%end%>
+          <%= link_to export_all_report_notes_path(@report),:remote=> true,:class=>"grid-item" do%> 
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Export all</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          </a>
+          <%end%>
         </div>
     </article>
 </section>
