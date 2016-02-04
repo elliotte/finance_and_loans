@@ -1,8 +1,8 @@
 class ReportsController < ApplicationController
     
     respond_to :html, :js
-    before_action :set_report, only: [:new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard]
+    before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_O365_dash]
     
     def index
       @reports = current_user.reports
@@ -58,6 +58,7 @@ class ReportsController < ApplicationController
     end
 
     def show_dashboard
+      set_app_reporting_tags
       @data = ReportsDashService.new(@report).load_data
     end
     # SHARE WITH MONEA USER
@@ -78,21 +79,21 @@ class ReportsController < ApplicationController
     end
     #END OF FEATURE REOUTS
     #EXPORT to GOOGLE routes
-    def export_dash
-      @report = current_user.reports.find(params[:id])
+    def export_dash      
       @report.export_dash_to_csv(params["_json"])
-      @result = google_service.upload_new_file_csv(@report.title, session[:token])
-      if @result.status == 200
+        
+        @result = google_service.upload_new_file_csv(@report.title, session[:token])
+        if @result.status == 200
           respond_to do |f|
               f.js { render js: @result.data.alternateLink }
               f.any { redirect_to report_path(@report), notice: "Something went wrong" }
           end
-      else
+        else
           respond_to do |f|
               f.js { render js: "ERROR" }
               f.any { redirect_to report_path(@report), notice: "Something went wrong" }
           end
-      end
+        end
     end
     #FORM GET
     def export_form
@@ -208,6 +209,18 @@ class ReportsController < ApplicationController
     def autocomplete_google_list
       friends = (params[:q].blank?)? fetch_friends_list : search_friends_list
       render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
+    end
+
+    def export_O365_dash
+      @report.export_dash_to_csv(JSON.parse(params["csv"]))
+      respond_to do |f|
+        f.js
+        #f.any { redirect_to report_path(@report), notice: "Something went wrong" }
+      end
+    end
+
+    def download
+      send_file "#{Rails.root}/files/new-file.csv", :type=>"application/csv", :x_sendfile=>true
     end
 
   private

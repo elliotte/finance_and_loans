@@ -226,24 +226,12 @@ var ifrsDashShow = (function() {
           },
 
           exportDashGoogle: function() {
-
-            var fsReportingLines = $('.js-fs-line')
-            var data = []
-            $.each(fsReportingLines, function(index, repLine) {
-
-              tag = $(repLine).data('tag')
-              lineDescription = $(repLine).data('reporting-line')
-              cy_amt = $(repLine).data('cy')
-              py_amt = $(repLine).data('py')
-              row = [ lineDescription , cy_amt, py_amt, tag ]
-              data.push(row)
-
-            });
-
+            // Common fetch data
+            var data = fetchData();
             var token = $("meta[name='csrf-token']").attr("content");
             var request = new XMLHttpRequest();
-              request.onload = successDashExport;
-//              request.onerror = errorDisplay;
+            request.onload = successDashExport;
+            // request.onerror = errorDisplay;
               request.open("post", '/reports/' + $('#report-id').val() + '/export_dash', true );
               request.setRequestHeader("Content-Type", "application/json");
               request.setRequestHeader("X-CSRF-Token", token);
@@ -256,5 +244,44 @@ var ifrsDashShow = (function() {
 
 })();
 
+function successDashExport() {
+  $('#bg-screen-for-modal').addClass('open')
+  
+    response = this.responseText
+    if (response.indexOf("ERROR") > -1) {
+      html = '<article class="type-system-rounded">' + '<p>' + 'ERROR' + '</p>' +
+             '<a href="/" data-no-turbolinks=true>' + 'RECONNECT' + '</a>' + '</article>'
+    } else {
+      link = '<a href="'+response+'" target="_blank">' + 'VIEW' + '</a>'
+      html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
+    }
+    $('#bg-screen-for-modal').find('section').empty().html(html) 
+};
 
+function fetchData(){
+  var fsReportingLines = $('.js-fs-line')
+  var data = []
+  $.each(fsReportingLines, function(index, repLine) {
 
+    tag = $(repLine).data('tag')
+    lineDescription = $(repLine).data('reporting-line')
+    cy_amt = $(repLine).data('cy')
+    py_amt = $(repLine).data('py')
+    row = [ lineDescription , cy_amt, py_amt, tag ]
+    data.push(row)
+
+  });
+  return data
+};
+
+function exportDashOffice(){
+  var data =fetchData();
+
+  $.ajax({
+    url: '/reports/' + $('#report-id').val() + '/export_O365_dash',
+    type: "POST",
+    //dataType: 'json',
+    data:{ 
+      csv: JSON.stringify(data)}         
+    })
+};

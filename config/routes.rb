@@ -59,6 +59,8 @@ Draftapp::Application.routes.draw do
   resources :reports do
     get :autocomplete_friends_list, :on => :collection
     get :autocomplete_google_list, :on => :collection
+    get :download,:on => :collection
+    post :export_O365_dash,:on => :member
     put :share, on: :member
     resources :values, only: [:new, :create, :destroy]
     resources :disclosures do

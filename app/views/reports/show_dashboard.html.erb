@@ -21,7 +21,13 @@
             <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
          </div>  
          <div>  
-            <p><a href="javascript:void(0)" onclick="ifrsDashShow.exportDashGoogle();"> Export </a></p>
+            <p>
+            <% unless current_user.uid.include? "Office365"%>
+              <a href="javascript:void(0)" onclick="ifrsDashShow.exportDashGoogle();"> Export </a>
+            <%else%>
+              <a href="javascript:void(0)" onclick="exportDashOffice();"> Export </a>
+            <%end%>
+            </p>
          </div> 
     </header>
 </article>
@@ -164,6 +170,7 @@
       });
     });
   }); 
+  
 </script>
 
 <style type="text/css">
