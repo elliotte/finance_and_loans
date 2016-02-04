@@ -95,8 +95,7 @@ class ReportsController < ApplicationController
         end
     end
     #FORM GET
-    def export_form
-    end
+    def export_form; end
     #API endpoint route
     def to_google_export
       #not tested yet      

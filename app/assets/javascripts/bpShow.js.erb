@@ -345,7 +345,7 @@ function shareReport(obj){
 }
 
 function getFriendsList(resp){
-  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + 'Share' + '</a>'
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)">' + 'Share' + '</a>'
           $("#friends").empty();
           $.each(resp, function(index, person) {
               imgSrc = person.image
@@ -357,6 +357,8 @@ function getFriendsList(resp){
               $('#bg-screen-for-modal').find('section').find("table").append(html);
            });
           $('#bg-screen-for-modal').find('section').find("table").append("</table>")
+          header = '<article class="type-system-slab">' + '<p>' + 'Search for your friends and collaborate' + '</p>' + '</article>'
+          $('#bg-screen-for-modal').find('section').prepend(header)
 }
 
 function intializeList(friends_id){

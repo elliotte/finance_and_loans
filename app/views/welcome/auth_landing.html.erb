@@ -3,13 +3,14 @@
    <div class="top-nav-wrapper">	
 
    		   <div class="buttons-vertical-align">
-	   		   <%= link_to image_tag('a-menu-button.png'), {}, class: "sliding-panel-button" %>
+	   		   <%= link_to image_tag('settings-button.png'), {}, class: "sliding-panel-button" %>
 	   		   <%= link_to "Hives", {}, class: "ui-flash" %>
 	   		   <%= link_to "Bees" %>
 		   </div>
 		   <div class="float-links-right">
-			   <%= link_to image_tag('settings-button.png') %>
-			   <%#= link_to image_tag('menu-buttons.png') %>
+		   	   <a href="https://drive.google.com/drive/folders/0B5cwfWiE1VcKfjBoVFdJbHZOdFAyNndqcHkyZXI5XzZtVXVrUm9ZQkd0bHlFUGpwd2FCMVk" target="blank">
+		   	   	<img src="<%= asset_path('ss-ref.png') %>">
+		   	   </a>
 		   </div>
 
    </div>	
@@ -18,8 +19,6 @@
 
 <div class="slider-action-bar">
 	<img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
-
-	
 </div>
 
  <% path = request.fullpath %>
@@ -58,21 +57,21 @@
 		<div class="hives-box fade-in-element">
 			<div class="hb-container">
 				<aside>
-					<%= image_tag('pb-logo.png') %>
+					<%= image_tag('pb-logo-blue.png') %>
 					<p>Cashflows, Projections</p>
 				</aside>
 				<aside class="box-hover">
-					<p><span><%= truncate("ProfitBees Cash Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
-					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
-					<p class="author">OwnerName</p>
+					<p><span><%= truncate("Buzzing CashFlows", length: 40) %></span></p>
+					<p class="date">Coming Soon</p>
+					<p class="author">ProfitBees</p>
 				</aside>
 				<aside class="box-hover">
-					<p><span><%= truncate("ProfitBees Data Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
-					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
-					<p class="author">OwnerName</p>
+					<p><span><%= truncate("Buzzing Projections", length: 40) %></span></p>
+					<p class="date">Coming Soon</p>
+					<p class="author">ProfitBees</p>
 				</aside>
 				<aside class="last-box">
-					  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
+					  <a href="javascript:void(0)" class="lovely-link-button">View All</a>
 				</aside>
 			</div>
 		</div>
@@ -84,17 +83,17 @@
 					<p>MicroBooks</p>
 				</aside>
 				<aside class="box-hover">
-					<p><span><%= truncate("ProfitBees Cash Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
-					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
-					<p class="author">OwnerName</p>
+					<p><span><%= truncate("Honey Cash Hives", length: 40) %></span></p>
+					<p class="date">Coming Soon</p>
+					<p class="author">ProfitBees</p>
 				</aside>
 				<aside class="box-hover">
-					<p><span><%= truncate("ProfitBees Data Hives rock isn't it true Mr Long Title", length: 40) %></span></p>
-					<p class="date">Last updated:  <%= time_ago_in_words(Time.now-1.day) %> ago</p>
-					<p class="author">OwnerName</p>
+					<p><span><%= truncate("Honey Cash Hives", length: 40) %></span></p>
+					<p class="date">Coming Soon</p>
+					<p class="author">ProfitBees</p>
 				</aside>
 				<aside class="last-box">
-					  <%= link_to "View All", reports_path, class: "lovely-link-button" %>
+					  <a href="javascript:void(0)" class="lovely-link-button">View All</a>
 				</aside>
 			</div>
 		</div>

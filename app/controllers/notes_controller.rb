@@ -37,6 +37,7 @@ class NotesController < ApplicationController
 
   def export_current
     @report.spreadsheet_export('Notes', '', '', :current )
+    #same as below can we not clean/extract
     unless current_user.uid.include? "Office365"
       @result = google_service.upload_new_file_csv(@report.title, session[:token])
       link = @result.data.alternateLink
@@ -46,6 +47,7 @@ class NotesController < ApplicationController
 
   def export_all
     @report.spreadsheet_export('Notes', '', '', :all)
+    #same as below can we not clean/extract
     unless current_user.uid.include? "Office365"
       @result = google_service.upload_new_file_csv(@report.title, session[:token])
       link = @result.data.alternateLink

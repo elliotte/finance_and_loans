@@ -79,7 +79,7 @@ class Report < ActiveRecord::Base
 		unless fetch.blank?
 			CSV.open("#{Rails.root}/files/new-file.csv", 'w') do |csv|
 				fetch.each do |request, data|
-					headers = [request.to_s.camelize, "Exported from monea.build"]
+					headers = [request.to_s.camelize, "ProfitBees Export"]
 					csv << headers
 					data.flatten.each do |value|
 							row = []
