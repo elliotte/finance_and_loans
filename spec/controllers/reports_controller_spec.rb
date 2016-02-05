@@ -1,19 +1,11 @@
 require 'rails_helper'
-
+APP =YAML.load_file('config/application.yml')
 describe ReportsController do
 
   describe "main routes" do
 
     before do
-      ApplicationController.any_instance.stub(:verify_token)
-      Report.any_instance.stub(:build_back_end)
-      #User.any_instance.stub(:load_welcome_packs)
-      @current_user = FactoryGirl.create(:user)
-      @report = FactoryGirl.create(:report)
-      controller.session[:token] = '265378652378682786237846'
-      controller.session[:uid] = @current_user.uid
-      controller.stub(:current_user){ @current_user }
-      @current_user.reports << @report
+      set_user_auth
     end
 
     context "index and CRUD" do
@@ -108,7 +100,7 @@ describe ReportsController do
             expect(response).to redirect_to(reports_path)
           end
           it 'deletes user report' do
-            expect(@current_user.reports.count).to eq 1
+            expect(@current_user.reports.count).to eq 2
           end
       end
       describe "GET 'show'" do
@@ -168,20 +160,21 @@ describe ReportsController do
           expect(assigns(:report)).to eq(@report)
         end
       end
-      describe "GET 'view_etb' report page" do
-        # it "returns http success" do
-        #   get :view_etb, id: @report.id
-        #   expect(response).to be_success
-        # end
-        it 'should render index new' do
-          get :view_etb, id: @report.id
-          expect(response).to redirect_to(report_path(@report))
-        end
-        it 'should assigns the instance variables' do
-          get :view_etb, id: @report.id
-          expect(assigns(:report)).to eq(@report)
-        end
-      end
+      # Action removed
+      # describe "GET 'view_etb' report page" do
+      #   # it "returns http success" do
+      #   #   get :view_etb, id: @report.id
+      #   #   expect(response).to be_success
+      #   # end
+      #   it 'should render index new' do
+      #     get :view_etb, id: @report.id
+      #     expect(response).to redirect_to(report_path(@report))
+      #   end
+      #   it 'should assigns the instance variables' do
+      #     get :view_etb, id: @report.id
+      #     expect(assigns(:report)).to eq(@report)
+      #   end
+      # end
       describe "PUT 'share' user report with reader" do
           before do
             xhr :put, :share, id: @report.id, userID: 1234, format: 'js'
@@ -330,34 +323,39 @@ describe ReportsController do
       #last EXPORT routes
     end
     # END OF CONTEXT SPECS
-    describe "POST 'export_dash' to Google" do
-      # before do
-      #   GoogleService.any_instance.stub(:upload_new_file_csv)
-      #   params = {id: @report.id, "_json" => {} }
-      #   xhr :post, :export_dash, params
-      # end
-      # it 'correctly assigns report' do
-      #   test_report = @report
-      #   controller_report = assigns(:report)
-      #   expect(controller_report).to eq(test_report)
-      #   expect(response).to be_success
-      # end
-    end
+    # describe "POST 'export_dash' to Google" do
+    #   before do
+    #     Auth.user_auth
+    #     ApplicationController.any_instance.stub(:google_service)
+    #     GoogleService.any_instance.stub(:upload_new_file_csv)
+    #     params = {id: @report.id, "_json" => {} }
+    #     xhr :post, :export_dash, params
+    #   end
+    #   it 'correctly assigns report' do
+    #     test_report = @report
+    #     controller_report = assigns(:report)
+    #     expect(controller_report).to eq(test_report)
+    #     expect(response).to be_success
+    #   end
+    # end
     # #ADDING VALUES
     #  describe "GET 'new value form' JS" do
+    #   before { Rails.stub_chain('application.config.consider_all_requests_local').and_return(false) }
+
     #   it "returns success" do
-    #     get :new_value, format: 'JS'
+    #     debugger
+    #     post :add_value,id: @report.id,value:@value.attributes ,format: 'JS'
     #     expect(response).to be_success
     #   end
 
     #   it 'should render new value' do
-    #     get :new_value, format: 'JS'
+    #     post :add_value,id: @report.id,tb_value: true, format: 'JS'
     #     expect(response).to render_template(:new_value)
     #   end
 
-    #   render_views
+    #   #render_views
     #   it 'should render a form with add values' do
-    #     get :new_value, format: 'JS'
+    #     post :add_value,id: @report.id,tb_value: true, format: 'JS'
     #     expect(response.body).to match /Add Values/
     #   end
     # end
@@ -438,10 +436,23 @@ describe ReportsController do
         expect(assigns(:data)).to eq @report.get_values_for(@report.current_end).where(ifrstag: 'Revenue')
       end
     end
-
-
-
-
   end
+end
+
+def set_user_auth
+  ApplicationController.any_instance.stub(:verify_token)
+  Report.any_instance.stub(:build_back_end)
+  #User.any_instance.stub(:load_welcome_packs)
+  @current_user = FactoryGirl.create(:user)
+  @report = FactoryGirl.create(:report)
+  #@report.readers << @current_user
+  controller.session[:token] = '265378652378682786237846'
+  controller.session[:uid] = @current_user.uid
+  controller.session[:email]= @current_user.email
+
+  controller.stub(:current_user){ @current_user }
+  @current_user.reports << @report
+  @value = FactoryGirl.create(:tb_value)
+  @report.values << @value
 end
 

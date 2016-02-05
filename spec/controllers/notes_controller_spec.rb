@@ -5,11 +5,7 @@ RSpec.describe NotesController, type: :controller do
   describe "testing" do
 
     before do
-      @current_user = FactoryGirl.create(:user)
-      @report = FactoryGirl.create(:report, user_id: @current_user.id)
-      @note = FactoryGirl.create(:note, report_id: @report.id)
-      controller.session[:token] = '265378652378682786237846'
-      controller.stub(:current_user){ @current_user }
+      set_user_auth()
     end
 
     context "main routes" do
@@ -132,4 +128,17 @@ RSpec.describe NotesController, type: :controller do
         # END OF MAIN ROUTES CONTEXT
   end
 
+end
+
+def set_user_auth
+  ApplicationController.any_instance.stub(:verify_token)
+  Report.any_instance.stub(:build_back_end)     
+  @current_user = FactoryGirl.create(:user)
+  controller.session[:uid] = @current_user.uid
+  controller.session[:email]= @current_user.email
+  @report = FactoryGirl.create(:report, user_id: @current_user.id)
+  @note = FactoryGirl.create(:note, report_id: @report.id)
+  controller.session[:token] = '265378652378682786237846'
+  controller.stub(:current_user){ @current_user }
+  @current_user.reports << @report 
 end

@@ -21,8 +21,7 @@ class ValuesController < ApplicationController
 
 	def destroy
   		@value = find_report_value
-  		@value.destroy!
-  		redirect_to reports_path
+  		@value.destroy! 
   	end
 
 private

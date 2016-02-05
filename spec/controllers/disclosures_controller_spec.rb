@@ -5,17 +5,7 @@ describe DisclosuresController do
   describe "testing" do
 
     before do
-      @current_user = FactoryGirl.create(:user)
-      @report = FactoryGirl.create(:report)
-      @disclosure = FactoryGirl.create(:disclosure)
-      @global = FactoryGirl.create(:global_report)
-      @dir_rep = FactoryGirl.create(:director_report)
-      controller.session[:token] = '265378652378682786237846'
-      controller.stub(:current_user){ @current_user }
-      @current_user.reports << @report
-      @report.disclosures << @disclosure
-      @report.disclosures << @global
-      @report.disclosures << @dir_rep
+      set_user_auth
     end
 
     context "main routes" do
@@ -219,4 +209,26 @@ describe DisclosuresController do
 
 
   end
+end
+
+def set_user_auth
+  ApplicationController.any_instance.stub(:verify_token)
+  Report.any_instance.stub(:build_back_end)
+  #User.any_instance.stub(:load_welcome_packs)
+  @current_user = FactoryGirl.create(:user)
+  @report = FactoryGirl.create(:report)
+  #@report.readers << @current_user
+  controller.session[:token] = '265378652378682786237846'
+  controller.session[:uid] = @current_user.uid
+  controller.session[:email]= @current_user.email
+
+  controller.stub(:current_user){ @current_user }
+  @current_user.reports << @report
+
+  @disclosure = FactoryGirl.create(:disclosure)
+  @global = FactoryGirl.create(:global_report)
+  @dir_rep = FactoryGirl.create(:director_report)
+  @report.disclosures << @disclosure
+  @report.disclosures << @global
+  @report.disclosures << @dir_rep 
 end

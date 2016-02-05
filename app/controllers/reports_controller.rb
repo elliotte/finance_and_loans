@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
     
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export,:delete_value,:report_manager]
     
     def index
       @reports = current_user.reports
@@ -53,7 +53,6 @@ class ReportsController < ApplicationController
     #END OF CRUD ROUTES
     #FEATURE ROUTES
     def report_manager
-      @report = current_user.reports.where(id: params[:id]).last
       @values = @report.values.order("repdate")
     end
 
@@ -64,18 +63,21 @@ class ReportsController < ApplicationController
     # SHARE WITH MONEA USER
     def share
       #checks set_report finds owner, otherwise not owner and cant share
-      if @report.blank?
+      msg = "ERROR only the report owner can share"
+      unless @report.blank?
 
-       found_user = User.where("uid=? OR id=?",params[:userID],Integer(params[:userID])).first
+       found_user = User.where(["uid=? OR id=?",params[:userID].to_s,Integer(params[:userID])]).first
        
-       render js: "USER NOT FOUND" and return if found_user.nil?
-       new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?
-        
-        error = true if new_reader.nil?
-        #add (if error) test
-        render js: found_user.email
+        if found_user.nil? 
+           msg = "USER NOT FOUND" 
+        else
+          new_reader = @report.readers.create(uid: found_user.id) unless found_user.nil?       
+          error = true if new_reader.nil?
+          #add (if error) test
+          msg = found_user.email
+        end
       end
-      render js: "ERROR only the report owner can share"
+      render js: msg
     end
     #END OF FEATURE REOUTS
     #EXPORT to GOOGLE routes
@@ -221,7 +223,10 @@ class ReportsController < ApplicationController
       render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
     end
 
-
+    def delete_value
+      @value = @report.values.find(params[:value_id])
+      @value.destroy!
+    end
 
   private
     # BEING USED
@@ -235,7 +240,7 @@ class ReportsController < ApplicationController
 
     def set_report
       #to change for shared      
-      @report = current_user.reports.where(id: params[:id]).last rescue ''
+      @report = current_user.reports.where(id: params[:id]).last 
     end
     # sets VIEW tags to iterate over 
     # not true actually... not used in financials

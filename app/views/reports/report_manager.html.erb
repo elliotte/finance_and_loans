@@ -1,12 +1,13 @@
 <%= javascript_include_tag 'bpShow' %>
 
 <%#= render partial: 'button_board', locals: {report: @report} %>
-
-<% if @report.format == "UKGAAP" %>
+ <% if @report.format == "UKGAAP" %>
   <% $select_tags = Tag.report_mgr_gaap_options %>
 <% else %> 
   <% $select_tags = Tag.report_mgr_ifrs_options %>
 <% end %>
+
+<%delete_access = report_owner?%>
 
 <div class="hero gradient">
   <div class="hero-inner">
@@ -54,6 +55,7 @@
                     <th>description</th>
                     <th><%= @report.format %></th>
                     <th>Update</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody id="report-manager-table-body">
@@ -85,7 +87,7 @@
                                    <td class="button-style">
                                     <%= f.submit %>
                                    </td>
-
+                                    <%if delete_access%><td><%= link_to image_tag("ico5b.png", width: 40), delete_value_report_path(@report,:value_id=>id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td><%end%>
                                 <% end %>
                           </tr>
                   <% end %>

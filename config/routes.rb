@@ -100,7 +100,7 @@ Draftapp::Application.routes.draw do
     get :get_comments, on: :member
     get :get_notes, on: :member
     get :get_breakdown_values, on: :member
-    
+    delete :delete_value,on: :member
   end
 
   resources :files, only:[:index] do
