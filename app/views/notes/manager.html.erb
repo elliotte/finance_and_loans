@@ -1,7 +1,6 @@
 <!-- COMMON JS FILE FOR common SHOW AND DASH -->
 <%= javascript_include_tag 'boardPacks' %>
 <!-- SHOW PAGE ONLY JS -->
-
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
        <div>  
@@ -59,7 +58,7 @@
                                       <h1><%= note.subject %>   <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
                                       <p><%= note.body %></p>
                                       <p class="comment-detail"><%= note.commenter %> <a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
-                                      <p> <%= link_to image_tag("ico4b.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("ico5b.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
+                                      <p> <%= link_to image_tag("edit-icon.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("trash.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
                                     </div>
                               </div>
                         <% end %>
@@ -76,7 +75,7 @@
                                       <h1><%= note.subject %>   <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
                                       <p><%= note.body %></p>
                                       <p class="comment-detail"><%= note.commenter %> <a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
-                                      <p> <%= link_to image_tag("ico4b.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("ico5b.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
+                                      <p> <%= link_to image_tag("edit-icon.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("trash.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
                                     </div>
                               </div>
                      <% end %>
@@ -95,7 +94,7 @@
                                       <h1><%= note.subject %>   <span style="font-size:70%; color:#94CFD5;"> { <%= note.repdate.strftime("%B %Y") %> } </span></h1>
                                       <p><%= note.body %></p>
                                       <p class="comment-detail"><%= note.commenter %> <a href="<%= note.filelink %>" target="_blank">Link to backup</a></p>
-                                      <p> <%= link_to image_tag("ico4b.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("ico5b.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
+                                      <p> <%= link_to image_tag("edit-icon.png", width: 25), edit_report_note_path(@report, note), remote: true %> <%= link_to image_tag("trash.png", width: 25), report_note_path(@report, note), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %> </p>
                                     </div>
                               </div>
                         <% end %>

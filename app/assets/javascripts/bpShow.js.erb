@@ -93,20 +93,10 @@ var reportShowHelper = (function() {
             reportShowHelper.appendModalShowPageValues(allValues)
         },
 
-        pivotGraphs: function(container) {
-            console.log(container)
-            if ( container == 'toPie') {
-                $('#bar-chart-ux').slideUp();
-                $('#pie-chart-ux').slideDown();
-            }
-            if ( container == 'toBar') {
-                // $('#cp-pie-chart').remove()
-                // $('#pp-pie-chart').remove()
-                // $('#pie-chart-ux').append( $('#show-page-bar-chart').clone() )
-                 //$('#pie-chart-ux').slideUp();
-                 $('#bar-chart-ux').slideDown();
-            } 
-           
+        goTo: function(item) {
+            // only graph scroll so no item filter required
+            var aTag = $('#show-page-bar-chart');
+            $('html,body').animate( {scrollTop: aTag.offset().top}, 1000);
         },
 
         loadValuesByDescription: function(line, period) {

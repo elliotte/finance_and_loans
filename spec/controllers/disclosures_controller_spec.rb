@@ -152,7 +152,7 @@ describe DisclosuresController do
             expect(controller_disc).to eq @global
           end
       end
-
+      # END OF DESTROY
       describe 'GET manager' do
         before do
           get :manager, report_id: @report.id
@@ -232,3 +232,6 @@ def set_user_auth
   @report.disclosures << @global
   @report.disclosures << @dir_rep 
 end
+
+
+

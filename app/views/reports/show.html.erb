@@ -26,7 +26,7 @@
 </article>
 
 <div class="slider-action-bar">
-  <img id="new-work-icon" src="<%= asset_path('new-work-icon.png') %>">
+  <img id="new-work-icon" src="<%= asset_path('new-work-icon.gif') %>">
 </div>
 
 <section class="layout-container">
@@ -130,9 +130,9 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-      <div id="pie-chart-ux" class="graph-container">
+      <div class="graph-container">
           <aside>
-            <a onclick="reportShowHelper.pivotGraphs('toBar')" href="javascript:void(0);">
+            <a onclick="reportShowHelper.goTo('toBar')" href="javascript:void(0);">
               <img src="<%= asset_path('bar-chart-button.png') %>">
             </a>
           </aside>
@@ -144,12 +144,11 @@
 
 <section class="layout-container">
   <article class="type-system-slab">
-      <div id="bar-chart-ux" class="graph-container">
+      <div class="graph-container">
           <div id="show-page-bar-chart"></div>
       </div>
     </article>
 </section>
-
 
 <section class="layout-container">
   <article class="type-system-slab">
@@ -366,12 +365,12 @@
           <%else%>
             <a href="javascript:void(0)" class="grid-item" onclick="UserOptions();">
           <%end%>
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+            <img src="<%= asset_path('user-share.png') %>" alt="">
             <h1>User Share</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           </a>
           <%= link_to export_form_report_path(@report),:remote=> true,:class=>"grid-item" do%>
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Export New</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
           <%end%>
@@ -435,20 +434,34 @@
 
    </article>
 </section>
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><%= link_to 'Financials', show_dashboard_report_path(@report, params) %></p>
+       </div> 
+    </header>
+</article>
+
 <aside id="hidden-buttons-for-bar"> 
+  <%= link_to new_value_reports_path(report_id: @report.id, tb_value: true), remote: true, id: 'new_value_link' do%>
+  <!-- Need to change image -->
+    <img src="<%= asset_path('new-bp-val.png') %>">
+  <%end%> 
   <%= link_to  new_journal_report_path(@report), remote: true do%>
   <!-- Need to change image -->
-    <img src="<%= asset_path('rss-footer.png') %>">
+    <img src="<%= asset_path('new-bp-jnl.png') %>">
   <%end%>
   <%= link_to import_csv_report_path(@report, {bank: false}), remote: true  do%>
   <!-- Need to change image -->
-    <img src="<%= asset_path('bar-chart-button.png') %>">
+    <img src="<%= asset_path('new-bp-csv.png') %>">
   <%end%> 
-
-  <%= link_to new_value_reports_path(report_id: @report.id, tb_value: true), remote: true, id: 'new_value_link' do%>
-  <!-- Need to change image -->
-    <img src="<%= asset_path('values.jpeg') %>">
-  <%end%>  
 </aside>
 
 <script type="text/javascript">

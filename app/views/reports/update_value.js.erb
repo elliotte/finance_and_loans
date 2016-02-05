@@ -3,13 +3,13 @@ var value_card = $('#' + '<%= @value.id %>' );
 $(value_card).fadeOut();
 
 html = '<tr id="<%= @value.id %>">' + 
-			'<td>' + 'UPDATED' + '</td>' +
+			'<td>' + 'Success' + '</td>' +
 			'<td>' +' <%= @value.id %>' + '</td>' +
 			'<td>' +' <%= @value.mitag %>' + '</td>' +
-			'<td>' + '</td>' +
-			'<td>' + '</td>' +
+			'<td>' +' <%= @value.description %>' + '</td>' +
+			'<td>' +' <%= @value.ifrstag %>' + '</td>' +
 		+ '</tr>'
-
+$('#updated-values-container').fadeIn('slow')
 $( "#report-manager-table-body" ).prepend( html );
 
 

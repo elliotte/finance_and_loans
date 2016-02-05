@@ -7,7 +7,6 @@ describe ReportsController do
     before do
       set_user_auth
     end
-
     context "index and CRUD" do
       describe "GET 'index'" do
         before do
@@ -160,21 +159,6 @@ describe ReportsController do
           expect(assigns(:report)).to eq(@report)
         end
       end
-      # Action removed
-      # describe "GET 'view_etb' report page" do
-      #   # it "returns http success" do
-      #   #   get :view_etb, id: @report.id
-      #   #   expect(response).to be_success
-      #   # end
-      #   it 'should render index new' do
-      #     get :view_etb, id: @report.id
-      #     expect(response).to redirect_to(report_path(@report))
-      #   end
-      #   it 'should assigns the instance variables' do
-      #     get :view_etb, id: @report.id
-      #     expect(assigns(:report)).to eq(@report)
-      #   end
-      # end
       describe "PUT 'share' user report with reader" do
           before do
             xhr :put, :share, id: @report.id, userID: 1234, format: 'js'

@@ -3,24 +3,23 @@
   $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
   $base-spacing: 1.5em !default;
-  $action-color: #f3655e !default;
-  $base-link-color: $action-color !default;
+  $action-color: #477DCA !default;
+  
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
+  $clear-button-width: 4em;
   $search-tools-border-color: $base-border-color;
   $search-tools-background: lighten($search-tools-border-color, 10%);
 
+  @include display(flex);
+  @include justify-content(space-between);
   @include clearfix;
   background: $search-tools-background;
   border-radius: $base-border-radius;
   border: 1px solid $search-tools-border-color;
-  padding: $gutter / 2;
-
-  ol {
-    margin: 0;
-    padding: 0;
-  }
+  padding: $gutter ($gutter / 2);
+  width: 100%;
 
   li {
     font-size: 0.8em;
@@ -34,23 +33,35 @@
     margin-bottom: $base-spacing / 4;
   }
 
-  .filter {
-    margin-bottom: 1em;
+  .filters {
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    width: 100%;
 
     @include media($large-screen) {
-      @include span-columns(3.5);
+      @include flex-direction(row);
+    }
+  }
+
+  .filter {
+    @include flex-shrink(1);
+    @include flex-grow(1);
+    margin: 0 0.2em 1em 0.2em;
+
+    @include media($large-screen) {
       margin-bottom: 0;
     }
 
     > div {
-      @include box-sizing(border-box);
       @include transition(border-color);
       background-color: white;
-      border-radius: $base-border-radius;
       border: 1px solid $base-border-color;
+      border-radius: $base-border-radius;
+      box-sizing: border-box;
       font-size: 1em;
       margin-bottom: $base-spacing / 2;
-      padding: ($base-spacing / 3) ($base-spacing / 3);
+      padding: ($base-spacing / 3) $clear-button-width ($base-spacing / 3) ($base-spacing / 3);
       position: relative;
       width: 100%;
 
@@ -61,22 +72,22 @@
 
       label {
         cursor: pointer;
-        font-weight: 400;
         margin-bottom: 0;
       }
     }
 
-    ol {
-      margin-top: 1em;
+    .filter-list {
+      margin: 1em 0 0;
+      padding: 0;
 
       label {
         display: inline;
       }
     }
 
-    button {
-      @include button(simple, lighten($search-tools-background, 10%));
+    button.clear {
       @include position(absolute, 5px 5px auto auto);
+      max-width: $clear-button-width;
       font-size: 0.7em;
     }
 
@@ -90,22 +101,13 @@
   }
 
   .trigger {
-    width: 100%;
-
-    @include media($large-screen) {
-      @include span-columns(1.5);
-    }
-
+    margin-top: 1.5em;
+    
     button {
-      @include button(flat, $action-color);
-      margin-top: 1em;
-      padding-bottom: 0.5em;
-      padding-top: 0.5em;
+      display: block;
       width: 100%;
-
-      @include media($large-screen) {
-        margin-top: 1.55em;
-      }
+      padding: .5em 1em;
+      text-align: center;
     }
   }
 }

@@ -7,23 +7,23 @@
   <% $select_tags = Tag.report_mgr_ifrs_options %>
 <% end %>
 
-<%delete_access = report_owner?%>
+<% delete_access = report_owner? %>
 
-<div class="hero gradient">
-  <div class="hero-inner">
-    <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
-" alt="Logo Image"></a>
-    <div class="hero-copy">
-      <article class="type-system-rounded">
-        <h1> Report Manager </h1>
-        <p style="color:white;">For: <%= @report.title %></p>
-      </article>
-    </div>
-  </div>
-</div>
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+           <p><%= link_to 'ShowPage', report_path(@report) %></p>
+       </div> 
+    </header>
+</article>
 
-<article class="type-system-rounded" style="padding:3em;">
-      <h1 style="color:#f3655e;">Filter By</h1>
+<article class="type-system-slab" style="padding:3em;">
       <div class="search-tools" style="width:70%; margin: auto;">
         <div class="filter">
           <label>Type</label>
@@ -40,100 +40,278 @@
       </div>
 </article>
 
+<section class="layout-container">
+  <article class="type-system-slab">
+          <div class="search-tools">
+            <div class="filters">
+              <div class="filter">
+                <label class="lovely-pink">Type</label>
+                <div>
+                  <ol class="filter-list">
+                    <li>
+                      <input id="red" type="checkbox">
+                      <label for="red">Red</label>
+                    </li>
+                    <li>
+                      <input id="green" type="checkbox">
+                      <label for="green">Green</label>
+                    </li>
+                    <li>
+                      <input id="blue" type="checkbox">
+                      <label for="blue">Blue</label>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="filter">
+                <label class="lovely-pink">Month</label>
+                <div>
+                  <ol class="filter-list">
+                    <li>
+                      <input id="small" type="checkbox">
+                      <label for="small">Small</label>
+                    </li>
+                    <li>
+                      <input id="medium" type="checkbox">
+                      <label for="medium">Medium</label>
+                    </li>
+                    <li>
+                      <input id="large" type="checkbox">
+                      <label for="large">Large</label>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="filter">
+                <label class="lovely-pink">ProfitBees Tag</label>
+                <div>
+                  <ol class="filter-list">
+                    <li>
+                      <input id="short" type="checkbox">
+                      <label for="short">Short</label>
+                    </li>
+                    <li>
+                      <input id="long" type="checkbox">
+                      <label for="long">Long</label>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="filter trigger">
+                <button>Update</button>
+              </div>
+            </div>
+          </div>
+  </article>
+</section>
 
-<article class="type-system-rounded">
-         <!-- FOR PADDING -->
-        <div class="pie-charts-cash-show">
-          <h1 style="color:#f3655e;">All Report Values</h1>
-          <table id="report-manager-table" class="table-minimal" style="font-size:80%;">
-          <!-- change to mitag map as monea used in tb? -->
-                <thead>
-                  <tr style="color:#f3655e;">
-                    <th>£</th>
-                    <th>Month</th>
-                    <th>your Tag</th>
-                    <th>description</th>
-                    <th><%= @report.format %></th>
-                    <th>Update</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="report-manager-table-body">
-                  <% @values.each do |value| %>
-                        <% id = value.id %>
-                        <tr id="<%= id %>">
-                                <!-- FOR REPORT MANAGER FILTER -->
-                                <span class="trn-report-mgr" data-value-id="<%= id %>" data-ifrstag="<%= value.ifrstag %>" data-type="<%= value.type %>" data-month="<%= value.repdate.strftime("%B") %>" style="display:none;"></span>
-                                <%= form_for([@report, value], :url => {:controller => 'reports', :action => 'update_value'}, remote: true, method: 'put') do |f| %>
-                                   <%= f.hidden_field(:id, name: 'report[value_id]') %>
-                                   <td>
-                                    <%= value.amount.to_f %>
-                                   </td>
-                                   <td>
-                                    <%= value.repdate.strftime(" %B %Y") %>
-                                   </td>
-                                   <td>
-                                    <%= f.text_field :mitag, {:placeholder => value.mitag } %>
-                                   </td>
-                                   <td>
-                                    <%= f.text_field :description, {:placeholder => value.description } %>
-                                   </td>
-                                   <% clean_select = lambda {
-                                     $select_tags.include?( value.ifrstag ) ? value.ifrstag : 'No-Mapping' }
-                                    %>
-                                   <td>
-                                      <%= f.select :ifrstag, options_for_select( $select_tags, {:selected => clean_select.call } ) %>
-                                   </td>
-                                   <td class="button-style">
-                                    <%= f.submit %>
-                                   </td>
-                                    <%if delete_access%><td><%= link_to image_tag("ico5b.png", width: 40), delete_value_report_path(@report,:value_id=>id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td><%end%>
-                                <% end %>
-                          </tr>
-                  <% end %>
-                </tbody>
-           </table>
-        </div>  <!-- END OF PADDING DIV -->
+<section id="updated-values-container" class="layout-container" style="display:none;">
+      <article class="type-system-slab">
+            <table class="table-minimal">
+
+                      <h3 class="lovely-pink">Updated values activity</h3>
+                      <thead>
+                        <tr style="color:#94CFD5;">
+                          <th>Updated</th>
+                          <th>Value ID</th>
+                          <th>Your Tag</th>
+                          <th>Description</th>
+                          <th>ProfitBees Tag</th>
+                        </tr>
+                      </thead>
+                      <tbody id="report-manager-table-body">
+                      </tbody>
+            </table>
+      </article>
+</section>
+
+<section class="layout-container">
+      <article class="type-system-slab">
+               <!-- FOR PADDING -->
+                <h1 style="color:#94CFD5;">All Report Values For: <%= @report.title %></h1>
+                <table class="table-minimal">
+                <!-- change to mitag map as monea used in tb? -->
+                      <thead>
+                        <tr class="lovely-pink">
+                          <th>Month</th>
+                          <th>Your Tag</th>
+                          <th>Description</th>
+                          <th>ProfitBees Tag [ <%= @report.format %> ]</th>
+                          <th>£</th>
+                          <th>Update</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody id="report-manager-table-body">
+                        <% @values.each do |value| %>
+                              <% id = value.id %>
+                              <tr id="<%= id %>">
+                                  <!-- FOR REPORT MANAGER FILTER -->
+                                  <span class="trn-report-mgr" data-value-id="<%= id %>" data-ifrstag="<%= value.ifrstag %>" data-type="<%= value.type %>" data-month="<%= value.repdate.strftime("%B") %>" style="display:none;"></span>
+                                  <%= form_for([@report, value], :url => {:controller => 'reports', :action => 'update_value'}, remote: true, method: 'put') do |f| %>
+                                     <%= f.hidden_field(:id, name: 'report[value_id]') %>
+                                     <td>
+                                      <%= value.repdate.strftime(" %B %Y") %>
+                                     </td>
+                                     <td>
+                                      <%= f.text_field :mitag, {:placeholder => value.mitag } %>
+                                     </td>
+                                     <td>
+                                      <%= f.text_field :description, {:placeholder => value.description } %>
+                                     </td>
+                                     <% clean_select = lambda {
+                                       $select_tags.include?( value.ifrstag ) ? value.ifrstag : 'No-Mapping' }
+                                      %>
+                                     <td class="mgr-dropdown-width-restrict">
+                                        <%= f.select :ifrstag, options_for_select( $select_tags, {:selected => clean_select.call } ) %>
+                                     </td>
+                                     <td>
+                                      <%= value.amount.to_f %>
+                                     </td>
+                                     <td class="button-style">
+                                      <%= f.submit "Update" %>
+                                     </td>
+                                     <% if delete_access %>
+                                         <td class="fix-icon-child">
+                                          <%= link_to image_tag("ico5b.png", width: 30), delete_value_report_path(@report,:value_id=>id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+                                         </td>
+                                     <%end%>
+                                     <!-- END OF IF -->
+                                  <% end %>
+                                  <!-- END OF VALUE FORM -->
+                              </tr>
+                              <!-- END OF VALUE FORM ROW -->
+                          <% end %>
+                        <!-- END OF VALUES LOOP -->
+                      </tbody>
+                 </table>
+      </article>
+</section>
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+           <p><%= link_to 'ShowPage', report_path(@report) %></p>
+       </div> 
+    </header>
 </article>
 
-<!-- EMPTY MODAL FOR FILTER -->
-<div class="modal">
-      <input class="modal-state" id="modal-report-show-empty" type="checkbox" />
-      <div class="modal-fade-screen">
-        <div class="modal-inner">
-          <div class="modal-close" for="modal-report-empty"></div>
-              <div id="empty-report-modal-body">
-              </div>
-        </div>
-      </div>
-</div>
-<!-- EMPTY TABLE MODAL -->
-<!-- USED FOR DISPLAY SUMMARY TRNS BY TAG -->
-<div class="modal">
-    <input class="modal-state" id="modal-table-empty" type="checkbox" />
-    <div class="modal-fade-screen">
-      <div class="modal-inner">
-        <div class="modal-close" for="modal-ledger-empty"></div>
-        <div id="empty-table-modal-body-append">
-            <div style="color:#f3655e;" id="table-title"></div>
-            <br>
-            <table id="empty-modal-table" class="table-minimal">
-            </table>
-        </div>
-      </div>
-    </div>
-</div>
+<script>
+  var Filter = (function() {
+  function Filter(element) {
+    this._element = $(element);
+    this._optionsContainer = this._element.find(this.constructor.optionsContainerSelector);
+  }
 
-<!-- USED FOR EXPORT FORM -->
-<div class="modal">
-    <input class="modal-state" id="modal-export-form" type="checkbox" />
-    <div class="modal-fade-screen" style="">
-      <div class="modal-inner" style="min-height:70%;">
-        <div class="modal-close" for="modal-ledger-empty"></div>
-        <div>
-            <span id="modal-export-table-body" class="table-minimal">
-            </span>
-        </div>
-      </div>
-    </div>
-</div>
+  Filter.selector = '.filter';
+  Filter.optionsContainerSelector = '> div';
+  Filter.hideOptionsClass = 'hide-options';
+
+  Filter.enhance = function() {
+    var klass = this;
+
+    return $(klass.selector).each(function() {
+      return new klass(this).enhance();
+    });
+  };
+
+  Filter.prototype.enhance = function() {
+    this._buildUI();
+    this._bindEvents();
+  };
+
+  Filter.prototype._buildUI = function() {
+    this._summaryElement = $('<label></label>').
+      addClass('summary').
+      attr('data-role', 'summary').
+      prependTo(this._optionsContainer);
+
+    this._clearSelectionButton = $('<button class=clear></button>').
+      text('Clear').
+      attr('type', 'button').
+      insertAfter(this._summaryElement);
+
+    this._optionsContainer.addClass(this.constructor.hideOptionsClass);
+    this._updateSummary();
+  };
+
+  Filter.prototype._bindEvents = function() {
+    var self = this;
+
+    this._summaryElement.click(function() {
+      self._toggleOptions();
+    });
+
+    this._clearSelectionButton.click(function() {
+      self._clearSelection();
+    });
+
+    this._checkboxes().change(function() {
+      self._updateSummary();
+    });
+
+    $('body').click(function(e) {
+      var inFilter = $(e.target).closest(self.constructor.selector).length > 0;
+
+      if (!inFilter) {
+        self._allOptionsContainers().addClass(self.constructor.hideOptionsClass);
+      }
+    });
+  };
+
+  Filter.prototype._toggleOptions = function() {
+    this._allOptionsContainers().
+      not(this._optionsContainer).
+      addClass(this.constructor.hideOptionsClass);
+
+    this._optionsContainer.toggleClass(this.constructor.hideOptionsClass);
+  };
+
+  Filter.prototype._updateSummary = function() {
+    var summary = 'All';
+    var checked = this._checkboxes().filter(':checked');
+
+    if (checked.length > 0 && checked.length < this._checkboxes().length) {
+      summary = this._labelsFor(checked).join(', ');
+    }
+
+    this._summaryElement.text(summary);
+  };
+
+  Filter.prototype._clearSelection = function() {
+    this._checkboxes().each(function() {
+      $(this).prop('checked', false);
+    });
+
+    this._updateSummary();
+  };
+
+  Filter.prototype._checkboxes = function() {
+    return this._element.find(':checkbox');
+  };
+
+  Filter.prototype._labelsFor = function(inputs) {
+    return inputs.map(function() {
+      var id = $(this).attr('id');
+      return $("label[for='" + id + "']").text();
+    }).get();
+  };
+
+  Filter.prototype._allOptionsContainers = function() {
+    return $(this.constructor.selector + " " + this.constructor.optionsContainerSelector);
+  };
+
+  return Filter;
+})();
+
+$(function() {
+  Filter.enhance();
+});
+
+</script>
