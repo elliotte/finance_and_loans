@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
     
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export,:delete_value]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export,:delete_value,:report_manager]
     
     def index
       @reports = current_user.reports
@@ -53,7 +53,6 @@ class ReportsController < ApplicationController
     #END OF CRUD ROUTES
     #FEATURE ROUTES
     def report_manager
-      @report = current_user.reports.where(id: params[:id]).last
       @values = @report.values.order("repdate")
     end
 
