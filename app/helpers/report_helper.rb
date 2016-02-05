@@ -42,6 +42,10 @@ module ReportHelper
 			number_with_delimiter(amount)
 		end
 	end
+
+	def report_owner?
+		User.find(@report.user_id).email == session[:email]
+	end
 	# Input data data object and amount amount_sum
 	# Input last amount and all amount
 	# Return the sum of each object for pivot table

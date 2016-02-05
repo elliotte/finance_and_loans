@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
     
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export,:delete_value]
     
     def index
       @reports = current_user.reports
@@ -221,7 +221,10 @@ class ReportsController < ApplicationController
       render json: friends.collect{|user| {id:user.id,displayName: user.displayName,image: user.image.url}}       
     end
 
-
+    def delete_value
+      @value = @report.values.find(params[:value_id])
+      @value.destroy!
+    end
 
   private
     # BEING USED
