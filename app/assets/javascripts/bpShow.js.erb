@@ -69,7 +69,7 @@ var reportShowHelper = (function() {
                 rowHandler = 'tr#' + valueID
                 valueProp = $(value).data(format)
 
-                if (valueProp == filterVariable) {
+                if ((valueProp == filterVariable) ||(filterVariable=="")) {
                   $(rowHandler).show()
                 } else {
                   $(rowHandler).hide()

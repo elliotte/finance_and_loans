@@ -1,13 +1,1 @@
 
-function successDashExport() {
-    $('#modal-report-dash-empty').trigger('click');
-    response = this.responseText
-    if (response.indexOf("ERROR") > -1) {
-      html = '<article class="type-system-rounded">' + '<p>' + 'ERROR' + '</p>' +
-             '<a href="/" data-no-turbolinks=true>' + 'RECONNECT' + '</a>' + '</article>'
-    } else {
-      link = '<a href="'+response+'" target="_blank">' + 'VIEW' + '</a>'
-      html = '<article class="type-system-rounded">' + '<p>' + 'Successful Export: ' + link + '</p>' + '</article>'
-    }
-    $('#empty-report-modal-body').html(html)
-};
