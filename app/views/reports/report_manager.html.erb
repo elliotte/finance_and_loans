@@ -1,6 +1,6 @@
-<%= javascript_include_tag 'reports' %>
+<%= javascript_include_tag 'bpShow' %>
 
-<%= render partial: 'button_board', locals: {report: @report} %>
+<%#= render partial: 'button_board', locals: {report: @report} %>
 
 <% if @report.format == "UKGAAP" %>
   <% $select_tags = Tag.report_mgr_gaap_options %>
@@ -26,15 +26,15 @@
       <div class="search-tools" style="width:70%; margin: auto;">
         <div class="filter">
           <label>Type</label>
-          <%= select_tag :v_type, options_for_select( ["TbValue", "EtbValue"]), {:onchange => 'reportHelper.filterBy(this)' } %>
+          <%= select_tag :v_type, options_for_select( [["Select Type",""],"TbValue", "EtbValue"]), {:onchange => 'reportShowHelper.filterBy(this)' } %>
         </div>
         <div class="filter">
           <label>Month</label>
-          <%= select_tag :v_month, options_for_select( Date::MONTHNAMES.slice(1,12)), {:onchange => 'reportHelper.filterBy(this)' } %>
+          <%= select_tag :v_month, options_for_select( Date::MONTHNAMES.slice(1,12).unshift(["Select Month",""])), {:onchange => 'reportShowHelper.filterBy(this)' } %>
         </div>
         <div class="filter">
           <label>moneaTag</label>
-             <%= select_tag :ifrstag, options_for_select( $select_tags ), {:onchange => 'reportHelper.filterBy(this)' } %>
+             <%= select_tag :ifrstag, options_for_select( $select_tags.unshift(["Select moneaTag",""]) ), {:onchange => 'reportShowHelper.filterBy(this)' } %>
         </div>
       </div>
 </article>
