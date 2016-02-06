@@ -7,18 +7,47 @@
 <% eq_amounts = { cy: [0], py: [0] } %>
 
 <!-- LIABILITIES GRAPHS AND STATS -->
-<article class="type-system-rounded fin-statement">
+<section class="layout-container">
+  <article class="type-system-slab">
+    <h2 style="color:#FB7D98;">Balance Sheet</h2> 
     <div id="liabs-graph">
     </div>
-</article>
+  </article>
+</section>
 
-<article class="type-system-rounded fin-statement">
-           <h1 style="color:#f3655e;">Balance Sheet continued..</h1>
-           <div style="width:100%;">
+<!-- padding container -->
+<section class="layout-container">
+  <article class="type-system-slab">
+    <h2 style="color:#FB7D98;">Balance Sheet continued..</h2> 
+  </article>
+</section>
 
-              <table id="" class="table-minimal">
 
-                  <tbody>
+<section class="layout-container">
+  <article class="type-system-slab">
+          <div class="scroll-on-page" style="width:100%;">
+              <aside id="scroll-on-page-top">
+                <a class="scroll-on-page-link" href="#net-assets">Net assets</a>
+                <a class="scroll-on-page-link" href="#share-funds">Shareholder's funds</a>
+                <br>
+                <div class="dropdown">
+                    <div class="dropdown-container">
+                      <p class="dropdown-description">New</p>
+                      <p class="dropdown-button">Balance Sheet</p>
+                      <ul class="dropdown-menu dropdown-select">
+                        <li><%= link_to 'Notes', new_report_note_path(@report, subject: 'BalanceSheet'), remote: true, class: 'button' %></li>
+                        <li><%= link_to 'Comments', new_report_comment_path(@report, subject: 'BalanceSheet'), remote: true, class: 'button'%></li>
+                        <li><%= link_to 'Reconciliations', "", remote: true, class: 'button'%></li>
+                      </ul>
+                    </div>
+                </div>
+              </aside>
+              <article>
+                  <section>
+                      <h4>Balance Sheet</h4>
+                      <table class="table-minimal">
+                              
+                <tbody>
                       <tr>
                           <td></td>
                           <td><%= cp %></td>
@@ -87,7 +116,7 @@
                       <% $cy_tot_a = $net_assets_cy - $cy_cred_greater %>
                       <% $py_tot_a = $net_assets_py - $py_cred_greater %>
 
-                      <tr>
+                      <tr id="net-assets">
                         <td>Net assets:</td>
                         <td style="color:#f3655e;"><%= number_with_delimiter($cy_tot_a) %></td>
                         <td style="color:#f3655e;"><%= number_with_delimiter($py_tot_a) %></td>
@@ -151,7 +180,7 @@
                         <td></td>
                         <td></td>
                       </tr>
-                      <tr>
+                      <tr id="share-funds">
                         <td>Sharedholder's funds</td>
                         <td style="color:#f3655e;"><%= number_with_delimiter(cy_eq) %></td>
                         <td style="color:#f3655e;"><%= number_with_delimiter(py_eq) %></td>
@@ -174,21 +203,37 @@
                         <td><%= mvmt %></td>
                       </tr>
                   </tbody>
-               </table>
-            </div>
-</article>
 
-<article class="type-system-rounded fin-statement">
+                      </table>
 
-  <p>For the year ending <%= @report.current_end.strftime("%B %Y") %>, the company was entitled to exemption from audit under section 477 of the Companies Act 2006 relating to small companies.</p>
+                   </section>
+                </article>
+                <!-- WRAPPER ARTICLE -->
+          </div>
+          <!-- END OF SCROLLONPAGE -->
+  </article>
+</section>
 
-  <p>The members have not required the company to obtain an audit of its accounts for the year in question in accordance with section 476.</p>
+<!-- LIABILITIES GRAPHS AND STATS -->
+<section class="layout-container">
+  <article class="type-system-slab">
+      <p>For the year ending <%= @report.current_end.strftime("%B %Y") %>, the company was entitled to exemption from audit under section 477 of the Companies Act 2006 relating to small companies.</p>
+      <p>The members have not required the company to obtain an audit of its accounts for the year in question in accordance with section 476.</p>
+      <p>The directors acknowledge their responsibilities for complying with the requirements of the Act with respect to accounting records and the preparation of accounts.</p>
+      <p>These accounts have been prepared in accordance with the provisions applicable to companies subject to the small companies’ regime.</p>
+  </article>
+</section>
 
-  <p>The directors acknowledge their responsibilities for complying with the requirements of the Act with respect to accounting records and the preparation of accounts.</p>
 
-  <p>These accounts have been prepared in accordance with the provisions applicable to companies subject to the small companies’ regime.</p>
 
-</article>
 
-<br>
-<br>
+
+
+
+
+
+
+
+
+
+
