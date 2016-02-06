@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217075034) do
+ActiveRecord::Schema.define(version: 20160206134538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151217075034) do
     t.integer  "user_id"
     t.string   "drive_folder"
     t.string   "invoice_template_file_link"
+    t.string   "cf_settings"
   end
 
   add_index "ledgers", ["user_id"], name: "index_user_id", using: :btree

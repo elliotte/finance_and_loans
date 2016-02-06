@@ -13,6 +13,7 @@ describe Ledger do
     it { is_expected.not_to respond_to(:create_drive_folder) }
     it { is_expected.not_to respond_to(:copy_user_inv_template) }
     it { is_expected.not_to respond_to(:set_default_template) }
+    it { is_expected.not_to respond_to(:book_template_settings) }
   end
 
   describe 'model scopes' do

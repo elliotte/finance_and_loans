@@ -20,25 +20,120 @@
 
       <ul class="accordion">
           <li>
-                <a href="javascript:void(0)" class="js-accordion-trigger">Report details: <span style="color:#94CFD5;"></span></a>
+                <a href="javascript:void(0)" class="js-accordion-trigger">CashFlow <span class="lovely-pink">settings</span></a>
                 <ul class="submenu">
                   <li class="data-display">
                       <section>
-                        <p><span style="color:#94CFD5;">Format:  <br></span></p>
-                        <p><span style="color:#94CFD5;">Summary:  <br></span></p>
-                        <p><span style="color:#94CFD5;">Report readers:  <br></span><%= link_to "View all", "", remote: true %></p>
+                        <p><span class="lovely-blue">CashFlow Name:  <br></span> <%= @ledger.user_tag %> </p>
+                        <p><span class="lovely-blue">CashFlow viewers:  <br></span><%= link_to "View all", "", remote: true %></p>
                       </section>
                       <section>
-                        <p><span style="color:#94CFD5;">Current Period:  <br></span></p>
-                        <p><span style="color:#94CFD5;">Comparative Period:  <br></span></p>
-                        <p><span style="color:#94CFD5;">Report Owner:  <br></span></p>
-                        <p></p>
+                        <p><span class="lovely-blue">Starting Month:  <br></span> <%= @settings[:format]["start_month"] %> </p>
+                        <p><span class="lovely-blue">Length:  <br></span> <%= @settings[:format]["cf_length"] %></p>
                       </section>
                   </li>
                 </ul>
             <!-- END OF GRAPH DATA -->
           </li>
-          <!-- END OF GRAPH DATA -->
+      </ul>
+        <!-- END OF ACCORDIAN CONTAINRE -->
+  </article>
+</section>
+
+<% $start_date = create_date %>
+<% $no_of_columns = fetch_columns %>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+
+      <ul class="accordion">
+          <li>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Revenue ( Receipts ) <span class="lovely-blue">[inc-VAT]</span> :</a>
+                <ul class="submenu">
+                  <li class="">
+                        <table id="" class="table-minimal">
+                             <thead>
+                                  
+                                  <tr class="lovely-pink">
+                                      <th style="min-width:10em;"></th>
+                                      <!-- START OF PROJECTIONS ANCHOR -->
+                                      <th><%= $start_date.strftime("%b %Y") %></th>
+
+                                      <% $i = 1 %>
+                                      <% begin %>
+                                        <th>
+                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
+                                        </th>
+                                        <% $i +=1 %>
+                                      <% end while $i < $no_of_columns %>
+
+                                      <th>Total</th>
+                                  </tr>
+
+                             </thead>
+
+                             <tbody>
+                                  <% 5.times do |row| %>
+                                    <tr>
+                                        <th><input type="text" name="transaction[description]" placeholder="Add your line description"></th>
+                                        <% $no_of_columns.times do |row| %>
+                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                                        <% end %>
+                                        <th></th>
+                                    </tr>
+                                  <% end %>
+
+                            </tbody>
+                        </table>
+                        <!-- END OF BS TABLE -->
+                  </li>
+                </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
+          <li>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Revenue ( Receipts ) <span class="lovely-blue">[ex-VAT]</span> :</a>
+                <ul class="submenu">
+                  <li class="">
+                          
+                          <table id="" class="table-minimal">
+                             <thead>
+                                  
+                                  <tr class="lovely-pink">
+                                      <th style="min-width:10em;"></th>
+                                      <!-- START OF PROJECTIONS ANCHOR -->
+                                      <th><%= $start_date.strftime("%b %Y") %></th>
+
+                                      <% $i = 1 %>
+                                      <% begin %>
+                                        <th>
+                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
+                                        </th>
+                                        <% $i +=1 %>
+                                      <% end while $i < $no_of_columns %>
+
+                                      <th>Total</th>
+                                  </tr>
+
+                             </thead>
+
+                             <tbody>
+                                  <% 5.times do |row| %>
+                                    <tr>
+                                        <th><input type="text" name="transaction[description]" placeholder="Add your line description"></th>
+                                        <% $no_of_columns.times do |row| %>
+                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                                        <% end %>
+                                        <th></th>
+                                    </tr>
+                                  <% end %>
+
+                            </tbody>
+                        </table>
+                        <!-- END OF BS TABLE -->
+                  </li>
+                </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
       </ul>
         <!-- END OF ACCORDIAN CONTAINRE -->
   </article>
@@ -48,3 +143,4 @@
 <script>
       reportsSharedHelper.setAccordianHandlers();
 </script>
+

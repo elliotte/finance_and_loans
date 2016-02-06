@@ -17,4 +17,8 @@ FactoryGirl.define do
   	user_tag "Test PurchaseLedger"
     type 'PurchaseLedger'
   end
+  factory :cash_flow_ledger, class: CashFlowLedger, parent: :ledger do
+    user_tag "Test CashFlow"
+    type 'CashFlowLedger'
+  end
 end
