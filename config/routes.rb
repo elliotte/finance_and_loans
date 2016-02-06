@@ -49,7 +49,7 @@ Draftapp::Application.routes.draw do
     get :next_transactions, on: :member
   end
 
-  resources :purchase_ledgers, :sales_ledgers, only: [:show] do 
+  resources :purchase_ledgers, :cash_flow_ledgers, :sales_ledgers, only: [:show] do 
     member do 
       get :transactions_for
       post :to_ss_export

@@ -1,0 +1,50 @@
+<!-- COMMON JS FILE FOR common SHOW AND DASH -->
+<%= javascript_include_tag 'boardPacks' %>
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><%= link_to 'Reports Index', reports_path %></p>
+       </div> 
+    </header>
+</article>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+
+      <ul class="accordion">
+          <li>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Report details: <span style="color:#94CFD5;"></span></a>
+                <ul class="submenu">
+                  <li class="data-display">
+                      <section>
+                        <p><span style="color:#94CFD5;">Format:  <br></span></p>
+                        <p><span style="color:#94CFD5;">Summary:  <br></span></p>
+                        <p><span style="color:#94CFD5;">Report readers:  <br></span><%= link_to "View all", "", remote: true %></p>
+                      </section>
+                      <section>
+                        <p><span style="color:#94CFD5;">Current Period:  <br></span></p>
+                        <p><span style="color:#94CFD5;">Comparative Period:  <br></span></p>
+                        <p><span style="color:#94CFD5;">Report Owner:  <br></span></p>
+                        <p></p>
+                      </section>
+                  </li>
+                </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
+          <!-- END OF GRAPH DATA -->
+      </ul>
+        <!-- END OF ACCORDIAN CONTAINRE -->
+  </article>
+</section>
+
+
+<script>
+      reportsSharedHelper.setAccordianHandlers();
+</script>

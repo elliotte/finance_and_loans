@@ -102,15 +102,16 @@
 
 
 <aside id="hidden-buttons-for-bar"> 
-	<%= link_to new_report_path(format: 'UKGAAP'), remote: true do%>
+	<%= link_to new_report_path(format: 'UKGAAP'), remote: true do %>
 		<img src="<%= asset_path('new-ifrs-bp.png') %>">
-	<%end%>
-	<%= link_to new_report_path(format: 'IFRS'), remote: true do%>
+	<% end %>
+	<%= link_to new_report_path(format: 'IFRS'), remote: true do %>
 		<img src="<%= asset_path('new-uk-bp.png') %>">
-	<%end%>		
+	<% end %>
+	<%= link_to new_ledger_path(type: 'CashFlowLedger'), remote: true do %>
+		<img src="<%= asset_path('new-ifrs-bp.png') %>">
+	<% end %>		
 </aside>
-
-
 
 <script>
 

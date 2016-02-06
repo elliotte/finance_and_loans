@@ -127,8 +127,13 @@
 
 <section class="layout-container">
       <article class="type-system-slab">
+            <h1 style="color:#94CFD5;">All Report Values For: <%= @report.title %></h1>
+      </article>
+</section>
+
+<section class="layout-container">
+      <article class="type-system-slab">
                <!-- FOR PADDING -->
-                <h1 style="color:#94CFD5;">All Report Values For: <%= @report.title %></h1>
                 <table class="table-minimal">
                 <!-- change to mitag map as monea used in tb? -->
                       <thead>
@@ -166,14 +171,14 @@
                                         <%= f.select :ifrstag, options_for_select( $select_tags, {:selected => clean_select.call } ) %>
                                      </td>
                                      <td>
-                                      <%= value.amount.to_f %>
+                                      <%= number_with_delimiter(value.amount.to_f.round(2)) %>
                                      </td>
                                      <td class="button-style">
                                       <%= f.submit "Update" %>
                                      </td>
                                      <% if delete_access %>
                                          <td class="fix-icon-child">
-                                          <%= link_to image_tag("ico5b.png", width: 30), delete_value_report_path(@report,:value_id=>id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+                                          <%= link_to image_tag("trash.png", width: 25), delete_value_report_path(@report,:value_id=>id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
                                          </td>
                                      <%end%>
                                      <!-- END OF IF -->

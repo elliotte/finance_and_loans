@@ -1,7 +1,3 @@
-
-$("#modal-empty").trigger("click")
-
-$('#empty-modal-body-append').html("<%= j(render partial: 'new_ledger_form') %>") 
-
-
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append("<%= j(render partial: 'new_ledger_form') %>") 
 

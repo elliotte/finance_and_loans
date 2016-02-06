@@ -1,0 +1,5 @@
+class CashFlowLedger < Ledger
+
+		
+
+end
