@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	  has_many :ledgers, dependent: :destroy
     has_many :cash_ledgers, dependent: :destroy, class_name: 'CashLedger'
     has_many :sales_ledgers, dependent: :destroy, class_name: 'SalesLedger'
+    has_many :cash_flow_ledgers, dependent: :destroy, class_name: 'CashFlowLedger'
   	
     after_create :load_welcome_packs
     

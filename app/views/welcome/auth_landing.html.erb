@@ -61,14 +61,20 @@
 					<p>Cashflows, Projections</p>
 				</aside>
 				<aside class="box-hover">
-					<p><span><%= truncate("Buzzing CashFlows", length: 40) %></span></p>
-					<p class="date">Coming Soon</p>
-					<p class="author">ProfitBees</p>
+					<% $cf_1 = @cashflows.first %>
+					<a href="<%= cash_flow_ledger_path($cf_1) %>">
+						<p><span><%= truncate($cf_1.user_tag, length: 40) %></span></p>
+						<p class="date"><%= time_ago_in_words($cf_1.updated_at) %> ago</p>
+						<p class="author">ProfitBees</p>
+					</a>
 				</aside>
 				<aside class="box-hover">
-					<p><span><%= truncate("Buzzing Projections", length: 40) %></span></p>
-					<p class="date">Coming Soon</p>
-					<p class="author">ProfitBees</p>
+					<% $cf_2 = @cashflows.last %>
+					<a href="<%= cash_flow_ledger_path($cf_2) %>">
+						<p><span><%= truncate($cf_2.user_tag, length: 40) %></span></p>
+						<p class="date"><%= time_ago_in_words($cf_2.updated_at) %> ago</p>
+						<p class="author">ProfitBees</p>
+					</a>
 				</aside>
 				<aside class="last-box">
 					  <a href="javascript:void(0)" class="lovely-link-button">View All</a>
@@ -109,7 +115,7 @@
 		<img src="<%= asset_path('new-uk-bp.png') %>">
 	<% end %>
 	<%= link_to new_ledger_path(type: 'CashFlowLedger'), remote: true do %>
-		<img src="<%= asset_path('new-ifrs-bp.png') %>">
+		<img src="<%= asset_path('new-cf.png') %>">
 	<% end %>		
 </aside>
 

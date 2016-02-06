@@ -56,6 +56,7 @@ class WelcomeController < ApplicationController
 
   def auth_landing
     @reports = current_user.reports.last(2) rescue []
+    @cashflows = current_user.cash_flow_ledgers.last(2) rescue []
   end
 
   def sign_out_user
