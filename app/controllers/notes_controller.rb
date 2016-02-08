@@ -65,9 +65,4 @@ private
     #   @report.notes.find(params[:id])
     # end
 
-    def upload_data_and_send_download_link
-      @result = google_service.upload_new_file_csv(@report.title, session[:token])
-      link = @result.data.alternateLink
-      @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
-    end
 end

@@ -1,0 +1,5 @@
+<%unless current_user.uid.include? "Office365"%>
+    commonDownloadPopup("<%= @link_text%>")
+<%else%>
+    commonDownloadPopup("<%= j link_to 'Download CSV', download_data_as_csv_file_reports_url %>"); 
+<%end%>

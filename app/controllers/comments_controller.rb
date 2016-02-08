@@ -37,16 +37,12 @@ class CommentsController < ApplicationController
 
   def export_current
     @report.spreadsheet_export('Comments', '', '', :current )
-    @result = google_service.upload_new_file_csv(@report.title, session[:token])
-    link = @result.data.alternateLink
-    redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    upload_data_and_send_download_link unless current_user.uid.include? "Office365"
   end
 
   def export_all
     @report.spreadsheet_export('Comments', '', '', :all)
-    @result = google_service.upload_new_file_csv(@report.title, session[:token])
-    link = @result.data.alternateLink
-    redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    upload_data_and_send_download_link unless current_user.uid.include? "Office365"
   end
 
   def get_comments
