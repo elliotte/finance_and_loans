@@ -40,7 +40,7 @@
                       <section>
                         <p><span style="color:#94CFD5;">Format:  <br></span><%= @report.format %></p>
                         <p><span style="color:#94CFD5;">Summary:  <br></span><%= @report.summary == nil ? "No summary given" : @report.summary %></p>
-                        <p><span style="color:#94CFD5;">Report readers:  <br></span><%= link_to "View all", "", remote: true %></p>
+                        <p><span style="color:#94CFD5;">Report readers:  <br></span><%= link_to "View all",show_readers_report_path(@report), remote: true %></p>
                       </section>
                       <section>
                         <p><span style="color:#94CFD5;">Current Period:  <br></span><%= @report.current_end.strftime("%B %Y") %></p>
