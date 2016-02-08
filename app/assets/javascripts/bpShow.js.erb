@@ -41,7 +41,7 @@ var reportShowHelper = (function() {
       return {
 
         filterBy: function(info) {
-          filterVariable = $(info).offsetParent().find(".summary").text().split(",")
+          filterVariable = $(info).offsetParent().find(".summary").text().replace(/\s/g, "").split(",")
           filterFormat = $(info).attr("class")
           
           all_values = $('.trn-report-mgr')
