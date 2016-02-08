@@ -1,0 +1,18 @@
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append('<table class="table-minimal"></table>');
+
+<%unless @readers.blank?%>
+    <%@readers.each do |reader|%>
+        var id= '<%= reader[:id]%>'
+        var image= '<%= reader[:image]%>'
+        var name= '<%= reader[:name]%>'
+        html='<tr id="'+id+'">' +
+        '<td>' + '<img src="'+image+'" height="42" width="42">' + '</td>' +
+        '<td>'+name+'</td>' +
+        '</tr>'
+        $('#bg-screen-for-modal').find('section').find('table').append(html);
+    <%end%>
+<%else%>
+        link='<a onclick="UserOptions();" href="javascript:void(0)">Share Report</a>'
+        $('#bg-screen-for-modal').find('section').find('table').append("No readers found. Please "+link);
+<%end%>

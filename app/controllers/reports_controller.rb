@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
     
     respond_to :html, :js
     before_action :set_report, only: [:view_etb, :new_journal, :save_journal, :share, :get_notes, :get_comments, :get_breakdown_values]
-    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export,:delete_value,:report_manager]
+    before_action :initialize_report, only: [:show,:show_dashboard,:export_dash,:export_dash_o365,:export_form,:to_google_export,:delete_value,:report_manager,:show_readers]
     
     def index
       @reports = current_user.reports
@@ -226,6 +226,12 @@ class ReportsController < ApplicationController
     def delete_value
       @value = @report.values.find(params[:value_id])
       @value.destroy!
+    end
+
+    def show_readers
+      user =[]
+       @report.readers.each{|reader| user << User.find(reader.uid)}
+       @readers = user.collect{|user| {id:user.id,name: user.email,image: "/assets/pb-logo.png"}}
     end
 
   private
