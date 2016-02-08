@@ -37,22 +37,12 @@ class NotesController < ApplicationController
 
   def export_current
     @report.spreadsheet_export('Notes', '', '', :current )
-    #same as below can we not clean/extract
-    unless current_user.uid.include? "Office365"
-      @result = google_service.upload_new_file_csv(@report.title, session[:token])
-      link = @result.data.alternateLink
-      @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe    
-    end
+    upload_data_and_send_download_link  unless current_user.uid.include? "Office365"
   end
 
   def export_all
     @report.spreadsheet_export('Notes', '', '', :all)
-    #same as below can we not clean/extract
-    unless current_user.uid.include? "Office365"
-      @result = google_service.upload_new_file_csv(@report.title, session[:token])
-      link = @result.data.alternateLink
-      @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
-    end
+    upload_data_and_send_download_link  unless current_user.uid.include? "Office365"     
   end
 
   def get_notes
@@ -75,4 +65,9 @@ private
     #   @report.notes.find(params[:id])
     # end
 
+    def upload_data_and_send_download_link
+      @result = google_service.upload_new_file_csv(@report.title, session[:token])
+      link = @result.data.alternateLink
+      @link_text = "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    end
 end
