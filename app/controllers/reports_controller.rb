@@ -230,8 +230,12 @@ class ReportsController < ApplicationController
 
     def show_readers
       user =[]
-       @report.readers.each{|reader| user << User.find(reader.uid)}
-       @readers = user.collect{|user| {id:user.id,name: user.email,image: "/assets/pb-logo.png"}}
+      # Need to add a filter for Google User UID.. as number fires....
+      # { Couldn't find User with an out of range value for 'id' }
+      # This is working for Google User .. which I don't understand really..
+      # how are we finding a User by id using a google.uid?
+      @report.readers.each{|reader| user << User.find(reader.uid)}
+      @readers = user.collect{|user| {id:user.id,name: user.email,image: "/assets/pb-logo.png"}}
     end
 
   private

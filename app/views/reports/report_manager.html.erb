@@ -23,25 +23,9 @@
     </header>
 </article>
 
-<article class="type-system-slab" style="padding:3em;">
-      <div class="search-tools" style="width:70%; margin: auto;">
-        <div class="filter">
-          <label>Type</label>
-          <%= select_tag :v_type, options_for_select( [["Select Type",""],"TbValue", "EtbValue"]), {:onchange => 'reportShowHelper.filterBy(this)' } %>
-        </div>
-        <div class="filter">
-          <label>Month</label>
-          <%= select_tag :v_month, options_for_select( Date::MONTHNAMES.slice(1,12).unshift(["Select Month",""])), {:onchange => 'reportShowHelper.filterBy(this)' } %>
-        </div>
-        <div class="filter">
-          <label>moneaTag</label>
-             <%= select_tag :ifrstag, options_for_select($select_tags), {:onchange => 'reportShowHelper.filterBy(this)' } %>
-        </div>
-      </div>
-</article>
-
 <section class="layout-container">
   <article class="type-system-slab">
+          <h1> Filter values </h1>
           <div class="search-tools">
             <div class="filters">
               <div class="filter">
