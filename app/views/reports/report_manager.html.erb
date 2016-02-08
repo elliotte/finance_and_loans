@@ -83,9 +83,6 @@
                   </ol>
                 </div>
               </div>
-              <div class="filter trigger">
-                <button>Update</button>
-              </div>
             </div>
           </div>
   </article>
@@ -194,6 +191,7 @@
 </article>
 
 <script>
+
   var Filter = (function() {
   function Filter(element) {
     this._element = $(element);
@@ -241,6 +239,7 @@
 
     this._clearSelectionButton.click(function() {
       self._clearSelection();
+      reportShowHelper.filterBy(this)
     });
 
     this._checkboxes().change(function() {
