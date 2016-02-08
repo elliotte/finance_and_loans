@@ -41,10 +41,9 @@ var reportShowHelper = (function() {
       return {
 
         filterBy: function(info) {
-
-          filterVariable = info.value
-          filterFormat = $(info).attr('id')
-
+          filterVariable = $(info).offsetParent().find(".summary").text().split(",")
+          filterFormat = $(info).attr("class")
+          
           all_values = $('.trn-report-mgr')
 
           switch (filterFormat) {
@@ -69,7 +68,7 @@ var reportShowHelper = (function() {
                 rowHandler = 'tr#' + valueID
                 valueProp = $(value).data(format)
 
-                if ((valueProp == filterVariable) ||(filterVariable=="")) {
+                if ((filterVariable.indexOf(valueProp)> -1 ) ||(filterVariable.indexOf("All")> -1)) {
                   $(rowHandler).show()
                 } else {
                   $(rowHandler).hide()

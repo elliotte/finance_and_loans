@@ -35,7 +35,7 @@
         </div>
         <div class="filter">
           <label>moneaTag</label>
-             <%= select_tag :ifrstag, options_for_select( $select_tags.unshift(["Select moneaTag",""]) ), {:onchange => 'reportShowHelper.filterBy(this)' } %>
+             <%= select_tag :ifrstag, options_for_select($select_tags), {:onchange => 'reportShowHelper.filterBy(this)' } %>
         </div>
       </div>
 </article>
@@ -48,18 +48,12 @@
                 <label class="lovely-pink">Type</label>
                 <div>
                   <ol class="filter-list">
-                    <li>
-                      <input id="red" type="checkbox">
-                      <label for="red">Red</label>
-                    </li>
-                    <li>
-                      <input id="green" type="checkbox">
-                      <label for="green">Green</label>
-                    </li>
-                    <li>
-                      <input id="blue" type="checkbox">
-                      <label for="blue">Blue</label>
-                    </li>
+                    <%["TbValue","EtbValue"].each do |type|%>
+                      <li>
+                        <input id=<%= "#{type}"%> type="checkbox" class="v_type">
+                        <label for=<%= "#{type}"%>><%= type %></label>
+                      </li>
+                    <%end%>
                   </ol>
                 </div>
               </div>
@@ -67,18 +61,12 @@
                 <label class="lovely-pink">Month</label>
                 <div>
                   <ol class="filter-list">
+                    <%Date::MONTHNAMES.slice(1,12).each do |month|%>
                     <li>
-                      <input id="small" type="checkbox">
-                      <label for="small">Small</label>
+                      <input id=<%= "#{month}"%> type="checkbox" class="v_month">
+                      <label for=<%= "#{month}"%>><%=month%></label>
                     </li>
-                    <li>
-                      <input id="medium" type="checkbox">
-                      <label for="medium">Medium</label>
-                    </li>
-                    <li>
-                      <input id="large" type="checkbox">
-                      <label for="large">Large</label>
-                    </li>
+                    <%end%>
                   </ol>
                 </div>
               </div>
@@ -86,14 +74,12 @@
                 <label class="lovely-pink">ProfitBees Tag</label>
                 <div>
                   <ol class="filter-list">
+                  <%$select_tags.each do |tag|%>
                     <li>
-                      <input id="short" type="checkbox">
-                      <label for="short">Short</label>
+                      <input id=<%= "#{tag}"%> type="checkbox" class="ifrstag">
+                      <label for=<%= "#{tag}"%>><%= tag%></label>
                     </li>
-                    <li>
-                      <input id="long" type="checkbox">
-                      <label for="long">Long</label>
-                    </li>
+                  <%end%>
                   </ol>
                 </div>
               </div>
@@ -259,6 +245,7 @@
 
     this._checkboxes().change(function() {
       self._updateSummary();
+      reportShowHelper.filterBy(this)
     });
 
     $('body').click(function(e) {
