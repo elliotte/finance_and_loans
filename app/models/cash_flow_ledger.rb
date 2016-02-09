@@ -15,6 +15,10 @@ class CashFlowLedger < Ledger
 			select_options: {
 				start_month: list_month_names,
 				cf_length: ["Quarter", "Half-Year", "Full-Year"]
+			},
+			data: {
+				revenue: [],
+				costs: []
 			}
 		}
 		cf_settings
