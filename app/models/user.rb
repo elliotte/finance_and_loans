@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   	
     after_create :load_welcome_packs
     
-    scope :last_four, -> {order('updated_at desc').first(4)}
+    #scope :last_four, -> {order('updated_at desc').first(4)}
 
   	def load_welcome_packs
       begin

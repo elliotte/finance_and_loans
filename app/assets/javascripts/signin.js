@@ -239,7 +239,7 @@ var helper = (function() {
     displayErrorModal: function() {
       
       $('#bg-screen-for-modal').addClass('open')
-      html = '<p>' + 'Error, please refresh the page ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>' + '<p>' + 'We check a lot of authenication steps on signing in, please be patient.' + '</p>'
+      html = '<section class="layout-container"><article class="type-system-slab"><p>' + 'Error, please refresh the page ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>' + '<p>' + 'We check a lot of authenication steps on signing in, please be patient.' + '</p></article></section>'
       $('#bg-screen-for-modal').find('section').empty().append(html)
 
     },
@@ -247,8 +247,7 @@ var helper = (function() {
     displaySignedOutModal: function() {
 
       $('#bg-screen-for-modal').addClass('open')
-       
-      html = '<p>' + 'Signed Out, you need to refresh the page to sign back in ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p>'
+      html = '<section class="layout-container"><article class="type-system-slab"><p>' + 'Signed Out, you need to refresh the page to sign back in ' +  '<a href="/" data-no-turbolinks=true>'  + 'REFRESH' + '</a>' + '</p></article></section>'
       $('#bg-screen-for-modal').find('section').empty().append(html)
 
     },

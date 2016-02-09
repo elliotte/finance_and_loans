@@ -22,7 +22,7 @@ class Report < ActiveRecord::Base
   	after_create :build_back_end
 	after_create :load_base_disclosure_blocks
 	
-	scope :last_four, -> {order('updated_at desc').first(4)}
+	#scope :last_four, -> {order('updated_at desc').first(4)}
 	
 	def build_back_end
 		#TO strip out after_create

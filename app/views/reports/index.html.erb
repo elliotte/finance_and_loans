@@ -31,9 +31,10 @@
         </div>
     </section>
 </article>
-<h2>Your Reports</h2>
+
 <section class="index-display-container">
   <article class="type-system-slab">
+    <h2>Your Work</h2>
     <div class="cards">
         <% @reports.each do | boardPack | %>
            <% $randPic = rand(1..142) %>
@@ -54,9 +55,10 @@
     <!-- END OF CARDS DIV -->
   </article>
 </section>
-<h2>Reports Shared With You</h2>
+
 <section class="index-display-container">
   <article class="type-system-slab">
+    <h2>Work Shared With You</h2>
     <div class="cards">
       <% unless @shared_reports.blank? %>
         <% @shared_reports.each do | boardPack | %>
@@ -78,6 +80,11 @@
         No reports Shared with you
       <% end %>
     </div>
+  </article>
+</section>
+
+<section class="index-display-container">
+  <article class="type-system-slab">
   </article>
 </section>
 

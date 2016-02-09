@@ -186,10 +186,10 @@ class ReportsController < ApplicationController
     #END OF ADDING routes
     #OTHER routes
     # FOR LANDING DISPLAY
-    def last_user_reports
-      @reports = current_user.reports.last_four
-      render :'last_user_reports', locals: {reports: @reports}
-    end
+    # def last_user_reports
+    #   @reports = current_user.reports.last_four
+    #   render :'last_user_reports', locals: {reports: @reports}
+    # end
     # HANDLE BAR FETCH ROUTES FOR DISPLAY MODALS
     def get_notes
       render json: @report.notes[1..-1]
