@@ -37,17 +37,8 @@ class DisclosuresController < ApplicationController
   end
 
   def export_current
-    @report.spreadsheet_export('Disclosures', '', '', :current )
-    @result = google_service.upload_new_file_csv(@report.title, session[:token])
-    link = @result.data.alternateLink
-    redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
-  end
-
-  def export_all
-    @report.spreadsheet_export('Disclosures', '', '', :all)
-    @result = google_service.upload_new_file_csv(@report.title, session[:token])
-    link = @result.data.alternateLink
-    redirect_to :back, notice: "Data exported. <a href='#{link}' target='_blank'>Click here</a> to view".html_safe
+    @report.spreadsheet_export('Disclosures', '', '',set_type )
+    upload_data_and_send_download_link unless current_user.uid.include? "Office365"
   end
 
 private
@@ -66,5 +57,13 @@ private
   #       when "DirectorReport" then params.require(:director_report).permit! unless params[:director_report].blank?
   #     end
   # end
+
+  def set_type
+    if params["type"]=="current"
+      :current
+    else
+      :all
+    end
+  end
 
 end

@@ -1,5 +1,5 @@
 <%#= render partial: 'reports/button_board', locals: {report: @report} %>
-
+<%= javascript_include_tag 'boardPacks' %>
 <div class="hero" style="background:#94CFD5;">
   <div class="hero-inner">
     <a href="/" class="hero-logo"><img src="<%= asset_path('ico2hover.png') %>
@@ -15,22 +15,24 @@
 
 <article class="type-system-rounded">
   <div class="grid-items-lines">
-    <a href="<%= new_report_disclosure_path(@report) %>" class="grid-item" data-remote="true">
+
+    <%= link_to new_report_disclosure_path(@report),:class=>"grid-item",remote: true do%> 
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
       <h1>Disclosure.new</h1>
       <p style="color:#94CFD5;">Add</p>
-    </a>
-    <a href="<%= export_current_report_disclosures_path(@report) %>" class="grid-item">
+    <%end%> 
+
+    <%= link_to export_current_report_disclosures_path(@report,type: :current),:class=>"grid-item",remote: true do%>
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
       <h1>Export.current</h1>
       <p style="color:#94CFD5;">to spreadsheet</p>
+    <%end%>
 
-    </a>
-    <a href="<%= export_all_report_disclosures_path(@report) %>" class="grid-item">
+    <%= link_to export_current_report_disclosures_path(@report,type: :all),:class=>"grid-item",remote: true do%>
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
       <h1>Export.all</h1>
       <p style="color:#94CFD5;">to spreadsheet</p>
-    </a>
+    <%end%>
     <div class="right-cover"></div>
     <div class="bottom-cover"></div>
   </div>
