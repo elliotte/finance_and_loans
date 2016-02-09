@@ -31,7 +31,7 @@
         </div>
     </section>
 </article>
-
+<h2>Your Reports</h2>
 <section class="index-display-container">
   <article class="type-system-slab">
     <div class="cards">
@@ -54,9 +54,31 @@
     <!-- END OF CARDS DIV -->
   </article>
 </section>
-
+<h2>Reports Shared With You</h2>
 <section class="index-display-container">
-  <!-- SPACING SECTION -->
+  <article class="type-system-slab">
+    <div class="cards">
+      <% unless @shared_reports.blank? %>
+        <% @shared_reports.each do | boardPack | %>
+          <% $randPic = rand(1..142) %>
+          <a href="<%= report_path(boardPack) %>" class="card">
+            <div class="card-image">
+              <img src="<%= asset_path("#{$randPic}" + '.jpg') %>" alt="">
+            </div>
+            <div class="card-header">
+              <%= truncate(boardPack.title, length: 40) %>
+            </div>
+            <div class="card-copy">
+              <p><%= boardPack.format %></p>
+              <p><%= truncate(boardPack.summary, length: 80) %></p>
+            </div>
+          </a>
+        <% end %>
+      <% else %>
+        No reports Shared with you
+      <% end %>
+    </div>
+  </article>
 </section>
 
 <footer class="footer-indexes" role="contentinfo">

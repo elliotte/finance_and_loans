@@ -23,7 +23,7 @@ class Report < ActiveRecord::Base
 	after_create :load_base_disclosure_blocks
 	
 	scope :last_four, -> {order('updated_at desc').first(4)}
-
+	
 	def build_back_end
 		#TO strip out after_create
 		user = User.find(self.user_id)
@@ -146,6 +146,14 @@ class Report < ActiveRecord::Base
 	# def save_folder_from_drive(data)
 	# 	self.skydrive_folder = data.link rescue ""
 	# end
+
+	def self.get_reports(readers)
+		reports=[]
+		readers.each do |reader|
+			reports <<  (where(:id=> reader.report_id).first)
+		end
+		reports
+	end
 
 end
 

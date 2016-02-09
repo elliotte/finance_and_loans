@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
     
     def index
       @reports = current_user.reports
+      @shared_reports = get_shared_reports
     end
     #CRUD routes
     def new
@@ -40,7 +41,7 @@ class ReportsController < ApplicationController
     def show
       set_app_reporting_tags
       unless report_owner?
-        flash[:notice]= "You are not authorize to view this report."
+        flash.now[:notice]= "You are not authorize to view this report." if authorized_user.nil?
         redirect_to root_path and return if authorized_user.nil?
       end
       @data = ReportsValueService.new(@report).load_show_page
@@ -296,6 +297,11 @@ class ReportsController < ApplicationController
 
     def initialize_report
       @report = Report.find(params[:id]) 
+    end
+
+    def get_shared_reports
+      share_reports = Reader.shared_reports(current_user.id)
+      Report.get_reports(share_reports) unless share_reports.nil? 
     end
 end
 
