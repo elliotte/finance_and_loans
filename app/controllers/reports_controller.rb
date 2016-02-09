@@ -40,6 +40,7 @@ class ReportsController < ApplicationController
     def show
       set_app_reporting_tags
       unless report_owner?
+        flash[:notice]= "You are not authorize to view this report."
         redirect_to root_path and return if authorized_user.nil?
       end
       @data = ReportsValueService.new(@report).load_show_page
@@ -230,10 +231,7 @@ class ReportsController < ApplicationController
 
     def show_readers
       user =[]
-      # Need to add a filter for Google User UID.. as number fires....
-      # { Couldn't find User with an out of range value for 'id' }
-      # This is working for Google User .. which I don't understand really..
-      # how are we finding a User by id using a google.uid?
+      # We have reader.uid as User's id (primary key) instead of uid (for all users) consistent
       @report.readers.each{|reader| user << User.find(reader.uid)}
       @readers = user.collect{|user| {id:user.id,name: user.email,image: "/assets/pb-logo.png"}}
     end
