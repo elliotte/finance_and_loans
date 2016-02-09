@@ -41,6 +41,7 @@ class ReportsController < ApplicationController
     def show
       set_app_reporting_tags
       unless report_owner?
+        #why we doing 2x if authorized_user.nil? ??
         flash.now[:notice]= "You are not authorize to view this report." if authorized_user.nil?
         redirect_to root_path and return if authorized_user.nil?
       end
