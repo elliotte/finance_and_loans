@@ -13,6 +13,6 @@ $('#bg-screen-for-modal').find('section').empty().append('<table class="table-mi
         $('#bg-screen-for-modal').find('section').find('table').append(html);
     <%end%>
 <%else%>
-        link='<a onclick="UserOptions();" href="javascript:void(0)">Share Report</a>'
-        $('#bg-screen-for-modal').find('section').find('table').append("No readers found. Please "+link);
+        link='<a onclick="UserOptions();" href="javascript:void(0)">here</a>'
+        $('#bg-screen-for-modal').find('section').find('table').append('<p>' + "No readers found. To share click " +link + '</p>');
 <%end%>

@@ -1,0 +1,127 @@
+<section class="layout-container">
+  <article class="type-system-slab">
+
+      <ul class="accordion">
+          <li>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Capital expenditure ( CAPEX ) <span class="lovely-blue">[inc-VAT]</span> :</a>
+                <ul class="submenu">
+                  <li class="">
+                        <table id="" class="table-minimal">
+                             <thead>
+                                  <tr class="lovely-pink">
+                                      <th style="min-width:10em;"></th>
+                                      <!-- START OF PROJECTIONS ANCHOR -->
+                                      <th><%= $start_date.strftime("%b %Y") %></th>
+
+                                      <% $i = 1 %>
+                                      <% begin %>
+                                        <th>
+                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
+                                        </th>
+                                        <% $i +=1 %>
+                                      <% end while $i < $no_of_columns %>
+
+                                      <th>Total</th>
+                                  </tr>
+                             </thead>
+                             <tbody>
+                                  <% 5.times do |row| %>
+                                    <tr>
+                                        <td><input type="text" name="transaction[description]" placeholder="Add your line description"></th>
+                                        <% $no_of_columns.times do |row| %>
+                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                                        <% end %>
+                                        <td></td>
+                                    </tr>
+                                  <% end %>
+                            </tbody>
+                        </table>
+                        <!-- END OF BS TABLE -->
+                  </li>
+                </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
+          <li>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Capital expenditure ( CAPEX ) <span class="lovely-blue">[ex-VAT]</span> :</a>
+                <ul class="submenu">
+                  <li class="">
+                          
+                          <table id="" class="table-minimal">
+                             <thead>
+                                  <tr class="lovely-pink">
+                                      <th style="min-width:10em;"></th>
+                                      <!-- START OF PROJECTIONS ANCHOR -->
+                                      <th><%= $start_date.strftime("%b %Y") %></th>
+
+                                      <% $i = 1 %>
+                                      <% begin %>
+                                        <th>
+                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
+                                        </th>
+                                        <% $i +=1 %>
+                                      <% end while $i < $no_of_columns %>
+
+                                      <th>Total</th>
+                                  </tr>
+                             </thead>
+                             <tbody>
+                                  <% 5.times do |row| %>
+                                    <tr>
+                                        <td>
+                                          <input type="text" name="transaction[description]" placeholder="Add your line description">
+                                        </td>
+                                        <% $no_of_columns.times do |row| %>
+                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                                        <% end %>
+                                        <td></td>
+                                    </tr>
+                                  <% end %>
+                            </tbody>
+                        </table>
+                        <!-- END OF BS TABLE -->
+                  </li>
+                </ul>
+            <!-- END OF GRAPH DATA -->
+          </li>
+      </ul>
+        <!-- END OF ACCORDIAN CONTAINRE -->
+  </article>
+</section>
+<!-- TOTAL REVENUE TABLE -->
+<section class="layout-container">
+  <article class="type-system-slab">
+      <table id="" class="table-minimal">
+             <tbody>
+                <thead>
+                      <tr class="lovely-pink">
+                          <th style="min-width:10em;"></th>
+                          <!-- START OF PROJECTIONS ANCHOR -->
+                          <th><%= $start_date.strftime("%b %Y") %></th>
+
+                          <% $i = 1 %>
+                          <% begin %>
+                            <th>
+                              <%= ($start_date + $i.month).strftime("%b %Y") %>
+                            </th>
+                            <% $i +=1 %>
+                          <% end while $i < $no_of_columns %>
+
+                          <th>Total</th>
+                      </tr>
+                 </thead>
+                 <tbody>
+                        <tr>
+                            <td>
+                              Total Cash Out
+                            </td>
+                            <% $no_of_columns.times do |row| %>
+                                <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                            <% end %>
+                            <td></td>
+                        </tr>
+                 </tbody>
+            </tbody>
+        </table>
+        <!-- END OF BS TABLE -->
+  </article>
+</section>
