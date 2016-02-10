@@ -10,11 +10,11 @@
               <tbody>
                   <tr>
                     <td class="text-pink"><%= f.label :title %></td>
-                    <td class="input-style"> <%= f.text_field :title, placeholder: "Enter title" %></td>
+                    <td> <%= f.text_field :title, placeholder: "Enter title" %></td>
                   </tr>
                   <tr>
                     <td class="text-pink"><%= f.label :current_end %></td>
-                    <td class="input-style"> <%= f.date_select(:current_end, order: [:year, :month], selected: Date.today) %></td>
+                    <td> <%= f.date_select(:current_end, order: [:year, :month], selected: Date.today) %></td>
                   </tr>
                   <tr>
                     <td class="text-pink"><%= f.label :comparative_end %></td>
@@ -25,7 +25,7 @@
                       <%= f.hidden_field(:format, :value => params[:format], name: 'report[format]') %>
                       <tr>
                         <td class="text-pink"><%= f.label :format %></td>
-                        <td class="input-style"><%= params[:format] %></td>
+                        <td><%= params[:format] %></td>
                       </tr>
                   <% else %>
                       <tr>

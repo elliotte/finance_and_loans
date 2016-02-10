@@ -20,7 +20,7 @@
 
       <ul class="accordion">
           <li>
-                <a href="javascript:void(0)" class="js-accordion-trigger">CashFlow <span class="lovely-pink">settings</span></a>
+                <a href="javascript:void(0)" class="js-accordion-trigger">CashFlow <span class="lovely-pink">assumptions</span></a>
                 <ul class="submenu">
                   <li class="data-display">
                       <section>
@@ -43,104 +43,64 @@
 <% $start_date = create_date %>
 <% $no_of_columns = fetch_columns %>
 
+<%= render 'revenue' %>
+<%= render 'cost_of_sale' %>
+
 <section class="layout-container">
   <article class="type-system-slab">
 
-      <ul class="accordion">
-          <li>
-                <a href="javascript:void(0)" class="js-accordion-trigger">Revenue ( Receipts ) <span class="lovely-blue">[inc-VAT]</span> :</a>
-                <ul class="submenu">
-                  <li class="">
-                        <table id="" class="table-minimal">
-                             <thead>
-                                  
-                                  <tr class="lovely-pink">
-                                      <th style="min-width:10em;"></th>
-                                      <!-- START OF PROJECTIONS ANCHOR -->
-                                      <th><%= $start_date.strftime("%b %Y") %></th>
+        <div class="grid-items">
+           <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger), remote: true, :class=>"grid-item" do %>  
+            <img src="<%= asset_path('export-arrow.png') %>" alt="">
+            <h1>Loan Borrowings</h1>
+            <p>Enter the details for what you're borrowing</p>
+          <%end%>
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger), remote: true, :class=>"grid-item" do %>  
+            <img src="<%= asset_path('export-arrow.png') %>" alt="">
+            <h1>Director Salaries</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%end%>
 
-                                      <% $i = 1 %>
-                                      <% begin %>
-                                        <th>
-                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
-                                        </th>
-                                        <% $i +=1 %>
-                                      <% end while $i < $no_of_columns %>
+          <%= link_to "",:class=>"grid-item" do%>
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Non director Salaries</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%end%>
+          <%= link_to "",:class=>"grid-item" do%>
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Buying Stock?</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%end%>
 
-                                      <th>Total</th>
-                                  </tr>
+            <%= link_to "",:class=>"grid-item" do%>            
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
+            <h1>Buying Computers of Equipment</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%end%>
+          <%= link_to "",:class=>"grid-item" do%>
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
+            <h1>Buying a Building?</h1>
+            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%end%>
+        </div>
 
-                             </thead>
-
-                             <tbody>
-                                  <% 5.times do |row| %>
-                                    <tr>
-                                        <th><input type="text" name="transaction[description]" placeholder="Add your line description"></th>
-                                        <% $no_of_columns.times do |row| %>
-                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
-                                        <% end %>
-                                        <th></th>
-                                    </tr>
-                                  <% end %>
-
-                            </tbody>
-                        </table>
-                        <!-- END OF BS TABLE -->
-                  </li>
-                </ul>
-            <!-- END OF GRAPH DATA -->
-          </li>
-          <li>
-                <a href="javascript:void(0)" class="js-accordion-trigger">Revenue ( Receipts ) <span class="lovely-blue">[ex-VAT]</span> :</a>
-                <ul class="submenu">
-                  <li class="">
-                          
-                          <table id="" class="table-minimal">
-                             <thead>
-                                  
-                                  <tr class="lovely-pink">
-                                      <th style="min-width:10em;"></th>
-                                      <!-- START OF PROJECTIONS ANCHOR -->
-                                      <th><%= $start_date.strftime("%b %Y") %></th>
-
-                                      <% $i = 1 %>
-                                      <% begin %>
-                                        <th>
-                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
-                                        </th>
-                                        <% $i +=1 %>
-                                      <% end while $i < $no_of_columns %>
-
-                                      <th>Total</th>
-                                  </tr>
-
-                             </thead>
-
-                             <tbody>
-                                  <% 5.times do |row| %>
-                                    <tr>
-                                        <th><input type="text" name="transaction[description]" placeholder="Add your line description"></th>
-                                        <% $no_of_columns.times do |row| %>
-                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
-                                        <% end %>
-                                        <th></th>
-                                    </tr>
-                                  <% end %>
-
-                            </tbody>
-                        </table>
-                        <!-- END OF BS TABLE -->
-                  </li>
-                </ul>
-            <!-- END OF GRAPH DATA -->
-          </li>
-      </ul>
-        <!-- END OF ACCORDIAN CONTAINRE -->
-  </article>
+    </article>
 </section>
 
+<%= render 'running_costs' %>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+  </article>
+</section>
 
 <script>
       reportsSharedHelper.setAccordianHandlers();
 </script>
 
+<!-- overriding css -->
+<style type="text/css">
+  #bg-screen-for-modal{
+    top: -1px !important;
+  }
+</style>

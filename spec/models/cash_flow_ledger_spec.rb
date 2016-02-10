@@ -16,8 +16,8 @@ describe CashFlowLedger do
     it 'should be a cash Ledger' do
       expect(@ledger).to be_a(CashFlowLedger)
     end
-     it 'load base settings for a cashflow' do
-        expect(@ledger.settings).to eq ({:format=>{:start_month=>"January", :cf_length=>"Full-Year"}, :select_options=>{:start_month=>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], :cf_length=>["Quarter", "Half-Year", "Full-Year"]}}) 
+     it 'load base assumptions for a cashflow' do
+        expect(@ledger.base_assumptions).to eq ({:format=>{:start_month=>"January", :cf_length=>"Full-Year"}, :select_options=>{:start_month=>["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], :cf_length=>["Quarter", "Half-Year", "Full-Year"]}, :data=>{:revenue=>[], :costs=>[]}}) 
      end
   end
 

@@ -19,9 +19,9 @@ Draftapp::Application.routes.draw do
     put :share, on: :member
     put :vat_csv, on: :member
     put :vat_to_google, on: :member
-     collection do
-      get :last_user_ledgers
-    end
+    #  collection do
+    #   #get :last_user_ledgers
+    # end
   end
 
   resources :transactions do
@@ -52,6 +52,7 @@ Draftapp::Application.routes.draw do
   resources :purchase_ledgers, :cash_flow_ledgers, :sales_ledgers, only: [:show] do 
     member do 
       get :transactions_for
+      get :fetch_cf_data_input_form
       post :to_ss_export
     end
   end

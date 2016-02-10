@@ -1,0 +1,8 @@
+<% if params[:loan_borrowing_form] %>
+		
+<% end %>
+
+var form =  "<%= j(render partial: 'form_loan_borrowing') %>"
+
+$('#bg-screen-for-modal').addClass('open')
+$('#bg-screen-for-modal').find('section').empty().append(form)
