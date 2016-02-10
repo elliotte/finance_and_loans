@@ -51,21 +51,20 @@
   <article class="type-system-slab">
 
         <div class="grid-items">
-           <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger), remote: true, :class=>"grid-item" do %>  
+           <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :loan_borrowing_form), remote: true, :class=>"grid-item" do %>  
             <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Loan Borrowings</h1>
             <p>Enter the details for what you're borrowing</p>
           <%end%>
-          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger), remote: true, :class=>"grid-item" do %>  
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :director_salaries), remote: true, :class=>"grid-item" do %>  
             <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Director Salaries</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+            <p>Add the total costs for director salaries</p>
           <%end%>
-
-          <%= link_to "",:class=>"grid-item" do%>
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :non_director_salaries), remote: true, :class=>"grid-item" do %>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Non director Salaries</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+            <p>Add the total costs for non-director salaries</p>
           <%end%>
           <%= link_to "",:class=>"grid-item" do%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">

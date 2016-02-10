@@ -33,7 +33,11 @@ class CashFlowLedger < Ledger
 				cost_rate: 0.2,
 				sales_rate: 0.2,
 			},
-			non_director_wages: [],
+			non_director_wages: {
+				ppl: 0,	
+				#integar sufficient
+				total_cost: 0, 
+			},
 			director_wages: [],
 			employer_nics: {
 				# percentage

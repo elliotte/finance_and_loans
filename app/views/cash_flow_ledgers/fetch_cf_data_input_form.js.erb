@@ -1,8 +1,12 @@
-<% if params[:loan_borrowing_form] %>
-		
-<% end %>
-
-var form =  "<%= j(render partial: 'form_loan_borrowing') %>"
+<% if params[:form_type] == "loan_borrowing_form" %>
+		var form =  "<%= j(render partial: 'form_loan_borrowing') %>"
+<% elsif  params[:form_type] == "director_salaries" %>
+		var form = "<%= j(render partial: 'form_director_salaries') %>"
+<% elsif  params[:form_type] == "non_director_salaries" %>
+		var form = "<%= j(render partial: 'form_non_director_salaries') %>"
+<% else %>
+		var form =  '<section class="layout-container"><article class="type-system-slab"><p>Something went wrong, we are sorry.  Please refresh the page</p></article></section>'
+<% end %>	
 
 $('#bg-screen-for-modal').addClass('open')
 $('#bg-screen-for-modal').find('section').empty().append(form)
