@@ -1,0 +1,85 @@
+
+
+$(document).on('page:load ready', function(){
+    
+    uiSharedHelper.setAccordianHandlers(); 
+
+    $('#save-rev-inc-vat').on('click', function() {
+
+        cashFlowHelper.load();
+
+    });
+    
+});
+
+var cashFlowHelper = (function() {
+      return {
+        
+        load: function() {
+            
+   //          dateHeaders = $('.cf-date-selector')
+   //          cashFlowDateRange = []
+   //          $.each(dateHeaders, function(x, y) {
+   //          	//console.log(x,y)
+   //          	var date = $(y).data('date')
+   //          	cashFlowDateRange.push(date)
+   //          })
+   //          console.log(cashFlowDateRange)
+   //          //elements = $('#revenue-inc-vat').find('td[class*=user-input]') 
+   //          elements = $('#revenue-inc-vat').find('td.user-input-description') 
+   //          //elements = $(tableRevenueRows).find('input .user-description-line')
+   //          console.log(elements)
+
+   //          $.each(elements, function(x, y) {
+   //          	//console.log(x,y)
+   //          	col = $(y).parent().children().index($(y));
+   //          	console.log(col)
+   //          })
+
+   //          var tbl = $('table#revenue-inc-vat tr').get().map(function(row) {
+			//   return $(row).find('td').get().map(function(cell) {
+			//     return $(cell).html();
+			//   });
+			// });
+
+			// console.log(tbl)
+
+			// var myRows = [];
+			// var $headers = $("th");
+			// var $rows = $("tbody#revenue-inc-vat tr").each(function(index) {
+			//   $cells = $(this).find("td");
+			//   myRows[index] = {};
+			//   $cells.each(function(cellIndex) {
+			//   	amountInput = $(this).find("input").val()
+			//     myRows[index][$($headers[cellIndex]).text()] = amountInput;
+			//   });    
+			// });
+			// console.log(myRows)
+
+var myRows = [];
+var $headers = $("th");
+var $rows = $("tbody#revenue-inc-vat tr").each(function(index) {
+  $cells = $(this).find("td");
+  //myRows[index] = {};
+  row = []
+  $cells.each(function(cellIndex) {
+  	amountInput = $(this).find("input").val()
+  	row.push(amountInput)
+    //myRows[index][$($headers[cellIndex]).text()] = amountInput;
+  });
+  myRows.push(row)    
+});
+console.log(myRows)
+
+// Let's put this in the object like you want and convert to JSON (Note: jQuery will also do this for you on the Ajax request)
+var myObj = {};
+myObj.myrows = myRows;
+//console.log(JSON.stringify(myObj))
+
+
+
+        },
+        // END OF FUNCTION
+      };
+      // END OF RETURN
+})();
