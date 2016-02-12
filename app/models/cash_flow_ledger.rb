@@ -9,6 +9,7 @@ class CashFlowLedger < Ledger
 	def base_assumptions
 		assumptions = {
 			format: {
+				# to add format: ifrs and gaap
 				start_month: list_month_names.first,
 			    cf_length: "Full-Year"
 			},

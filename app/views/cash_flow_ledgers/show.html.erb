@@ -42,6 +42,7 @@
 
 <% $start_date = create_date %>
 <% $no_of_columns = fetch_columns %>
+<span style="display:none;" id="cf-control-selector" data-months="<%= $no_of_columns %>"></span>
 
 <%= render 'revenue' %>
 <%= render 'cost_of_sale' %>

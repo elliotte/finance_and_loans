@@ -20,6 +20,7 @@
                                         <th>
                                           <% date = ($start_date + $i.month).strftime("%b %Y") %>
                                           <%= date %>
+                                          <!-- FOR CLIENT SIDE COLLECTION OF DATE RANGE -->
                                           <span style="display:none;" class="cf-date-selector" data-date="<%= date %>"></span>
                                         </th>
                                         <% $i += 1 %>
@@ -31,13 +32,15 @@
                              <tbody id="revenue-inc-vat">
                                   <% 5.times do |row| %>
                                     <tr>
-                                        <td class="user-input-description">
-                                          <input type="text" name="transaction[description]" placeholder="Add your line description" >
+                                        <!-- Row MITAG cell -->
+                                        <td>
+                                          <input type="text" placeholder="Add your line description" >
                                         </td>
                                         <% $no_of_columns.times do |row| %>
-                                            <td class="user-input-amount"><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                                            <td><input data-column="<% %>" class="user-input-amt" type="text" placeholder="0.00"></td>
                                         <% end %>
-                                        <td></td>
+                                        <!-- Row total cell -->
+                                        <td style="color:black;">0</td>
                                     </tr>
                                   <% end %>
                                   <tr>
