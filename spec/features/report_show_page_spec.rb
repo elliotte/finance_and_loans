@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 APP = YAML.load_file('config/application.yml')
-
+include ActionController::Caching::Fragments
 describe 'Reports Show Page', :type => :feature do
   before do
     set_auth()
@@ -31,7 +31,7 @@ describe 'Reports Show Page', :type => :feature do
         it "by csv", js: true do 
         end
         it "Create Journal", js: true do 
-          verify_report_show_paths
+          verify_report_show_path
           within(".slider-action-bar"){find("#new-work-icon")}.click()
           sleep 2
           within(".slider-action-bar"){all("a")}[1].click()
@@ -53,9 +53,11 @@ describe 'Reports Show Page', :type => :feature do
                   page.should have_button button_text
                 end
               end
-              it "share report with google", js: true do             
+              it "share report with google", js: true do           
+                pending "Getting missing access token"
+                
                 click_button("Share with Google")
-                sleep 2
+                sleep 3
                 page.should have_css("#google_friends_list")
                 # we dont have friends for this google user
               end

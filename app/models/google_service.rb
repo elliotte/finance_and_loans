@@ -180,6 +180,13 @@
 			  end
 		end
 
+		def execute_friend_list
+			friend_list = @client.execute(@plus.people.list,
+	                                :collection => 'visible',
+ 	                                :userId => 'me')
+			Rails.cache.write("FRIENDS_LIST", friend_list.data.items)
+		end
+
 	private
 
 		def discovered_api
@@ -199,12 +206,5 @@
 
 		def discovered_gplus_api
 			@client.discovered_api('plus', 'v1')
-		end
-
-		def execute_friend_list
-			friend_list = @client.execute(@plus.people.list,
-    	                                :collection => 'visible',
-     	                                :userId => 'me')
-			Rails.cache.write("FRIENDS_LIST", friend_list.data.items)
 		end
 end
