@@ -37,7 +37,7 @@
                                           <input type="text" placeholder="Add your line description" >
                                         </td>
                                         <% $no_of_columns.times do |row| %>
-                                            <td><input data-column="<% %>" class="user-input-amt" type="text" placeholder="0.00"></td>
+                                            <td><input class="user-input-amt" type="text" placeholder="0.00"></td>
                                         <% end %>
                                         <!-- Row total cell -->
                                         <td style="color:black;">0</td>
@@ -63,38 +63,42 @@
                 <ul class="submenu">
                   <li class="">
                           
-                          <table id="" class="table-minimal">
+                        <table  class="table-minimal">
                              <thead>
                                   <tr class="lovely-pink">
                                       <th style="min-width:10em;"></th>
                                       <!-- START OF PROJECTIONS ANCHOR -->
                                       <th><%= $start_date.strftime("%b %Y") %></th>
-
+                                      
                                       <% $i = 1 %>
                                       <% begin %>
                                         <th>
-                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
+                                          <% date = ($start_date + $i.month).strftime("%b %Y") %>
+                                          <%= date %>
+                                          
                                         </th>
-                                        <% $i +=1 %>
+                                        <% $i += 1 %>
                                       <% end while $i < $no_of_columns %>
 
                                       <th>Total</th>
                                   </tr>
                              </thead>
-                             <tbody>
+                             <tbody id="revenue-exc-vat">
                                   <% 5.times do |row| %>
                                     <tr>
+                                        <!-- Row MITAG cell -->
                                         <td>
-                                          <input type="text" name="transaction[description]" placeholder="Add your line description">
+                                          <input type="text" placeholder="Add your line description" >
                                         </td>
                                         <% $no_of_columns.times do |row| %>
-                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                                            <td><input class="user-input-amt" type="text" placeholder="0.00"></td>
                                         <% end %>
-                                        <td></td>
+                                        <!-- Row total cell -->
+                                        <td style="color:black;">0</td>
                                     </tr>
                                   <% end %>
                                   <tr>
-                                      <td class="button-style"><%= submit_tag 'Save Details' %></td>
+                                      <td id="save-rev-exc-vat" class="button-style"><%= submit_tag 'Save Details' %></td>
                                       <% $no_of_columns.times do |row| %>
                                           <td></td>
                                       <% end %>
@@ -103,6 +107,7 @@
                             </tbody>
                         </table>
                         <!-- END OF BS TABLE -->
+
                   </li>
                 </ul>
             <!-- END OF GRAPH DATA -->

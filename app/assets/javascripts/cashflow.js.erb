@@ -6,6 +6,9 @@ $(document).on('page:load ready', function(){
     $('#save-rev-inc-vat').on('click', function() {
         cashFlowHelper.cacheRevenueWithVatData();
     });
+    $('#save-rev-exc-vat').on('click', function() {
+        cashFlowHelper.cacheRevenueNoVatData();
+    });
     // set user cell input listeners
     $( ".user-input-amt" ).focusout(function() {
         cashFlowHelper.updateRowTotalWith( $(this) )
@@ -17,51 +20,19 @@ var cashFlowHelper = (function() {
       
       return {
         
+        cacheRevenueNoVatData: function() {
+              tableIdSelector = "tbody#revenue-exc-vat tr"
+              localStorageKey = "revenue-exc-vat"
+              parseUserInputTable(tableIdSelector, localStorageKey)
+        },
+
         cacheRevenueWithVatData: function() {
-
-              financialControlError = false
-              // cache cashflow date headers from DOM
-              dateHeaders = $('.cf-date-selector')
-              // extract date text for params, localstorage & checks 
-              cashFlowDateRange = []
-              $.each(dateHeaders, function(index, text) {
-                var date = $(text).data('date')
-                cashFlowDateRange.push(date)
-              })
-              // cache server side VIEW no of columns for client side checking consistency
-              monthsPerCashFlowServerSide = $('#cf-control-selector').data('months')
-              // check consistent
-              if ( monthsPerCashFlowServerSide != cashFlowDateRange.length ) { 
-                  financialControlError = true
-                  console.log('error set')
-              }
-              // cache revenue with VAT table from DOM
-              var cachedData = [];
-              var $revenuInputRows = $("tbody#revenue-inc-vat tr").each(function(index) {
-                  
-                  $rowOfCells = $(this).find("td");
-                  //console.log($rowOfCells)
-                  rowData = []
-                  $rowOfCells.each(function(cellIndex) {
-                    amountInput = $(this).find("input").val()
-                    rowData.push(amountInput)
-                  });
-                  cachedData.push(rowData)    
-              }); 
-              // remove save button <tr> row
-              cachedData.pop()
-              console.log(cachedData)
-              // set data to localStorage for future usage
-              localStorage["revenue-inc-vat"] = JSON.stringify(cachedData);
-
-              var storedNames = JSON.parse(localStorage["revenue-inc-vat"]);
-// Convert to JSON (Note: jQuery will also do this for you on the Ajax request)
-              // var myObj = {};
-              // myObj.rows = cachedData;
+              tableIdSelector = "tbody#revenue-inc-vat tr"
+              localStorageKey = "revenue-inc-vat"
+              parseUserInputTable(tableIdSelector, localStorageKey)
         },
         // END OF FUNCTION
         updateRowTotalWith: function(userInput) {
-
               inputCell = userInput
               // fetch user input from DOM
               amtInput = parseInt(inputCell.val()) || 0;
@@ -77,3 +48,52 @@ var cashFlowHelper = (function() {
       };
       // END OF RETURN
 })();
+
+// helper for setting CashFlow localStorage Data
+function setLocalStorage(key, data) {
+  localStorage[key] = JSON.stringify(data);
+}
+// helper to cache userInput Table
+function parseUserInputTable(tableID, storageKey) {
+
+        financialControlError = false
+        // cache cashflow date headers from DOM
+        dateHeaders = $('.cf-date-selector')
+        // extract date text for params, localstorage & checks 
+        cashFlowDateRange = []
+        $.each(dateHeaders, function(index, text) {
+          var date = $(text).data('date')
+          cashFlowDateRange.push(date)
+        })
+        // cache server side VIEW no of columns for client side checking consistency
+        monthsPerCashFlowServerSide = $('#cf-control-selector').data('months')
+        // check consistent
+        if ( monthsPerCashFlowServerSide != cashFlowDateRange.length ) { 
+            financialControlError = true
+            console.log('error set')
+        }
+        // cache revenue with VAT table from DOM
+        var cachedData = [];
+        var $revenuInputRows = $(tableID).each(function(index) {
+            
+            $rowOfCells = $(this).find("td");
+            //console.log($rowOfCells)
+            rowData = []
+            $rowOfCells.each(function(cellIndex) {
+              amountInput = $(this).find("input").val()
+              rowData.push(amountInput)
+            });
+            cachedData.push(rowData)    
+        }); 
+        // remove save button <tr> row
+        cachedData.pop()
+        console.log(cachedData)
+        // set data to localStorage for future usage
+        setLocalStorage(storageKey, cachedData);
+// Convert to JSON (Note: jQuery will also do this for you on the Ajax request)
+              // var myObj = {};
+              // myObj.rows = cachedData;
+
+}
+
+
