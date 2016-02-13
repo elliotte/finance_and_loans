@@ -2,6 +2,10 @@
 $(document).on('page:load ready', function(){
 
     uiSharedHelper.setAccordianHandlers(); 
+    // set user cell input listeners
+    $( ".user-input-amt" ).focusout(function() {
+        cashFlowHelper.updateRowTotalWith( $(this) )
+    })
     // set revenue table input listeners
     $('#save-rev-inc-vat').on('click', function() {
         cashFlowHelper.cacheRevenueWithVatData();
@@ -9,10 +13,13 @@ $(document).on('page:load ready', function(){
     $('#save-rev-exc-vat').on('click', function() {
         cashFlowHelper.cacheRevenueNoVatData();
     });
-    // set user cell input listeners
-    $( ".user-input-amt" ).focusout(function() {
-        cashFlowHelper.updateRowTotalWith( $(this) )
-    })
+    // set Cost of Sale table listeners
+    $('#save-cos-inc-vat').on('click', function() {
+        cashFlowHelper.cacheCostsOfSaleWithVatData();
+    });
+    $('#save-cos-exc-vat').on('click', function() {
+        cashFlowHelper.cacheCostsOfSaleNoVatData();
+    });
       
 });
 
@@ -29,6 +36,17 @@ var cashFlowHelper = (function() {
         cacheRevenueWithVatData: function() {
               tableIdSelector = "tbody#revenue-inc-vat tr"
               localStorageKey = "revenue-inc-vat"
+              parseUserInputTable(tableIdSelector, localStorageKey)
+        },
+
+        cacheCostsOfSaleWithVatData: function() {
+              tableIdSelector = "tbody#cos-inc-vat tr"
+              localStorageKey = "cos-inc-vat"
+              parseUserInputTable(tableIdSelector, localStorageKey)
+        },
+        cacheCostsOfSaleNoVatData: function() {
+              tableIdSelector = "tbody#cos-exc-vat tr"
+              localStorageKey = "cos-exc-vat"
               parseUserInputTable(tableIdSelector, localStorageKey)
         },
         // END OF FUNCTION
@@ -76,13 +94,20 @@ function parseUserInputTable(tableID, storageKey) {
         var cachedData = [];
         var $revenuInputRows = $(tableID).each(function(index) {
             
+            profitBeesTag = $(this).data('pb-tag')
+
             $rowOfCells = $(this).find("td");
             //console.log($rowOfCells)
             rowData = []
+            rowData.push(profitBeesTag)
+
             $rowOfCells.each(function(cellIndex) {
               amountInput = $(this).find("input").val()
-              rowData.push(amountInput)
+              // check truthy evaluation to filter save button
+               rowData.push(amountInput)
             });
+            // remove total <td> column
+            rowData.pop()
             cachedData.push(rowData)    
         }); 
         // remove save button <tr> row

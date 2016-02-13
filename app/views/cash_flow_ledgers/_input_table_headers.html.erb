@@ -1,0 +1,15 @@
+<th style="min-width:10em;"></th>
+<!-- START OF PROJECTIONS ANCHOR -->
+<th><%= $start_date.strftime("%b %Y") %></th>
+
+<% $i = 1 %>
+<% begin %>
+  <th>
+    <% date = ($start_date + $i.month).strftime("%b %Y") %>
+    <%= date %>
+    
+  </th>
+  <% $i += 1 %>
+<% end while $i < $no_of_columns %>
+
+<th>Total</th>

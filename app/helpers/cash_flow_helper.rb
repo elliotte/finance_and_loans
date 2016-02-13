@@ -10,4 +10,8 @@ module CashFlowHelper
       Date.parse(@settings[:format]["start_month"])
   end
 
+  def user_input_cell
+  	return '<td><input class="user-input-amt" type="text" placeholder="0.00"></td>'.html_safe
+  end
+
 end

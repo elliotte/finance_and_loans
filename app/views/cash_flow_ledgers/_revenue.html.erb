@@ -1,3 +1,6 @@
+<!-- FOR internal ProfitBees Financial Reporting Mapping -->
+<% $rev_tags = Tag.gaap_fin_stat_tags[:gp_sales] %>
+
 <section class="layout-container">
   <article class="type-system-slab">
 
@@ -8,41 +11,32 @@
                   <li class="">
                         <table  class="table-minimal">
                              <thead>
-                                  <tr class="lovely-pink">
-                                      <th style="min-width:10em;"></th>
-                                      <!-- START OF PROJECTIONS ANCHOR -->
-                                      <th><%= $start_date.strftime("%b %Y") %></th>
-                                      <!-- FOR CLIENT SIDE COLLECTION OF DATE RANGE -->
-                                      <span style="display:none;" class="cf-date-selector" data-date="<%= $start_date.strftime("%b %Y") %>"></span>
+                                <tr class="lovely-pink">
+                                    <th style="min-width:10em;"></th>
+                                    <!-- START OF PROJECTIONS ANCHOR -->
+                                    <th><%= $start_date.strftime("%b %Y") %></th>
+                                    <!-- FOR CLIENT SIDE COLLECTION OF DATE RANGE -->
+                                   <!--  Done manually here ONCE.. not in input_table_headers partial as creates duplication date ranges -->
+                                    <span style="display:none;" class="cf-date-selector" data-date="<%= $start_date.strftime("%b %Y") %>"></span>
+                                    <% $i = 1 %>
+                                    <% begin %>
+                                      <th>
+                                        <% date = ($start_date + $i.month).strftime("%b %Y") %>
+                                        <%= date %>
+                                        <!-- FOR CLIENT SIDE COLLECTION OF DATE RANGE -->
+                                        <span style="display:none;" class="cf-date-selector" data-date="<%= date %>"></span>
+                                      </th>
+                                      <% $i += 1 %>
+                                    <% end while $i < $no_of_columns %>
 
-                                      <% $i = 1 %>
-                                      <% begin %>
-                                        <th>
-                                          <% date = ($start_date + $i.month).strftime("%b %Y") %>
-                                          <%= date %>
-                                          <!-- FOR CLIENT SIDE COLLECTION OF DATE RANGE -->
-                                          <span style="display:none;" class="cf-date-selector" data-date="<%= date %>"></span>
-                                        </th>
-                                        <% $i += 1 %>
-                                      <% end while $i < $no_of_columns %>
-
-                                      <th>Total</th>
-                                  </tr>
-                             </thead>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                             
                              <tbody id="revenue-inc-vat">
-                                  <% 5.times do |row| %>
-                                    <tr>
-                                        <!-- Row MITAG cell -->
-                                        <td>
-                                          <input type="text" placeholder="Add your line description" >
-                                        </td>
-                                        <% $no_of_columns.times do |row| %>
-                                            <td><input class="user-input-amt" type="text" placeholder="0.00"></td>
-                                        <% end %>
-                                        <!-- Row total cell -->
-                                        <td style="color:black;">0</td>
-                                    </tr>
-                                  <% end %>
+                                  
+                                  <%= render 'input_table_body' %>
+                                  <!-- SAVE BUTTON -->
                                   <tr>
                                       <td id="save-rev-inc-vat" class="button-style"><%= submit_tag 'Save Details' %></td>
                                       <% $no_of_columns.times do |row| %>
@@ -64,46 +58,23 @@
                   <li class="">
                           
                         <table  class="table-minimal">
-                             <thead>
-                                  <tr class="lovely-pink">
-                                      <th style="min-width:10em;"></th>
-                                      <!-- START OF PROJECTIONS ANCHOR -->
-                                      <th><%= $start_date.strftime("%b %Y") %></th>
-                                      
-                                      <% $i = 1 %>
-                                      <% begin %>
-                                        <th>
-                                          <% date = ($start_date + $i.month).strftime("%b %Y") %>
-                                          <%= date %>
-                                          
-                                        </th>
-                                        <% $i += 1 %>
-                                      <% end while $i < $no_of_columns %>
+                            <thead>
+                                <tr class="lovely-pink">
+                                    <%= render 'input_table_headers' %>
+                                </tr>
+                            </thead>
+                            <tbody id="revenue-exc-vat">
 
-                                      <th>Total</th>
-                                  </tr>
-                             </thead>
-                             <tbody id="revenue-exc-vat">
-                                  <% 5.times do |row| %>
-                                    <tr>
-                                        <!-- Row MITAG cell -->
-                                        <td>
-                                          <input type="text" placeholder="Add your line description" >
-                                        </td>
-                                        <% $no_of_columns.times do |row| %>
-                                            <td><input class="user-input-amt" type="text" placeholder="0.00"></td>
-                                        <% end %>
-                                        <!-- Row total cell -->
-                                        <td style="color:black;">0</td>
-                                    </tr>
-                                  <% end %>
-                                  <tr>
-                                      <td id="save-rev-exc-vat" class="button-style"><%= submit_tag 'Save Details' %></td>
-                                      <% $no_of_columns.times do |row| %>
-                                          <td></td>
-                                      <% end %>
-                                      <td></td>
-                                  </tr>
+                                <%= render 'input_table_body' %>
+                                <!-- SAVE BUTTON -->
+                                <tr>
+                                    <td id="save-rev-exc-vat" class="button-style"><%= submit_tag 'Save Details' %></td>
+                                    <% $no_of_columns.times do |row| %>
+                                        <td></td>
+                                    <% end %>
+                                    <td></td>
+                                </tr>
+
                             </tbody>
                         </table>
                         <!-- END OF BS TABLE -->
@@ -123,19 +94,7 @@
              <tbody>
                 <thead>
                       <tr class="lovely-pink">
-                          <th style="min-width:10em;"></th>
-                          <!-- START OF PROJECTIONS ANCHOR -->
-                          <th><%= $start_date.strftime("%b %Y") %></th>
-
-                          <% $i = 1 %>
-                          <% begin %>
-                            <th>
-                              <%= ($start_date + $i.month).strftime("%b %Y") %>
-                            </th>
-                            <% $i +=1 %>
-                          <% end while $i < $no_of_columns %>
-
-                          <th>Total</th>
+                          <%= render 'input_table_headers' %>
                       </tr>
                  </thead>
                  <tbody>

@@ -1,6 +1,8 @@
 <!-- CASHFLOW ONLY JS -->
 <%= javascript_include_tag 'cashflow' %>
 
+
+
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
        <div>  
@@ -42,6 +44,8 @@
 
 <% $start_date = create_date %>
 <% $no_of_columns = fetch_columns %>
+<% $date_range_cached = false %>
+
 <span style="display:none;" id="cf-control-selector" data-months="<%= $no_of_columns %>"></span>
 
 <%= render 'revenue' %>

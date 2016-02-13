@@ -14,7 +14,6 @@ describe Tag do
         Tag.load_master_gaap_csv
       end
     end
-
     context "REPORT MGR tag options" do
       it 'should return IFRS user options for report mgr' do
         tags = Tag.report_mgr_ifrs_options
@@ -33,12 +32,10 @@ describe Tag do
         expect(gaap.last).to eq "No-Mapping"
       end
     end
-
     context "user select options" do
       it 'should return IFRS user Select options' do
         tags = Tag.ifrs_user_select_options
-        expect(tags).to eq( ["Revenue", "Other trading income", "Cost of sales", "Other direct costs", "Other operating income", "Finance income", "Share of post-tax profits of equity associates", "Share of post-tax profits of equity joint ventures", "Administrative expenses", "Distribution expenses", "Other expenses", "Finance expense", "Tax expense", "Changes in inventories of finished goods and work in progress", "Raw materials and consumables used", "Employee benefit expenses", "Depreciation and amortisation expense", "Research and development", "Loss on property revaluation", "Remeasurements of defined benefit pension schemes", "Share of associates' other", "Exchange gains arising on translation of foreign operations", "Inventories", "Trade and other receivables", "Available-for-sale investments", "Derivative financial assets", "Current tax assets", "Other assets", "Cash and cash equivalents", "Assets in disposal groups classified as held for sale", "Finance lease receiveable", "Property plant and equipment", "Investment property", "Goodwill", "Other intangible assets", "Finance lease receiveable", "Other financial assets", "Other assets", "Investments in equity-accounted associates", "Investments in equity-accounted joint ventures", "Available-for-sale investments more than 1 year", "Derivative financial assets more than 1 year", "Other receivables", "Deferred tax assets", "Trade and other payables", "Loans and borrowings", "Derivative financial liabilities", "Income Tax Payable", "Employee benefit liabilities", "Provisions", "Liabilities directly associated with assets in HFS", "Loans and borrowings more than 1 year", "Derivative financial liabilities more than 1 year", "Employee benefit liabilities more than 1 year", "Provisions ", "Deferred tax liability", "Other financial liabilities", "Deferred revenue", "Other liabilities", "Revaluation reserve", "Available-for-sale reserve", "Cash flow hedging reserve", "Foreign exchange reserve", "Issued capital and share premium", "Other reserves", "Retained earnings", "Equity attributable to parent", "Non-controlling interest", "Share capital", "Share premium reserve", "Shares to be issued", "No-Mapping"]
-)
+        expect(tags).to eq( ["Revenue", "Other trading income", "Cost of sales", "Other direct costs", "Other operating income", "Finance income", "Share of post-tax profits of equity associates", "Share of post-tax profits of equity joint ventures", "Administrative expenses", "Distribution expenses", "Other expenses", "Finance expense", "Tax expense", "Changes in inventories of finished goods and work in progress", "Raw materials and consumables used", "Employee benefit expenses", "Depreciation and amortisation expense", "Research and development", "Loss on property revaluation", "Remeasurements of defined benefit pension schemes", "Share of associates' other", "Exchange gains arising on translation of foreign operations", "Inventories", "Trade and other receivables", "Available-for-sale investments", "Derivative financial assets", "Current tax assets", "Other assets", "Cash and cash equivalents", "Assets in disposal groups classified as held for sale", "Finance lease receiveable", "Property plant and equipment", "Investment property", "Goodwill", "Other intangible assets", "Finance lease receiveable", "Other financial assets", "Other assets", "Investments in equity-accounted associates", "Investments in equity-accounted joint ventures", "Available-for-sale investments more than 1 year", "Derivative financial assets more than 1 year", "Other receivables", "Deferred tax assets", "Trade and other payables", "Loans and borrowings", "Derivative financial liabilities", "Income Tax Payable", "Employee benefit liabilities", "Provisions", "Liabilities directly associated with assets in HFS", "Loans and borrowings more than 1 year", "Derivative financial liabilities more than 1 year", "Employee benefit liabilities more than 1 year", "Provisions ", "Deferred tax liability", "Other financial liabilities", "Deferred revenue", "Other liabilities", "Revaluation reserve", "Available-for-sale reserve", "Cash flow hedging reserve", "Foreign exchange reserve", "Issued capital and share premium", "Other reserves", "Retained earnings", "Equity attributable to parent", "Non-controlling interest", "Share capital", "Share premium reserve", "Shares to be issued", "No-Mapping"])
         expect(tags.count).to eq 72
       end
       it 'should return GAAP select options' do
@@ -47,7 +44,6 @@ describe Tag do
         expect(tags.count).to eq 90
       end
     end
-
     context "MAPPINGS tags" do
       it 'can load mappings UKGAAP' do
         tags = Tag.load_monea_tag_mappings("UKGAAP")
@@ -60,7 +56,6 @@ describe Tag do
         expect(tags.count).to eq 70
       end
     end
-
     context "reportShow dashBoard master LOOP tags" do
       it 'should return IFRS fin stat keys for LOOP and display' do
         tags = Tag.ifrs_fin_stat_tags
@@ -73,14 +68,26 @@ describe Tag do
         expect(tags.keys.count).to eq 16
       end
     end
-
     context "helpers" do
       it 'can find unique keys' do
         keys = Tag.extract_unique_keys { [key: "33", key_2: "Hello", "stringKey" => 1234]}
         expect(keys).to eq [:key, :key_2, "stringKey"]
       end
     end
-   
+    context "tag control for cashFlow User Input View" do
+       it 'has two sales/turnover reporting tag mappings' do
+          tags = Tag.gaap_fin_stat_tags[:gp_sales]
+          expect(tags.count).to eq 2
+          expect(tags.first).to eq "Sales"
+          expect(tags.last).to eq "Other sales"
+       end
+       it 'has two sales/turnover reporting tag mappings' do
+          tags = Tag.gaap_fin_stat_tags[:gp_cos]
+          expect(tags.count).to eq 8
+          expect(tags.first).to eq "Purchases"
+          expect(tags.last).to eq "Other direct costs"
+       end
+    end
   
   end
 end
