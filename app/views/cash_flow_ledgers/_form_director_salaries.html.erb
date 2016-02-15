@@ -2,30 +2,40 @@
       <h1>
         Director Salaries
       </h1>
-      <p class="lovely-pink">Add the annual salary details of each director and we will calculate the rest</p>
-
-          <table class="table-minimal">
-              <tbody>
-                  <tr>
-                    <td class="lovely-pink">Director 1</td>
-                    <td>
-                      <input type="text" name="" placeholder="e.g. 12,000">
-                    </td>
-                  </tr>
-                   <!-- Add option to add row --> 
-                  <tr>
-                    <td><a href="javascript:void(0)">Add director</a></td>
-                    <td></td>
-                  </tr>
-
-                  <tr>
-                    <td class="button-style"><%= submit_tag 'Save Details' %></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-          </table>
-
+      <p class="lovely-pink">Add your total anticpated salary bill for the period, and the number of people, we will calculate the rest.</p>
+      
+      <%= form_tag update_drivers_cash_flow_ledger_path(@ledger), method: :post, remote: true do |f| %>
+            <table class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td class="lovely-pink">Salary</td>
+                        <td>
+                          <input type="text" name="drivers[non_director_wages[ppl]]" value="<%= @drivers['non_director_wages']['ppl']%>" placeholder="e.g. 120000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="lovely-pink">No of Directors</td>
+                        <td>
+                          <input type="text" name="drivers[non_director_wages[total_cost]]" value="<%= @drivers['non_director_wages']['total_cost']%>" placeholder="e.g. 120000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="button-style"><%= submit_tag 'Save Details' %></td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+            </table>
+      <% end %>
 </article>
+
+
+
+
+
+
+
+
+
 
 
 

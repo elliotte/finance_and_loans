@@ -2,25 +2,30 @@
       <h1>
         Non-director Salaries
       </h1>
-      <p class="lovely-pink">Add your total anticpated salary bill and the number of people it relates too, and we will calculate the rest.</p>
-      <table class="table-minimal">
-            <tbody>
-                <tr>
-                  <td class="lovely-pink">Salary</td>
-                  <td>
-                    <input type="text" name="" placeholder="e.g. 120,000">
-                  </td>
-                </tr>
-                <tr>
-                  <td class="lovely-pink">No of people</td>
-                  <td><input type="text" name="" placeholder="e.g. 10"></td>
-                </tr>
-                <tr>
-                  <td class="button-style"><%= submit_tag 'Save Details' %></td>
-                  <td></td>
-                </tr>
-              </tbody>
-        </table>
+      <p class="lovely-pink">Add your total anticpated salary bill for the period, and the number of people, we will calculate the rest.</p>
+      
+      <%= form_tag update_drivers_cash_flow_ledger_path(@ledger), method: :post, remote: true do |f| %>
+            <table class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td class="lovely-pink">Salary</td>
+                        <td>
+                          <input type="text" name="drivers[non_director_wages[ppl]]" value="<%= @drivers['non_director_wages']['ppl']%>" placeholder="e.g. 120000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="lovely-pink">No of people</td>
+                        <td>
+                          <input type="text" name="drivers[non_director_wages[total_cost]]" value="<%= @drivers['non_director_wages']['total_cost']%>" placeholder="e.g. 120000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="button-style"><%= submit_tag 'Save Details' %></td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+            </table>
+      <% end %>
 </article>
 
 

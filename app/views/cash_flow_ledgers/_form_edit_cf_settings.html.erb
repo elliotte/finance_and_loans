@@ -9,15 +9,16 @@
                       <%if params.include? "start_month"%>
                       <tr>
                         <td class="text-pink">Starting Month</td>
-                        <td><%= select("format","start_month",options_for_select(list_month_names,@ledger.cf_settings["format"]["start_month"])) %></td>
+                        <td><%= select("format", "start_month", options_for_select(list_month_names, @ledger.cf_settings["format"]["start_month"])) %>
+                        </td>
                       </tr>
                       <%end%>
-                      <%if params.include? "cf_length"%>
+                      <% if params.include? "cf_length"%>
                       <tr>
                         <td class="text-pink">Length</td>
-                        <td><%= select("format","cf_length",options_for_select(["Quarter", "Half-Year", "Full-Year"],@ledger.cf_settings["format"]["cf_length"])) %></td>
+                        <td><%= select("format","cf_length", options_for_select(["Quarter", "Half-Year", "Full-Year"], @ledger.cf_settings["format"]["cf_length"])) %></td>
                       </tr>
-                      <%end%>
+                      <% end %>
                       <tr>
                         <td class="button-style"><%= submit_tag "Update" %></td>
                       </tr>

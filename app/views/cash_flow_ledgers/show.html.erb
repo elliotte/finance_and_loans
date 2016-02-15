@@ -1,8 +1,6 @@
 <!-- CASHFLOW ONLY JS -->
 <%= javascript_include_tag 'cashflow' %>
 
-
-
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
        <div>  
@@ -30,8 +28,18 @@
                         <p><span class="lovely-blue">CashFlow viewers:  <br></span><%= link_to "View all", "", remote: true %></p>
                       </section>
                       <section>
-                        <p><%= link_to edit_cf_settings_cash_flow_ledger_path(@ledger,start_month:true),remote: true do%><span class="lovely-blue">Starting Month: </span> <%end %> <br><%= @settings[:format]["start_month"] %> </p>
-                        <p><%= link_to edit_cf_settings_cash_flow_ledger_path(@ledger,cf_length:true),remote: true do%><span class="lovely-blue">Length:</span> <%end %>   <br><%= @settings[:format]["cf_length"] %></p>
+                        <p>
+                          <%= link_to edit_cf_settings_cash_flow_ledger_path(@ledger,start_month: true), remote: true do %>
+                            <span class="lovely-blue">Starting Month: </span> 
+                          <% end %> <br>
+                          <%= @settings[:format]["start_month"] %> 
+                        </p>
+                        <p>
+                          <%= link_to edit_cf_settings_cash_flow_ledger_path(@ledger,cf_length: true), remote: true do %>
+                            <span class="lovely-blue">Length: </span> 
+                          <% end %> <br>
+                          <%= @settings[:format]["cf_length"] %>
+                        </p>
                       </section>
                   </li>
                 </ul>
@@ -56,37 +64,36 @@
   <article class="type-system-slab">
 
         <div class="grid-items">
-           <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :loan_borrowing_form), remote: true, :class=>"grid-item" do %>  
+           <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :loan_borrowing_form), remote: true, :class => "grid-item" do %>  
             <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Loan Borrowings</h1>
             <p>Enter the details for what you're borrowing</p>
           <%end%>
-          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :director_salaries), remote: true, :class=>"grid-item" do %>  
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :director_salaries), remote: true, :class => "grid-item" do %>  
             <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Director Salaries</h1>
             <p>Add the total costs for director salaries</p>
           <%end%>
-          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :non_director_salaries), remote: true, :class=>"grid-item" do %>
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :non_director_salaries), remote: true, :class => "grid-item" do %>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Non director Salaries</h1>
             <p>Add the total costs for non-director salaries</p>
-          <%end%>
-          <%= link_to "",:class=>"grid-item" do%>
+          <% end %>
+          <%= link_to "", :class => "grid-item" do %>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Buying Stock?</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          <%end%>
-
-            <%= link_to "",:class=>"grid-item" do%>            
+          <% end %>
+          <%= link_to "", :class=> "grid-item" do %>            
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
             <h1>Buying Computers of Equipment</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          <%end%>
-          <%= link_to "",:class=>"grid-item" do%>
+          <% end %>
+          <%= link_to "", :class => "grid-item" do %>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
             <h1>Buying a Building?</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          <%end%>
+          <% end %>
         </div>
 
     </article>
