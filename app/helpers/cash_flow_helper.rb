@@ -14,4 +14,9 @@ module CashFlowHelper
   	return '<td><input class="user-input-amt" type="text" placeholder="0.00"></td>'.html_safe
   end
 
+  def list_month_names
+    Date::MONTHNAMES.slice(1,12)
+  end
+
+
 end

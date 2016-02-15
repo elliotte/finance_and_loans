@@ -12,11 +12,7 @@ class CashFlowLedger < Ledger
 				# to add format: ifrs and gaap
 				start_month: list_month_names.first,
 			    cf_length: "Full-Year"
-			},
-			select_options: {
-				start_month: list_month_names,
-				cf_length: ["Quarter", "Half-Year", "Full-Year"]
-			},
+			 } 
 		}
 		assumptions
 	end

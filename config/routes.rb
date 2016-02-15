@@ -54,6 +54,8 @@ Draftapp::Application.routes.draw do
       get :transactions_for
       get :fetch_cf_data_input_form
       post :to_ss_export
+      post :update_cf_settings
+      get :edit_cf_settings
     end
   end
 

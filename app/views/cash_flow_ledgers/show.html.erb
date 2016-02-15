@@ -30,8 +30,8 @@
                         <p><span class="lovely-blue">CashFlow viewers:  <br></span><%= link_to "View all", "", remote: true %></p>
                       </section>
                       <section>
-                        <p><span class="lovely-blue">Starting Month:  <br></span> <%= @settings[:format]["start_month"] %> </p>
-                        <p><span class="lovely-blue">Length:  <br></span> <%= @settings[:format]["cf_length"] %></p>
+                        <p><%= link_to edit_cf_settings_cash_flow_ledger_path(@ledger,start_month:true),remote: true do%><span class="lovely-blue">Starting Month: </span> <%end %> <br><%= @settings[:format]["start_month"] %> </p>
+                        <p><%= link_to edit_cf_settings_cash_flow_ledger_path(@ledger,cf_length:true),remote: true do%><span class="lovely-blue">Length:</span> <%end %>   <br><%= @settings[:format]["cf_length"] %></p>
                       </section>
                   </li>
                 </ul>
