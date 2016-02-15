@@ -6,7 +6,9 @@ class CashFlowLedgersController < ApplicationController
 	    @settings = @ledger.cf_settings.symbolize_keys    
 	end
 
-	def fetch_cf_data_input_form; end
+	def fetch_cf_data_input_form 
+		 @drivers = @ledger.drivers
+	end
 
 	def update_cf_settings
 		@ledger.cf_settings["format"][params["format"].keys.first]= params["format"].values.first
@@ -14,6 +16,11 @@ class CashFlowLedgersController < ApplicationController
 	end
 
 	def edit_cf_settings;end
+
+	def update_drivers
+		@ledger.drivers.update(params["drivers"])
+		@ledger.save
+	end
 
 	private
 

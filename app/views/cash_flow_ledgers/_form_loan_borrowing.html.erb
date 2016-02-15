@@ -3,34 +3,35 @@
         Loan Borrowing
       </h1>
       <p class="lovely-pink"><a href="javascript:void(0)">Add the details of the loan borrowing and we will calculate the rest</a></p>
-
+      <%= form_tag update_drivers_cash_flow_ledger_path(@ledger), method: :post, remote: true do |f| %>
           <table class="table-minimal">
               <tbody>
                   <tr>
-                    <td class="lovely-pink">Loan Amount</td>
+                    <td class="lovely-pink">Loan Interest Rate</td>
                     <td>
-                      <input type="text" name="" placeholder="e.g. 12,000">
+                      <input type="text" name="drivers[loans[rate]]" value="<%= @drivers['loans']['rate']%>" placeholder="e.g. 7.06 ">
                     </td>
                   </tr>
                   <tr>
                     <td class="lovely-pink">Loan Term</td>
                     <td>
-                      <input type="text" name="" placeholder="enter months e.g. 36">
+                      <input type="text" name="drivers[loans[term]]" placeholder="enter months e.g. 36" value="<%= @drivers['loans']['term']%>">
                     </td>
-                  </tr>
+                  </tr>                 
                   <tr>
-                    <td class="lovely-pink">Loan Interest Rate</td>
+                    <td class="lovely-pink">Loan Amount</td>
                     <td>
-                      <input type="text" name="" placeholder="e.g. 7.06 ">
+                      <input type="text" name="drivers[loans[amt]]]" placeholder="e.g. 12,000" value="<%= @drivers['loans']['amt']%>">
                     </td>
                   </tr>
+                  
                   <tr>
                     <td class="button-style"><%= submit_tag 'Save Details' %></td>
                     <td></td>
                   </tr>
                 </tbody>
           </table>
-
+          <%end%>
 </article>
 
 
