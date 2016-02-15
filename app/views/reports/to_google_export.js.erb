@@ -1,6 +1,6 @@
 
 <%unless current_user.uid.include? "Office365"%>
-	src = '<%= @result.data.alternateLink %>'
+	src = '<%= @result.data.alternateLink  rescue ""%>'
 	link = '<a href="'+src+'" target="_blank">' + 'VIEW' + '</a>'
 	
 	commonDownloadPopup(link)

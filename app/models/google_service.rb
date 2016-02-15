@@ -96,7 +96,7 @@
 			  file = @drive.files.insert.request_schema.new(title: 'Via monea.build', mime_type: mime_type)
 			  media = Google::APIClient::UploadIO.new("#{Rails.root}/files/blank.csv", 'text/csv')
 			  response =  execute_upload(file, media)
-			  response.data.alternateLink
+			  response.data.alternateLink rescue ""
 		end
 
 		def create_new_spreadsheet(parent_id = nil)
@@ -106,7 +106,7 @@
 			  file.parents = [{'id' => parent_id}] if parent_id
 			  media = Google::APIClient::UploadIO.new("#{Rails.root}/files/blank.csv", 'text/csv')
 			  response =  execute_upload(file, media)
-			  response.data.alternateLink
+			  response.data.alternateLink rescue ""
 		end
 
 		def create_user_invoice_folder salesLedgerName
@@ -117,8 +117,8 @@
 	    		'mimeType' => 'application/vnd.google-apps.folder'
   			})
 		    response = @client.execute(:api_method => @drive.files.insert, :body_object => file)
-			response.data.alternateLink
-		end
+			response.data.alternateLink rescue ""
+		end 
 
 		def create_user_report_folder reportName
 			@drive = discovered_api
@@ -133,7 +133,7 @@
 			if response.data['error']
 				response.data['error']['message']
 			else
-				response.data.alternateLink
+				response.data.alternateLink rescue ""
 			end
 		end
 
@@ -155,7 +155,7 @@
 			if result.data['error']
 				result.data['error']['message']
 			else
-				result.data.alternateLink
+				result.data.alternateLink rescue ""
 			end
 		end
 

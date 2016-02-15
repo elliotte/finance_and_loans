@@ -78,6 +78,71 @@ describe 'Reports Show Page', :type => :feature do
       describe "Sharing a report with Google" do 
              #fill out
       end
+
+      describe "Export.new", js: true do 
+        before do 
+          verify_report_show_path
+          within(".grid-items"){all(".grid-item")[1]}.click();
+          ["Export Report","( components to Google spreadsheet ..)"].each do |text| 
+            page.should have_content text
+          end
+        end
+
+        it "Export values", js: true do
+          within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Values")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"
+      end
+
+      it "Export disclosures" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Disclosures")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"
+      end
+
+      it "Export Notes" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Notes")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"  
+      end
+
+      it "Export Comments" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Comments")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"
+      end
+
+      it "Export All" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"All")}.click()
+            click_button("Export.build")
+          end
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW" 
+      end
+    end 
   end
 # helpers
   def set_auth
