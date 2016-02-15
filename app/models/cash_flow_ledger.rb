@@ -3,7 +3,7 @@ class CashFlowLedger < Ledger
 	after_create :book_template_assumptions
 
 	def book_template_assumptions
-		self.update(cf_settings: base_assumptions.to_json)
+		self.update(cf_settings: base_assumptions)
 	end
 
 	def base_assumptions
@@ -12,11 +12,7 @@ class CashFlowLedger < Ledger
 				# to add format: ifrs and gaap
 				start_month: list_month_names.first,
 			    cf_length: "Full-Year"
-			},
-			select_options: {
-				start_month: list_month_names,
-				cf_length: ["Quarter", "Half-Year", "Full-Year"]
-			},
+			 } 
 		}
 		assumptions
 	end

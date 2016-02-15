@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 APP = YAML.load_file('config/application.yml')
-
+include ActionController::Caching::Fragments
 describe 'Reports Show Page', :type => :feature do
   before do
     set_auth()
@@ -31,7 +31,7 @@ describe 'Reports Show Page', :type => :feature do
         it "by csv", js: true do 
         end
         it "Create Journal", js: true do 
-          verify_report_show_paths
+          verify_report_show_path
           within(".slider-action-bar"){find("#new-work-icon")}.click()
           sleep 2
           within(".slider-action-bar"){all("a")}[1].click()
@@ -53,9 +53,11 @@ describe 'Reports Show Page', :type => :feature do
                   page.should have_button button_text
                 end
               end
-              it "share report with google", js: true do             
+              it "share report with google", js: true do           
+                pending "Getting missing access token"
+                
                 click_button("Share with Google")
-                sleep 2
+                sleep 3
                 page.should have_css("#google_friends_list")
                 # we dont have friends for this google user
               end
@@ -76,6 +78,71 @@ describe 'Reports Show Page', :type => :feature do
       describe "Sharing a report with Google" do 
              #fill out
       end
+
+      describe "Export.new", js: true do 
+        before do 
+          verify_report_show_path
+          within(".grid-items"){all(".grid-item")[1]}.click();
+          ["Export Report","( components to Google spreadsheet ..)"].each do |text| 
+            page.should have_content text
+          end
+        end
+
+        it "Export values", js: true do
+          within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Values")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"
+      end
+
+      it "Export disclosures" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Disclosures")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"
+      end
+
+      it "Export Notes" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Notes")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"  
+      end
+
+      it "Export Comments" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"Comments")}.click()
+            click_button("Export.build")
+          end 
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW"
+      end
+
+      it "Export All" do 
+        within(all(".table-minimal").last) do
+            first(".dropdown-button").click()
+            within(".dropdown-menu"){find("li",:text=>"All")}.click()
+            click_button("Export.build")
+          end
+          sleep 10
+          page.should have_content "Successful Export:"
+          page.should have_link "VIEW" 
+      end
+    end 
   end
 # helpers
   def set_auth

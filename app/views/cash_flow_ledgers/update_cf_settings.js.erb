@@ -1,0 +1,11 @@
+
+text = '<article class="type-system-slab">' +
+		   '<p>' + "Successfully updated assumptions:  " +
+		   '</p>' +
+		   '<p>' + 'To see the changes click:' +
+		   '</p>' +
+		   '<p>' + '<a href="<%=  cash_flow_ledger_path(@ledger) %>"> ' + 'REFRESH' + '</a>' +
+		   '</p>' +
+	   '</article>'
+
+$('#bg-screen-for-modal').find('section').empty().append(text)
