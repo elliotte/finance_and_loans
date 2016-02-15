@@ -3,7 +3,7 @@ $(document).on('page:load ready', function(){
 
     uiSharedHelper.setAccordianHandlers(); 
     // set user cell input listeners
-    $( ".user-input-amt" ).focusout(function() {
+    $( ".user-input-amt" ).change(function() {
         cashFlowHelper.updateRowTotalWith( $(this) )
     })
     // set revenue table input listeners
@@ -32,13 +32,11 @@ var cashFlowHelper = (function() {
               localStorageKey = "revenue-exc-vat"
               parseUserInputTable(tableIdSelector, localStorageKey)
         },
-
         cacheRevenueWithVatData: function() {
               tableIdSelector = "tbody#revenue-inc-vat tr"
               localStorageKey = "revenue-inc-vat"
               parseUserInputTable(tableIdSelector, localStorageKey)
         },
-
         cacheCostsOfSaleWithVatData: function() {
               tableIdSelector = "tbody#cos-inc-vat tr"
               localStorageKey = "cos-inc-vat"
@@ -51,11 +49,13 @@ var cashFlowHelper = (function() {
         },
         // END OF FUNCTION
         updateRowTotalWith: function(userInput) {
+              
               inputCell = userInput
               // fetch user input from DOM
               amtInput = parseInt(inputCell.val()) || 0;
+              inputRow = inputCell.parent().parent();
               // find row and total cell
-              inputRowTotalCell = inputCell.parent().parent().find('td:last')
+              inputRowTotalCell = inputRow.find('td:last')
               // get current JS total
               currentTotal = inputRowTotalCell[0].innerText
               amtInCell = parseInt(currentTotal) || 0;
