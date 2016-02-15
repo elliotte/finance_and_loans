@@ -93,8 +93,8 @@
                                 <div class="comment-content">
                                   <h1><%= ((@report.notes.blank?)? "No Notes" : @report.notes.first.commenter)%>
                                   </h1>
-                                  <p><%= ((@report.comments.blank?)? "No Notes" : @report.notes.first.body)%></p>
-                                  <p class="comment-detail"><%= ((@report.comments.blank?)? "No Notes" : time_ago_in_words(@report.notes.first.updated_at)) %> ago</p>
+                                  <p><%= ((@report.notes.blank?)? "No Notes" : @report.notes.first.body)%></p>
+                                  <p class="comment-detail"><%= ((@report.notes.blank?)? "No Notes" : time_ago_in_words(@report.notes.first.updated_at)) %> ago</p>
                                   <p class="comment-detail">
                                   <a href="#" onclick="getNotes();">View All</a>
                                 </p>
