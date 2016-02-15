@@ -3,7 +3,7 @@ class CashFlowLedger < Ledger
 	after_create :book_template_assumptions
 
 	def book_template_assumptions
-		self.update(cf_settings: base_assumptions)
+		self.update(cf_settings: base_assumptions,drivers: cf_drivers_data)
 	end
 
 	def base_assumptions
@@ -41,6 +41,7 @@ class CashFlowLedger < Ledger
 				rate: 0.138
 			}
 		}
+		drivers
 	end
 
 private 
