@@ -3,7 +3,7 @@ class CashFlowLedger < Ledger
 	after_create :book_template_assumptions
 
 	def book_template_assumptions
-		self.update(cf_settings: base_assumptions.to_json)
+		self.update(cf_settings: base_assumptions)
 	end
 
 	def base_assumptions
