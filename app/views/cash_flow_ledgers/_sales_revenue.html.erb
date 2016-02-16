@@ -4,15 +4,20 @@
     <td>
     <%= text_field_tag :transaction, mitag%>
     </td>
-    <% @transactions.each do |row| %>
+    <% months=[]%>
+    <% 12.times{ months << ""} %>
+    <% @transactions.each do |row,i| %>
 
-      <%if row.mi_tag== mitag%>
-        <td>
-          <%= text_field_tag :transaction, row.amount%>
-          <%sum = sum+ row.amount.to_f%>
-        </td>
+      <%if(row.mi_tag== mitag)%>
+          <% months[row.acc_date.month-1]= row.amount%>
+          <%sum = sum + row.amount.to_f%>                  
       <%end%>
+    <%end%>
 
+    <%months.each do |val|%>
+      <td>
+        <%= text_field_tag :transaction, val.to_f%>
+      </td>
     <%end%> 
     <td><%= sum%></td>
   </tr>
