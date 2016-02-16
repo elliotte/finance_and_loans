@@ -23,6 +23,22 @@ class CashFlowLedgersController < ApplicationController
 		@ledger.save
 	end
 
+	def add_transactions		
+		params["transactions"].each do |key,value|
+			common_attr = value.slice(:monea_tag,:type,:mi_tag)
+			months= value.except(:monea_tag,:type,:mi_tag).reject{ |k, v| v.blank? }		
+			months.each do |sub_key,sub_value|
+				@transaction = @ledger.transactions.build
+				@transaction.type = common_attr[:type]
+				@transaction.monea_tag = common_attr[:monea_tag]
+				@transaction.mi_tag = common_attr[:mi_tag]
+				@transaction.amount = sub_value
+				@transaction.acc_date = Date.parse(sub_key)
+				@transaction.save
+			end
+		end		
+	end
+
 	private
 
 	def set_ledger

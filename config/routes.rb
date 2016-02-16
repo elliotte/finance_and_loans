@@ -57,6 +57,7 @@ Draftapp::Application.routes.draw do
       post :update_cf_settings
       get :edit_cf_settings
       post :update_drivers
+      post :add_transactions
     end
   end
 
