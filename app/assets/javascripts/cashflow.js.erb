@@ -51,17 +51,30 @@ var cashFlowHelper = (function() {
         updateRowTotalWith: function(userInput) {
               
               inputCell = userInput
-              // fetch user input from DOM
-              amtInput = parseInt(inputCell.val()) || 0;
+              // fetch row from DOM
               inputRow = inputCell.parent().parent();
-              // find row and total cell
+              // find total cell
               inputRowTotalCell = inputRow.find('td:last')
-              // get current JS total
-              currentTotal = inputRowTotalCell[0].innerText
-              amtInCell = parseInt(currentTotal) || 0;
-              sumTotal = amtInCell + amtInput;
-              // update DOM with new total
+              // fetch array of cells
+              $rowOfCells = $(inputRow).find("td");
+              
+              rowData = []
+              $rowOfCells.each(function(cellIndex) {
+                amountInput = $(this).find("input").val()
+                // check truthy evaluation to filter save button
+                rowData.push(amountInput)
+              });
+              // first cell is miTag and last is total column so slice
+              cleansedData = rowData.slice(1, ( rowData.length - 1) )
+              console.log(cleansedData)
+
+              var sumTotal = cleansedData.reduce(function(a, b) {
+                return strToNumber(a) + strToNumber(b);
+              });
+
               inputRowTotalCell[0].innerText = sumTotal;
+              console.log(sumTotal)
+              
         },
       };
       // END OF RETURN
@@ -121,4 +134,7 @@ function parseUserInputTable(tableID, storageKey) {
 
 }
 
+function strToNumber (value) {
+     return parseInt(value) || 0;
+}
 
