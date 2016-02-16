@@ -1,11 +1,14 @@
-<% @transactions.map(&:mi_tag).uniq.each do |mitag| %>
+<% $user_added_rows_already = 0 %>
+
+<% @transactions.map(&:mi_tag).uniq.each do | mitag | %>
+  <% $user_added_rows_already += 1 %>
   <% sum = 0 %>
   <tr>
     <td>
       <%= text_field_tag :transaction, mitag %>
     </td>
     <% months = [] %>
-    fill
+    <!-- to create months list.. what if 3months?  Connect to setings? -->
     <% 12.times { months << "" } %>
     
     <% @transactions.each do |row,i| %>
@@ -17,7 +20,7 @@
 
     <% months.each do |val| %>
       <td>
-        <%= text_field_tag :transaction, val.to_f%>
+        <%= text_field_tag :transaction, val.to_f, class: "user-input-amt" %>
       </td>
     <% end %> 
     <td><%= sum %></td>

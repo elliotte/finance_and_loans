@@ -27,11 +27,12 @@ class CashFlowLedgersController < ApplicationController
 	end
 
 	def add_transactions
-		params["transactions"].each do |key,value|
+		params["transactions"].each do | key, value|
+			# byebug
 			unless value[:monea_tag].blank?				
 				common_attr = value.slice(:monea_tag,:type,:mi_tag)
 				months = value.except(:monea_tag,:type,:mi_tag).reject{ |k, v| v.blank? }		
-				months.each do |sub_key,sub_value|
+				months.each do |sub_key, sub_value|
 					@transaction = @ledger.transactions.build
 					@transaction.type = common_attr[:type]
 					@transaction.monea_tag = common_attr[:monea_tag]

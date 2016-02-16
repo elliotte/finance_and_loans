@@ -1,6 +1,6 @@
  <!-- constant with inc vat tBody -->
- 
- <% 4.times do |row| %>
+ <% total_to_render = 4 - $user_added_rows_already %>
+ <% total_to_render.times do |row| %>
   <tr data-pb-tag="<%= $rev_tags.first %>" data-pb-type="Debit">
       <!-- Row MITAG cell -->
       <td>
