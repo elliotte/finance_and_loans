@@ -34,7 +34,10 @@
                             </thead>
                              
                              <tbody id="revenue-inc-vat">
-                                  <%unless @transactions.blank?%><%= render 'sales_revenue' %><%end%>
+                                  <!-- FETCH & RENDER SAVED -->
+                                  <% unless @transactions.blank? %>
+                                     <%= render 'sales_revenue' %>
+                                  <% end %>
                                   <%= render 'input_table_body' %>
                                   <!-- SAVE BUTTON -->
                                   <tr>
