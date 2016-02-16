@@ -49,19 +49,19 @@ class User < ActiveRecord::Base
       WelcomeService.new(report_gaap).load_gaap_report(values)
   	end
 
-  	def load_welcome_ledgers
-      file = "#{Rails.root}/files/with_vat_ledgerCSV.csv"
-      vat_trns = ParseDefaultCSV.new(file).return_data
-      vat_ledger = self.ledgers.create(user_tag: "Demo Cash with VAT, simple booking, TBs and exporting", type: "CashLedger")
-      WelcomeService.new(vat_ledger).load_ledger(vat_trns)
-  	end
+  	# def load_welcome_ledgers
+   #    file = "#{Rails.root}/files/with_vat_ledgerCSV.csv"
+   #    vat_trns = ParseDefaultCSV.new(file).return_data
+   #    vat_ledger = self.ledgers.create(user_tag: "Demo Cash with VAT, simple booking, TBs and exporting", type: "CashLedger")
+   #    WelcomeService.new(vat_ledger).load_ledger(vat_trns)
+  	# end
 
-    def load_welcome_sales
-      ledger = self.ledgers.create(user_tag: "Demo sales: 3 months folder ", type: "SalesLedger")
-      return if ledger.nil?
-      ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 4560.00, vat: 345.00, description: "First sale in monea.build", paid: false)
-      ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 14560.00, vat: 3145.00, description: "2nd sale in monea.build", paid: false)
-    end
+   #  def load_welcome_sales
+   #    ledger = self.ledgers.create(user_tag: "Demo sales: 3 months folder ", type: "SalesLedger")
+   #    return if ledger.nil?
+   #    ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 4560.00, vat: 345.00, description: "First sale in monea.build", paid: false)
+   #    ledger.transactions.create(type: "Transaction", acc_date: Time.now, amount: 14560.00, vat: 3145.00, description: "2nd sale in monea.build", paid: false)
+   #  end
 
 end
 
