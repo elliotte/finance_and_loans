@@ -144,7 +144,7 @@ function parseUserInputTable(tableID, storageKey) {
           url: '/cash_flow_ledgers/'+ $("#cashflow_id").val() +'/add_transactions',
           data: {"transactions" : JSON.parse(localStorage.getItem(storageKey))},
           method: 'POST',
-          dataType: 'JSON'
+          dataType: 'SCRIPT'
         })
 
 }
