@@ -105,22 +105,31 @@ function parseUserInputTable(tableID, storageKey) {
         }
         // cache revenue with VAT table from DOM
         var cachedData = [];
-        var $revenuInputRows = $(tableID).each(function(index) {
-            
+        var $revenuInputRows = $(tableID).each(function(index) {            
             profitBeesTag = $(this).data('pb-tag')
+            transactionType = $(this).data('pb-type')
 
             $rowOfCells = $(this).find("td");
             //console.log($rowOfCells)
-            rowData = []
-            rowData.push(profitBeesTag)
-
+            rowData = {}
+            rowData["monea_tag"]= profitBeesTag
+            rowData["type"]= transactionType
             $rowOfCells.each(function(cellIndex) {
               amountInput = $(this).find("input").val()
               // check truthy evaluation to filter save button
-               rowData.push(amountInput)
+                if(cellIndex==0)
+                {
+                 rowData["mi_tag"] = amountInput 
+                }
+                else
+                {
+                  rowData[cashFlowDateRange[cellIndex-1]]=amountInput
+                }
+               
             });
             // remove total <td> column
-            rowData.pop()
+            
+            //rowData[index].pop()
             cachedData.push(rowData)    
         }); 
         // remove save button <tr> row
@@ -128,9 +137,15 @@ function parseUserInputTable(tableID, storageKey) {
         console.log(cachedData)
         // set data to localStorage for future usage
         setLocalStorage(storageKey, cachedData);
-// Convert to JSON (Note: jQuery will also do this for you on the Ajax request)
+        // Convert to JSON (Note: jQuery will also do this for you on the Ajax request)
               // var myObj = {};
-              // myObj.rows = cachedData;
+              // myObj.rows = cachedData;      
+        $.ajax({          
+          url: '/cash_flow_ledgers/'+ $("#cashflow_id").val() +'/add_transactions',
+          data: {"transactions" : JSON.parse(localStorage.getItem(storageKey))},
+          method: 'POST',
+          dataType: 'SCRIPT'
+        })
 
 }
 

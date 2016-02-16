@@ -1,0 +1,19 @@
+<% @transactions.map(&:mi_tag).uniq.each do |mitag| %>
+  <%sum =0%>
+  <tr>
+    <td>
+    <%= text_field_tag :transaction, mitag%>
+    </td>
+    <% @transactions.each do |row| %>
+
+      <%if row.mi_tag== mitag%>
+        <td>
+          <%= text_field_tag :transaction, row.amount%>
+          <%sum = sum+ row.amount.to_f%>
+        </td>
+      <%end%>
+
+    <%end%> 
+    <td><%= sum%></td>
+  </tr>
+<%end%>
