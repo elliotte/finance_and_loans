@@ -1,2 +1,5 @@
 $('#bg-screen-for-modal').addClass('open')
-$('#bg-screen-for-modal').find('section').empty().append("Successfully Saved")
+
+link = '<a href="<%=  cash_flow_ledger_path(@ledger) %>"> ' + 'REFRESH' + '</a>'
+
+$('#bg-screen-for-modal').find('section').empty().append("Successfully Saved"+ link)
