@@ -117,13 +117,13 @@ function parseUserInputTable(tableID, storageKey) {
             $rowOfCells.each(function(cellIndex) {
               amountInput = $(this).find("input").val()
               // check truthy evaluation to filter save button
-                if(cellIndex==0)
+                if ( cellIndex == 0 )
                 {
                  rowData["mi_tag"] = amountInput 
                 }
                 else
                 {
-                  rowData[cashFlowDateRange[cellIndex-1]]=amountInput
+                  rowData[ cashFlowDateRange[ cellIndex - 1 ] ] = amountInput
                 }
                
             });

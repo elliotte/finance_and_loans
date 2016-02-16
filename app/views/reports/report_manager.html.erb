@@ -1,7 +1,9 @@
+
+<!-- mmmm need to extract out common stuff reportShowHelper bpSHOW isnt here in manager -->
 <%= javascript_include_tag 'bpShow' %>
 
 <%#= render partial: 'button_board', locals: {report: @report} %>
- <% if @report.format == "UKGAAP" %>
+<% if @report.format == "UKGAAP" %>
   <% $select_tags = Tag.report_mgr_gaap_options %>
 <% else %> 
   <% $select_tags = Tag.report_mgr_ifrs_options %>
