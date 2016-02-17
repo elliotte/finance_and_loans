@@ -78,7 +78,7 @@ end
 gem 'oauth2'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
-
+gem 'rails_12factor', group: :production
 # OLD OneDrive GEMS
 # gem 'skydrive'
 # gem 'rest-client'
