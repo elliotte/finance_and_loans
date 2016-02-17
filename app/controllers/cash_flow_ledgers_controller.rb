@@ -5,9 +5,8 @@ class CashFlowLedgersController < ApplicationController
 	def show
 	    #change cf settings column to assumptions			
 	    @settings = @ledger.cf_settings.symbolize_keys
-	    transactions = @ledger.transactions
-	    #why group by ID?
-	    @transactions = transactions.all.group([:id, :mi_tag]).order(:acc_date)  
+	    #in group by through association id is mandatory
+	    @transactions = @ledger.transactions.group([:id, :mi_tag]).order(:acc_date)	    
 	end
 
 	def fetch_cf_data_input_form 
@@ -41,6 +40,8 @@ class CashFlowLedgersController < ApplicationController
 					@transaction.acc_date = Date.parse(sub_key)
 					@transaction.save
 				end
+			else
+				update_transactions(value)
 			end
 		end		
 	end
@@ -51,4 +52,11 @@ class CashFlowLedgersController < ApplicationController
 		@ledger = CashFlowLedger.find(params[:id])
 	end
 
+	def update_transactions(transaction_value)
+		trans_key = transaction_value.except(:monea_tag,:type,:mi_tag)
+		trans_key.each do |key,value|
+			transaction = Transaction.where("mi_tag=? and acc_date=?",transaction_value[:mi_tag],Date.parse(key)).first 
+			transaction.update(:amount=> value) unless transaction.blank?
+		end				
+	end
 end

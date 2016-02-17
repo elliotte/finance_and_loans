@@ -5,7 +5,7 @@
   <% sum = 0 %>
   <tr>
     <td>
-      <%= text_field_tag :transaction, mitag %>
+      <%= text_field_tag :transaction, mitag,:readonly=> true %>
     </td>
     <% months = [] %>
     <!-- to create months list.. what if 3months?  Connect to setings? -->
