@@ -58,6 +58,10 @@
 
 <span style="display:none;" id="cf-control-selector" data-months="<%= $no_of_columns %>"></span>
 
+<% $user_added_rows_already = 0 %>
+<% $total = [] %>
+<% 12.times { $total << 0 } %>
+
 <%= render 'revenue' %>
 <%= render 'cost_of_sale' %>
 <%= render 'capex' %>

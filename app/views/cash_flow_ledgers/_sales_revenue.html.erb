@@ -1,6 +1,3 @@
-<% $user_added_rows_already = 0 %>
-<% $total = [] %>
-<% 12.times { $total << 0 } %>
 
 <% @transactions.map(&:mi_tag).uniq.each do | mitag | %>
   <% $user_added_rows_already += 1 %>
@@ -9,6 +6,7 @@
     <td>
       <%= text_field_tag :transaction, mitag,:readonly=> true %>
     </td>
+    
     <% months = [] %>
 
     <!-- to create months list.. what if 3months?  Connect to setings? -->
