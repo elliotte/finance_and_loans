@@ -1,5 +1,6 @@
 <% $user_added_rows_already = 0 %>
-
+<% $total = [] %>
+<% 12.times { $total << 0 } %>
 <% @transactions.map(&:mi_tag).uniq.each do | mitag | %>
   <% $user_added_rows_already += 1 %>
   <% sum = 0 %>
@@ -8,13 +9,15 @@
       <%= text_field_tag :transaction, mitag,:readonly=> true %>
     </td>
     <% months = [] %>
+
     <!-- to create months list.. what if 3months?  Connect to setings? -->
     <% 12.times { months << "" } %>
     
     <% @transactions.each do |row,i| %>
       <% if (row.mi_tag == mitag ) %>
           <% months[ row.acc_date.month - 1 ] = row.amount%>
-          <% sum = sum + row.amount.to_f %>                  
+          <% sum = sum + row.amount.to_f %> 
+          <% $total[ row.acc_date.month - 1 ] += row.amount %>                
       <% end %>
     <% end %>
 
