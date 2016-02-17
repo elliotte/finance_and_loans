@@ -6,7 +6,7 @@
     <div class="hero-inner">
     <a href="/welcome/auth_landing" class="hero-logo"><img src="<%= asset_path('home-icon.png') %>"></a>
       <div class="hero-copy">
-        <h1 style="color:#d61579;">BoardPacks</h1>
+        <h1 style="color:#d61579;">CashFlow Projections</h1>
         <p style="color:#d61579;">ProfitBees</p>  
       </div>
     </div>
@@ -18,11 +18,10 @@
         <div class="dropdown">
           <div class="dropdown-container">
             <p class="dropdown-description">New</p>
-            <p class="dropdown-button">BoardPack</p>
+            <p class="dropdown-button">CashFLow</p>
             <ul class="dropdown-menu dropdown-select">
-              <li>Management</li>
+              <li>Create</li>
               <li><%= link_to 'UK-GAAP', new_report_path(format: 'UKGAAP'), remote: true, class: 'fill-parent' %></li>
-              <li><%= link_to 'IFRS', new_report_path(format: 'IFRS'), remote: true, class: 'fill-parent' %></li>
             </ul>
           </div>
         </div>
@@ -33,7 +32,7 @@
   <article class="type-system-slab">
     <h2>Your Work</h2>
     <div class="cards">
-        <% @reports.each do | boardPack | %>
+        <% @cashflows.each do | boardPack | %>
            <% $randPic = rand(1..142) %>
            <a href="<%= report_path(boardPack) %>" class="card">
               <div class="card-image">
@@ -57,25 +56,7 @@
   <article class="type-system-slab">
     <h2>Work Shared With You</h2>
     <div class="cards">
-      <% unless @shared_reports.blank? %>
-        <% @shared_reports.each do | boardPack | %>
-          <% $randPic = rand(1..142) %>
-          <a href="<%= report_path(boardPack) %>" class="card">
-            <div class="card-image">
-              <img src="<%= asset_path("#{$randPic}" + '.jpg') %>" alt="">
-            </div>
-            <div class="card-header">
-              <%= truncate(boardPack.title, length: 40) %>
-            </div>
-            <div class="card-copy">
-              <p><%= boardPack.format %></p>
-              <p><%= truncate(boardPack.summary, length: 80) %></p>
-            </div>
-          </a>
-        <% end %>
-      <% else %>
-        No reports Shared with you
-      <% end %>
+     
     </div>
   </article>
 </section>

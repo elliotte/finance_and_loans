@@ -1,7 +1,8 @@
 <!-- CASHFLOW ONLY JS -->
 <%= javascript_include_tag 'cashflow' %>
 
-<%= hidden_field_tag "cashflow_id",@ledger.id%>
+<%= hidden_field_tag "cashflow_id", @ledger.id %>
+
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
        <div>  
@@ -103,6 +104,8 @@
 <%#= render 'biz_development_costs' %>
 <%= render 'running_costs' %>
 <%= render 'administration_costs' %>
+<%= render 'finance_running_costs' %>
+
 
 
 <%= render 'cash_flow_summary' %>

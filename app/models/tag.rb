@@ -93,16 +93,46 @@ class Tag
 		result
     end
 
+    def self.gaap_cashflow_op_cost_options
+    	Tag.gaap_fin_stat_tags[:op_admin].reject do |tag|
+    		invalid_tags_for_cashflow.include?(tag)
+    	end
+    end
+
 	# HELPER IFRS FIN STAT	
 	def self.extract_unique_keys 
 		yield.flat_map(&:keys).uniq
 	end
+
 	def self.default_mitag
 		"No-miTag"
 	end
 
 	def self.default_monea_tag
 		"No-Mapping"
+	end
+
+	def self.invalid_tags_for_cashflow
+		[
+		  "Wages and salaries", 
+		  "Directors' salaries",
+		  "Employer's NI",
+		  "Depreciation", "Amortisation of goodwill",
+		  "Depreciation of owned fixed assets",
+		  "Depreciation of leased assets",
+		  "Amortisation of goodwill",
+		  "Directors' remuneration",
+		  "Auditors' remuneration",
+		  "Courier services",
+		  "Use of home",
+		  "Software",
+		  "Cleaning",
+		  "Information and publications",
+		  "Staff training and welfare",
+		  "Pensions",
+		  "Non-equity dividends",
+		  "Management fees"
+		]
 	end
 
 end

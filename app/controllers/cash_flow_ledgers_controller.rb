@@ -10,7 +10,7 @@ class CashFlowLedgersController < ApplicationController
 	end
 
 	def fetch_cf_data_input_form 
-		 @drivers = @ledger.drivers
+		@drivers = @ledger.drivers
 	end
 
 	def update_cf_settings
@@ -46,7 +46,7 @@ class CashFlowLedgersController < ApplicationController
 		end		
 	end
 
-	private
+private
 
 	def set_ledger
 		@ledger = CashFlowLedger.find(params[:id])
@@ -54,9 +54,9 @@ class CashFlowLedgersController < ApplicationController
 
 	def update_transactions(transaction_value)
 		trans_key = transaction_value.except(:monea_tag,:type,:mi_tag)
-		trans_key.each do |key,value|
-			transaction = Transaction.where("mi_tag=? and acc_date=?",transaction_value[:mi_tag],Date.parse(key)).first 
-			transaction.update(:amount=> value) unless transaction.blank?
+		trans_key.each do |key, value|
+			transaction = Transaction.where("mi_tag=? and acc_date=?", transaction_value[:mi_tag], Date.parse(key) ).first 
+			transaction.update( :amount=> value ) unless transaction.blank?
 		end				
 	end
 end

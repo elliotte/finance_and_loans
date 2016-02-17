@@ -1,4 +1,4 @@
-		
+
 		<% if @cashflows.count == 0 %>
 
 			<div class="hives-box fade-in-element nice-display">
@@ -14,7 +14,7 @@
 						<p class="date">Start Working</p>
 					</aside>
 					<aside class="last-box">
-						  <a href="javascript:void(0)" class="lovely-link-button">View All</a>
+						  <%= link_to "View All", ledgers_path, class: "lovely-link-button" %>
 					</aside>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 						<p class="date">Create more</p>
 					</aside>
 					<aside class="last-box">
-						   <a href="javascript:void(0)" class="lovely-link-button">View All</a>
+						  <%= link_to "View All", ledgers_path, class: "lovely-link-button" %>
 					</aside>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 						<p>CashFlow projections</p>
 					</aside>
 					<aside class="box-hover">
-						<% $cf_1 = @cashflows.last %>
+						<% $cf_1 = @cashflows.first %>
 						<a href="<%= cash_flow_ledger_path($cf_1) %>">
 							<p><span><%= truncate($cf_1.user_tag, length: 40) %></span></p>
 							<p class="date"><%= time_ago_in_words($cf_1.updated_at) %> ago</p>
@@ -70,7 +70,7 @@
 						</a>
 					</aside>
 					<aside class="last-box">
-						  <a href="javascript:void(0)" class="lovely-link-button">View All</a>
+						 <%= link_to "View All", ledgers_path, class: "lovely-link-button" %>
 					</aside>
 				</div>
 			</div>

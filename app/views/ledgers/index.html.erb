@@ -1,50 +1,113 @@
 
-  <!-- DIGITAL BUSINESS BOOKKEEPING -->
-  <div id="landing-loadwrapper">
-      <!-- CONTAINS A SLIDE NAV OR LANDING ONLY -->
-      <%= render 'shared/baselayout' %>
-      <%# bg_img = asset_path('city-pic.jpg') %>
-      <% bg_img = asset_path('bg_02.JPG') %>
-      <div class="hero" style="background: url('<%= bg_img %>') no-repeat center center; background-size:cover;  ">
-        <div class="hero-inner">
-          <a href="http://quiet-shore-5196.herokuapp.com/" target="_blank" class="hero-logo">
-            <img src="<%= asset_path('MAP.png') %>" alt="Logo Image">
-          </a>
-          <div class="hero-copy">
-            <article class="type-system-rounded">
-              <h1>monea.ledgers</h1>
-              <p style="color:white;">Digital business bookkeeping and ledger management</p>
-            </article>
+<%= javascript_include_tag 'indexesJS' %>
+
+<div class="hero reports-hero-index">
+  <article class="type-system-slab">
+    <div class="hero-inner">
+    <a href="/welcome/auth_landing" class="hero-logo"><img src="<%= asset_path('home-icon.png') %>"></a>
+      <div class="hero-copy">
+        <h1 style="color:#d61579;">CashFlow Projections</h1>
+        <p style="color:#d61579;">ProfitBees</p>  
+      </div>
+    </div>
+  </article>
+</div>
+
+<article class="type-system-slab">
+    <section class="index-display-container align-children-center">
+        <div class="dropdown">
+          <div class="dropdown-container">
+            <p class="dropdown-description">New</p>
+            <p class="dropdown-button">CashFLow</p>
+            <ul class="dropdown-menu dropdown-select">
+              <li><%= link_to 'UK-GAAP', new_ledger_path(type: 'CashFlowLedger'), remote: true, class: 'fill-parent' %></li>
+            </ul>
           </div>
         </div>
-      </div>
+    </section>
+</article>
+
+<section class="index-display-container">
+  <article class="type-system-slab">
+    <h2>Your Work</h2>
+    <div class="cards">
+        <% @cashflows.each do | cashFLow | %>
+           <% $randPic = rand(1..142) %>
+           <a href="<%= ledger_path(cashFLow) %>" class="card">
+              <div class="card-image">
+                <img src="<%= asset_path("#{$randPic}" + '.jpg') %>" alt="">
+              </div>
+              <div class="card-header">
+                <%= truncate(cashFLow.user_tag, length: 40) %>
+              </div>
+              <div class="card-copy">
+                <p><%#= boardPack.format %></p>
+                <p><%= time_ago_in_words(cashFLow.updated_at) %> ago</p>
+              </div>
+           </a>
+        <% end %>
+    </div>
+    <!-- END OF CARDS DIV -->
+  </article>
+</section>
+
+<section class="index-display-container">
+  <article class="type-system-slab">
+    <h2>Work Shared With You</h2>
+    <div class="cards">
+     
+    </div>
+  </article>
+</section>
+
+<section class="index-display-container">
+  <article class="type-system-slab">
+  </article>
+</section>
+
+<footer class="footer-indexes" role="contentinfo">
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><a href="javascript:void(0)">Products</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="javascript:void(0)">YouTube</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
   </div>
 
-  <div class="main-container">
-      <div id="user-action-bar">
-          <article class="type-system-rounded">
-            <div class="dropdown">
-                <div class="dropdown-container">
-                  <p class="dropdown-description">ledger.new</p>
-                  <p class="dropdown-button">Choose</p>
-                  <ul class="dropdown-menu dropdown-select">
-                    <li><%= link_to 'Cashbook', new_ledger_path(type: 'CashLedger'), remote: true, class: 'button'%></li>
-                    <li><%= link_to 'Salesbook', new_ledger_path(type: 'SalesLedger'), remote: true, class: 'button'%></li>
-                  </ul>
-                </div>
-            </div>
-          </article>
-        </div>
-      <%= render partial: 'all_ledgers' %>
-  </div>
+  <hr>
+  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+  
+</footer>
 
-  <%= render 'shared/modals' %>
+<script>
 
-  <script>
-    // $('#disconnect').on('click', function(e) {
-    //     e.preventDefault();
-    //     helper.disconnectUser()
-    //     helper.disconnectServer();
-    //     window.location.href = "/"
-    // });
-  </script>
+  $(document).ready(function() {
+    $(".dropdown-button").click(function() {
+      var $button, $menu;
+      $button = $(this);
+      $menu = $button.siblings(".dropdown-menu");
+      $menu.toggleClass("show-menu");
+      $menu.children("li").click(function() {
+        $menu.removeClass("show-menu");
+        $button.html($(this).html());
+      });
+    });
+  });  
+ </script>
+
+

@@ -1,12 +1,13 @@
 
-<% $running_cost_tags = Tag.gaap_cashflow_op_cost_options[0..10] %>
+<!-- LIST OF TAGS MINUS LOAN INTEREST EXPENSE AS CAPTURED IN LOAN BORROWINGS -->
+<% $finance_running_cost_tags = Tag.gaap_fin_stat_tags[:pbiat_cos][1..-1] %>
 
 <section class="layout-container">
   <article class="type-system-slab">
 
       <ul class="accordion">
           <li>
-                <a href="javascript:void(0)" class="js-accordion-trigger">Business Running costs <span class="lovely-blue">[inc-VAT]</span> :</a>
+                <a href="javascript:void(0)" class="js-accordion-trigger">Business Finance costs <span class="lovely-blue">[inc-VAT]</span> :</a>
                 <ul class="submenu">
                   <li class="">
                         <table id="" class="table-minimal">
@@ -28,7 +29,7 @@
                                   </tr>
                              </thead>
                              <tbody>
-                                  <% $running_cost_tags.each do |tag| %>
+                                  <% $finance_running_cost_tags.each do |tag| %>
                                     <tr>
                                         <td><input type="text" name="transaction[description]" placeholder="<%= tag %>"</th>
                                         <% $no_of_columns.times do |row| %>
@@ -44,48 +45,7 @@
                 </ul>
             <!-- END OF GRAPH DATA -->
           </li>
-          <li>
-                <a href="javascript:void(0)" class="js-accordion-trigger">Business Running costs <span class="lovely-blue">[ex-VAT]</span> :</a>
-                <ul class="submenu">
-                  <li class="">
-                          
-                          <table id="" class="table-minimal">
-                             <thead>
-                                  <tr class="lovely-pink">
-                                      <th style="min-width:10em;"></th>
-                                      <!-- START OF PROJECTIONS ANCHOR -->
-                                      <th><%= $start_date.strftime("%b %Y") %></th>
-
-                                      <% $i = 1 %>
-                                      <% begin %>
-                                        <th>
-                                          <%= ($start_date + $i.month).strftime("%b %Y") %>
-                                        </th>
-                                        <% $i +=1 %>
-                                      <% end while $i < $no_of_columns %>
-
-                                      <th>Total</th>
-                                  </tr>
-                             </thead>
-                             <tbody>
-                                  <% 5.times do |row| %>
-                                    <tr>
-                                        <td>
-                                          <input type="text" name="transaction[description]" placeholder="Add your line description">
-                                        </td>
-                                        <% $no_of_columns.times do |row| %>
-                                            <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
-                                        <% end %>
-                                        <td></td>
-                                    </tr>
-                                  <% end %>
-                            </tbody>
-                        </table>
-                        <!-- END OF BS TABLE -->
-                  </li>
-                </ul>
-            <!-- END OF GRAPH DATA -->
-          </li>
+          <!-- END OF ACCORD DROPDOWN -->
       </ul>
         <!-- END OF ACCORDIAN CONTAINRE -->
   </article>

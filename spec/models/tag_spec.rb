@@ -87,6 +87,19 @@ describe Tag do
           expect(tags.first).to eq "Purchases"
           expect(tags.last).to eq "Other direct costs"
        end
+       it 'should have 30 GAAP operating admin cost tags' do
+          tags = Tag.gaap_cashflow_op_cost_options
+          expect(tags.count).to eq 30
+       end
+       it 'should have 49 total tags with invalid' do
+          tags = Tag.gaap_cashflow_op_cost_options.count
+          invalid = Tag.invalid_tags_for_cashflow.count
+          expect((tags + invalid)).to eq 49
+       end
+       it 'should have 6 business finance costs' do
+          tags = Tag.gaap_fin_stat_tags[:pbiat_cos]
+          expect(tags.count).to eq 6
+       end
     end
   
   end
