@@ -46,7 +46,6 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-gem 'rails_12factor', group: :production
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -78,7 +77,11 @@ end
 gem 'oauth2'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
-gem 'rails_12factor', group: :production
+ 
+group :production do 
+  gem 'rails_12factor'
+  gem 'dalli'
+end
 # OLD OneDrive GEMS
 # gem 'skydrive'
 # gem 'rest-client'
