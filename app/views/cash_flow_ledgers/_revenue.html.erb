@@ -1,7 +1,7 @@
 <!-- FOR internal ProfitBees Financial Reporting Mapping -->
 <% $rev_tags = Tag.gaap_fin_stat_tags[:gp_sales] %>
 
-<section class="layout-container">
+<section class="layout-container" id="revenueTable">
   <article class="type-system-slab">
 
       <ul class="accordion">
@@ -93,14 +93,14 @@
 <!-- TOTAL REVENUE TABLE -->
 <section class="layout-container">
   <article class="type-system-slab">
-      <table id="" class="table-minimal">
+      <table id="total" class="table-minimal">
              <tbody>
                 <thead>
                       <tr class="lovely-pink">
                           <%= render 'input_table_headers' %>
                       </tr>
                  </thead>
-                 <tbody>
+                 <tbody >
                         <tr>
                             <td>
                               Total Cash In

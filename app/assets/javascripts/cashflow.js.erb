@@ -5,6 +5,7 @@ $(document).on('page:load ready', function(){
     // set user cell input listeners
     $( ".user-input-amt" ).change(function() {
         cashFlowHelper.updateRowTotalWith( $(this) )
+        cashFlowHelper.updateColumnTotal( $(this) )
     })
     // set revenue table input listeners
     $('#save-rev-inc-vat').on('click', function() {
@@ -76,8 +77,34 @@ var cashFlowHelper = (function() {
               console.log(sumTotal)
               
         },
+        updateColumnTotal: function(userInput){
+          var sum = 0;
+          var tables = $("#revenueTable").find("tbody") // find tbody from current cell
+          inputCellIndex = userInput.parent().index() 
+          var totalTableRows = $("#total").find("tr") 
+          for (j=0; j<(tables.length);j++){   
+            var tableRows = tables[j].rows
+            var i;
+            var howManyRows = tableRows.length
+            for (i=0; i<(howManyRows); i++) // skip first (hence i=1)
+              {
+                var thisTrElem = tableRows[i];
+                var thisTdElem = thisTrElem.cells[inputCellIndex];      
+                var thisNodeVal = thisTdElem.children[0].value
+                // try to convert text to numeric
+                var thisNumber = parseFloat(thisNodeVal);
+                // if you didn't get back the value NaN (i.e. not a number), add into result
+                if (!isNaN(thisNumber))
+                  {
+                    sum += thisNumber;
+                    totlaColumnTd = totalTableRows[1].cells[inputCellIndex]
+                    totlaColumnTd.children[0].value = sum
+                  }
+
+              } // end for
+          } 
+        },
       };
-      // END OF RETURN
 })();
 
 // helper for setting CashFlow localStorage Data
