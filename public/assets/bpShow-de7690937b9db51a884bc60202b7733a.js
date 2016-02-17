@@ -1,0 +1,372 @@
+
+$(document).on('page:load ready', function(){
+    
+    uiSharedHelper.setAccordianHandlers(); 
+
+    data = reportShowHelper.loadShowPageData();
+    graphHelper.drawReportShowCharts(data);
+
+    $('#new-work-icon').click(function(){
+        slideBar =  $( ".slider-action-bar" )
+        if (slideBar.width() > 70 ) {
+          // HIDE BAR
+           slideBar.animate({ width: "40" }, 1000 )
+           slideBar.children('a').fadeOut();
+           slideBar.children('a').remove();
+
+        } else {
+           // OPEN BAR
+            slideBar.animate({ width: "20%" }, {
+              duration: 2000,
+              complete: function() {
+                actionButtons = $('#hidden-buttons-for-bar').children('a').clone();
+                  slideBar.append(actionButtons);
+              }
+            });
+        }
+        // END OF IF
+    });
+
+});
+
+var reportShowHelper = (function() {
+      
+      var showPageData = {
+          'cp' : "",
+          'pp' : "",
+      }
+      // FOR ADD JOURNALS FORM
+      var values_index = 2;
+
+      return {
+
+        filterBy: function(info) {
+          filterVariable = $(info).offsetParent().find(".summary").text().replace(/\s/g, "").split(",")
+          filterFormat = $(info).attr("class")
+          
+          all_values = $('.trn-report-mgr')
+
+          switch (filterFormat) {
+            case "v_type":
+                filterValues('type');
+                break;
+            case "v_month":
+                filterValues('month');
+                break;
+            case "ifrstag":
+                filterValues('ifrstag');
+                break;
+            default:
+                filterValues('');
+          }
+          // END OF SWITCH
+
+          // START HELPER FUNCTION
+          function filterValues(format) {
+
+              $.each(all_values, function(i, value) {
+
+                valueID = $(value).data('value-id')
+                rowHandler = 'tr#' + valueID
+                valueProp = $(value).data(format)
+
+                if ((filterVariable.indexOf(valueProp)> -1 ) ||(filterVariable.indexOf("All")> -1)) {
+                  $(rowHandler).show()
+                } else {
+                  $(rowHandler).hide()
+                }
+
+              });
+
+          }
+          // END OF HELPER FUNCTION
+        },
+
+        loadValuesByMiTag: function(line, tag_type, period) {
+            lineDescription = $(line).data('mitag')
+            allValues = $('.'+ tag_type + '_' + lineDescription)
+            var keep = period;
+
+            allValues = $.grep(allValues, function(value) {
+              period = $(value).data('period')
+              return period == keep;
+            });
+            reportShowHelper.appendModalShowPageValues(allValues)
+        },
+
+        goTo: function(item) {
+            // only graph scroll so no item filter required
+            var aTag = $('#show-page-bar-chart');
+            $('html,body').animate( {scrollTop: aTag.offset().top}, 1000);
+        },
+
+        loadValuesByDescription: function(line, period) {
+           lineDescription = $(line).data('description')
+
+           allValues = $('.value-lookup')
+           var keep = period;
+
+           showValues = $.grep(allValues, function(value) {
+              period = $(value).data('period')
+              jsDesc = $(value).data('desc')
+              return period == keep && jsDesc == lineDescription;
+           });
+
+           reportShowHelper.appendModalShowPageValues(showValues)
+        },
+
+        loadJournalValues: function(line, period) {
+           lineDescription = $(line).data('description')
+
+           allValues = $('[class^="etb"]')
+           
+           var keep = period;
+           showValues = $.grep(allValues, function(value) {
+              period = $(value).data('period')
+              jsDesc = $(value).data('desc')
+              return period == keep && jsDesc == lineDescription;
+           });
+
+           reportShowHelper.appendModalShowPageValues(showValues)
+        },
+
+        appendModalShowPageValues: function(values) {
+            $('#bg-screen-for-modal').addClass('open')
+            body = $('#bg-screen-for-modal').find('section')          
+            body.empty().append('<div style="color:#477DCA;" id="table-title"></div>');
+            title = $('#table-title')
+            title.empty();
+            
+            header = '<table class="table-minimal"><tr style="color:#94CFD5;">' +
+                            '<td>' + 'Type' +'</td>' +
+                            '<td>' + 'Date' + '</td>' +
+                            '<td>' + 'miTag' + '</td>' +
+                            '<td>' + '£' + '</td>' +
+                            '<td>' + 'moneaTag' + '</td>' +
+                      '</tr>'
+              html=''
+            $.each(values, function(i, tag){
+
+               amt = addCommas($(tag).data('amount'))
+
+               html = html +'<tr>' +
+                            '<td>' +
+                              $(tag).data('type') +
+                            '</td>' +
+                            '<td>' +
+                              $(tag).data('date') +
+                            '</td>' +
+                            '<td>' +
+                              $(tag).data('mitag') +
+                            '</td>' +
+                            '<td>' +
+                              amt +
+                            '</td>' +
+                            '<td>' +
+                              $(tag).data('ifrstag') +
+                            '</td>' +
+                      '</tr>'
+
+            });
+            body.append(header+html+'</table>')
+            title.append('<p style="color:#FB7D98;">' + 'Summary:  ' + lineDescription + '</p>' + '<br>')
+            function addCommas(nStr) {
+                nStr += '';
+                var x = nStr.split('.');
+                var x1 = x[0];
+                var x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+            // helper for display nicely in modals
+        },
+
+        // END OF LOAD VALUES SUMMARY
+        loadShowPageData: function() {
+
+            var repShowData = {
+              'cp': "",
+              'pp': "",
+           };
+
+           all_cy_RepLines = $('.cy-graph-rep-lines')
+           data =[['yourTag','Amount']]
+
+           $.each(all_cy_RepLines, function(index, repLine) {
+              tag = $(repLine).data('key')
+              amt = $(repLine).data('amount')
+
+              if(typeof tag !== "undefined" && typeof amt !== "undefined") {
+                data.push([tag, amt])
+              }
+
+           });
+
+           repShowData['cp'] = data
+           all_pp_RepLines = $('.pp-graph-rep-lines')
+
+           data =[['yourTag','Amount']]
+
+           $.each(all_pp_RepLines, function(index, repLine) {
+              tag = $(repLine).data('key')
+              amt = $(repLine).data('amount')
+              if(typeof tag !== "undefined" && typeof amt !== "undefined") {
+                data.push([tag, amt])
+              }
+           });
+           
+           repShowData["pp"] = data
+           console.log(repShowData)
+           return repShowData
+
+        },
+        // END OF LOAD CACHE SHOW PAGE DATA
+        addValueToJournalForm: function() {
+            if(values_index > 30){
+              alert('Only 30 Values allowed');
+            } else {
+              var template = $('.value_template tbody').html();
+              template = template.replace(/index/g, values_index);
+              $('.etb_values tbody').append(template);
+              values_index++;
+            }
+        },
+        // END OF DRAW CHARTS FUNCTION
+      };
+      // END OF RETURN
+})();
+// END OF reportHelper
+
+// USED REPORT SHOW INSIDE NOTES PARTIAL
+function cacheNotes(reportId){
+  $.ajax({
+    url: '/reports/' + reportId + '/get_notes',
+    dataType: 'JSON',
+    type: 'GET',
+    success: function(response){
+      localStorage.setItem('notes', JSON.stringify(response))
+      showNotes()
+    }
+  })
+}
+// USED REPORT SHOW INSIDE COMMENTS PARTIAL
+function cacheComments(reportId){
+  $.ajax({
+    url: '/reports/' + reportId + '/get_comments',
+    dataType: 'JSON',
+    type: 'GET',
+    success: function(response){
+      localStorage.setItem('comments', JSON.stringify(response))
+      showComments()
+    }
+  })
+}
+
+function showComments(){
+  source = $('#comment-template').html();
+  templ = Handlebars.compile(source)
+  comments = JSON.parse(localStorage.getItem('comments'));
+  var comment_html = templ(comments)
+  $('.comments_data').html(comment_html);
+}
+
+function showNotes(){
+  source = $('#note-template').html();
+  templ = Handlebars.compile(source)
+  notes = JSON.parse(localStorage.getItem('notes'));
+  var notes_html = templ(notes)
+  $('.notes_data').html(notes_html);
+}
+
+function showReportShareModal(){
+  $('#bg-screen-for-modal').addClass('open')
+  
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)" style="text-decoration:none;color:#94CFD5;">' + ' Share' + '</a>'
+  $('#bg-screen-for-modal').find('section').empty().append('<p style="color:#94CFD5;font-size:80%;">' + 'You can search your friends list using the browser CTRL + F feature' + '</p>')
+
+  friends = JSON.parse(localStorage.getItem("friends")).items
+  $.each(friends, function(index, person) {
+    imgSrc = person.image.url
+    html = '<tr id="' + person.id + '">' +
+        '<td>' + '<img src="' + imgSrc + '" >' + '</td>' +
+        '<td>' + person.displayName + '</td>' +
+        '<td>' + link + '</td>' +
+    '</tr>'
+    $('#bg-screen-for-modal').find('section').append(html);
+
+  });
+}
+
+function shareReport(obj){
+  shareUserID = obj.parentNode.parentNode.getAttribute('id');
+
+  var token = $("meta[name='csrf-token']").attr("content");
+  reportId = $('#report-id').val();
+
+  var request = new XMLHttpRequest();
+  request.onload = shareSuccess;
+  //request.onerror = errorDisplay;
+  data = {
+    userID: shareUserID,
+  }
+  route = '/reports/' + reportId + '/share'
+  console.log(route)
+  request.open("put", route, true );
+  request.setRequestHeader("Content-Type", "application/json");
+  request.setRequestHeader("X-CSRF-Token", token);
+  request.send(JSON.stringify(data));
+  
+  function shareSuccess() {
+    
+      $('#bg-screen-for-modal').addClass('open')
+
+      response = this.responseText
+      if (response.indexOf("ERROR") > -1) {
+        html = '<p>' + 'ERROR' + '</p>' +
+             '<a href="/" data-no-turbolinks=true>' + 'RECONNECT' + '</a>'
+      } else {
+        html = '<td>' + 'Successfully shared Ledger with: ' + response + '</td>'
+      }
+      $('#bg-screen-for-modal').find('section').empty().append(html) 
+  }
+  // END OF SHARE SUCCESS
+}
+
+function getFriendsList(resp){
+  link = '<a href="javascript:void(0)" onclick="shareReport(this)">' + 'Share' + '</a>'
+          $("#friends").empty();
+          $.each(resp, function(index, person) {
+              imgSrc = person.image
+              html = '<tr id="' + person.id + '">' +
+              '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
+              '<td>' + person.displayName + '</td>' +
+              '<td>' + link + '</td>' +
+              '</tr>'
+              $('#bg-screen-for-modal').find('section').find("table").append(html);
+           });
+          $('#bg-screen-for-modal').find('section').find("table").append("</table>")
+          header = '<article class="type-system-slab">' + '<p>' + 'Search for your friends and collaborate' + '</p>' + '</article>'
+          $('#bg-screen-for-modal').find('section').prepend(header)
+}
+
+function intializeList(friends_id){
+  commonAutocomplete(" ",friends_id)
+}
+
+function commonAutocomplete (request,friends_id) {
+  $.ajax({
+    url: $(friends_id).data('autocompleteurl'),
+    type: "GET",
+    //dataType: 'json',
+    data: {
+      q: request.term
+    },
+    success: function(resp){
+      getFriendsList(resp)
+    }          
+  })
+}
+;
