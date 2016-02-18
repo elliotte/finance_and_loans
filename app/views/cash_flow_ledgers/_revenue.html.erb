@@ -1,5 +1,8 @@
 <!-- FOR internal ProfitBees Financial Reporting Mapping -->
 <% $rev_tags = Tag.gaap_fin_stat_tags[:gp_sales] %>
+<% $user_added_rows_already = 0 %>
+<% $total = [] %>
+<% 12.times { $total << 0 } %>
 
 <section class="layout-container" id="revenueTable">
   <article class="type-system-slab">
@@ -7,6 +10,7 @@
       <ul class="accordion">
           <li>
                 <a href="javascript:void(0)" class="js-accordion-trigger">Revenue ( Receipts ) <span class="lovely-blue">[inc-VAT]</span> :</a>
+
                 <ul class="submenu">
                   <li class="">
                         <table  class="table-minimal">
@@ -40,8 +44,11 @@
                                   <%= render 'input_table_body' %>
                                   <!-- SAVE BUTTON -->
                                   <tr>
-                                      <td id="save-rev-inc-vat" class="button-style"><%= submit_tag 'Save Details' %></td>
-                                      <% $no_of_columns.times do |row| %>
+                                      <td id="save-rev-inc-vat" class="button-style"><%= submit_tag 'Save Details' %>                        </td>
+                                      
+                                      <td><%= link_to "Export",export_transactions_to_csv_cash_flow_ledger_path(@ledger),:remote=>true,:class=>"button-style pull-right" %>
+                                      </td>
+                                      <% ($no_of_columns-1).times do |row| %>
                                           <td></td>
                                       <% end %>
                                       <td></td>
@@ -105,7 +112,7 @@
                               Total Cash In
                             </td>
                             <% $total.each do |total| %>
-                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>
+                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
                             <% end %>
                             <td><%= $total.inject(0, :+) %></td>
                         </tr>
