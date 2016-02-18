@@ -59,31 +59,40 @@ var cashFlowHelper = (function() {
         },
         // END OF FUNCTION
         updateRowTotalWith: function(userInput) {
+              miTag = userInput.parent().parent().find("input")[0].value
               
-              inputCell = userInput
-              // fetch row from DOM
-              inputRow = inputCell.parent().parent();
-              // find total cell
-              inputRowTotalCell = inputRow.find('td:last')
-              // fetch array of cells
-              $rowOfCells = $(inputRow).find("td");
-              
-              rowData = []
-              $rowOfCells.each(function(cellIndex) {
-                amountInput = $(this).find("input").val()
-                // check truthy evaluation to filter save button
-                rowData.push(amountInput)
-              });
-              // first cell is miTag and last is total column so slice
-              cleansedData = rowData.slice(1, ( rowData.length - 1) )
-              console.log(cleansedData)
+              if(miTag=="")
+                {
+                  alert("Add Mi Tag first")
+                  userInput.val("") 
+                  }
+              else
+              {
+                inputCell = userInput
+                // fetch row from DOM
+                inputRow = inputCell.parent().parent();
+                // find total cell
+                inputRowTotalCell = inputRow.find('td:last')
+                // fetch array of cells
+                $rowOfCells = $(inputRow).find("td");
+                
+                rowData = []
+                $rowOfCells.each(function(cellIndex) {
+                  amountInput = $(this).find("input").val()
+                  // check truthy evaluation to filter save button
+                  rowData.push(amountInput)
+                });
+                // first cell is miTag and last is total column so slice
+                cleansedData = rowData.slice(1, ( rowData.length - 1) )
+                console.log(cleansedData)
 
-              var sumTotal = cleansedData.reduce(function(a, b) {
-                return strToNumber(a) + strToNumber(b);
-              });
+                var sumTotal = cleansedData.reduce(function(a, b) {
+                  return strToNumber(a) + strToNumber(b);
+                });
 
-              inputRowTotalCell[0].innerText = sumTotal;
-              console.log(sumTotal)
+                inputRowTotalCell[0].innerText = sumTotal;
+                console.log(sumTotal)
+              }
               
         },
         updateColumnTotal: function(userInput){
