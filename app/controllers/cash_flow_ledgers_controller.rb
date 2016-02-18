@@ -76,4 +76,7 @@ private
 		@result = google_service.upload_new_file_csv("Transaction Summary"+ Date.today.to_s, session[:token])
     	@link = @result.data.alternateLink rescue "error"
 	end
+
 end
+
+

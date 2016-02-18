@@ -1,31 +1,4 @@
-Reporting Line,December 2014,December 2013,FS Mapping
-Sales,322759,283589,gp-rev
-Purchases,32057,75244,gp-cos
-Commissions payable,11769,18831,gp-cos
-Other operating income,0,0,op-rev
-Wages and salaries,16836,11100,op-cos
-Directors' salaries,10162,3023,op-cos
-Staff training and welfare,22873,-1081,op-cos
-Travel and subsistence,44169,-10452,op-cos
-Rent,11721,9365,op-cos
-Light and heat,7236,3111,op-cos
-Cleaning,16545,25587,op-cos
-Insurance,19513,-28746,op-cos
-Accountancy fees,12024,23029,op-cos
-Advertising and PR,9410,16976,op-cos
-Taxation on profit,2134,12422,tax
-Plant & machinery cost - b/fwd,48842,0,fa_tang
-Plant & machinery cost - additions,0,37224,fa_tang
-Cash in hand,31003,32320,curr_assets
-Trade debtors,3893,13503,curr_assets
-Other debtors,15878,5489,curr_assets
-Trade creditors,1537,3383,cred_current
-Other taxes and social security costs,36657,48268,cred_current
-Accruals and deferred sales,7016,14185,cred_current
-Other creditors,10335,15584,cred_current
-Bank loans,72542,79942,cred_greater
-Other creditors,10335,15584,cred_greater
-Profit and loss account,36341,31138,capital
-Ordinary shares,13733,13491,capital
-Dividends,0,600000,capital
-No-Mapping,5596434,4297299,capital
+MiTag,Jan'16,Feb'16,Mar'16,Apr'16,May'16,Jun'16,Jul'16,Aug'16,Sept'16,Oct'16,Nov'16,Dec'16
+Shop 1,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,"","",200.0
+Shop 2,0.0,200.0,500.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,"","",700.0
+Some stock,100.0,10.0,1000.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,"","",1210.0

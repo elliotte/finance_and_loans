@@ -113,6 +113,47 @@
 
 <%= render 'cash_flow_summary' %>
 
+
+<section class="layout-container">
+  <article class="type-system-slab">
+
+        <div class="cf-link-items">
+          
+            <%= link_to export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } do %>
+                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
+              <h3 class="lovely-pink">Export All</h3>
+            <% end %>
+            
+            <%= link_to export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } do %>
+                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
+              <h3 class="lovely-pink">Export to BoardPack</h3>
+            <% end %>
+           
+        </div>
+
+    </article>
+</section>
+
+<section class="layout-container">
+  <article class="type-system-slab">
+  </article>
+</section>
+
+<article class="type-system-slab">
+    <header class="show-nav" role="banner">
+       <div>  
+          <p><%= link_to 'Back', url_for(:back) %></p>
+       </div> 
+       <div>  
+          <a href="/welcome/auth_landing"><img id="user-to-auth-landing" src="<%= asset_path('pb-logo.png') %>"></a>
+       </div>  
+       <div>  
+          <p><%= link_to 'Reports Index', reports_path %></p>
+       </div> 
+    </header>
+</article>
+
+
 <section class="layout-container">
   <article class="type-system-slab">
   </article>

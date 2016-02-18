@@ -44,11 +44,12 @@
                                   <%= render 'input_table_body' %>
                                   <!-- SAVE BUTTON -->
                                   <tr>
-                                      <td id="save-rev-inc-vat" class="button-style" ><%= submit_tag 'Save Details' %>                        </td>
-                                      
-                                      <td><%= link_to "Export",export_transactions_to_csv_cash_flow_ledger_path(@ledger),:remote=>true,:data => {:confirm => 'Warmning!!  Your unsaved transaction will not be export'} %>
+                                      <td id="save-rev-inc-vat" class="button-style" >
+                                        <%= submit_tag 'Save Details' %>     
                                       </td>
-                                      <% ($no_of_columns-1).times do |row| %>
+                                      <td><%= link_to "Export", export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } %>
+                                      </td>
+                                      <% ( $no_of_columns-1 ).times do |row| %>
                                           <td></td>
                                       <% end %>
                                       <td></td>
