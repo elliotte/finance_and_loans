@@ -1,6 +1,6 @@
 <!-- CASHFLOW ONLY JS -->
 <%= javascript_include_tag 'cashflow' %>
-
+<%= hidden_field_tag "updateCalled", false %>
 <%= hidden_field_tag "cashflow_id", @ledger.id %>
 
 <article class="type-system-slab">
