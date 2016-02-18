@@ -58,6 +58,7 @@ Draftapp::Application.routes.draw do
       get :edit_cf_settings
       post :update_drivers
       post :add_transactions
+      get :export_transactions_to_csv
     end
   end
 

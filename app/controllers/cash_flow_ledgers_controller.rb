@@ -6,7 +6,7 @@ class CashFlowLedgersController < ApplicationController
 	    #change cf settings column to assumptions			
 	    @settings = @ledger.cf_settings.symbolize_keys
 	    #in group by through association id is mandatory
-	    @transactions = @ledger.transactions.group([:id, :mi_tag]).order(:acc_date)	    
+	    @transactions = group_transactions_and_return				    
 	end
 
 	def fetch_cf_data_input_form 
@@ -27,23 +27,31 @@ class CashFlowLedgersController < ApplicationController
 
 	def add_transactions
 		params["transactions"].each do | key, value|
-			# byebug
-			unless value[:monea_tag].blank?				
+
+			unless value[:monea_tag].blank?	
+				next if value[:mi_tag].blank?			
 				common_attr = value.slice(:monea_tag,:type,:mi_tag)
-				months = value.except(:monea_tag,:type,:mi_tag).reject{ |k, v| v.blank? }		
+				months = value.except(:monea_tag,:type,:mi_tag) #.reject{ |k, v| v.blank? }		
 				months.each do |sub_key, sub_value|
 					@transaction = @ledger.transactions.build
 					@transaction.type = common_attr[:type]
 					@transaction.monea_tag = common_attr[:monea_tag]
 					@transaction.mi_tag = common_attr[:mi_tag]
-					@transaction.amount = sub_value
+					@transaction.amount = sub_value.to_f 
 					@transaction.acc_date = Date.parse(sub_key)
 					@transaction.save
 				end
 			else
 				update_transactions(value)
 			end
-		end		
+		end	
+	end
+
+	def export_transactions_to_csv
+		@transactions = group_transactions_and_return
+		cash_flow_service = CashFlowService.new
+		cash_flow_service.export_transaction_csv(@transactions)
+		export_google_sheet_and_return_link unless current_user.uid.include? "Office365"				
 	end
 
 private
@@ -56,7 +64,16 @@ private
 		trans_key = transaction_value.except(:monea_tag,:type,:mi_tag)
 		trans_key.each do |key, value|
 			transaction = Transaction.where("mi_tag=? and acc_date=?", transaction_value[:mi_tag], Date.parse(key) ).first 
-			transaction.update( :amount=> value ) unless transaction.blank?
+			transaction.update( :amount=> value )
 		end				
+	end
+
+	def group_transactions_and_return
+		@ledger.transactions.group([:id, :mi_tag]).order(:acc_date)
+	end
+
+	def export_google_sheet_and_return_link
+		@result = google_service.upload_new_file_csv("Transaction Summary"+ Date.today.to_s, session[:token])
+    	@link = @result.data.alternateLink rescue "error"
 	end
 end
