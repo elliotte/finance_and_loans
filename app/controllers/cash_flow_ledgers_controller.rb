@@ -6,7 +6,8 @@ class CashFlowLedgersController < ApplicationController
 	    #change cf settings column to assumptions			
 	    @settings = @ledger.cf_settings.symbolize_keys
 	    #in group by through association id is mandatory
-	    @transactions = group_transactions_and_return				    
+	    @sales_transactions = group_transactions_and_return("Sales")
+	    @purchase_transactions = group_transactions_and_return("Purchases")
 	end
 
 	def fetch_cf_data_input_form 
@@ -68,8 +69,8 @@ private
 		end				
 	end
 
-	def group_transactions_and_return
-		@ledger.transactions.group([:id, :mi_tag]).order(:acc_date)
+	def group_transactions_and_return(tag)
+		@ledger.transactions.where(:monea_tag=>tag).group([:id, :mi_tag]).order(:acc_date)		
 	end
 
 	def export_google_sheet_and_return_link

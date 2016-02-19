@@ -1,6 +1,9 @@
 
 <% $cos_tags = Tag.gaap_fin_stat_tags[:gp_cos] %>
 
+<% $user_added_rows_already = 0 %>
+<% $total = [] %>
+
 <section class="layout-container">
   <article class="type-system-slab">
 
@@ -16,9 +19,12 @@
                                   </tr>
                              </thead>
                              <tbody id="cos-inc-vat">
+                                  <% unless @purchase_transactions.blank? %>
+                                     <%= render :partial=>'sales_revenue',:locals=>{:@transactions=>@purchase_transactions} %>
+                                  <% end %>
                                   <% $cos_tags.each do |tag| %>
                                     <!-- selector tag for caching data with mapping -->
-                                    <tr data-pb-tag="<%= tag %>">
+                                    <tr data-pb-tag="<%= tag %>" data-pb-type="Credit">
                                         <td><input type="text" name="transaction[description]" placeholder="Add <%= tag %>"></td>
                                         <% $no_of_columns.times do |row| %>
                                             <%= user_input_cell %>
@@ -55,7 +61,7 @@
                              <tbody id="cos-exc-vat">
                                   <% $cos_tags.each do |tag| %>
                                     <!-- selector tag for caching data with mapping -->
-                                    <tr data-pb-tag="<%= tag %>">
+                                    <tr data-pb-tag="<%= tag %>" data-pb-type="Credit">
                                         <td><input type="text" name="transaction[description]" placeholder="Add <%= tag %>"></td>
                                         <% $no_of_columns.times do |row| %>
                                             <%= user_input_cell %>
@@ -97,10 +103,10 @@
                             <td>
                               Total Cash Out
                             </td>
-                            <% $no_of_columns.times do |row| %>
-                                <td><input type="text" name="transaction[amount]" placeholder="0.00"></td>
+                            <% $total.each do |total| %>
+                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
                             <% end %>
-                            <td></td>
+                            <td><%= $total.inject(0, :+) %></td>
                         </tr>
                  </tbody>
             </tbody>

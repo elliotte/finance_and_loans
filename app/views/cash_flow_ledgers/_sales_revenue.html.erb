@@ -1,3 +1,4 @@
+<% 12.times { $total << 0 } %>
 
 <% @transactions.map(&:mi_tag).uniq.each do | mitag | %>
   <% $user_added_rows_already += 1 %>

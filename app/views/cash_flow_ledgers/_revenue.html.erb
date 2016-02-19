@@ -2,7 +2,6 @@
 <% $rev_tags = Tag.gaap_fin_stat_tags[:gp_sales] %>
 <% $user_added_rows_already = 0 %>
 <% $total = [] %>
-<% 12.times { $total << 0 } %>
 
 <section class="layout-container" id="revenueTable">
   <article class="type-system-slab">
@@ -38,8 +37,8 @@
                              
                              <tbody id="revenue-inc-vat">
                                   <!-- FETCH & RENDER SAVED -->
-                                  <% unless @transactions.blank? %>
-                                     <%= render 'sales_revenue' %>
+                                  <% unless @sales_transactions.blank? %>
+                                     <%= render :partial=>'sales_revenue',:locals=>{:@transactions=>@sales_transactions} %>
                                   <% end %>
                                   <%= render 'input_table_body' %>
                                   <!-- SAVE BUTTON -->
