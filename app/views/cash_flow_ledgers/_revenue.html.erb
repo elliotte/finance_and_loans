@@ -99,7 +99,7 @@
 <!-- TOTAL REVENUE TABLE -->
 <section class="layout-container">
   <article class="type-system-slab">
-      <table id="total" class="table-minimal">
+      <table id="revenue_total" class="table-minimal">
              <tbody>
                 <thead>
                       <tr class="lovely-pink">
@@ -111,6 +111,7 @@
                             <td>
                               Total Cash In
                             </td>
+                            <%$summary_total_in = $total%>
                             <% $total.each do |total| %>
                                 <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
                             <% end %>

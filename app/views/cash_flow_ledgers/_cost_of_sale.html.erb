@@ -91,7 +91,7 @@
 <!-- TOTAL COST of Sale TABLE -->
 <section class="layout-container">
   <article class="type-system-slab">
-      <table id="" class="table-minimal">
+      <table id="cost_total" class="table-minimal">
              <tbody>
                 <thead>
                       <tr class="lovely-pink">
@@ -103,6 +103,7 @@
                             <td>
                               Total Cash Out
                             </td>
+                            <%$summary_total_out = $total%>
                             <% $total.each do |total| %>
                                 <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
                             <% end %>

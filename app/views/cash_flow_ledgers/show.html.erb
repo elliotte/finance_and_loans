@@ -3,6 +3,9 @@
 <%= hidden_field_tag "updateCalled", false %>
 <%= hidden_field_tag "cashflow_id", @ledger.id %>
 
+<%$summary_total_in = []%>
+<%$summary_total_out = []%>
+
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
        <div>  

@@ -6,6 +6,7 @@ $(document).on('page:load ready', function(){
     $( ".user-input-amt" ).change(function() {
         cashFlowHelper.updateRowTotalWith( $(this) )
         cashFlowHelper.updateColumnTotal( $(this) )
+        cashFlowHelper.netColumnDifference( $(this) )
     })
     // set revenue table input listeners    
     $('#save-rev-inc-vat').on('click', function() {
@@ -91,10 +92,11 @@ var cashFlowHelper = (function() {
           var sum = 0;
           parentSection =  userInput.parent().parent().closest("section")
           totalSection = parentSection.next("section").find("table")
-           
+
           var tables = parentSection.find("tbody") // find tbody from current cell
           inputCellIndex = userInput.parent().index() 
           var totalTableRows = totalSection.find("tr") 
+
           for (j=0; j<(tables.length);j++){   
             var tableRows = tables[j].rows
             var i;
@@ -118,6 +120,25 @@ var cashFlowHelper = (function() {
               cashFlowHelper.updateRowTotalWith($(totlaColumnTd.children[0]))
           } 
         },
+        netColumnDifference: function(userInput){
+          inputCellIndex = userInput.parent().index() 
+          cost_total = $("#cost_total").find("tr")[1]
+          revenue_total = $("#revenue_total").find("tr")[1]
+          
+          total_in = $("#total_in")
+          total_out = $("#total_out")
+
+          total_diff = $("#total_diff")
+
+          tdCost = cost_total.cells[inputCellIndex]
+          tdRevenue = revenue_total.cells[inputCellIndex]
+          netDifference = tdRevenue.children[0].value - tdCost.children[0].value
+
+          total_in.find("td")[inputCellIndex].children[0].value = tdRevenue.children[0].value
+          total_out.find("td")[inputCellIndex].children[0].value = tdCost.children[0].value
+          total_diff.find("td")[inputCellIndex].children[0].value = netDifference
+
+        }
       };
 })();
 
