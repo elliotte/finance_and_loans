@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += ['reports.js',  'indexesJS.js.erb', 'ledgerShow.js', 'ledgers.js', 'ledgerManager.js','trialBalance.js', 'salesShow.js', 'reportsDash.js', 'boardPacks.js', 'bpShow.js', 'reportFinancials.js']
+Rails.application.config.assets.precompile += ['reports.js',  'indexesJS.js.erb', 'boardPacks.js', 'bpShow.js', 'reportFinancials.js', 'cashflow.js']
