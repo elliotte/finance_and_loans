@@ -89,9 +89,12 @@ var cashFlowHelper = (function() {
         },
         updateColumnTotal: function(userInput){
           var sum = 0;
-          var tables = $("#revenueTable").find("tbody") // find tbody from current cell
+          parentSection =  userInput.parent().parent().closest("section")
+          totalSection = parentSection.next("section").find("table")
+           
+          var tables = parentSection.find("tbody") // find tbody from current cell
           inputCellIndex = userInput.parent().index() 
-          var totalTableRows = $("#total").find("tr") 
+          var totalTableRows = totalSection.find("tr") 
           for (j=0; j<(tables.length);j++){   
             var tableRows = tables[j].rows
             var i;
