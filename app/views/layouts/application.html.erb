@@ -14,7 +14,7 @@
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
-    <%=javascript_include_tag "autocomplete-rails.js"%>
+    <%= javascript_include_tag "autocomplete-rails.js"%>
     <%= csrf_meta_tags %>
   </head>
 
@@ -25,11 +25,23 @@
 
       <div id="bg-screen-for-modal">
           <section class="modal-inner">
-            <p>EmptyModal</p>
+            <div id="loader-effect" class="sk-cube-grid">
+              <div class="sk-cube sk-cube1"></div>
+              <div class="sk-cube sk-cube2"></div>
+              <div class="sk-cube sk-cube3"></div>
+              <div class="sk-cube sk-cube4"></div>
+              <div class="sk-cube sk-cube5"></div>
+              <div class="sk-cube sk-cube6"></div>
+              <div class="sk-cube sk-cube7"></div>
+              <div class="sk-cube sk-cube8"></div>
+              <div class="sk-cube sk-cube9"></div>
+            </div>
           </section>
           <!-- CLOSE ICON FOR MODAL -->
           <img id="modal-close-icon" src="<%= asset_path('close-icon.png') %>">
       </div>
+
+      
 
       <%= yield %>
 

@@ -1,27 +1,27 @@
 <div class="hero landing-welcome">
   <div class="hero-inner">
-    <a href="" class="hero-logo"><img src="<%= asset_path('pb-logo.png') %>
+    <a href="" class="hero-logo"><img src="<%= asset_path('full-logo-profitbees.png') %>
 " alt="Logo Image"></a>
     <div class="hero-copy">
-      <h1 style="color:#d61579;">ProfitBees</h1>
-      <p style="color:#d61579;">Simple microBooks and lovely BoardPacks.</p>  
+      <p style="color:#d61579;">Software to deliver loan ready financials for startups and SMEs</p>  
     </div>
   </div>
 </div>
 
 <section class="user-welcome-landing">
     <article id="action-auth-sign-in" class="type-system-slab">
-      <h3>Choose your sign-in engine;</h1>
+      <h3>Choose your Cloud engine;</h1>
+      <br><br>
       <div class="flex-boxes">
           <a id="" href="javascript:void(0)" class="flex-box" onclick="signIn.authGoogle();">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-            <h1 class="flex-title">Google Apps</h1>
-            <p>Authenticate and Sign-in using your Google cloud profile</p>
+            <img src="<%= asset_path("google_apps_work.png") %>" alt="">
+            <h1 class="flex-title">Click to Sign in</h1>
+            <p>Authenticated using your Google cloud profile for added security</p>
           </a>
           <a href="javascript:void(0)" class="flex-box" onclick="signIn.authWindows();">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-            <h1 class="flex-title">Office 365</h1>
-            <p>Authenticate and Sign-in using your Office 365 cloud profile.</p>
+            <img src="<%= asset_path("office365-logo.png") %>" alt="">
+            <h1 class="flex-title">Click to Sign in</h1>
+            <p>Authenticated using your Google cloud profile for added security</p>
           </a>
       </div>
       <a href="">Have neither?</a>
@@ -39,7 +39,7 @@
 
 <footer class="footer-welcome-landing" role="contentinfo">
   <div class="footer-logo">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+    <img src="<%= asset_path('pb-logo.png') %>" alt="Logo image">
   </div>
   <div class="footer-links">
     <ul>
@@ -63,7 +63,7 @@
 
   <hr>
 
-  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+  <p>Business reporting and adequate control over it, is an applied craft by humans, whom use software to aid their process.  Ergo, no piece of software should be soley relied on to conduct full business reporting duties.  Our software still requires people brainpower.  ProfitBees is provided "as is" and "with all faults." ProfitBees makes no representations or warranties of any kind concerning the accuracy, suitability, lack of viruses, inaccuracies, typographical errors, or other harmful components of this SOFTWARE PRODUCT.</p>
 </footer>
 
 <div id="state" style="display:none;"><%= @state %></div>

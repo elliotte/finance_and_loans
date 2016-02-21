@@ -19,6 +19,7 @@ function onSignInCallback(authResult) {
   //   helper.loadServerSideAuth(authResult);
   // }
   else
+    
     helper.loadServerSideAuth(authResult);
 }
 
@@ -46,6 +47,11 @@ var helper = (function() {
   return {
 
     loadServerSideAuth: function(authResult) {
+
+      $('#bg-screen-for-modal').addClass('open')
+      loader = $('#loader-effect').clone();
+      $('#bg-screen-for-modal').find('section').empty().append(loader)
+
       if (authResult['access_token']) {
         // The user is signed in
         this.authResult = authResult;

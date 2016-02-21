@@ -25,7 +25,7 @@ class WelcomeController < ApplicationController
     #check for GoogleUser already signed in ( office365 user check done @welcomeINDEX )
     unless session[:token]
       #new userSignIn
-      if session[:state]==params[:state]
+      if session[:state] == params[:state]
          # FOR GOOGLE USER
          google_service.parse_access_codes(request)
          set_auth_token_session google_service.session[:token]

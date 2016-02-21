@@ -103,7 +103,7 @@
                             <td>
                               Total Cash Out
                             </td>
-                            <%$summary_total_out = $total%>
+                            <% $summary_total_out = $total %>
                             <% $total.each do |total| %>
                                 <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
                             <% end %>

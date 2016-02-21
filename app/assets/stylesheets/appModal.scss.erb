@@ -5,7 +5,10 @@ $modal-padding: 3em;
     height: 100%;
     width: 100%;
     @include position(fixed, 0);
-    background-color: rgba(#000, 0.85);
+    background-color: lighten($bee-orange, 5%);
+    $hero-image: '<%= asset_path("whitebg_graphic.png") %> ';
+    @include background(url($hero-image), no-repeat $bee-orange scroll);
+  
     z-index: 99999999999;
     visibility: hidden;
     &.open {
@@ -17,6 +20,7 @@ $modal-padding: 3em;
       width: 60%;
       height: 60%;
       background-color: white;
+      border: 2px solid $body-bg-color;
       overflow: auto;
     }
 }
