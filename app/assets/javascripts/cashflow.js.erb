@@ -5,8 +5,8 @@ $(document).on('page:load ready', function(){
     // set user cell input listeners
     $( ".user-input-amt" ).change(function() {
         cashFlowHelper.updateRowTotalWith( $(this) )
-        cashFlowHelper.updateColumnTotal( $(this) )
-        cashFlowHelper.netColumnDifference( $(this) )
+        cashFlowHelper.updateSummaryTableColumnTotal( $(this) )
+        cashFlowHelper.updateSumofSummariesTable( $(this) )
     })
     // set revenue table input listeners    
     $('#save-rev-inc-vat').on('click', function() {
@@ -54,13 +54,12 @@ var cashFlowHelper = (function() {
         updateRowTotalWith: function(userInput) {
               miTag = userInput.parent().parent().find("input")[0].value
               
-              if(miTag=="")
-                {
+              if ( miTag == "" ) {
                   alert("Add Mi Tag first")
                   userInput.val("") 
-                  }
-              else
-              {
+              }
+              else {
+
                 inputCell = userInput
                 // fetch row from DOM
                 inputRow = inputCell.parent().parent();
@@ -88,7 +87,7 @@ var cashFlowHelper = (function() {
               }
               
         },
-        updateColumnTotal: function(userInput){
+        updateSummaryTableColumnTotal: function(userInput){
           var sum = 0;
           parentSection =  userInput.parent().parent().closest("section")
           totalSection = parentSection.next("section").find("table")
@@ -112,31 +111,33 @@ var cashFlowHelper = (function() {
                 if (!isNaN(thisNumber))
                   {
                     sum += thisNumber;
-                    totlaColumnTd = totalTableRows[1].cells[inputCellIndex]
-                    totlaColumnTd.children[0].value = sum
+                    totalColumnTd = totalTableRows[1].cells[inputCellIndex]
+                    totalColumnTd.children[0].value = sum
                   }
 
               } // end for
-              cashFlowHelper.updateRowTotalWith($(totlaColumnTd.children[0]))
+              cashFlowHelper.updateRowTotalWith($(totalColumnTd.children[0]))
           } 
         },
-        netColumnDifference: function(userInput){
-          inputCellIndex = userInput.parent().index() 
-          cost_total = $("#cost_total").find("tr")[1]
-          revenue_total = $("#revenue_total").find("tr")[1]
+        updateSumofSummariesTable: function(userInput){
           
-          total_in = $("#total_in")
-          total_out = $("#total_out")
-
-          total_diff = $("#total_diff")
-
-          tdCost = cost_total.cells[inputCellIndex]
+          inputCellIndex = userInput.parent().index() 
+          
+          //cost_total = $("#cost_total").find("tr")[1]
+          revenue_total = $("#cash-in-totals-summary-table").find("tr")[1]
+          
+          totalCashIn = $("#net-total-cash-in-summary")
+          //total_out = $("#total_out")
+          //total_diff = $("#total_diff")
+          //tdCost = cost_total.cells[inputCellIndex]
           tdRevenue = revenue_total.cells[inputCellIndex]
-          netDifference = tdRevenue.children[0].value - tdCost.children[0].value
+          //netDifference = tdRevenue.children[0].value - tdCost.children[0].value
 
-          total_in.find("td")[inputCellIndex].children[0].value = tdRevenue.children[0].value
-          total_out.find("td")[inputCellIndex].children[0].value = tdCost.children[0].value
-          total_diff.find("td")[inputCellIndex].children[0].value = netDifference
+          totalCashIn.find("td")[inputCellIndex].children[0].value = tdRevenue.children[0].value
+          // NEED TO ADD UPDATE ROW AFTER HERE - USE UPDATE ROW CODE ABOVE?
+
+          //total_out.find("td")[inputCellIndex].children[0].value = tdCost.children[0].value
+          //total_diff.find("td")[inputCellIndex].children[0].value = netDifference
 
         }
       };

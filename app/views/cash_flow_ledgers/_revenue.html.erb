@@ -1,7 +1,8 @@
 <!-- FOR internal ProfitBees Financial Reporting Mapping -->
 <% $rev_tags = Tag.gaap_fin_stat_tags[:gp_sales] %>
+
+<!-- partial specific -->
 <% $user_added_rows_already = 0 %>
-<% $total = [] %>
 
 <section class="layout-container" id="revenueTable">
   <article class="type-system-slab">
@@ -36,10 +37,11 @@
                             </thead>
                              
                              <tbody id="revenue-inc-vat">
-                                  <!-- FETCH & RENDER SAVED -->
+                                  <!-- FETCH & RENDER SAVED IF SAVED -->
                                   <% unless @sales_transactions.blank? %>
-                                     <%= render :partial=>'sales_revenue',:locals=>{:@transactions=>@sales_transactions} %>
+                                     <%= render partial: 'saved_revenue', :locals=>{:@transactions => @sales_transactions } %>
                                   <% end %>
+
                                   <%= render 'input_table_body' %>
                                   <!-- SAVE BUTTON -->
                                   <tr>
@@ -48,7 +50,7 @@
                                       </td>
                                       <td><%= link_to "Export", export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } %>
                                       </td>
-                                      <% ( $no_of_columns-1 ).times do |row| %>
+                                      <% ( $no_of_columns - 1 ).times do |row| %>
                                           <td></td>
                                       <% end %>
                                       <td></td>
@@ -99,7 +101,7 @@
 <!-- TOTAL REVENUE TABLE -->
 <section class="layout-container">
   <article class="type-system-slab">
-      <table id="revenue_total" class="table-minimal">
+      <table id="cash-in-totals-summary-table" class="table-minimal">
              <tbody>
                 <thead>
                       <tr class="lovely-pink">
@@ -111,11 +113,13 @@
                             <td>
                               Total Cash In
                             </td>
-                            <%$summary_total_in = $total%>
-                            <% $total.each do |total| %>
-                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
+                            <!-- set var for for deficit summary display usage -->
+                            <!-- set DIFFERENT variable for summary section SO EX AND INC VAT CALCULATED -->
+                            <% $summary_total_in = $revenue_sub_totals %>
+                            <% $revenue_sub_totals.each do | total | %>
+                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f %>"></td>        
                             <% end %>
-                            <td><%= $total.inject(0, :+) %></td>
+                            <td><%= $revenue_sub_totals.inject(0, :+) %></td>
                         </tr>
                  </tbody>
             </tbody>

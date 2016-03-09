@@ -1,0 +1,37 @@
+
+<% @transactions.map(&:mi_tag).uniq.each do | mitag | %>
+  
+      <% $user_added_rows_already += 1 %>
+      <% sum = 0 %>
+      
+      <tr>
+            <td>
+              <%= text_field_tag :transaction, mitag, readonly: true %>
+            </td>
+
+            <% row_amts_per_month = [] %>
+            <% $no_of_columns.times { row_amts_per_month << 0 } %>
+            
+            <% @transactions.each do | row , i| %>
+              <!-- select trans with matching tag -->
+              <% if ( row.mi_tag == mitag ) %>
+                  <!-- for summary sub-total section display -->
+                  <% $revenue_sub_totals[ row.acc_date.month - 1 ] += row.amount %>
+                  <!-- for row total display  -->
+                  <% sum = sum + row.amount.to_f %>
+                  <!-- for row amount display -->
+                  <% row_amts_per_month[ row.acc_date.month - 1 ] += row.amount %>
+         
+              <% end %>
+
+            <% end %>
+            <!-- render in accordian row and total for uniq mitag -->
+            <% row_amts_per_month.each do |val| %>
+              <td>
+                <%= text_field_tag :transaction, val.to_f, class: "user-input-amt" %>
+              </td>
+            <% end %> 
+            <td><%= sum %></td>
+      </tr>
+
+<% end %>
