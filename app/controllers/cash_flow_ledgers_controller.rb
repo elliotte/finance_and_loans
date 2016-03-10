@@ -27,8 +27,8 @@ class CashFlowLedgersController < ApplicationController
 	end
 
 	def add_transactions
-		params["transactions"].each do | key, value|
 
+		params["transactions"].each do | key, value|
 			unless value[:monea_tag].blank?	
 				next if value[:mi_tag].blank?			
 				common_attr = value.slice(:monea_tag,:type,:mi_tag)
@@ -65,7 +65,7 @@ private
 		trans_key = transaction_value.except(:monea_tag,:type,:mi_tag)
 		trans_key.each do |key, value|
 			transaction = Transaction.where("mi_tag=? and acc_date=?", transaction_value[:mi_tag], Date.parse(key) ).first 
-			transaction.update( :amount=> value )
+			transaction.update( amount: value )
 		end				
 	end
 

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 APP = YAML.load_file('config/application.yml')
 include ActionController::Caching::Fragments
+
 describe 'Reports Show Page', :type => :feature do
   before do
     set_auth()

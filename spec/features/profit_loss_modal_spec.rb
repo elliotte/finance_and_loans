@@ -1,8 +1,10 @@
 require 'rails_helper'
+
 include ActionController::Caching::Fragments
 APP =YAML.load_file('config/application.yml')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
 feature 'user reports index page' do
+    
     before do
       Rails.cache.clear
       Auth.user_auth
@@ -60,7 +62,7 @@ feature 'user reports index page' do
         within(all(".dropdown-menu.dropdown-select").first){click_link("Comments")}
         sleep 2
         within(".modal-inner"){page.should have_content "Report.comment.new"}
-        fill_in("comment_body",:with=> "First Comment")
+        fill_in("comment_body", :with=> "First Comment")
         click_button("Save Comment")
         page.should have_content "To see the changes click:"
       end

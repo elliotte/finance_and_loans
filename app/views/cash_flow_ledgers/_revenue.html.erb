@@ -39,9 +39,9 @@
                              <tbody id="revenue-inc-vat">
                                   <!-- FETCH & RENDER SAVED IF SAVED -->
                                   <% unless @sales_transactions.blank? %>
-                                     <%= render partial: 'saved_revenue', :locals=>{:@transactions => @sales_transactions } %>
+                                     <%= render partial: 'saved_revenue', locals: {:@transactions => @sales_transactions } %>
                                   <% end %>
-
+                                  <!-- BLANK ROWS FOR USER INPUT -->
                                   <%= render 'input_table_body' %>
                                   <!-- SAVE BUTTON -->
                                   <tr>

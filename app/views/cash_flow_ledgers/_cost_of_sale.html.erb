@@ -20,7 +20,7 @@
                              </thead>
                              <tbody id="cos-inc-vat">
                                   <% unless @purchase_transactions.blank? %>
-                                     <%= render :partial=>'sales_revenue',:locals=>{:@transactions=>@purchase_transactions} %>
+                                     <%= render :partial=>'saved_revenue',:locals=>{:@transactions=>@purchase_transactions} %>
                                   <% end %>
                                   <% $cos_tags.each do |tag| %>
                                     <!-- selector tag for caching data with mapping -->

@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 APP =YAML.load_file('config/application.yml')
 
 describe 'user authorized index page', :type => :feature do
