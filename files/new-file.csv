@@ -1,13 +1,2 @@
-Values,ProfitBees Export
-Disclosures,ProfitBees Export
-27,England,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Registered in
-26,Accountants LLP,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Auditor
-25,1 Office Address,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Registered Office
-24,Example Name,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Secretary
-23,Director Name 3,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Directors
-22,Director Name 2,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Directors
-21,Director Name 1,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Directors
-20,December 2014,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Year end
-19,Example Company Name Ltd,Disclosure,3,,2016-03-10 17:19:39 UTC,2016-03-10 17:19:39 UTC,true,Company name
-Notes,ProfitBees Export
-Comments,ProfitBees Export
+ledger_id,id,type,amount,monea_tag,mi_tag,created_at,updated_at,description,currency,acc_date,vat,invoice_file_link,paid
+71,2898,Transaction,10.01,,,2016-03-11 11:12:03 UTC,2016-03-11 11:12:03 UTC,,,2016-03-10,0.0,,false

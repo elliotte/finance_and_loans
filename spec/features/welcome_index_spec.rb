@@ -3,9 +3,11 @@ require 'rails_helper'
 APP =YAML.load_file('config/application.yml')
 
 describe 'user authorized index page', :type => :feature do
+    
     before do
       set_auth()
     end
+
     context "page structure" do
         describe "ui setup" do
             it "returns user to welcome auth landing page" do           
@@ -24,7 +26,7 @@ describe 'user authorized index page', :type => :feature do
         end
     end
     describe "Creating Reports From Auth Landing " do
-        it 'a new GAAP report', js: true do
+        it 'adds a new GAAP report', js: true do
           within(".slider-action-bar"){find("#new-work-icon")}.click()
           sleep 1
           expect(within(".slider-action-bar"){all("a")}.count).to eql(3)
@@ -35,7 +37,7 @@ describe 'user authorized index page', :type => :feature do
           sleep 2
           page.should have_content "Successfully created Report"
         end
-        it 'a new IFRS report', js: true do
+        it 'adds a new IFRS report', js: true do
            within(".slider-action-bar"){find("#new-work-icon")}.click()
           sleep 1
           expect(within(".slider-action-bar"){all("a")}.count).to eql(3)
@@ -46,7 +48,7 @@ describe 'user authorized index page', :type => :feature do
           sleep 2
           page.should have_content "Successfully created Report"
         end
-        it 'create a new cashFlow', js: true do
+        it 'adds create a new cashFlow', js: true do
           within(".slider-action-bar"){find("#new-work-icon")}.click()
           sleep 1
           expect(within(".slider-action-bar"){all("a")}.count).to eql(3)

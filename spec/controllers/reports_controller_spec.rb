@@ -1,5 +1,6 @@
 require 'rails_helper'
 APP =YAML.load_file('config/application.yml')
+
 describe ReportsController do
 
   describe "main routes" do
