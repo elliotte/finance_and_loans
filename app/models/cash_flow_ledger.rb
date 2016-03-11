@@ -48,8 +48,12 @@ class CashFlowLedger < Ledger
 		drivers
 	end
 
-private 
+	def add_user_inputs params
+	end
 
+
+private 
+	
 	def list_month_names
 		Date::MONTHNAMES.slice(1,12)
 	end

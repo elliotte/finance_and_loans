@@ -151,10 +151,6 @@ var cashFlowHelper = (function() {
 })();
 
 
-// helper for setting CashFlow localStorage Data
-function setLocalStorage(key, data) {
-  localStorage[key] = JSON.stringify(data);
-}
 // helper to cache userInput Table
 function parseUserInputTable(tableID, storageKey, vatData) {
         //console.log(vatData)
@@ -203,12 +199,13 @@ function parseUserInputTable(tableID, storageKey, vatData) {
         }); 
         // remove save button <tr> row
         cachedData.pop()
-        console.log(cachedData)
         // set data to localStorage for future usage
         setLocalStorage(storageKey, cachedData);
         // Convert to JSON (Note: jQuery will also do this for you on the Ajax request)
               // var myObj = {};
-              // myObj.rows = cachedData;      
+              // myObj.rows = cachedData;
+
+        // PARAMS INCLUDE VAT TO BE CALCULATE FOR CONTROLLER           
         persistData = { "vat" : vatData, "transactions" : JSON.parse(localStorage.getItem(storageKey)) }
 
         $.ajax({          
@@ -225,4 +222,12 @@ function parseUserInputTable(tableID, storageKey, vatData) {
 function strToNumber (value) {
      return parseInt(value) || 0;
 }
+
+
+// helper for setting CashFlow localStorage Data
+function setLocalStorage(key, data) {
+  localStorage[key] = JSON.stringify(data);
+}
+
+
 

@@ -27,7 +27,8 @@ class CashFlowLedgersController < ApplicationController
 	end
 
 	def add_transactions
-
+		#@ledger.add_user_inputs(params)
+		#ADD in VAT
 		params["transactions"].each do | key, value|
 			unless value[:monea_tag].blank?	
 				next if value[:mi_tag].blank?			
