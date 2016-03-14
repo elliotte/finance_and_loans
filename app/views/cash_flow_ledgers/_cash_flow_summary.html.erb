@@ -45,7 +45,7 @@
                         </tr>
                         <tr>
                         </tr>
-                        <tr  id="total_out">
+                        <tr  id="bottom-out-summary-table">
                             <% sum = 0 %>
                             <td>
                               Total Cash Out
@@ -64,16 +64,21 @@
                         </tr>
                         <tr>
                         </tr>
-                        <tr  id="total_diff">
+                        <tr  id="bottom-net-diff-summary-table">
+                            <% sum = 0 %>
                             <td>
                               Cash Surplus / ( Deficit )
                             </td>
-                            <% [*(0..11)].each do |row| %>
+                            <!-- should change to link to $in $out -->
+                            <% [*(0..($no_of_columns-1))].each do |row| %>
 
                                 <% diff = $summary_total_in[row].to_f - $summary_total_out[row].to_f rescue 0 %>
+                                <% sum += diff %>
+
                                 <td><input type="text" name="transaction[amount]" value="<%= diff.to_f rescue 0 %>"></td>
+
                             <% end %>
-                            <td></td>
+                            <td><%= sum.to_i %></td>
                         </tr>
                  </tbody>
             </tbody>
