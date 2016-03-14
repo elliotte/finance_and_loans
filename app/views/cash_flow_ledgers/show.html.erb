@@ -3,9 +3,6 @@
 <%= hidden_field_tag "updateCalled", false %>
 <%= hidden_field_tag "cashflow_id", @ledger.id %>
 
-<% $summary_total_in = [] %>
-<% $summary_total_out = [] %>
-
 <article class="type-system-slab">
     <header class="show-nav" role="banner">
        <div>  
@@ -61,10 +58,17 @@
 
 <span style="display:none;" id="cf-control-selector" data-months="<%= $no_of_columns %>"></span>
 
+<% $summary_total_in = [] %>
+<% $summary_total_out = [] %>
+
 <% $revenue_sub_totals = [] %>
 <% $no_of_columns.times { $revenue_sub_totals << 0 } %>
 
 <%= render 'revenue' %>
+
+<% $cos_sub_totals = [] %>
+<% $no_of_columns.times { $cos_sub_totals << 0 } %>
+
 <%= render 'cost_of_sale' %>
 <%#= render 'capex' %>
 

@@ -2,7 +2,6 @@
 <% $cos_tags = Tag.gaap_fin_stat_tags[:gp_cos] %>
 
 <% $user_added_rows_already = 0 %>
-<% $total = [] %>
 
 <section class="layout-container" id="cost-sales-container">
   <article class="type-system-slab">
@@ -62,11 +61,13 @@
                             <td>
                               Total Cash Out
                             </td>
-                            <% $summary_total_out = $total %>
-                            <% $total.each do |total| %>
-                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f%>"></td>        
+                            <!-- set var for for deficit summary display usage -->
+                            <!-- set DIFFERENT variable for summary section SO EX AND INC VAT CALCULATED -->
+                            <% $summary_total_out = $cos_sub_totals %>
+                            <% $cos_sub_totals.each do |total| %>
+                                <td><input type="text" name="transaction[amount]" class="user-input-total" value="<%= total.to_f %>"></td>        
                             <% end %>
-                            <td><%= $total.inject(0, :+) %></td>
+                            <td><%= $cos_sub_totals.inject(0, :+) %></td>
                         </tr>
                  </tbody>
             </tbody>

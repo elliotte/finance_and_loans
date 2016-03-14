@@ -1,7 +1,7 @@
 <tbody id="revenue-inc-vat">
        <!-- FETCH & RENDER SAVED IF SAVED -->
        <% unless @sales_transactions.blank? %>
-           <%= render partial: 'saved_transactions', locals: {:@transactions => @sales_transactions } %>
+           <%= render partial: 'saved_transactions', locals: {:@transactions => @sales_transactions, :@sub_totals => $revenue_sub_totals } %>
        <% end %>
        <!-- BLANK ROWS FOR USER INPUT -->
        <!-- constant with inc vat tBody -->

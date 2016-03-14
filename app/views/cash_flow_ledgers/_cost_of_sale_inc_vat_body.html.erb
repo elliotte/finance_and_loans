@@ -1,7 +1,7 @@
 <tbody id="cos-inc-vat">
 
       <% unless @purchase_transactions.blank? %>
-         <%= render :partial=> 'saved_transactions', :locals=>{:@transactions=>@purchase_transactions} %>
+         <%= render :partial=> 'saved_transactions', :locals=>{:@transactions=>@purchase_transactions, :@sub_totals => $cos_sub_totals } %>
       <% end %>
 
       <% $cos_tags.each do |tag| %>
@@ -11,7 +11,7 @@
               <% $no_of_columns.times do |row| %>
                   <%= user_input_cell %>
               <% end %>
-              <td></td>
+              <td>0</td>
           </tr>
       <% end %>
       <!-- SAVE BUTTON -->
