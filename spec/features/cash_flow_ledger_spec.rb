@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-APP =YAML.load_file('config/application.yml')
+APP = YAML.load_file('config/application.yml')
 
 describe 'CashFlow reporting Feature', :type => :feature do
     

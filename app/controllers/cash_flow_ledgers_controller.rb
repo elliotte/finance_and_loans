@@ -30,10 +30,12 @@ class CashFlowLedgersController < ApplicationController
 		#@ledger.add_user_inputs(params)
 		#ADD in VAT
 		params["transactions"].each do | key, value|
+			#PB/MONEA TAG NOT RENDERED IN VIEW FOR SAVED
+			#USED AS A FILTER to DETERMINE UPDATE OR ADD
 			unless value[:monea_tag].blank?	
 				next if value[:mi_tag].blank?			
-				common_attr = value.slice(:monea_tag,:type,:mi_tag)
-				months = value.except(:monea_tag,:type,:mi_tag) #.reject{ |k, v| v.blank? }		
+				common_attr = value.slice(:monea_tag, :type, :mi_tag)
+				months = value.except(:monea_tag, :type, :mi_tag) #.reject{ |k, v| v.blank? }		
 				months.each do |sub_key, sub_value|
 					@transaction = @ledger.transactions.build
 					@transaction.type = common_attr[:type]
@@ -44,6 +46,8 @@ class CashFlowLedgersController < ApplicationController
 					@transaction.save
 				end
 			else
+				#PB/MONEA TAG NOT RENDERED IN VIEW FOR SAVED
+				#USED AS A FILTER to DETERMINE UPDATE OR ADD
 				update_transactions(value)
 			end
 		end	

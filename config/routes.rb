@@ -52,13 +52,18 @@ Draftapp::Application.routes.draw do
   resources :purchase_ledgers, :cash_flow_ledgers, :sales_ledgers, only: [:show] do 
     member do 
       get :transactions_for
-      get :fetch_cf_data_input_form
       post :to_ss_export
-      post :update_cf_settings
+      get :export_transactions_to_csv
+    end
+  end
+
+  resources :cash_flow_ledgers do
+    member do 
+      get :fetch_cf_data_input_form
       get :edit_cf_settings
       post :update_drivers
+      post :update_cf_settings
       post :add_transactions
-      get :export_transactions_to_csv
     end
   end
 
@@ -110,13 +115,13 @@ Draftapp::Application.routes.draw do
     get :show_readers,on: :member
   end
 
-  resources :files, only:[:index] do
-    collection do
-      post :delete_file
-      put :new_document
-      put :new_spreadsheet
-    end
-  end
+  # resources :files, only:[:index] do
+  #   collection do
+  #     post :delete_file
+  #     put :new_document
+  #     put :new_spreadsheet
+  #   end
+  # end
 
 
 end
