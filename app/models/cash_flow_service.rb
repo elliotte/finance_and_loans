@@ -1,11 +1,8 @@
 class CashFlowService
-
 	def export_transaction_csv(data)
 		#headers can't be static..?
 		#should can we send with params to contoller from date selectors in DOM?
-		
 		headers = ["MiTag","Jan'16","Feb'16","Mar'16","Apr'16","May'16","Jun'16","Jul'16","Aug'16","Sept'16","Oct'16","Nov'16","Dec'16"]
-
 		CSV.open("#{Rails.root}/files/new-file.csv", 'w') do |csv|			
 			csv << headers
 			data.map(&:mi_tag).uniq.each do | mitag |

@@ -54,9 +54,16 @@ class CashFlowLedgersController < ApplicationController
 	end
 
 	def export_transactions_to_csv
-		@transactions = group_transactions_and_return
-		cash_flow_service = CashFlowService.new
-		cash_flow_service.export_transaction_csv(@transactions)
+		CSV.open("#{Rails.root}/files/new-file.csv", 'w') do |csv|
+			params[:tags].each do |reporting_tag|
+				@transactions = @ledger.transactions.where(monea_tag: reporting_tag)
+				@transactions.each do |trns|
+				  csv << trns.attributes.values_at("acc_date", "amount", "vat", "description", "mi_tag", "monea_tag", "", "-" )
+				end
+			end			
+	    end
+		#cash_flow_service = CashFlowService.new
+		#cash_flow_service.export_transaction_csv(@transactions)
 		export_google_sheet_and_return_link unless current_user.uid.include? "Office365"				
 	end
 
