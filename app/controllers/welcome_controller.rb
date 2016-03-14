@@ -34,6 +34,7 @@ class WelcomeController < ApplicationController
       elsif params.include? :code 
         # FOR WINDOWS USER
         token = get_token_from_code params[:code]
+
         set_auth_token_session(token.token)
         email = get_email_from_id_token token.params['id_token']
         set_user_and_session(email,$O365_provider_ID)       

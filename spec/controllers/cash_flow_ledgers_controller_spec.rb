@@ -6,7 +6,6 @@ describe CashFlowLedgersController do
   before do
     set_user_auth()
   end
-
   context "main routes" do
     describe "GET 'show'" do
         before do
@@ -60,14 +59,13 @@ describe CashFlowLedgersController do
             # taken from byebug extract
             @params = {"vat"=>"true", "transactions"=>{"0"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"1 line", "Jan 2016"=>"100", "Feb 2016"=>"200", "Mar 2016"=>"300", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "1"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"2 line", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"400", "Sep 2016"=>"500", "Oct 2016"=>"600", "Nov 2016"=>"700", "Dec 2016"=>""}, "2"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "3"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "4"=>{"monea_tag"=>"Other sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}}, "controller"=>"cash_flow_ledgers", "action"=>"add_transactions", "id"=>@ledger.id.to_s}
             @edit_params = {"vat"=>"true", "transactions"=>{"0"=>{"mi_tag"=>"1 line", "Jan 2016"=>"100.0", "Feb 2016"=>"300", "Mar 2016"=>"300.0", "Apr 2016"=>"0.0", "May 2016"=>"0.0", "Jun 2016"=>"0.0", "Jul 2016"=>"0.0", "Aug 2016"=>"0.0", "Sep 2016"=>"0.0", "Oct 2016"=>"0.0", "Nov 2016"=>"0.0", "Dec 2016"=>"0.0"}, "1"=>{"mi_tag"=>"2 line", "Jan 2016"=>"0.0", "Feb 2016"=>"0.0", "Mar 2016"=>"0.0", "Apr 2016"=>"0.0", "May 2016"=>"0.0", "Jun 2016"=>"0.0", "Jul 2016"=>"0.0", "Aug 2016"=>"400.0", "Sep 2016"=>"500.0", "Oct 2016"=>"600.0", "Nov 2016"=>"700.0", "Dec 2016"=>"0.0"}, "2"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "3"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "4"=>{"monea_tag"=>"Other sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}}, "controller"=>"cash_flow_ledgers", "action"=>"add_transactions", "id"=>@ledger.id.to_s}
-            # taken from byebug extract
             # edit made to Feb-16 transaction amount 200 > 300
             xhr :post, :add_transactions, @params
             expect(@ledger.transactions.count).to eq 24
             @transaction = Transaction.where(mi_tag: "1 line", acc_date: Date.parse("Feb 2016") ).first
             expect(@transaction.amount).to eq 200
           end
-          it 'should not add transactions when noTag in params' do
+          it 'should not add transactions' do
             # as no PB/monea tag present in params
             expect {xhr :post, :add_transactions, @edit_params}.to change(Transaction, :count).by(0)
           end
@@ -81,9 +79,7 @@ describe CashFlowLedgersController do
 
   def set_user_auth
     ApplicationController.any_instance.stub(:verify_token)
-    #User.any_instance.stub(:load_welcome_packs)
     @current_user = FactoryGirl.create(:user)
-    #@report.readers << @current_user
     controller.session[:token] = '265378652378682786237846'
     controller.session[:uid] = @current_user.uid
     controller.session[:email]= @current_user.email

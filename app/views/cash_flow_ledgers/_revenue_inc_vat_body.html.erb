@@ -1,0 +1,51 @@
+<tbody id="revenue-inc-vat">
+       <!-- FETCH & RENDER SAVED IF SAVED -->
+       <% unless @sales_transactions.blank? %>
+           <%= render partial: 'saved_transactions', locals: {:@transactions => @sales_transactions } %>
+       <% end %>
+       <!-- BLANK ROWS FOR USER INPUT -->
+       <!-- constant with inc vat tBody -->
+       <% total_to_render = 4 - $user_added_rows_already %>
+       <% total_to_render.times do |row| %>
+        <tr data-pb-tag="<%= $rev_tags.first %>" data-pb-type="Debit">
+            <!-- Row MITAG cell -->
+            <td>
+              <input type="text" placeholder="Add sales stream <%= row + 1 %>" >
+            </td>
+            <% $no_of_columns.times do |row| %>
+              <!-- INPUT CELL WITH SELECTORS -->
+              <%= user_input_cell %>
+            <% end %>
+            <!-- Row total cell -->
+            <td style="color:black;">0</td>
+        </tr>
+      <% end %>
+
+      <% 1.times do |row| %>
+        <tr data-pb-tag="<%= $rev_tags.last %>" data-pb-type="Debit">
+            <!-- Row MITAG cell -->
+            <td>
+              <input type="text" placeholder="Use for <%= $rev_tags.last %>" >
+            </td>
+            <% $no_of_columns.times do |row| %>
+                 <%= user_input_cell %>
+            <% end %>
+            <!-- Row total cell -->
+            <td style="color:black;">0</td>
+        </tr>
+      <% end %>
+
+      <!-- SAVE BUTTON -->
+      <tr>
+          <td id="save-rev-inc-vat" class="button-style" >
+            <%= submit_tag 'Save Details' %>     
+          </td>
+          <td><%= link_to "Export", export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } %>
+          </td>
+          <% ( $no_of_columns - 1 ).times do |row| %>
+              <td></td>
+          <% end %>
+          <td></td>
+      </tr>
+      
+</tbody>

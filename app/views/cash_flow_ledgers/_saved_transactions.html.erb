@@ -1,10 +1,8 @@
 <!-- DOES NOT RENDER A PROFITBEES/MONEA TAG  -->
 <!-- PB TAG USED AS A FILTER FOR ADDING OR UPDATING TRNS -->
 <% @transactions.map(&:mi_tag).uniq.each do | mitag | %>
-  
       <% $user_added_rows_already += 1 %>
       <% sum = 0 %>
-      
       <tr>
             <td>
               <%= text_field_tag :transaction, mitag, readonly: true %>
@@ -34,5 +32,4 @@
             <% end %> 
             <td><%= sum %></td>
       </tr>
-
 <% end %>

@@ -26,6 +26,7 @@ module WelcomeHelper
     end
     decoded_token = Base64.urlsafe_decode64(encoded_token)
     jwt = JSON.parse(decoded_token)
+    #breaks here...
     email = jwt['preferred_username']
   end
 
