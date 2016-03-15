@@ -4,6 +4,12 @@
 		var form = "<%= j(render partial: 'form_director_salaries') %>"
 <% elsif  params[:form_type] == "non_director_salaries" %>
 		var form = "<%= j(render partial: 'form_non_director_salaries') %>"
+<% elsif  params[:form_type] == "stock" %>
+		var form = "<%= j(render partial: 'form_stock') %>"
+<% elsif  params[:form_type] == "fixed_assets" %>
+		var form = "<%= j(render partial: 'form_fixed_assets') %>"
+<% elsif  params[:form_type] == "customers" %>
+		var form = "<%= j(render partial: 'form_debtors') %>"
 <% else %>
 		var form =  '<section class="layout-container"><article class="type-system-slab"><p>Something went wrong, we are sorry.  Please refresh the page</p></article></section>'
 <% end %>	

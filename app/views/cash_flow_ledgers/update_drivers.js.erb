@@ -1,1 +1,7 @@
-$('#bg-screen-for-modal').find('section').empty().append("Successfully Updated")
+var updated = '<%= params["drivers"].keys.first.classify %>'
+
+text = '<article class="type-system-slab">Successfully updated: ' + updated
+		    + '</article>'
+
+
+$('#bg-screen-for-modal').find('section').empty().append(text)

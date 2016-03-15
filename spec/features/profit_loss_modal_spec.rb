@@ -15,9 +15,9 @@ feature 'user reports index page' do
       page.set_rack_session(user_id: @current_user.id)
       @report = FactoryGirl.create(:report,user_id: @current_user.id)
       @current_user.reports << @report
-      @note =FactoryGirl.create(:note, report_id: @report.id)
+      @note = FactoryGirl.create(:note, report_id: @report.id)
       @report.notes << @note
-      @comment =FactoryGirl.create(:comment,report_id: @report.id) 
+      @comment = FactoryGirl.create(:comment,report_id: @report.id) 
       @report.comments << @comment
       ApplicationController.any_instance.stub(:verify_token)
       ApplicationController.any_instance.stub(:current_user){ @current_user }

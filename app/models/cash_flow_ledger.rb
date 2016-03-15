@@ -3,7 +3,7 @@ class CashFlowLedger < Ledger
 	after_create :book_template_assumptions
 
 	def book_template_assumptions
-		self.update(cf_settings: base_assumptions,drivers: cf_drivers_data)
+		self.update(cf_settings: base_assumptions, drivers: cf_drivers_data)
 	end
 
 	def base_assumptions
@@ -43,14 +43,28 @@ class CashFlowLedger < Ledger
 			employer_nics: {
 				# percentage
 				rate: 0.138
+			},
+			stock: {
+				# cost of
+				opening_purchase: 0,
+				closing_leftover: 0
+			},
+			customers: {
+				# cost of
+				opening_owed: 0,
+				closing_owed: 0
+			},
+			fixed_assets: {
+				# cost of
+				computers: 0,
+				equipment: 0,
+				fixtures: 0
 			}
 		}
 		drivers
 	end
-
-	def add_user_inputs params
-	end
-
+	# def add_user_inputs params
+	# end
 
 private 
 	

@@ -1,22 +1,22 @@
 <article class="type-system-slab modal-form">
       <h1>
-        Director Salaries
+        Stock purchases
       </h1>
-      <p class="lovely-pink">Add your total anticpated salary bill for the period, and the number of people, we will calculate the rest.</p>
+      <p class="lovely-pink">Add the amount of stock you will buy to start with, and how much stock you think you will have at the end of the period.  Don't include amounts already projected in costs before.</p>
       
       <%= form_tag update_drivers_cash_flow_ledger_path(@ledger), method: :post, remote: true do |f| %>
             <table class="table-minimal">
                   <tbody>
                       <tr>
-                        <td class="lovely-pink">Salary</td>
+                        <td class="lovely-pink">Opening/Starting stock bought</td>
                         <td>
-                          <input type="text" name="drivers[director_wages[ppl]]" value="<%= @drivers['director_wages']['ppl']%>" placeholder="e.g. 120000 ">
+                          <input type="text" name="drivers[stock[opening_purchase]]" value="<%= @drivers['stock']['opening_purchase']%>" placeholder="e.g. 120000 ">
                         </td>
                       </tr>
                       <tr>
-                        <td class="lovely-pink">No of Directors</td>
+                        <td class="lovely-pink">Amount of stock at end of period</td>
                         <td>
-                          <input type="text" name="drivers[director_wages[total_cost]]" value="<%= @drivers['director_wages']['total_cost']%>" placeholder="e.g. 120000 ">
+                          <input type="text" name="drivers[stock[closing_leftover]]" value="<%= @drivers['stock']['closing_leftover']%>" placeholder="e.g. 800000 ">
                         </td>
                       </tr>
                       <tr>
@@ -27,15 +27,6 @@
             </table>
       <% end %>
 </article>
-
-
-
-
-
-
-
-
-
 
 
 

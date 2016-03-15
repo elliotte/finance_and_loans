@@ -1,0 +1,42 @@
+<article class="type-system-slab modal-form">
+      <h1>
+        Fixed assets
+      </h1>
+      <p class="lovely-pink">Add the total amount of each you will buy over the period.</p>
+      <%= form_tag update_drivers_cash_flow_ledger_path(@ledger), method: :post, remote: true do |f| %>
+            <table class="table-minimal">
+                  <tbody>
+                      <tr>
+                        <td class="lovely-pink">Computers</td>
+                        <td>
+                          <input type="text" name="drivers[fixed_assets[computers]]" value="<%= @drivers['fixed_assets']['computers']%>" placeholder="e.g. 120000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="lovely-pink">Equipment</td>
+                        <td>
+                          <input type="text" name="drivers[fixed_assets[equipment]]" value="<%= @drivers['fixed_assets']['equipment']%>" placeholder="e.g. 800000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="lovely-pink">Fixtures</td>
+                        <td>
+                          <input type="text" name="drivers[fixed_assets[fixtures]]" value="<%= @drivers['fixed_assets']['fixtures']%>" placeholder="e.g. 800000 ">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="button-style"><%= submit_tag 'Save Details' %></td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+            </table>
+      <% end %>
+</article>
+
+
+
+
+
+
+
+

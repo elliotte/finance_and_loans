@@ -58,21 +58,21 @@
 
 <span style="display:none;" id="cf-control-selector" data-months="<%= $no_of_columns %>"></span>
 
-
+<!-- FOR CASHFLOW SUMMARY AT BOTTOM OF VIEW -->
 <% $summary_total_in = [] %>
 <% $summary_total_out = [] %>
-
-<% $revenue_sub_totals = [] %>
-<% $no_of_columns.times { $revenue_sub_totals << 0 } %>
 
 <!-- USED FOR VIEW PIVOTS in both trns PARTIALS -->
 <% $cf_view_service = CashFlowLedgerService.new(@ledger) %>
 
+<!-- REVNUE OF SALE VIEW -->
+<% $revenue_sub_totals = [] %>
+<% $no_of_columns.times { $revenue_sub_totals << 0 } %>
 <%= render 'revenue' %>
 
+<!-- COS OF SALE VIEW -->
 <% $cos_sub_totals = [] %>
 <% $no_of_columns.times { $cos_sub_totals << 0 } %>
-
 <%= render 'cost_of_sale' %>
 <%#= render 'capex' %>
 
@@ -95,20 +95,20 @@
             <h1>Non director Salaries</h1>
             <p>Add the total costs for non-director salaries</p>
           <% end %>
-          <%= link_to "", :class => "grid-item" do %>
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :stock), remote: true, :class => "grid-item" do %>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Buying Stock?</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+            <p>Add detail about total stock costs</p>
           <% end %>
-          <%= link_to "", :class=> "grid-item" do %>            
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-            <h1>Buying Computers of Equipment</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :fixed_assets), remote: true, :class => "grid-item" do %>
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Buying Computers or Equipment?</h1>
+            <p>Add detail about fixed asset costs</p>
           <% end %>
-          <%= link_to "", :class => "grid-item" do %>
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-            <h1>Buying a Building?</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+          <%= link_to fetch_cf_data_input_form_cash_flow_ledger_path(@ledger, form_type: :customers), remote: true, :class => "grid-item" do %>
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
+            <h1>Revenue Debtors</h1>
+            <p>Add detail about money owed from customers</p>
           <% end %>
         </div>
 
