@@ -5,6 +5,7 @@ describe CashFlowLedgerService do
   before do 
     @ledger = FactoryGirl.create(:cash_flow_ledger)
   end
+  
   describe 'Initialisation' do
     it 'should not initialise without a ledger' do
       expect { CashFlowLedgerService.new }.to raise_error

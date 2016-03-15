@@ -1,8 +1,12 @@
 <tbody id="revenue-inc-vat">
        <!-- FETCH & RENDER SAVED IF SAVED -->
-       <% unless @sales_transactions.blank? %>
-           <%= render partial: 'saved_transactions', locals: {:@transactions => @sales_transactions, :@sub_totals => $revenue_sub_totals } %>
+    
+       <% $rev_tags.each do |tag| %>
+            <% trns = $cf_view_service.group_trns_by_mi(tag) %>
+            <% next if trns.blank? %>
+            <%= render partial: 'saved_transactions', locals: {:@transactions=> trns, :@sub_totals => $revenue_sub_totals } %>
        <% end %>
+
        <!-- BLANK ROWS FOR USER INPUT -->
        <!-- constant with inc vat tBody -->
        <% total_to_render = 4 - $user_added_rows_already %>

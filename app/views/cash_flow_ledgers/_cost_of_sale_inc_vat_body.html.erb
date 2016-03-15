@@ -1,17 +1,11 @@
 <tbody id="cos-inc-vat">
 
-      <%# unless @purchase_transactions.blank? %>
-         <%#= render :partial=> 'saved_transactions', :locals=>{:@transactions=>@purchase_transactions, :@sub_totals => $cos_sub_totals } %>
-         
-         <% cf_view_service = CashFlowLedgerService.new(@ledger) %>
-         
-         <% $cos_tags.each do |tag| %>
-            <% trns = cf_view_service.group_trns_by_mi(tag) %>
-            <% next if trns.blank? %>
-            <%= render partial: 'saved_transactions', locals: {:@transactions=> trns, :@sub_totals => $cos_sub_totals } %>
-         <% end %>
+       <% $cos_tags.each do |tag| %>
+          <% trns = $cf_view_service.group_trns_by_mi(tag) %>
+          <% next if trns.blank? %>
+          <%= render partial: 'saved_transactions', locals: {:@transactions=> trns, :@sub_totals => $cos_sub_totals } %>
+       <% end %>
 
-      <%# end %>
 
       <% $cos_tags.each do |tag| %>
           <!-- selector tag for caching data with mapping -->
