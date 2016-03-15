@@ -5,11 +5,6 @@ class CashFlowLedgersController < ApplicationController
 	def show
 	    #change cf settings column to assumptions			
 	    @settings = @ledger.cf_settings.symbolize_keys
-	    #in group by through association id is mandatory
-	    #ledger_trn_query_service = CashFlowLedgerService.new(@ledger)
-	    @sales_transactions = group_transactions_and_return("Sales")
-	    #@purchase_transactions = group_transactions_and_return("Purchases")
-	    #CashFlowLedgerService.new(@ledger).load_cos_trns
 	end
 
 	def fetch_cf_data_input_form 
@@ -57,10 +52,15 @@ class CashFlowLedgersController < ApplicationController
 
 	def export_transactions_to_csv
 		CSV.open("#{Rails.root}/files/new-file.csv", 'w') do |csv|
+		    headers = ["acc_date", "description", "mi_tag", "ProfitBees Tag", "vat", "amount", "AccountingType" ]
+			csv << headers
 			params[:tags].each do |reporting_tag|
 				@transactions = @ledger.transactions.where(monea_tag: reporting_tag)
-				@transactions.each do |trns|
-				  csv << trns.attributes.values_at("acc_date", "amount", "vat", "description", "mi_tag", "monea_tag", "", "-" )
+				@transactions.each do |trn|
+				  amt = trn.amount.to_i	
+				  next if amt < 1
+			
+				  csv << trn.attributes.values_at("acc_date", "description", "mi_tag", "monea_tag", "vat", "amount", "type" )
 				end
 			end			
 	    end

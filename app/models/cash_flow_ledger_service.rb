@@ -15,6 +15,7 @@ class CashFlowLedgerService
 	end
 
 	def group_trns_by_mi tag
+		#in group by through association id is mandatory
 		@cf_ledger.transactions.where(:monea_tag=>tag).group([:id, :mi_tag]).order(:acc_date)		
 	end
 
