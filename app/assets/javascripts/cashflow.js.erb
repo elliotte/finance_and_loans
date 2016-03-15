@@ -41,9 +41,10 @@ var cashFlowHelper = (function() {
               parseUserInputTable(tableIdSelector, localStorageKey, vatData)
         },
         cacheCostsOfSaleWithVatData: function() {
+              vatData = true
               tableIdSelector = "tbody#cos-inc-vat tr"
               localStorageKey = "cos-inc-vat"
-              parseUserInputTable(tableIdSelector, localStorageKey)
+              parseUserInputTable(tableIdSelector, localStorageKey, vatData)
         },
         cacheCostsOfSaleNoVatData: function() {
               tableIdSelector = "tbody#cos-exc-vat tr"

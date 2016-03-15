@@ -9,22 +9,26 @@
               <%= text_field_tag :transaction, mitag, readonly: true %>
             </td>
 
-            <% row_amts_per_month = [] %>
-            <% $no_of_columns.times { row_amts_per_month << 0 } %>
-            
-            <% @transactions.each do | row , i| %>
-              <!-- select trans with matching tag -->
-              <% if ( row.mi_tag == mitag ) %>
-                  <!-- for summary sub-total section display -->
-                  <% @sub_totals[ row.acc_date.month - 1 ] += row.amount %>
-                  <!-- for row total display  -->
-                  <% sum = sum + row.amount.to_f %>
-                  <!-- for row amount display -->
-                  <% row_amts_per_month[ row.acc_date.month - 1 ] += row.amount %>
-         
-              <% end %>
+                <!-- ???? PUT THIS PART INTO HELPER ??/? -->  
+                <% row_amts_per_month = [] %>
+                <% $no_of_columns.times { row_amts_per_month << 0 } %>
+                
+                <% @transactions.each do | row , i| %>
+                  <!-- select trans with matching tag -->
+                  <% if ( row.mi_tag == mitag ) %>
+                      <!-- for summary sub-total section display -->
+                      <% @sub_totals[ row.acc_date.month - 1 ] += row.amount %>
+                      <!-- for row total display  -->
+                      <% sum = sum + row.amount.to_f %>
+                      <!-- for row amount display -->
+                      <% row_amts_per_month[ row.acc_date.month - 1 ] += row.amount %>
+             
+                  <% end %>
 
-            <% end %>
+                <% end %>
+                <!-- PUT THIS PART INTO HELPER? -->
+                <!-- ///// -->
+
             <!-- render in accordian row and total for uniq mitag -->
             <% row_amts_per_month.each do |val| %>
               <td>

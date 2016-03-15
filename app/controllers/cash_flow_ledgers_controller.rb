@@ -6,8 +6,10 @@ class CashFlowLedgersController < ApplicationController
 	    #change cf settings column to assumptions			
 	    @settings = @ledger.cf_settings.symbolize_keys
 	    #in group by through association id is mandatory
+	    #ledger_trn_query_service = CashFlowLedgerService.new(@ledger)
 	    @sales_transactions = group_transactions_and_return("Sales")
-	    @purchase_transactions = group_transactions_and_return("Purchases")
+	    #@purchase_transactions = group_transactions_and_return("Purchases")
+	    #CashFlowLedgerService.new(@ledger).load_cos_trns
 	end
 
 	def fetch_cf_data_input_form 
