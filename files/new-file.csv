@@ -1,8 +1,4 @@
-acc_date,description,mi_tag,ProfitBees Tag,vat,amount,AccountingType
-2016-04-01,,Still working ww,Sales,0.0,100.0,Debit
-2016-03-01,,Still working ww,Sales,0.0,100.0,Debit
-2016-02-01,,Still working ww,Sales,0.0,100.0,Debit
-2016-01-01,,Still working ww,Sales,0.0,100.0,Debit
-2016-09-01,,Another sales??,Other sales,0.0,700.0,Debit
-2016-06-01,,Another sales??,Other sales,0.0,600.0,Debit
-2016-01-01,,Another sales??,Other sales,0.0,100.0,Debit
+Reporting Line,January 2016,January 2015,FS Mapping
+Sales,1234,0,gp-rev
+Other direct costs,5412,0,gp-cos
+Other operating income,0,0,op-rev

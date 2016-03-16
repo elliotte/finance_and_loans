@@ -7,7 +7,7 @@ module WelcomeHelper
   end
 
   # O365 AuthLogin Helper
-  SCOPES = [ 'openid', 'https://outlook.office.com/mail.read' ]
+  SCOPES = [ 'openid', 'https://outlook.office.com/mail.read', 'profile' ]
   def get_token_from_code(auth_code)
     client = initialize_window_client
     token = client.auth_code.get_token(auth_code,
