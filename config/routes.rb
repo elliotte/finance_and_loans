@@ -53,7 +53,6 @@ Draftapp::Application.routes.draw do
     member do 
       get :transactions_for
       post :to_ss_export
-      get :export_transactions_to_csv
     end
   end
 
@@ -64,6 +63,7 @@ Draftapp::Application.routes.draw do
       post :update_drivers
       post :update_cf_settings
       post :add_transactions
+      get :export_transactions_to_csv
     end
   end
 

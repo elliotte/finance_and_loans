@@ -1,4 +1,8 @@
-Reporting Line,January 2016,January 2015,FS Mapping
-Sales,1234,0,gp-rev
-Other direct costs,5412,0,gp-cos
-Other operating income,0,0,op-rev
+acc_date,Your tag,ProfitBees Tag,vat,amount,AccountingType
+2016-11-01,2 line,Sales,0.0,700.0,Debit
+2016-10-01,2 line,Sales,0.0,600.0,Debit
+2016-09-01,2 line,Sales,0.0,500.0,Debit
+2016-08-01,2 line,Sales,0.0,400.0,Debit
+2016-03-01,1 line,Sales,0.0,300.0,Debit
+2016-02-01,1 line,Sales,0.0,200.0,Debit
+2016-01-01,1 line,Sales,0.0,100.0,Debit

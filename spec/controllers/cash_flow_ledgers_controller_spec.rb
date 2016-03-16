@@ -91,6 +91,31 @@ describe CashFlowLedgersController do
       end 
   end
 
+  describe "exporting transactions from Cashflow" do
+      before do
+            # taken from byebug extract
+            #add transactions to export
+            @params = {"vat"=>"true", "transactions"=>{"0"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"1 line", "Jan 2016"=>"100", "Feb 2016"=>"200", "Mar 2016"=>"300", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "1"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"2 line", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"400", "Sep 2016"=>"500", "Oct 2016"=>"600", "Nov 2016"=>"700", "Dec 2016"=>""}, "2"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "3"=>{"monea_tag"=>"Sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}, "4"=>{"monea_tag"=>"Other sales", "type"=>"Debit", "mi_tag"=>"", "Jan 2016"=>"", "Feb 2016"=>"", "Mar 2016"=>"", "Apr 2016"=>"", "May 2016"=>"", "Jun 2016"=>"", "Jul 2016"=>"", "Aug 2016"=>"", "Sep 2016"=>"", "Oct 2016"=>"", "Nov 2016"=>"", "Dec 2016"=>""}}, "controller"=>"cash_flow_ledgers", "action"=>"add_transactions", "id"=>@ledger.id.to_s}
+            xhr :post, :add_transactions, @params
+            expect(@ledger.transactions.count).to eq 24
+            #stub export
+            CashFlowLedgersController.any_instance.stub(:export_google_sheet_and_return_link)
+            CSV.open("#{Rails.root}/files/new-file.csv", 'w') do |csv|
+                csv
+            end
+            expect(File.read("#{Rails.root}/files/new-file.csv")).to eq ""
+      end
+      context "for a GOOGLE user" do
+        it 'should export transactions to CSV file' do
+          $rev_tags = Tag.gaap_fin_stat_tags[:gp_sales]
+          @params = {"tags"=> $rev_tags, "id" => @ledger.id.to_s }
+          xhr :get, :export_transactions_to_csv, @params
+          file = File.read("#{Rails.root}/files/new-file.csv")
+          expect(file).to eq "acc_date,Your tag,ProfitBees Tag,vat,amount,AccountingType\n2016-11-01,2 line,Sales,0.0,700.0,Debit\n2016-10-01,2 line,Sales,0.0,600.0,Debit\n2016-09-01,2 line,Sales,0.0,500.0,Debit\n2016-08-01,2 line,Sales,0.0,400.0,Debit\n2016-03-01,1 line,Sales,0.0,300.0,Debit\n2016-02-01,1 line,Sales,0.0,200.0,Debit\n2016-01-01,1 line,Sales,0.0,100.0,Debit\n"
+        end
+      end
+  end
+
   def set_user_auth
     ApplicationController.any_instance.stub(:verify_token)
     @current_user = FactoryGirl.create(:user)

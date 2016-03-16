@@ -130,12 +130,12 @@
 
         <div class="cf-link-items">
           
-            <%= link_to export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } do %>
+            <%#= link_to export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } do %>
+            <%= link_to "", remote: true  do %>
                 <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
               <h3 class="lovely-pink">Export All</h3>
             <% end %>
-            
-            <%= link_to export_transactions_to_csv_cash_flow_ledger_path(@ledger),remote: true, data: { :confirm => 'Any changes not saved are not included in the export' } do %>
+            <%= link_to "",remote: true  do %>
                 <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
               <h3 class="lovely-pink">Export to BoardPack</h3>
             <% end %>

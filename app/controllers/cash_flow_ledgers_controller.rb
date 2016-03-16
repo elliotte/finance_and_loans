@@ -52,7 +52,7 @@ class CashFlowLedgersController < ApplicationController
 
 	def export_transactions_to_csv
 		CSV.open("#{Rails.root}/files/new-file.csv", 'w') do |csv|
-		    headers = ["acc_date", "description", "mi_tag", "ProfitBees Tag", "vat", "amount", "AccountingType" ]
+		    headers = ["acc_date", "Your tag", "ProfitBees Tag", "vat", "amount", "AccountingType" ]
 			csv << headers
 			params[:tags].each do |reporting_tag|
 				@transactions = @ledger.transactions.where(monea_tag: reporting_tag)
@@ -60,13 +60,12 @@ class CashFlowLedgersController < ApplicationController
 				  amt = trn.amount.to_i	
 				  next if amt < 1
 			
-				  csv << trn.attributes.values_at("acc_date", "description", "mi_tag", "monea_tag", "vat", "amount", "type" )
+				  csv << trn.attributes.values_at("acc_date", "mi_tag", "monea_tag", "vat", "amount", "type" )
 				end
 			end			
 	    end
-		#cash_flow_service = CashFlowService.new
-		#cash_flow_service.export_transaction_csv(@transactions)
 		export_google_sheet_and_return_link unless current_user.uid.include? "Office365"				
+		#link handling in route js.erb file
 	end
 
 private
@@ -88,8 +87,8 @@ private
 	end
 
 	def export_google_sheet_and_return_link
-		@result = google_service.upload_new_file_csv("Transaction Summary"+ Date.today.to_s, session[:token])
-    	@link = @result.data.alternateLink rescue "error"
+		@result = google_service.upload_new_file_csv("ProfitBees Export:  " + Date.today.to_s, session[:token] )
+    	@link = @result.data.alternateLink rescue "Something went wrong"
 	end
 
 end
