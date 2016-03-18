@@ -322,7 +322,6 @@ function shareReport(obj){
   function shareSuccess() {
     
       $('#bg-screen-for-modal').addClass('open')
-
       response = this.responseText
       if (response.indexOf("ERROR") > -1) {
         html = '<p>' + 'ERROR' + '</p>' +
@@ -336,20 +335,21 @@ function shareReport(obj){
 }
 
 function getFriendsList(resp){
+  
   link = '<a href="javascript:void(0)" onclick="shareReport(this)">' + 'Share' + '</a>'
-          $("#friends").empty();
-          $.each(resp, function(index, person) {
-              imgSrc = person.image
-              html = '<tr id="' + person.id + '">' +
-              '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
-              '<td>' + person.displayName + '</td>' +
-              '<td>' + link + '</td>' +
-              '</tr>'
-              $('#bg-screen-for-modal').find('section').find("table").append(html);
-           });
-          $('#bg-screen-for-modal').find('section').find("table").append("</table>")
-          header = '<article class="type-system-slab">' + '<p>' + 'Search for your friends and collaborate' + '</p>' + '</article>'
-          $('#bg-screen-for-modal').find('section').prepend(header)
+  $("#friends").empty();
+  $.each(resp, function(index, person) {
+      imgSrc = person.image
+      html = '<tr id="' + person.id + '">' +
+      '<td>' + '<img src="' + imgSrc + '" height="42" width="42" >' + '</td>' +
+      '<td>' + person.displayName + '</td>' +
+      '<td>' + link + '</td>' +
+      '</tr>'
+      $('#bg-screen-for-modal').find('section').find("table").append(html);
+   });
+  $('#bg-screen-for-modal').find('section').find("table").append("</table>")
+  //header = '<article class="type-system-slab">' + '<p>' + 'Search for your friends and collaborate' + '</p>' + '</article>'
+  //$('#bg-screen-for-modal').find('section').prepend(header)
 }
 
 function intializeList(friends_id){

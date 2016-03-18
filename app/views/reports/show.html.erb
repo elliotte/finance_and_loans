@@ -372,7 +372,7 @@
           <%= link_to export_form_report_path(@report),:remote=> true,:class=>"grid-item" do%>
             <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Export New</h1>
-            <p>Extract data to analysis, pivot or send on.</p>
+            <p>Extract data to analyse, pivot or send on.</p>
           <% end %>
           <%= link_to report_manager_report_path(@report),:class=>"grid-item" do%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
@@ -493,7 +493,7 @@
   }
   // DB look up
   var getUserCircles= function(){
-    <% placeholder= (current_user.uid.include? "Office365")? "Enter email" : "Enter name" %>
+    <% placeholder= (current_user.uid.include? "Office365")? "Work & collaborate:  Type to Search" : "Work & collaborate:  Type to Search" %>
     $('#bg-screen-for-modal').addClass('open')
     var input ='<%= text_field_tag "friends_list","", class: "", "data-autocompleteUrl" => autocomplete_friends_list_reports_path,:placeholder=>"#{placeholder}"%><br/> <table id="friends">'
     $('#bg-screen-for-modal').find('section').empty().append(input) 
@@ -505,7 +505,7 @@
   var googleUserCircles= function(){
     
     $('#bg-screen-for-modal').addClass('open')
-    var input ='<%= text_field_tag "google_friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_google_list_reports_path,:placeholder=>"Enter name"%><br/> <table id="friends">'
+    var input ='<%= text_field_tag "google_friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_google_list_reports_path,:placeholder=>"Work & collaborate:  Type to Search "%><br/> <table id="friends">'
     $('#bg-screen-for-modal').find('section').empty().append(input) 
     friendsListAutocomplete('#google_friends_list');
     intializeList("#google_friends_list");   
