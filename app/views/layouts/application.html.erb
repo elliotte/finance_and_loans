@@ -4,8 +4,8 @@
     <title>ProfitBees</title>
 
     <meta charset="utf-8">
-    <meta name="description" content="ProfitBees, user friendly business first web-software specialising in business reporting and micro Business ledger management.">
-    <meta name="keywords" content="business, accounting, reporting, intelligence, engineering, MVP, finance, bookkeeping, tax">
+    <meta name="description" content="ProfitBees, user friendly business first web-software specialising in easy fnancials and projections for loan applications">
+    <meta name="keywords" content="business, accounting, reporting, projections, loan application software, MVP, fast loans, easy software">
     
     <%= favicon_link_tag 'pb-img.ico' %>
     
@@ -20,8 +20,12 @@
 
   <body>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if flash[:notice] || flash[:alert] %>
+        <article id="msg-notice-container" class="type-system-slab">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </article>
+      <% end %>
 
       <div id="bg-screen-for-modal">
           <section class="modal-inner">
@@ -41,10 +45,7 @@
           <img id="modal-close-icon" src="<%= asset_path('close-icon.png') %>">
       </div>
 
-      
-
       <%= yield %>
-
       <%#= render 'shared/footer' %>
       <!-- min js google platform call -->
       <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
@@ -58,6 +59,11 @@
           $('#modal-close-icon').on('click', function() {
               $('#bg-screen-for-modal').removeClass('open')
           })
+          // var msgContainer = $('#msg-notice-container')
+          // msgContainer.bind('DOMSubtreeModified', function(){
+          //     msgContainer.show()
+          //     setTimeout(function(){ msgContainer.fadeOut('slow'); }, 4000);
+          // });
       </script>
       <!-- google charts -->
 

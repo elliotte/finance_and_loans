@@ -1,6 +1,17 @@
 $bee-orange: #F9B233;
 $body-bg-color:#e5e5e5;
 
+#msg-notice-container {
+	@include position(absolute, 1em null null 2em);
+	padding: 0.5em;
+	border-radius: 1em;
+	background-color: white;
+	border: 1px solid $bee-orange;
+	p {
+		margin-bottom: 0;
+	}
+}
+
 .text-pink {
 	color:#d61579;
 }
