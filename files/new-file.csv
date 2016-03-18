@@ -1,8 +1,13 @@
-acc_date,Your tag,ProfitBees Tag,vat,amount,AccountingType
-2016-04-01,Still working ww,Sales,0.0,100.0,Debit
-2016-03-01,Still working ww,Sales,0.0,100.0,Debit
-2016-02-01,Still working ww,Sales,0.0,100.0,Debit
-2016-01-01,Still working ww,Sales,0.0,100.0,Debit
-2016-09-01,Another sales??,Other sales,0.0,700.0,Debit
-2016-06-01,Another sales??,Other sales,0.0,600.0,Debit
-2016-01-01,Another sales??,Other sales,0.0,100.0,Debit
+Values,ProfitBees Export
+Disclosures,ProfitBees Export
+27,England,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Registered in
+26,Accountants LLP,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Auditor
+25,1 Office Address,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Registered Office
+24,Example Name,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Secretary
+23,Director Name 3,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Directors
+22,Director Name 2,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Directors
+21,Director Name 1,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Directors
+20,December 2014,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Year end
+19,Example Company Name Ltd,Disclosure,3,,2016-03-18 14:34:33 UTC,2016-03-18 14:34:33 UTC,true,Company name
+Notes,ProfitBees Export
+Comments,ProfitBees Export

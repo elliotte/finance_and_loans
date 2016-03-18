@@ -1,5 +1,5 @@
 
-.split-screen-half {
+/*.split-screen-half {
     @include outer-container;
     div {
       @include span-columns(6);
@@ -19,13 +19,13 @@
       padding-bottom: 2em;
     }
   }
-}
+}*/
 
-.title-section {
+/*.title-section {
   @include outer-container;
   padding-top: 2em;
   padding-bottom: 2em;
-}
+}*/
 /*FOR REPORT SHOW PAGE*/
 .disclosures-section {
   @include outer-container;

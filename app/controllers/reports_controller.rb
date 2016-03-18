@@ -133,7 +133,7 @@ class ReportsController < ApplicationController
     end
     # download as csv file
     def download_data_as_csv_file
-      send_file "#{Rails.root}/files/new-file.csv", :type=>"application/csv", :x_sendfile=>true
+      send_file "#{Rails.root}/files/new-file.csv", type: "application/csv", x_sendfile: true
     end
     #END OF EXPORT ROUTES
     #ADDING nested model routes
@@ -203,7 +203,7 @@ class ReportsController < ApplicationController
       period = params[:period] || 'current'
       if params[:summary]
         @data = []
-         Tag.gaap_fin_stat_tags[params[:summary].to_sym].each do |tag| 
+        Tag.gaap_fin_stat_tags[params[:summary].to_sym].each do |tag| 
             _data = @report.get_values_for(@report.send("#{period}_end".to_sym)).where(ifrstag: tag)
             @data << _data
         end
@@ -218,7 +218,7 @@ class ReportsController < ApplicationController
     def autocomplete_friends_list
         term = (params[:q].blank?)? current_user.email.split("@").last : params[:q]
         users_list = User.where("email!= ? AND email like ?", current_user.email,"%#{term.strip}%").uniq    
-        render json: users_list.collect{|user| {id:set_user(user),displayName: user.email,image: "/assets/pb-logo.png"}}
+        render json: users_list.collect{|user| {id:set_user(user),displayName: user.email, image: ActionController::Base.helpers.asset_path('pb-logo.png') }}
     end
 
     def autocomplete_google_list
@@ -235,7 +235,7 @@ class ReportsController < ApplicationController
       user =[]
       # We have reader.uid as User's id (primary key) instead of uid (for all users) consistent
       @report.readers.each{|reader| user << User.find(reader.uid)}
-      @readers = user.collect{|user| {id:user.id,name: user.email,image: "/assets/pb-logo.png"}}
+      @readers = user.collect{|user| {id:user.id,name: user.email,image: ActionController::Base.helpers.asset_path('pb-logo.png') }}
     end
 
   private

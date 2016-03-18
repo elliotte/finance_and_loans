@@ -44,3 +44,15 @@ Signing in O365..
 
 office 365 authontication.
 we have to set envirnment varibles first ie. client id , client secret and redirect url for authontication. To login we have a login button on _landing page , after login by a valid credentils the app get redirects to root path. The session for is strored in the provider and to destroy session we have sign out link on _baselayout page.as we click on signout button it fires us to sign_out_user method on welcome controller where the session is destroyed and the login buttons appears again after signout.
+
+==
+
+TESTING FOR REPORTS
+
+- reports controller spec file
+- feature spec testing JS flow
+- models and service specs
+
+
+
+

@@ -367,34 +367,33 @@
           <%end%>
             <img src="<%= asset_path('user-share.png') %>" alt="">
             <h1>User Share</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+            <p>Add a colleague as a reader to collaborate</p>
           </a>
           <%= link_to export_form_report_path(@report),:remote=> true,:class=>"grid-item" do%>
             <img src="<%= asset_path('export-arrow.png') %>" alt="">
             <h1>Export New</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          <%end%>
-
+            <p>Extract data to analysis, pivot or send on.</p>
+          <% end %>
           <%= link_to report_manager_report_path(@report),:class=>"grid-item" do%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Values Manager</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          <%end%>
+            <p>List all values & update attributes for reporting.</p>
+          <% end %>
           <%= link_to manager_report_notes_path(@report),:class=>"grid-item" do%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Notes Manager</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-          <%end%>
+            <p>List all notes & export collaboration.</p>
+          <% end %>
 
             <%= link_to manager_report_disclosures_path(@report),:class=>"grid-item" do%>            
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
             <h1>Disclosure Manager</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+            <p>Add, edit or update disclosures for reporting.</p>
           <%end%>
           <%= link_to manager_report_comments_path(@report),:class=>"grid-item" do%>
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
             <h1>Comments Manager</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+            <p>List all comments & export collaboration.</p>
           <%end%>
         </div>
 
@@ -489,14 +488,14 @@
 
   var UserOptions = function(){
     $('#bg-screen-for-modal').addClass('open')
-    var input ='<%= button_tag "Share with Google", class: "btn btn-alert", :onclick=>"googleUserCircles()"%> <br/> OR <br/><%= button_tag "Share with Profit Bees", class: "btn btn-info", :onclick=>"getUserCircles()"%>'
+    var input = '<%= button_tag "Search G+ Friends", class: "", :onclick=>"googleUserCircles()" %> <%= button_tag "Search ProfitBees", class: "btn", :onclick=>"getUserCircles()"%>' 
     $('#bg-screen-for-modal').find('section').empty().append(input)
   }
   // DB look up
   var getUserCircles= function(){
-    <% placeholder= (current_user.uid.include? "Office365")? "Enter email" : "Enter name"%>
+    <% placeholder= (current_user.uid.include? "Office365")? "Enter email" : "Enter name" %>
     $('#bg-screen-for-modal').addClass('open')
-    var input ='<%= text_field_tag "friends_list","", class: "form-control", "data-autocompleteUrl" => autocomplete_friends_list_reports_path,:placeholder=>"#{placeholder}"%><br/> <table id="friends">'
+    var input ='<%= text_field_tag "friends_list","", class: "", "data-autocompleteUrl" => autocomplete_friends_list_reports_path,:placeholder=>"#{placeholder}"%><br/> <table id="friends">'
     $('#bg-screen-for-modal').find('section').empty().append(input) 
     friendsListAutocomplete('#friends_list');
     intializeList('#friends_list');   

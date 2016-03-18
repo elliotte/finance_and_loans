@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 APP =YAML.load_file('config/application.yml')
 
 describe 'user authorized index page', :type => :feature do
@@ -7,7 +6,6 @@ describe 'user authorized index page', :type => :feature do
     before do
       set_auth()
     end
-
     context "page structure" do
         describe "ui setup" do
             it "returns user to welcome auth landing page" do           
